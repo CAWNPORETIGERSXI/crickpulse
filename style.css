@@ -1,1 +1,478 @@
-. 
+/* =========================================
+   CRICKPULSE
+   MAIN STYLE
+========================================= */
+
+:root {
+    --black: #050505;
+    --black-light: #101010;
+    --orange: #ff8800;
+    --orange-light: #ff9d2e;
+    --white: #ffffff;
+    --gray: #a9a9a9;
+    --red: #ff2020;
+    --border: rgba(255, 136, 0, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--black);
+    color: var(--white);
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px 18px;
+
+    background: rgba(5, 5, 5, 0.96);
+    border-bottom: 2px solid var(--orange);
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.logo-mark {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--orange);
+    color: var(--black);
+
+    font-size: 18px;
+    font-weight: 900;
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 15px rgba(255, 136, 0, 0.4);
+}
+
+.logo-text h1 {
+    color: var(--white);
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo-text p {
+    margin-top: 2px;
+
+    color: var(--orange);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   MENU BUTTON
+========================================= */
+
+.menu-btn {
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid var(--orange);
+    border-radius: 9px;
+
+    background: transparent;
+    color: var(--orange);
+
+    font-size: 27px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.menu-btn:active {
+    background: var(--orange);
+    color: var(--black);
+}
+
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+.mobile-menu {
+    position: fixed;
+    top: 72px;
+    right: -280px;
+
+    width: 260px;
+    min-height: calc(100vh - 72px);
+
+    padding: 25px 18px;
+
+    background: #090909;
+
+    border-left: 2px solid var(--orange);
+
+    z-index: 999;
+
+    transition: right 0.3s ease;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu a {
+    display: block;
+
+    padding: 15px 10px;
+
+    color: var(--white);
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    border-bottom: 1px solid #252525;
+}
+
+.mobile-menu a:hover {
+    color: var(--orange);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 560px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 136, 0, 0.12),
+            transparent 55%
+        ),
+        var(--black);
+}
+
+.live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 15px;
+
+    color: var(--white);
+
+    background: rgba(255, 32, 32, 0.08);
+
+    border: 1px solid rgba(255, 32, 32, 0.45);
+    border-radius: 30px;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.live-badge span {
+    width: 8px;
+    height: 8px;
+
+    background: var(--red);
+
+    border-radius: 50%;
+
+    box-shadow: 0 0 10px var(--red);
+}
+
+.hero h2 {
+    margin-top: 25px;
+
+    font-size: clamp(38px, 11vw, 72px);
+    line-height: 0.95;
+
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.hero h2 strong {
+    color: var(--orange);
+}
+
+.hero > p {
+    max-width: 520px;
+
+    margin-top: 22px;
+
+    color: var(--gray);
+
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+.btn {
+    min-width: 170px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 20px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--orange);
+    color: var(--black);
+
+    border: 2px solid var(--orange);
+}
+
+.btn-primary:hover {
+    background: var(--orange-light);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--white);
+
+    border: 2px solid #444;
+}
+
+.btn-secondary:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.section {
+    padding: 60px 18px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.orange-line,
+.red-line {
+    width: 45px;
+    height: 2px;
+}
+
+.orange-line {
+    background: var(--orange);
+}
+
+.red-line {
+    background: var(--red);
+}
+
+
+/* =========================================
+   EMPTY LIVE CARD
+========================================= */
+
+.empty-card {
+    padding: 45px 20px;
+
+    text-align: center;
+
+    background: var(--black-light);
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+}
+
+.empty-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.empty-card h3 {
+    font-size: 20px;
+}
+
+.empty-card p {
+    margin-top: 8px;
+
+    color: var(--gray);
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   FEATURE GRID
+========================================= */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.feature-card {
+    padding: 25px 18px;
+
+    text-align: center;
+
+    background: var(--black-light);
+
+    border: 1px solid #242424;
+    border-radius: 14px;
+
+    transition: 0.25s ease;
+}
+
+.feature-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-4px);
+}
+
+.feature-icon {
+    font-size: 38px;
+    margin-bottom: 13px;
+}
+
+.feature-card h3 {
+    font-size: 18px;
+}
+
+.feature-card p {
+    margin-top: 8px;
+
+    color: var(--gray);
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   ACCOUNT SECTION
+========================================= */
+
+.account-section {
+    padding: 70px 18px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--black),
+            #0c0803
+        );
+}
+
+.account-card {
+    max-width: 500px;
+
+    margin: auto;
+    padding: 40px 25px;
+
+    text-align: center;
+
+    background: var(--black-light);
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    box-shadow: 0 0 30px rgba(255, 136, 0, 0.08);
+}
+
+.account-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.account-card h2 {
+    font-size: 25px;
+}
+
+.account-card p {
+    margin: 12px auto 25px;
+
+    color: var(--gray
