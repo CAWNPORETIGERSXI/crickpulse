@@ -1,6 +1,5 @@
 // =========================================
-// CRICKPULSE
-// MAIN JAVASCRIPT
+// CRICKPULSE - MAIN JAVASCRIPT
 // =========================================
 
 
@@ -29,10 +28,11 @@ if (menuBtn && mobileMenu) {
 
 
 // =========================================
-// CLOSE MENU AFTER CLICKING A LINK
+// CLOSE MOBILE MENU
 // =========================================
 
-const menuLinks = document.querySelectorAll(".mobile-menu a");
+const menuLinks =
+    document.querySelectorAll(".mobile-menu a");
 
 menuLinks.forEach(function (link) {
 
@@ -60,19 +60,20 @@ const createAccountBtn =
 
 if (createAccountBtn) {
 
-    createAccountBtn.addEventListener("click", function () {
+    createAccountBtn.addEventListener(
+        "click",
+        function () {
 
-        alert(
-            "CRICKPULSE Account System will be activated in the next step."
-        );
+            window.location.href = "auth.html";
 
-    });
+        }
+    );
 
 }
 
 
 // =========================================
-// CURRENT YEAR
+// CRICKPULSE LOADED
 // =========================================
 
 console.log(
