@@ -22,35 +22,24 @@
     <style>
 
         .auth-page {
-
             min-height: calc(100vh - 72px);
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             padding: 35px 18px;
 
             background:
-
                 radial-gradient(
                     circle at center,
                     rgba(255, 136, 0, 0.12),
                     transparent 55%
                 ),
-
                 #050505;
         }
 
-
         .auth-card {
-
             width: 100%;
-
             max-width: 440px;
-
             padding: 32px 22px;
 
             background: #101010;
@@ -67,63 +56,44 @@
             text-align: center;
         }
 
-
         .auth-logo {
-
             width: 62px;
-
             height: 62px;
 
             margin: 0 auto 18px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             background: #ff8800;
-
             color: #050505;
 
             border-radius: 14px;
 
             font-size: 21px;
-
             font-weight: 900;
         }
 
-
         .auth-card h1 {
-
             font-size: 28px;
-
             font-weight: 900;
-
             margin: 0;
         }
 
-
         .auth-card h1 span {
-
             color: #ff8800;
         }
 
-
         .auth-subtitle {
-
             margin: 9px 0 28px;
-
             color: #a9a9a9;
 
             font-size: 14px;
-
             line-height: 1.5;
         }
 
-
         .auth-label {
-
             display: block;
 
             margin-bottom: 8px;
@@ -133,29 +103,20 @@
             color: #ffffff;
 
             font-size: 13px;
-
             font-weight: 700;
         }
 
-
         .phone-box {
-
             display: flex;
-
             gap: 8px;
         }
 
-
         .country-code {
-
             width: 72px;
-
             flex-shrink: 0;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             background: #050505;
@@ -167,13 +128,10 @@
             color: #ff8800;
 
             font-size: 15px;
-
             font-weight: 800;
         }
 
-
         .auth-input {
-
             width: 100%;
 
             padding: 14px 13px;
@@ -191,9 +149,7 @@
             outline: none;
         }
 
-
         .auth-input:focus {
-
             border-color: #ff8800;
 
             box-shadow:
@@ -201,9 +157,7 @@
                 rgba(255, 136, 0, 0.08);
         }
 
-
         .auth-btn {
-
             width: 100%;
 
             margin-top: 18px;
@@ -225,43 +179,30 @@
             cursor: pointer;
         }
 
-
         .auth-btn:disabled {
-
             opacity: 0.55;
-
             cursor: not-allowed;
         }
 
-
         .otp-section {
-
             display: none;
-
             margin-top: 24px;
         }
 
-
         .otp-section.show {
-
             display: block;
         }
 
-
         .otp-info {
-
             margin-bottom: 14px;
 
             color: #a9a9a9;
 
             font-size: 13px;
-
             line-height: 1.5;
         }
 
-
         .otp-input {
-
             text-align: center;
 
             letter-spacing: 8px;
@@ -271,9 +212,7 @@
             font-weight: 800;
         }
 
-
         .resend-btn {
-
             margin-top: 15px;
 
             background: transparent;
@@ -289,9 +228,7 @@
             cursor: pointer;
         }
 
-
         .message {
-
             min-height: 20px;
 
             margin-top: 18px;
@@ -301,21 +238,15 @@
             line-height: 1.5;
         }
 
-
         .message.error {
-
             color: #ff4a4a;
         }
 
-
         .message.success {
-
             color: #55d66a;
         }
 
-
         .security-note {
-
             margin-top: 25px;
 
             color: #666;
@@ -325,9 +256,7 @@
             line-height: 1.5;
         }
 
-
         .back-home {
-
             display: inline-block;
 
             margin-top: 20px;
@@ -339,15 +268,11 @@
             font-size: 12px;
         }
 
-
         .back-home:hover {
-
             color: #ff8800;
         }
 
-
         #recaptcha-container {
-
             margin-top: 15px;
         }
 
@@ -382,11 +307,9 @@
 </header>
 
 
-
 <main class="auth-page">
 
     <div class="auth-card">
-
 
         <div class="auth-logo">
             CP
@@ -406,7 +329,7 @@
         </p>
 
 
-        <!-- PHONE -->
+        <!-- PHONE SECTION -->
 
         <div id="phone-section">
 
@@ -452,7 +375,7 @@
         </div>
 
 
-        <!-- OTP -->
+        <!-- OTP SECTION -->
 
         <div
             id="otp-section"
@@ -519,22 +442,19 @@
             ← Back to CRICKPULSE
         </a>
 
-
     </div>
 
 </main>
 
 
-
 <script type="module">
 
     // =====================================
-    // FIREBASE
+    // FIREBASE AUTH
     // =====================================
 
     import {
-        auth,
-        db
+        auth
     } from "./firebase.js";
 
 
@@ -543,14 +463,6 @@
         signInWithPhoneNumber
     } from
     "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
-
-
-    import {
-        doc,
-        setDoc,
-        serverTimestamp
-    } from
-    "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 
     // =====================================
@@ -601,11 +513,12 @@
 
         message.className =
             "message " + type;
+
     }
 
 
     // =====================================
-    // RECAPTCHA
+    // SETUP RECAPTCHA
     // =====================================
 
     function setupRecaptcha() {
@@ -617,6 +530,7 @@
                 recaptchaVerifier.clear();
 
             }
+
 
             recaptchaVerifier =
                 new RecaptchaVerifier(
@@ -648,10 +562,11 @@
                     }
                 );
 
+
         } catch (error) {
 
             console.error(
-                "reCAPTCHA ERROR:",
+                "RECAPTCHA ERROR:",
                 error
             );
 
@@ -666,7 +581,7 @@
 
 
     // =====================================
-    // INITIALIZE
+    // INITIALIZE RECAPTCHA
     // =====================================
 
     setupRecaptcha();
@@ -692,6 +607,7 @@
                 );
 
                 return;
+
             }
 
 
@@ -767,6 +683,7 @@
 
                 }
 
+
                 else if (
                     error.code ===
                     "auth/too-many-requests"
@@ -777,6 +694,7 @@
 
                 }
 
+
                 else if (
                     error.code ===
                     "auth/quota-exceeded"
@@ -786,6 +704,7 @@
                         "SMS limit has been exceeded. Please try again later.";
 
                 }
+
 
                 else if (
                     error.code ===
@@ -843,6 +762,7 @@
                 );
 
                 return;
+
             }
 
 
@@ -854,6 +774,7 @@
                 );
 
                 return;
+
             }
 
 
@@ -871,43 +792,9 @@
                     );
 
 
-                const user =
-                    result.user;
-
-
                 console.log(
                     "LOGIN SUCCESS:",
-                    user
-                );
-
-
-                // =================================
-                // SAVE USER TO FIRESTORE
-                // =================================
-
-                await setDoc(
-                    doc(
-                        db,
-                        "users",
-                        user.uid
-                    ),
-                    {
-
-                        uid: user.uid,
-
-                        phoneNumber:
-                            user.phoneNumber || fullPhoneNumber,
-
-                        lastLogin:
-                            serverTimestamp(),
-
-                        updatedAt:
-                            serverTimestamp()
-
-                    },
-                    {
-                        merge: true
-                    }
+                    result.user
                 );
 
 
@@ -956,6 +843,7 @@
 
                 }
 
+
                 else if (
                     error.code ===
                     "auth/code-expired"
@@ -963,16 +851,6 @@
 
                     errorMessage =
                         "This OTP has expired. Please request a new OTP.";
-
-                }
-
-                else if (
-                    error.code ===
-                    "permission-denied"
-                ) {
-
-                    errorMessage =
-                        "Login successful, but profile could not be saved.";
 
                 }
 
@@ -1113,10 +991,6 @@
         }
     );
 
-
-    // =====================================
-    // LOADED
-    // =====================================
 
     console.log(
         "CRICKPULSE authentication page loaded."
