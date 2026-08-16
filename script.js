@@ -17,9 +17,13 @@ if (menuBtn && mobileMenu) {
         mobileMenu.classList.toggle("active");
 
         if (mobileMenu.classList.contains("active")) {
+
             menuBtn.innerHTML = "✕";
+
         } else {
+
             menuBtn.innerHTML = "☰";
+
         }
 
     });
@@ -39,11 +43,15 @@ menuLinks.forEach(function (link) {
     link.addEventListener("click", function () {
 
         if (mobileMenu) {
+
             mobileMenu.classList.remove("active");
+
         }
 
         if (menuBtn) {
+
             menuBtn.innerHTML = "☰";
+
         }
 
     });
