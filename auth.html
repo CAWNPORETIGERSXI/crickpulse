@@ -360,10 +360,9 @@
         }
 
 
-        /*
-           Invisible reCAPTCHA container.
-           User ko checkbox nahi dikhega.
-        */
+        /* =====================================
+           INVISIBLE RECAPTCHA
+        ====================================== */
 
         #recaptcha-container {
 
@@ -489,9 +488,7 @@
                 </div>
 
 
-                <!--
-                    Invisible Firebase reCAPTCHA
-                -->
+                <!-- Firebase reCAPTCHA -->
 
                 <div
                     id="recaptcha-container"
@@ -595,15 +592,10 @@
 
 
     <!-- =====================================
-         FIREBASE PHONE AUTH
+         FIREBASE PHONE AUTHENTICATION
     ====================================== -->
 
     <script type="module">
-
-
-        /* =====================================
-           FIREBASE
-        ====================================== */
 
         import {
             auth
@@ -682,7 +674,7 @@
 
 
         /* =====================================
-           MESSAGE
+           SHOW MESSAGE
         ====================================== */
 
         function showMessage(
@@ -690,7 +682,8 @@
             type = ""
         ) {
 
-            message.textContent = text;
+            message.textContent =
+                text;
 
             message.className =
                 "message " + type;
@@ -700,20 +693,21 @@
 
 
         /* =====================================
-           CREATE INVISIBLE RECAPTCHA
+           CREATE RECAPTCHA
         ====================================== */
 
         function createRecaptcha() {
 
             try {
 
-
-                if (recaptchaVerifier) {
+                if (
+                    recaptchaVerifier
+                ) {
 
                     recaptchaVerifier.clear();
 
-                    recaptchaVerifier = null;
-
+                    recaptchaVerifier =
+                        null;
                 }
 
 
@@ -729,7 +723,7 @@
                                 function () {
 
                                     console.log(
-                                        "Invisible reCAPTCHA verified."
+                                        "reCAPTCHA verified"
                                     );
 
                                 },
@@ -738,13 +732,18 @@
                                 function () {
 
                                     console.log(
-                                        "Invisible reCAPTCHA expired."
+                                        "reCAPTCHA expired"
                                     );
 
                                 }
 
                         }
                     );
+
+
+                console.log(
+                    "reCAPTCHA initialized"
+                );
 
 
             } catch (error) {
@@ -766,7 +765,7 @@
 
 
         /* =====================================
-           INITIALIZE
+           INITIALIZE RECAPTCHA
         ====================================== */
 
         createRecaptcha();
@@ -792,7 +791,9 @@
                 ----------------------------- */
 
                 if (
-                    !/^[6-9]\d{9}$/.test(number)
+                    !/^[6-9]\d{9}$/.test(
+                        number
+                    )
                 ) {
 
                     showMessage(
@@ -811,14 +812,15 @@
 
 
 
-                sendOtpBtn.disabled = true;
+                sendOtpBtn.disabled =
+                    true;
 
                 sendOtpBtn.textContent =
                     "SENDING OTP...";
 
 
                 showMessage(
-                    "Please wait...",
+                    "Connecting to Firebase...",
                     ""
                 );
 
@@ -828,10 +830,12 @@
 
 
                     /* -------------------------
-                       ENSURE RECAPTCHA EXISTS
+                       ENSURE RECAPTCHA
                     ------------------------- */
 
-                    if (!recaptchaVerifier) {
+                    if (
+                        !recaptchaVerifier
+                    ) {
 
                         createRecaptcha();
 
@@ -852,8 +856,14 @@
 
 
 
+                    console.log(
+                        "OTP SENT SUCCESSFULLY"
+                    );
+
+
+
                     /* -------------------------
-                       SHOW OTP
+                       SHOW OTP BOX
                     ------------------------- */
 
                     phoneSection.style.display =
@@ -866,7 +876,7 @@
 
 
                     showMessage(
-                        "OTP sent successfully.",
+                        "OTP sent successfully. Please check your mobile.",
                         "success"
                     );
 
@@ -879,75 +889,164 @@
 
 
                     console.error(
-                        "SEND OTP ERROR:",
+                        "=============================="
+                    );
+
+                    console.error(
+                        "FIREBASE OTP ERROR"
+                    );
+
+                    console.error(
+                        "ERROR CODE:",
+                        error.code
+                    );
+
+                    console.error(
+                        "ERROR MESSAGE:",
+                        error.message
+                    );
+
+                    console.error(
+                        "FULL ERROR:",
                         error
                     );
 
+                    console.error(
+                        "=============================="
+                    );
 
-                    sendOtpBtn.disabled = false;
+
+
+                    sendOtpBtn.disabled =
+                        false;
 
                     sendOtpBtn.textContent =
                         "SEND OTP";
 
 
+
                     let errorMessage =
-                        "Unable to send OTP. Please try again.";
+                        "Unable to send OTP.";
 
 
 
-                    if (
-                        error.code ===
-                        "auth/invalid-phone-number"
+                    /* -------------------------
+                       FIREBASE ERRORS
+                    ------------------------- */
+
+                    switch (
+                        error.code
                     ) {
 
-                        errorMessage =
-                            "Invalid mobile number.";
+
+                        case
+                        "auth/invalid-phone-number":
+
+                            errorMessage =
+                                "Invalid mobile number.";
+
+                            break;
+
+
+
+                        case
+                        "auth/operation-not-allowed":
+
+                            errorMessage =
+                                "Phone Authentication is not enabled in Firebase.";
+
+                            break;
+
+
+
+                        case
+                        "auth/too-many-requests":
+
+                            errorMessage =
+                                "Too many attempts. Please wait and try again later.";
+
+                            break;
+
+
+
+                        case
+                        "auth/quota-exceeded":
+
+                            errorMessage =
+                                "Firebase SMS quota has been exceeded.";
+
+                            break;
+
+
+
+                        case
+                        "auth/captcha-check-failed":
+
+                            errorMessage =
+                                "reCAPTCHA verification failed.";
+
+                            break;
+
+
+
+                        case
+                        "auth/unauthorized-domain":
+
+                            errorMessage =
+                                "This website domain is not authorized in Firebase.";
+
+                            break;
+
+
+
+                        case
+                        "auth/network-request-failed":
+
+                            errorMessage =
+                                "Network connection failed. Please check your internet.";
+
+                            break;
+
+
+
+                        case
+                        "auth/internal-error":
+
+                            errorMessage =
+                                "Firebase returned an internal error.";
+
+                            break;
+
+
+
+                        case
+                        "auth/app-not-authorized":
+
+                            errorMessage =
+                                "This website is not authorized to use Firebase Authentication.";
+
+                            break;
+
+
+
+                        default:
+
+                            errorMessage =
+                                "Firebase Error: " +
+                                (
+                                    error.code ||
+                                    "unknown"
+                                ) +
+                                " | " +
+                                (
+                                    error.message ||
+                                    "Unknown error"
+                                );
+
+                            break;
 
                     }
 
-
-                    else if (
-                        error.code ===
-                        "auth/too-many-requests"
-                    ) {
-
-                        errorMessage =
-                            "Too many attempts. Please try again later.";
-
-                    }
-
-
-                    else if (
-                        error.code ===
-                        "auth/quota-exceeded"
-                    ) {
-
-                        errorMessage =
-                            "SMS limit has been exceeded. Please try again later.";
-
-                    }
-
-
-                    else if (
-                        error.code ===
-                        "auth/operation-not-allowed"
-                    ) {
-
-                        errorMessage =
-                            "Phone authentication is not enabled.";
-
-                    }
-
-
-                    else if (
-                        error.code ===
-                        "auth/captcha-check-failed"
-                    ) {
-
-                        errorMessage =
-                            "Security verification failed. Please try again.";
-
-                    }
 
 
                     showMessage(
@@ -958,7 +1057,7 @@
 
 
                     /* -------------------------
-                       RECREATE RECAPTCHA
+                       RESET RECAPTCHA
                     ------------------------- */
 
                     try {
@@ -969,8 +1068,8 @@
 
                             recaptchaVerifier.clear();
 
-                            recaptchaVerifier = null;
-
+                            recaptchaVerifier =
+                                null;
                         }
 
                     } catch (e) {
@@ -1004,7 +1103,9 @@
 
 
                 if (
-                    !/^\d{6}$/.test(code)
+                    !/^\d{6}$/.test(
+                        code
+                    )
                 ) {
 
                     showMessage(
@@ -1018,7 +1119,9 @@
 
 
 
-                if (!confirmationResult) {
+                if (
+                    !confirmationResult
+                ) {
 
                     showMessage(
                         "Please request a new OTP.",
@@ -1031,7 +1134,8 @@
 
 
 
-                verifyOtpBtn.disabled = true;
+                verifyOtpBtn.disabled =
+                    true;
 
                 verifyOtpBtn.textContent =
                     "VERIFYING...";
@@ -1059,7 +1163,6 @@
                     );
 
 
-
                     setTimeout(
                         function () {
 
@@ -1081,14 +1184,11 @@
                     );
 
 
-                    verifyOtpBtn.disabled = false;
+                    verifyOtpBtn.disabled =
+                        false;
 
                     verifyOtpBtn.textContent =
                         "VERIFY & LOGIN";
-
-
-                    let errorMessage =
-                        "Invalid OTP. Please try again.";
 
 
 
@@ -1097,8 +1197,10 @@
                         "auth/invalid-verification-code"
                     ) {
 
-                        errorMessage =
-                            "Incorrect OTP. Please check and try again.";
+                        showMessage(
+                            "Incorrect OTP. Please check again.",
+                            "error"
+                        );
 
                     }
 
@@ -1108,16 +1210,26 @@
                         "auth/code-expired"
                     ) {
 
-                        errorMessage =
-                            "This OTP has expired. Please request a new OTP.";
+                        showMessage(
+                            "OTP expired. Please request a new OTP.",
+                            "error"
+                        );
 
                     }
 
 
-                    showMessage(
-                        errorMessage,
-                        "error"
-                    );
+                    else {
+
+                        showMessage(
+                            "Firebase Error: " +
+                            (
+                                error.code ||
+                                "unknown"
+                            ),
+                            "error"
+                        );
+
+                    }
 
                 }
 
@@ -1135,9 +1247,12 @@
             function () {
 
 
-                confirmationResult = null;
+                confirmationResult =
+                    null;
 
-                otpCode.value = "";
+
+                otpCode.value =
+                    "";
 
 
                 otpSection.classList.remove(
@@ -1149,7 +1264,9 @@
                     "block";
 
 
-                sendOtpBtn.disabled = false;
+                sendOtpBtn.disabled =
+                    false;
+
 
                 sendOtpBtn.textContent =
                     "SEND OTP";
@@ -1159,7 +1276,6 @@
                     "",
                     ""
                 );
-
 
 
                 createRecaptcha();
@@ -1211,7 +1327,7 @@
 
 
         /* =====================================
-           ENTER KEY - PHONE
+           ENTER KEY
         ====================================== */
 
         phoneNumber.addEventListener(
@@ -1219,7 +1335,8 @@
             function (event) {
 
                 if (
-                    event.key === "Enter"
+                    event.key ===
+                    "Enter"
                 ) {
 
                     sendOtpBtn.click();
@@ -1230,17 +1347,13 @@
         );
 
 
-
-        /* =====================================
-           ENTER KEY - OTP
-        ====================================== */
-
         otpCode.addEventListener(
             "keydown",
             function (event) {
 
                 if (
-                    event.key === "Enter"
+                    event.key ===
+                    "Enter"
                 ) {
 
                     verifyOtpBtn.click();
@@ -1253,11 +1366,11 @@
 
 
         /* =====================================
-           PAGE LOADED
+           READY
         ====================================== */
 
         console.log(
-            "CRICKPULSE OTP authentication loaded."
+            "CRICKPULSE OTP authentication loaded successfully."
         );
 
     </script>
