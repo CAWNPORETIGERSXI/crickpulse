@@ -30,8 +30,7 @@
 
         .auth-page {
 
-            min-height:
-                calc(100vh - 72px);
+            min-height: calc(100vh - 72px);
 
             display: flex;
 
@@ -59,13 +58,13 @@
 
             padding: 32px 22px;
 
+            background: #101010;
+
             border:
                 1px solid
-                rgba(255, 136, 0, 0.3);
+                rgba(255, 136, 0, 0.30);
 
             border-radius: 18px;
-
-            background: #101010;
 
             box-shadow:
                 0 0 35px
@@ -81,8 +80,7 @@
 
             height: 62px;
 
-            margin:
-                0 auto 18px;
+            margin: 0 auto 18px;
 
             display: flex;
 
@@ -90,19 +88,25 @@
 
             justify-content: center;
 
-            border-radius: 14px;
-
             background: #ff8800;
 
             color: #050505;
 
+            border-radius: 14px;
+
             font-size: 21px;
 
             font-weight: 900;
+
+            box-shadow:
+                0 0 20px
+                rgba(255, 136, 0, 0.30);
         }
 
 
         .auth-card h1 {
+
+            margin: 0;
 
             font-size: 28px;
 
@@ -118,8 +122,7 @@
 
         .auth-subtitle {
 
-            margin:
-                9px 0 28px;
+            margin: 9px 0 28px;
 
             color: #a9a9a9;
 
@@ -165,12 +168,11 @@
 
             justify-content: center;
 
-            border:
-                1px solid #333;
+            background: #050505;
+
+            border: 1px solid #333;
 
             border-radius: 8px;
-
-            background: #050505;
 
             color: #ff8800;
 
@@ -186,18 +188,19 @@
 
             padding: 14px 13px;
 
-            border:
-                1px solid #333;
+            background: #050505;
+
+            border: 1px solid #333;
 
             border-radius: 8px;
-
-            outline: none;
-
-            background: #050505;
 
             color: #ffffff;
 
             font-size: 16px;
+
+            outline: none;
+
+            box-sizing: border-box;
         }
 
 
@@ -285,6 +288,8 @@
 
             margin-top: 15px;
 
+            padding: 0;
+
             border: 0;
 
             background: transparent;
@@ -355,9 +360,24 @@
         }
 
 
+        /*
+           Invisible reCAPTCHA container.
+           User ko checkbox nahi dikhega.
+        */
+
         #recaptcha-container {
 
-            margin-top: 15px;
+            position: absolute;
+
+            width: 1px;
+
+            height: 1px;
+
+            overflow: hidden;
+
+            opacity: 0;
+
+            pointer-events: none;
         }
 
     </style>
@@ -469,13 +489,13 @@
                 </div>
 
 
-
-                <!-- Firebase reCAPTCHA -->
+                <!--
+                    Invisible Firebase reCAPTCHA
+                -->
 
                 <div
                     id="recaptcha-container"
                 ></div>
-
 
 
                 <button
@@ -552,7 +572,6 @@
             ></div>
 
 
-
             <p class="security-note">
 
                 Your mobile number is used only
@@ -576,7 +595,7 @@
 
 
     <!-- =====================================
-         FIREBASE AUTHENTICATION
+         FIREBASE PHONE AUTH
     ====================================== -->
 
     <script type="module">
@@ -663,7 +682,7 @@
 
 
         /* =====================================
-           MESSAGE FUNCTION
+           MESSAGE
         ====================================== */
 
         function showMessage(
@@ -681,10 +700,10 @@
 
 
         /* =====================================
-           SETUP RECAPTCHA
+           CREATE INVISIBLE RECAPTCHA
         ====================================== */
 
-        function setupRecaptcha() {
+        function createRecaptcha() {
 
             try {
 
@@ -692,6 +711,8 @@
                 if (recaptchaVerifier) {
 
                     recaptchaVerifier.clear();
+
+                    recaptchaVerifier = null;
 
                 }
 
@@ -702,23 +723,22 @@
                         "recaptcha-container",
                         {
 
-                            size: "normal",
+                            size: "invisible",
 
-                            callback: function () {
+                            callback:
+                                function () {
 
-                                showMessage(
-                                    "Security verification complete. You can send the OTP.",
-                                    "success"
-                                );
+                                    console.log(
+                                        "Invisible reCAPTCHA verified."
+                                    );
 
-                            },
+                                },
 
                             "expired-callback":
                                 function () {
 
-                                    showMessage(
-                                        "Security verification expired. Please verify again.",
-                                        "error"
+                                    console.log(
+                                        "Invisible reCAPTCHA expired."
                                     );
 
                                 }
@@ -730,12 +750,12 @@
             } catch (error) {
 
                 console.error(
-                    "reCAPTCHA ERROR:",
+                    "RECAPTCHA ERROR:",
                     error
                 );
 
                 showMessage(
-                    "Unable to load security verification.",
+                    "Security verification could not be initialized.",
                     "error"
                 );
 
@@ -746,10 +766,10 @@
 
 
         /* =====================================
-           INITIALIZE RECAPTCHA
+           INITIALIZE
         ====================================== */
 
-        setupRecaptcha();
+        createRecaptcha();
 
 
 
@@ -768,7 +788,7 @@
 
 
                 /* -----------------------------
-                   VALIDATE MOBILE NUMBER
+                   VALIDATE NUMBER
                 ----------------------------- */
 
                 if (
@@ -808,6 +828,18 @@
 
 
                     /* -------------------------
+                       ENSURE RECAPTCHA EXISTS
+                    ------------------------- */
+
+                    if (!recaptchaVerifier) {
+
+                        createRecaptcha();
+
+                    }
+
+
+
+                    /* -------------------------
                        SEND OTP
                     ------------------------- */
 
@@ -821,7 +853,7 @@
 
 
                     /* -------------------------
-                       SHOW OTP SECTION
+                       SHOW OTP
                     ------------------------- */
 
                     phoneSection.style.display =
@@ -856,7 +888,6 @@
 
                     sendOtpBtn.textContent =
                         "SEND OTP";
-
 
 
                     let errorMessage =
@@ -927,7 +958,7 @@
 
 
                     /* -------------------------
-                       RESET RECAPTCHA
+                       RECREATE RECAPTCHA
                     ------------------------- */
 
                     try {
@@ -938,6 +969,8 @@
 
                             recaptchaVerifier.clear();
 
+                            recaptchaVerifier = null;
+
                         }
 
                     } catch (e) {
@@ -947,7 +980,7 @@
                     }
 
 
-                    setupRecaptcha();
+                    createRecaptcha();
 
                 }
 
@@ -1008,15 +1041,10 @@
                 try {
 
 
-                    /* -------------------------
-                       VERIFY OTP
-                    ------------------------- */
-
                     const result =
                         await confirmationResult.confirm(
                             code
                         );
-
 
 
                     console.log(
@@ -1031,10 +1059,6 @@
                     );
 
 
-
-                    /* -------------------------
-                       REDIRECT HOME
-                    ------------------------- */
 
                     setTimeout(
                         function () {
@@ -1061,7 +1085,6 @@
 
                     verifyOtpBtn.textContent =
                         "VERIFY & LOGIN";
-
 
 
                     let errorMessage =
@@ -1104,7 +1127,7 @@
 
 
         /* =====================================
-           USE ANOTHER NUMBER
+           CHANGE NUMBER
         ====================================== */
 
         changeNumberBtn.addEventListener(
@@ -1139,24 +1162,8 @@
 
 
 
-                try {
+                createRecaptcha();
 
-                    if (
-                        recaptchaVerifier
-                    ) {
-
-                        recaptchaVerifier.clear();
-
-                    }
-
-                } catch (error) {
-
-                    console.log(error);
-
-                }
-
-
-                setupRecaptcha();
 
                 phoneNumber.focus();
 
@@ -1166,26 +1173,7 @@
 
 
         /* =====================================
-           OTP — ONLY NUMBERS
-        ====================================== */
-
-        otpCode.addEventListener(
-            "input",
-            function () {
-
-                this.value =
-                    this.value.replace(
-                        /\D/g,
-                        ""
-                    );
-
-            }
-        );
-
-
-
-        /* =====================================
-           PHONE — ONLY NUMBERS
+           PHONE INPUT
         ====================================== */
 
         phoneNumber.addEventListener(
@@ -1204,7 +1192,26 @@
 
 
         /* =====================================
-           ENTER — PHONE
+           OTP INPUT
+        ====================================== */
+
+        otpCode.addEventListener(
+            "input",
+            function () {
+
+                this.value =
+                    this.value.replace(
+                        /\D/g,
+                        ""
+                    );
+
+            }
+        );
+
+
+
+        /* =====================================
+           ENTER KEY - PHONE
         ====================================== */
 
         phoneNumber.addEventListener(
@@ -1225,7 +1232,7 @@
 
 
         /* =====================================
-           ENTER — OTP
+           ENTER KEY - OTP
         ====================================== */
 
         otpCode.addEventListener(
@@ -1246,11 +1253,11 @@
 
 
         /* =====================================
-           AUTH PAGE LOADED
+           PAGE LOADED
         ====================================== */
 
         console.log(
-            "CRICKPULSE authentication loaded."
+            "CRICKPULSE OTP authentication loaded."
         );
 
     </script>
