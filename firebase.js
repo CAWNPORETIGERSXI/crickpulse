@@ -2,13 +2,17 @@
 // CRICKPULSE - FIREBASE CONFIGURATION
 // ==========================================
 
-import { initializeApp } from
-    "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
 
 import {
     getAuth
-} from
-    "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+import {
+    getFirestore
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 
 // ==========================================
@@ -40,10 +44,17 @@ const app = initializeApp(firebaseConfig);
 
 
 // ==========================================
-// FIREBASE AUTHENTICATION
+// FIREBASE AUTH
 // ==========================================
 
 const auth = getAuth(app);
+
+
+// ==========================================
+// FIRESTORE DATABASE
+// ==========================================
+
+const db = getFirestore(app);
 
 
 // ==========================================
@@ -52,5 +63,6 @@ const auth = getAuth(app);
 
 export {
     app,
-    auth
+    auth,
+    db
 };
