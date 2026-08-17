@@ -25,17 +25,11 @@
     <style>
 
         .auth-page {
-
             min-height: calc(100vh - 72px);
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             padding: 40px 16px;
-
             background:
                 radial-gradient(
                     circle at center,
@@ -45,272 +39,157 @@
                 #050505;
         }
 
-
         .auth-card {
-
             width: 100%;
-
             max-width: 440px;
-
             padding: 32px 22px;
-
             background: #101010;
-
-            border: 1px solid
-                rgba(255,136,0,.30);
-
+            border: 1px solid rgba(255,136,0,.30);
             border-radius: 18px;
-
             box-shadow:
-                0 0 35px
-                rgba(255,136,0,.08);
-
+                0 0 35px rgba(255,136,0,.08);
             text-align: center;
         }
 
-
         .auth-logo {
-
             width: 62px;
-
             height: 62px;
-
             margin: 0 auto 18px;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             background: #ff8800;
-
             color: #050505;
-
             border-radius: 14px;
-
             font-size: 21px;
-
             font-weight: 900;
         }
-
 
         .auth-card h1 {
-
             margin: 0;
-
             font-size: 28px;
-
             font-weight: 900;
         }
 
-
         .auth-card h1 span {
-
             color: #ff8800;
         }
 
-
         .subtitle {
-
             margin: 9px 0 28px;
-
             color: #a9a9a9;
-
             font-size: 14px;
         }
 
-
         .auth-label {
-
             display: block;
-
             margin: 14px 0 8px;
-
             color: #fff;
-
             font-size: 13px;
-
             font-weight: 700;
-
             text-align: left;
         }
 
-
         .auth-input {
-
             width: 100%;
-
             padding: 14px 13px;
-
             background: #050505;
-
             border: 1px solid #333;
-
             border-radius: 8px;
-
             color: #fff;
-
             font-size: 16px;
-
             outline: none;
-
             box-sizing: border-box;
         }
 
-
         .auth-input:focus {
-
             border-color: #ff8800;
-
             box-shadow:
-                0 0 0 2px
-                rgba(255,136,0,.08);
+                0 0 0 2px rgba(255,136,0,.08);
         }
 
-
         .pin-input {
-
             text-align: center;
-
             letter-spacing: 8px;
-
             font-size: 22px;
-
             font-weight: 800;
         }
 
-
         .auth-btn {
-
             width: 100%;
-
             margin-top: 18px;
-
             padding: 14px;
-
             border: 0;
-
             border-radius: 8px;
-
             background: #ff8800;
-
             color: #050505;
-
             font-size: 14px;
-
             font-weight: 900;
-
             cursor: pointer;
         }
 
-
         .auth-btn:disabled {
-
             opacity: .55;
-
             cursor: not-allowed;
         }
 
-
         .secondary-btn {
-
             width: 100%;
-
             margin-top: 10px;
-
             padding: 13px;
-
             border: 1px solid #333;
-
             border-radius: 8px;
-
             background: transparent;
-
             color: #fff;
-
             font-weight: 800;
-
             cursor: pointer;
         }
-
 
         .link-btn {
-
             margin-top: 15px;
-
             border: 0;
-
             background: transparent;
-
             color: #ff8800;
-
             font-size: 13px;
-
             font-weight: 800;
-
             cursor: pointer;
         }
 
-
         .message {
-
             min-height: 20px;
-
             margin-top: 18px;
-
             font-size: 13px;
-
             line-height: 1.5;
         }
 
-
         .message.error {
-
             color: #ff4a4a;
         }
 
-
         .message.success {
-
             color: #55d66a;
         }
 
-
         .hidden {
-
             display: none;
         }
 
-
         .security-note {
-
             margin-top: 25px;
-
             color: #666;
-
             font-size: 11px;
-
             line-height: 1.5;
         }
 
-
         .back-home {
-
             display: inline-block;
-
             margin-top: 20px;
-
             color: #999;
-
             text-decoration: none;
-
             font-size: 12px;
         }
 
-
         .back-home:hover {
-
             color: #ff8800;
         }
 
@@ -359,21 +238,18 @@
 
     <div class="auth-card">
 
-
         <div class="auth-logo">
             CP
         </div>
-
 
         <h1>
             CRICK<span>PULSE</span>
         </h1>
 
 
-
-        <!-- ==============================
+        <!-- ================================
              LOGIN
-        =============================== -->
+        ================================= -->
 
         <section id="loginBox">
 
@@ -381,14 +257,12 @@
                 Login to your CRICKPULSE account
             </p>
 
-
             <label
                 class="auth-label"
                 for="loginMobile"
             >
                 Mobile Number
             </label>
-
 
             <input
                 id="loginMobile"
@@ -400,14 +274,12 @@
                 autocomplete="tel"
             >
 
-
             <label
                 class="auth-label"
                 for="loginPin"
             >
                 4-Digit PIN
             </label>
-
 
             <input
                 id="loginPin"
@@ -419,7 +291,6 @@
                 autocomplete="current-password"
             >
 
-
             <button
                 id="loginBtn"
                 class="auth-btn"
@@ -428,7 +299,6 @@
                 LOGIN
             </button>
 
-
             <button
                 id="forgotPinBtn"
                 class="link-btn"
@@ -436,7 +306,6 @@
             >
                 Forgot PIN?
             </button>
-
 
             <button
                 id="createAccountBtn"
@@ -450,9 +319,9 @@
 
 
 
-        <!-- ==============================
+        <!-- ================================
              REGISTER
-        =============================== -->
+        ================================= -->
 
         <section
             id="registerBox"
@@ -463,14 +332,12 @@
                 Create your CRICKPULSE account
             </p>
 
-
             <label
                 class="auth-label"
                 for="registerMobile"
             >
                 Mobile Number
             </label>
-
 
             <input
                 id="registerMobile"
@@ -481,14 +348,12 @@
                 placeholder="Enter mobile number"
             >
 
-
             <label
                 class="auth-label"
                 for="registerEmail"
             >
                 Gmail / Email
             </label>
-
 
             <input
                 id="registerEmail"
@@ -498,14 +363,12 @@
                 autocomplete="email"
             >
 
-
             <label
                 class="auth-label"
                 for="registerPin"
             >
                 Create 4-Digit PIN
             </label>
-
 
             <input
                 id="registerPin"
@@ -516,14 +379,12 @@
                 placeholder="••••"
             >
 
-
             <label
                 class="auth-label"
                 for="confirmPin"
             >
                 Confirm 4-Digit PIN
             </label>
-
 
             <input
                 id="confirmPin"
@@ -534,7 +395,6 @@
                 placeholder="••••"
             >
 
-
             <button
                 id="registerBtn"
                 class="auth-btn"
@@ -542,7 +402,6 @@
             >
                 CREATE ACCOUNT
             </button>
-
 
             <button
                 id="backLoginBtn"
@@ -556,9 +415,9 @@
 
 
 
-        <!-- ==============================
+        <!-- ================================
              FORGOT PIN
-        =============================== -->
+        ================================= -->
 
         <section
             id="forgotBox"
@@ -566,12 +425,9 @@
         >
 
             <p class="subtitle">
-
                 Enter your registered Gmail.
                 We will send recovery instructions.
-
             </p>
-
 
             <label
                 class="auth-label"
@@ -579,7 +435,6 @@
             >
                 Registered Gmail / Email
             </label>
-
 
             <input
                 id="forgotEmail"
@@ -589,7 +444,6 @@
                 autocomplete="email"
             >
 
-
             <button
                 id="resetBtn"
                 class="auth-btn"
@@ -597,7 +451,6 @@
             >
                 SEND RECOVERY EMAIL
             </button>
-
 
             <button
                 id="forgotBackBtn"
@@ -618,10 +471,8 @@
 
 
         <p class="security-note">
-
             Your recovery email is used only
             for account recovery.
-
         </p>
 
 
@@ -640,49 +491,45 @@
 
 <script>
 
+    /* =====================================
+       ELEMENTS
+    ====================================== */
+
     const loginBox =
-        document.getElementById(
-            "loginBox"
-        );
+        document.getElementById("loginBox");
 
     const registerBox =
-        document.getElementById(
-            "registerBox"
-        );
+        document.getElementById("registerBox");
 
     const forgotBox =
-        document.getElementById(
-            "forgotBox"
-        );
+        document.getElementById("forgotBox");
 
     const message =
-        document.getElementById(
-            "message"
-        );
+        document.getElementById("message");
 
 
-    function showMessage(
-        text,
-        type = ""
-    ) {
+    /* =====================================
+       MESSAGE
+    ====================================== */
 
-        message.textContent =
-            text;
+    function showMessage(text, type = "") {
+
+        message.textContent = text;
 
         message.className =
             "message " + type;
     }
 
 
+    /* =====================================
+       DIGITS ONLY
+    ====================================== */
+
     function onlyDigits(input) {
 
         input.value =
-            input.value.replace(
-                /\D/g,
-                ""
-            );
+            input.value.replace(/\D/g, "");
     }
-
 
 
     /* =====================================
@@ -691,55 +538,44 @@
 
     document
         .getElementById("loginBtn")
-        .addEventListener(
-            "click",
-            async function () {
+        .addEventListener("click", async function () {
 
-                const mobile =
-                    document
-                    .getElementById(
-                        "loginMobile"
-                    )
+            const mobile =
+                document
+                    .getElementById("loginMobile")
+                    .value
+                    .trim();
+
+            const pin =
+                document
+                    .getElementById("loginPin")
                     .value
                     .trim();
 
 
-                const pin =
-                    document
-                    .getElementById(
-                        "loginPin"
-                    )
-                    .value
-                    .trim();
+            if (!/^[6-9]\d{9}$/.test(mobile)) {
+
+                showMessage(
+                    "Please enter a valid 10-digit mobile number.",
+                    "error"
+                );
+
+                return;
+            }
 
 
-                if (
-                    !/^[6-9]\d{9}$/.test(
-                        mobile
-                    )
-                ) {
+            if (!/^\d{4}$/.test(pin)) {
 
-                    showMessage(
-                        "Please enter a valid 10-digit mobile number.",
-                        "error"
-                    );
+                showMessage(
+                    "Please enter your 4-digit PIN.",
+                    "error"
+                );
 
-                    return;
-                }
+                return;
+            }
 
 
-                if (
-                    !/^\d{4}$/.test(pin)
-                ) {
-
-                    showMessage(
-                        "Please enter your 4-digit PIN.",
-                        "error"
-                    );
-
-                    return;
-                }
-
+            try {
 
                 showMessage(
                     "Logging in...",
@@ -747,181 +583,33 @@
                 );
 
 
-                try {
+                const response =
+                    await fetch("/api/login", {
 
-                    const response =
-                        await fetch(
-                            "/api/login",
-                            {
+                        method: "POST",
 
-                                method: "POST",
-
-                                headers: {
-                                    "Content-Type":
-                                        "application/json"
-                                },
-
-                                body:
-                                    JSON.stringify({
-                                        mobile: mobile,
-                                        pin: pin
-                                    })
-
-                            }
-                        );
-
-
-                    const data =
-                        await response.json();
-
-
-                    if (
-                        !response.ok ||
-                        !data.success
-                    ) {
-
-                        showMessage(
-                            data.message ||
-                            "Invalid mobile number or PIN.",
-                            "error"
-                        );
-
-                        return;
-                    }
-
-
-                    showMessage(
-                        "Login successful!",
-                        "success"
-                    );
-
-
-                    setTimeout(
-                        function () {
-
-                            window.location.href =
-                                "index.html";
-
+                        headers: {
+                            "Content-Type":
+                                "application/json"
                         },
-                        1000
-                    );
+
+                        body: JSON.stringify({
+                            mobile: mobile,
+                            pin: pin
+                        })
+
+                    });
 
 
-                } catch (error) {
-
-                    console.error(
-                        "LOGIN ERROR:",
-                        error
-                    );
+                const data =
+                    await response.json();
 
 
-                    showMessage(
-                        "Unable to connect to login server.",
-                        "error"
-                    );
-
-                }
-
-            }
-        );
-
-
-
-    /* =====================================
-       CREATE ACCOUNT
-    ====================================== */
-
-    document
-        .getElementById("registerBtn")
-        .addEventListener(
-            "click",
-            async function () {
-
-                const mobile =
-                    document
-                    .getElementById(
-                        "registerMobile"
-                    )
-                    .value
-                    .trim();
-
-
-                const email =
-                    document
-                    .getElementById(
-                        "registerEmail"
-                    )
-                    .value
-                    .trim();
-
-
-                const pin =
-                    document
-                    .getElementById(
-                        "registerPin"
-                    )
-                    .value
-                    .trim();
-
-
-                const confirmPin =
-                    document
-                    .getElementById(
-                        "confirmPin"
-                    )
-                    .value
-                    .trim();
-
-
-                if (
-                    !/^[6-9]\d{9}$/.test(
-                        mobile
-                    )
-                ) {
+                if (!response.ok) {
 
                     showMessage(
-                        "Please enter a valid 10-digit mobile number.",
-                        "error"
-                    );
-
-                    return;
-                }
-
-
-                if (
-                    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
-                        email
-                    )
-                ) {
-
-                    showMessage(
-                        "Please enter a valid Gmail/email address.",
-                        "error"
-                    );
-
-                    return;
-                }
-
-
-                if (
-                    !/^\d{4}$/.test(pin)
-                ) {
-
-                    showMessage(
-                        "PIN must contain exactly 4 digits.",
-                        "error"
-                    );
-
-                    return;
-                }
-
-
-                if (
-                    pin !== confirmPin
-                ) {
-
-                    showMessage(
-                        "PIN and Confirm PIN do not match.",
+                        data.message ||
+                        "Unable to login.",
                         "error"
                     );
 
@@ -930,131 +618,257 @@
 
 
                 showMessage(
-                    "Creating account...",
+                    "Login successful.",
+                    "success"
+                );
+
+
+                /*
+                 * बाद में यहाँ dashboard
+                 * redirect करेंगे.
+                 */
+
+
+            } catch (error) {
+
+                console.error(
+                    "LOGIN ERROR:",
+                    error
+                );
+
+                showMessage(
+                    "Unable to connect to login server.",
+                    "error"
+                );
+
+            }
+
+        });
+
+
+
+    /* =====================================
+       REGISTER / CREATE ACCOUNT
+    ====================================== */
+
+    document
+        .getElementById("registerBtn")
+        .addEventListener("click", async function () {
+
+            const mobile =
+                document
+                    .getElementById("registerMobile")
+                    .value
+                    .trim();
+
+            const email =
+                document
+                    .getElementById("registerEmail")
+                    .value
+                    .trim();
+
+            const pin =
+                document
+                    .getElementById("registerPin")
+                    .value
+                    .trim();
+
+            const confirmPin =
+                document
+                    .getElementById("confirmPin")
+                    .value
+                    .trim();
+
+
+            /* MOBILE */
+
+            if (!/^[6-9]\d{9}$/.test(mobile)) {
+
+                showMessage(
+                    "Please enter a valid 10-digit mobile number.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            /* EMAIL */
+
+            if (
+                !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+            ) {
+
+                showMessage(
+                    "Please enter a valid Gmail/email address.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            /* PIN */
+
+            if (!/^\d{4}$/.test(pin)) {
+
+                showMessage(
+                    "PIN must contain exactly 4 digits.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            /* CONFIRM PIN */
+
+            if (pin !== confirmPin) {
+
+                showMessage(
+                    "PIN and Confirm PIN do not match.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            try {
+
+                showMessage(
+                    "Creating your account...",
                     ""
                 );
 
 
-                try {
+                const response =
+                    await fetch("/api/register", {
 
-                    const response =
-                        await fetch(
-                            "/api/register",
-                            {
+                        method: "POST",
 
-                                method: "POST",
-
-                                headers: {
-                                    "Content-Type":
-                                        "application/json"
-                                },
-
-                                body:
-                                    JSON.stringify({
-
-                                        mobile:
-                                            mobile,
-
-                                        email:
-                                            email,
-
-                                        pin:
-                                            pin
-
-                                    })
-
-                            }
-                        );
-
-
-                    const data =
-                        await response.json();
-
-
-                    if (
-                        !response.ok ||
-                        !data.success
-                    ) {
-
-                        showMessage(
-                            data.message ||
-                            "Unable to create account.",
-                            "error"
-                        );
-
-                        return;
-                    }
-
-
-                    showMessage(
-                        "Account created successfully! Please login.",
-                        "success"
-                    );
-
-
-                    setTimeout(
-                        function () {
-
-                            registerBox
-                                .classList
-                                .add("hidden");
-
-                            forgotBox
-                                .classList
-                                .add("hidden");
-
-                            loginBox
-                                .classList
-                                .remove("hidden");
-
-                            showMessage(
-                                "Account created successfully. Please login.",
-                                "success"
-                            );
-
+                        headers: {
+                            "Content-Type":
+                                "application/json"
                         },
-                        1200
-                    );
+
+                        body: JSON.stringify({
+
+                            mobile: mobile,
+
+                            email: email,
+
+                            pin: pin
+
+                        })
+
+                    });
 
 
-                } catch (error) {
+                const data =
+                    await response.json();
 
-                    console.error(
-                        "REGISTER ERROR:",
-                        error
-                    );
 
+                if (!response.ok) {
 
                     showMessage(
-                        "Unable to connect to account server.",
+                        data.message ||
+                        "Unable to create account.",
                         "error"
                     );
 
+                    return;
                 }
 
+
+                showMessage(
+                    "Account created successfully. You can now login.",
+                    "success"
+                );
+
+
+                /*
+                 * थोड़ी देर बाद LOGIN screen
+                 */
+
+                setTimeout(function () {
+
+                    registerBox
+                        .classList
+                        .add("hidden");
+
+                    forgotBox
+                        .classList
+                        .add("hidden");
+
+                    loginBox
+                        .classList
+                        .remove("hidden");
+
+                    document
+                        .getElementById("loginMobile")
+                        .value = mobile;
+
+                    document
+                        .getElementById("loginPin")
+                        .value = "";
+
+                }, 1500);
+
+
+            } catch (error) {
+
+                console.error(
+                    "REGISTER ERROR:",
+                    error
+                );
+
+                showMessage(
+                    "Unable to connect to account server.",
+                    "error"
+                );
+
             }
-        );
+
+        });
 
 
 
     /* =====================================
        FORGOT PIN
-       अभी इसे बाद में पूरा करेंगे
+       अभी इसे नहीं बदल रहे
     ====================================== */
 
     document
         .getElementById("resetBtn")
-        .addEventListener(
-            "click",
-            function () {
+        .addEventListener("click", async function () {
+
+            const email =
+                document
+                    .getElementById("forgotEmail")
+                    .value
+                    .trim();
+
+
+            if (
+                !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+            ) {
 
                 showMessage(
-                    "Forgot PIN will be activated after account login is completed.",
+                    "Please enter your registered Gmail/email.",
                     "error"
                 );
 
+                return;
             }
-        );
+
+
+            showMessage(
+                "Recovery system will be connected next.",
+                "error"
+            );
+
+        });
 
 
 
@@ -1063,119 +877,87 @@
     ====================================== */
 
     document
-        .getElementById(
-            "createAccountBtn"
-        )
-        .addEventListener(
-            "click",
-            function () {
+        .getElementById("createAccountBtn")
+        .addEventListener("click", function () {
 
-                loginBox
-                    .classList
-                    .add("hidden");
+            loginBox
+                .classList
+                .add("hidden");
 
-                forgotBox
-                    .classList
-                    .add("hidden");
+            forgotBox
+                .classList
+                .add("hidden");
 
-                registerBox
-                    .classList
-                    .remove("hidden");
+            registerBox
+                .classList
+                .remove("hidden");
 
-                showMessage(
-                    "",
-                    ""
-                );
+            showMessage("", "");
 
-            }
-        );
+        });
 
 
     document
-        .getElementById(
-            "backLoginBtn"
-        )
-        .addEventListener(
-            "click",
-            function () {
+        .getElementById("backLoginBtn")
+        .addEventListener("click", function () {
 
-                registerBox
-                    .classList
-                    .add("hidden");
+            registerBox
+                .classList
+                .add("hidden");
 
-                forgotBox
-                    .classList
-                    .add("hidden");
+            forgotBox
+                .classList
+                .add("hidden");
 
-                loginBox
-                    .classList
-                    .remove("hidden");
+            loginBox
+                .classList
+                .remove("hidden");
 
-                showMessage(
-                    "",
-                    ""
-                );
+            showMessage("", "");
 
-            }
-        );
+        });
 
 
     document
-        .getElementById(
-            "forgotPinBtn"
-        )
-        .addEventListener(
-            "click",
-            function () {
+        .getElementById("forgotPinBtn")
+        .addEventListener("click", function () {
 
-                loginBox
-                    .classList
-                    .add("hidden");
+            loginBox
+                .classList
+                .add("hidden");
 
-                registerBox
-                    .classList
-                    .add("hidden");
+            registerBox
+                .classList
+                .add("hidden");
 
-                forgotBox
-                    .classList
-                    .remove("hidden");
+            forgotBox
+                .classList
+                .remove("hidden");
 
-                showMessage(
-                    "",
-                    ""
-                );
+            showMessage("", "");
 
-            }
-        );
+        });
 
 
     document
-        .getElementById(
-            "forgotBackBtn"
-        )
-        .addEventListener(
-            "click",
-            function () {
+        .getElementById("forgotBackBtn")
+        .addEventListener("click", function () {
 
-                forgotBox
-                    .classList
-                    .add("hidden");
+            forgotBox
+                .classList
+                .add("hidden");
 
-                registerBox
-                    .classList
-                    .add("hidden");
+            registerBox
+                .classList
+                .add("hidden");
 
-                loginBox
-                    .classList
-                    .remove("hidden");
+            loginBox
+                .classList
+                .remove("hidden");
 
-                showMessage(
-                    "",
-                    ""
-                );
+            showMessage("", "");
 
-            }
-        );
+        });
 
 
 
@@ -1190,33 +972,28 @@
         "registerPin",
         "confirmPin"
     ]
-    .forEach(
-        function (id) {
+    .forEach(function (id) {
 
-            const input =
-                document.getElementById(
-                    id
-                );
+        const input =
+            document.getElementById(id);
 
-            input.addEventListener(
-                "input",
-                function () {
+        input.addEventListener(
+            "input",
+            function () {
 
-                    onlyDigits(this);
+                onlyDigits(this);
 
-                }
-            );
+            }
+        );
 
-        }
-    );
+    });
 
 
     console.log(
-        "CRICKPULSE authentication interface loaded."
+        "CRICKPULSE authentication system loaded."
     );
 
 </script>
-
 
 </body>
 
