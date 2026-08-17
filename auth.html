@@ -425,32 +425,158 @@
         >
 
             <p class="subtitle">
-                Enter your registered Gmail.
-                We will send recovery instructions.
+                Reset your CRICKPULSE PIN
             </p>
 
-            <label
-                class="auth-label"
-                for="forgotEmail"
-            >
-                Registered Gmail / Email
-            </label>
 
-            <input
-                id="forgotEmail"
-                class="auth-input"
-                type="email"
-                placeholder="example@gmail.com"
-                autocomplete="email"
+            <!-- STEP 1 -->
+
+            <div id="forgotStep1">
+
+                <label
+                    class="auth-label"
+                    for="forgotMobile"
+                >
+                    Mobile Number
+                </label>
+
+                <input
+                    id="forgotMobile"
+                    class="auth-input"
+                    type="tel"
+                    inputmode="numeric"
+                    maxlength="10"
+                    placeholder="Enter mobile number"
+                    autocomplete="tel"
+                >
+
+
+                <label
+                    class="auth-label"
+                    for="forgotEmail"
+                >
+                    Registered Gmail / Email
+                </label>
+
+                <input
+                    id="forgotEmail"
+                    class="auth-input"
+                    type="email"
+                    placeholder="example@gmail.com"
+                    autocomplete="email"
+                >
+
+
+                <button
+                    id="sendForgotOtpBtn"
+                    class="auth-btn"
+                    type="button"
+                >
+                    SEND OTP
+                </button>
+
+            </div>
+
+
+            <!-- STEP 2 -->
+
+            <div
+                id="forgotStep2"
+                class="hidden"
             >
 
-            <button
-                id="resetBtn"
-                class="auth-btn"
-                type="button"
+                <p class="subtitle">
+                    Enter the 6-digit OTP sent to your Gmail.
+                </p>
+
+
+                <label
+                    class="auth-label"
+                    for="forgotOtp"
+                >
+                    OTP
+                </label>
+
+                <input
+                    id="forgotOtp"
+                    class="auth-input pin-input"
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="6"
+                    placeholder="••••••"
+                    autocomplete="one-time-code"
+                >
+
+
+                <button
+                    id="verifyForgotOtpBtn"
+                    class="auth-btn"
+                    type="button"
+                >
+                    VERIFY OTP
+                </button>
+
+            </div>
+
+
+            <!-- STEP 3 -->
+
+            <div
+                id="forgotStep3"
+                class="hidden"
             >
-                SEND RECOVERY EMAIL
-            </button>
+
+                <p class="subtitle">
+                    Create your new 4-digit PIN.
+                </p>
+
+
+                <label
+                    class="auth-label"
+                    for="forgotNewPin"
+                >
+                    New 4-Digit PIN
+                </label>
+
+                <input
+                    id="forgotNewPin"
+                    class="auth-input pin-input"
+                    type="password"
+                    inputmode="numeric"
+                    maxlength="4"
+                    placeholder="••••"
+                    autocomplete="new-password"
+                >
+
+
+                <label
+                    class="auth-label"
+                    for="forgotConfirmPin"
+                >
+                    Confirm New PIN
+                </label>
+
+                <input
+                    id="forgotConfirmPin"
+                    class="auth-input pin-input"
+                    type="password"
+                    inputmode="numeric"
+                    maxlength="4"
+                    placeholder="••••"
+                    autocomplete="new-password"
+                >
+
+
+                <button
+                    id="resetForgotPinBtn"
+                    class="auth-btn"
+                    type="button"
+                >
+                    RESET PIN
+                </button>
+
+            </div>
+
 
             <button
                 id="forgotBackBtn"
@@ -508,6 +634,26 @@
         document.getElementById("message");
 
 
+    const forgotStep1 =
+        document.getElementById("forgotStep1");
+
+    const forgotStep2 =
+        document.getElementById("forgotStep2");
+
+    const forgotStep3 =
+        document.getElementById("forgotStep3");
+
+
+    /*
+     * Temporary recovery data
+     * केवल इस browser session के लिए
+     */
+
+    let recoveryMobile = "";
+    let recoveryEmail = "";
+    let recoveryOtpToken = "";
+
+
     /* =====================================
        MESSAGE
     ====================================== */
@@ -529,6 +675,7 @@
 
         input.value =
             input.value.replace(/\D/g, "");
+
     }
 
 
@@ -623,12 +770,6 @@
                 );
 
 
-                /*
-                 * बाद में यहाँ dashboard
-                 * redirect करेंगे.
-                 */
-
-
             } catch (error) {
 
                 console.error(
@@ -680,8 +821,6 @@
                     .trim();
 
 
-            /* MOBILE */
-
             if (!/^[6-9]\d{9}$/.test(mobile)) {
 
                 showMessage(
@@ -692,8 +831,6 @@
                 return;
             }
 
-
-            /* EMAIL */
 
             if (
                 !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
@@ -708,8 +845,6 @@
             }
 
 
-            /* PIN */
-
             if (!/^\d{4}$/.test(pin)) {
 
                 showMessage(
@@ -720,8 +855,6 @@
                 return;
             }
 
-
-            /* CONFIRM PIN */
 
             if (pin !== confirmPin) {
 
@@ -787,10 +920,6 @@
                 );
 
 
-                /*
-                 * थोड़ी देर बाद LOGIN screen
-                 */
-
                 setTimeout(function () {
 
                     registerBox
@@ -835,13 +964,18 @@
 
 
     /* =====================================
-       FORGOT PIN
-       अभी इसे नहीं बदल रहे
+       FORGOT PIN - SEND OTP
     ====================================== */
 
     document
-        .getElementById("resetBtn")
+        .getElementById("sendForgotOtpBtn")
         .addEventListener("click", async function () {
+
+            const mobile =
+                document
+                    .getElementById("forgotMobile")
+                    .value
+                    .trim();
 
             const email =
                 document
@@ -850,12 +984,10 @@
                     .trim();
 
 
-            if (
-                !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-            ) {
+            if (!/^[6-9]\d{9}$/.test(mobile)) {
 
                 showMessage(
-                    "Please enter your registered Gmail/email.",
+                    "Please enter a valid 10-digit mobile number.",
                     "error"
                 );
 
@@ -863,10 +995,464 @@
             }
 
 
-            showMessage(
-                "Recovery system will be connected next.",
-                "error"
-            );
+            if (
+                !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+            ) {
+
+                showMessage(
+                    "Please enter a valid Gmail/email address.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            const button =
+                document.getElementById(
+                    "sendForgotOtpBtn"
+                );
+
+
+            try {
+
+                button.disabled = true;
+
+                button.textContent =
+                    "SENDING OTP...";
+
+
+                showMessage(
+                    "Sending OTP to your Gmail...",
+                    ""
+                );
+
+
+                const response =
+                    await fetch("/api/send-otp", {
+
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+
+                            mobile: mobile,
+
+                            email: email
+
+                        })
+
+                    });
+
+
+                const data =
+                    await response.json();
+
+
+                if (!response.ok) {
+
+                    showMessage(
+                        data.message ||
+                        "Unable to send OTP.",
+                        "error"
+                    );
+
+                    return;
+                }
+
+
+                recoveryMobile = mobile;
+                recoveryEmail = email;
+
+
+                /*
+                 * Server should return a temporary
+                 * recovery token.
+                 */
+
+                recoveryOtpToken =
+                    data.token || "";
+
+
+                forgotStep1
+                    .classList
+                    .add("hidden");
+
+                forgotStep2
+                    .classList
+                    .remove("hidden");
+
+
+                showMessage(
+                    "OTP sent successfully to your Gmail.",
+                    "success"
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "SEND OTP ERROR:",
+                    error
+                );
+
+                showMessage(
+                    "Unable to connect to OTP server.",
+                    "error"
+                );
+
+            } finally {
+
+                button.disabled = false;
+
+                button.textContent =
+                    "SEND OTP";
+
+            }
+
+        });
+
+
+
+    /* =====================================
+       FORGOT PIN - VERIFY OTP
+    ====================================== */
+
+    document
+        .getElementById("verifyForgotOtpBtn")
+        .addEventListener("click", async function () {
+
+            const otp =
+                document
+                    .getElementById("forgotOtp")
+                    .value
+                    .trim();
+
+
+            if (!/^\d{6}$/.test(otp)) {
+
+                showMessage(
+                    "Please enter the 6-digit OTP.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            const button =
+                document.getElementById(
+                    "verifyForgotOtpBtn"
+                );
+
+
+            try {
+
+                button.disabled = true;
+
+                button.textContent =
+                    "VERIFYING...";
+
+
+                showMessage(
+                    "Verifying OTP...",
+                    ""
+                );
+
+
+                const response =
+                    await fetch("/api/verify-otp", {
+
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+
+                            mobile: recoveryMobile,
+
+                            email: recoveryEmail,
+
+                            otp: otp,
+
+                            token: recoveryOtpToken
+
+                        })
+
+                    });
+
+
+                const data =
+                    await response.json();
+
+
+                if (!response.ok) {
+
+                    showMessage(
+                        data.message ||
+                        "Invalid or expired OTP.",
+                        "error"
+                    );
+
+                    return;
+                }
+
+
+                /*
+                 * Server can issue a verified
+                 * recovery token here.
+                 */
+
+                recoveryOtpToken =
+                    data.token ||
+                    recoveryOtpToken;
+
+
+                forgotStep2
+                    .classList
+                    .add("hidden");
+
+                forgotStep3
+                    .classList
+                    .remove("hidden");
+
+
+                showMessage(
+                    "OTP verified. Create your new PIN.",
+                    "success"
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "VERIFY OTP ERROR:",
+                    error
+                );
+
+                showMessage(
+                    "Unable to verify OTP.",
+                    "error"
+                );
+
+            } finally {
+
+                button.disabled = false;
+
+                button.textContent =
+                    "VERIFY OTP";
+
+            }
+
+        });
+
+
+
+    /* =====================================
+       FORGOT PIN - RESET PIN
+    ====================================== */
+
+    document
+        .getElementById("resetForgotPinBtn")
+        .addEventListener("click", async function () {
+
+            const newPin =
+                document
+                    .getElementById("forgotNewPin")
+                    .value
+                    .trim();
+
+            const confirmPin =
+                document
+                    .getElementById("forgotConfirmPin")
+                    .value
+                    .trim();
+
+
+            if (!/^\d{4}$/.test(newPin)) {
+
+                showMessage(
+                    "New PIN must contain exactly 4 digits.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if (newPin !== confirmPin) {
+
+                showMessage(
+                    "New PIN and Confirm PIN do not match.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            const button =
+                document.getElementById(
+                    "resetForgotPinBtn"
+                );
+
+
+            try {
+
+                button.disabled = true;
+
+                button.textContent =
+                    "RESETTING...";
+
+
+                showMessage(
+                    "Updating your PIN...",
+                    ""
+                );
+
+
+                const response =
+                    await fetch("/api/reset-pin", {
+
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+
+                            mobile: recoveryMobile,
+
+                            email: recoveryEmail,
+
+                            newPin: newPin,
+
+                            token: recoveryOtpToken
+
+                        })
+
+                    });
+
+
+                const data =
+                    await response.json();
+
+
+                if (!response.ok) {
+
+                    showMessage(
+                        data.message ||
+                        "Unable to reset PIN.",
+                        "error"
+                    );
+
+                    return;
+                }
+
+
+                showMessage(
+                    "PIN reset successfully. Please login with your new PIN.",
+                    "success"
+                );
+
+
+                setTimeout(function () {
+
+                    forgotBox
+                        .classList
+                        .add("hidden");
+
+                    registerBox
+                        .classList
+                        .add("hidden");
+
+                    loginBox
+                        .classList
+                        .remove("hidden");
+
+
+                    document
+                        .getElementById("loginMobile")
+                        .value =
+                        recoveryMobile;
+
+
+                    document
+                        .getElementById("loginPin")
+                        .value = "";
+
+
+                    document
+                        .getElementById("forgotMobile")
+                        .value = "";
+
+                    document
+                        .getElementById("forgotEmail")
+                        .value = "";
+
+                    document
+                        .getElementById("forgotOtp")
+                        .value = "";
+
+                    document
+                        .getElementById("forgotNewPin")
+                        .value = "";
+
+                    document
+                        .getElementById("forgotConfirmPin")
+                        .value = "";
+
+
+                    forgotStep1
+                        .classList
+                        .remove("hidden");
+
+                    forgotStep2
+                        .classList
+                        .add("hidden");
+
+                    forgotStep3
+                        .classList
+                        .add("hidden");
+
+
+                    recoveryMobile = "";
+                    recoveryEmail = "";
+                    recoveryOtpToken = "";
+
+
+                }, 1500);
+
+
+            } catch (error) {
+
+                console.error(
+                    "RESET PIN ERROR:",
+                    error
+                );
+
+                showMessage(
+                    "Unable to connect to PIN reset server.",
+                    "error"
+                );
+
+            } finally {
+
+                button.disabled = false;
+
+                button.textContent =
+                    "RESET PIN";
+
+            }
 
         });
 
@@ -934,6 +1520,20 @@
                 .classList
                 .remove("hidden");
 
+
+            forgotStep1
+                .classList
+                .remove("hidden");
+
+            forgotStep2
+                .classList
+                .add("hidden");
+
+            forgotStep3
+                .classList
+                .add("hidden");
+
+
             showMessage("", "");
 
         });
@@ -968,14 +1568,20 @@
     [
         "loginMobile",
         "registerMobile",
+        "forgotMobile",
         "loginPin",
         "registerPin",
-        "confirmPin"
+        "confirmPin",
+        "forgotOtp",
+        "forgotNewPin",
+        "forgotConfirmPin"
     ]
     .forEach(function (id) {
 
         const input =
             document.getElementById(id);
+
+        if (!input) return;
 
         input.addEventListener(
             "input",
