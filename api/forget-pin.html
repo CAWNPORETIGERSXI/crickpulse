@@ -43,7 +43,6 @@
             border: 1px solid #ff8800;
             border-radius: 14px;
             padding: 30px 22px;
-            box-shadow: 0 0 20px rgba(255, 136, 0, 0.15);
         }
 
         .logo {
@@ -56,26 +55,25 @@
 
         .subtitle {
             text-align: center;
-            color: #bbb;
+            color: #aaa;
             font-size: 14px;
-            margin-bottom: 28px;
+            margin-bottom: 25px;
         }
 
         h2 {
             text-align: center;
             margin-bottom: 22px;
-            font-size: 22px;
         }
 
         .form-group {
-            margin-bottom: 18px;
+            margin-bottom: 17px;
         }
 
         label {
             display: block;
             margin-bottom: 7px;
-            font-size: 14px;
             color: #ddd;
+            font-size: 14px;
         }
 
         input {
@@ -106,15 +104,20 @@
             margin-top: 5px;
         }
 
-        button:hover {
-            opacity: 0.9;
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .hidden {
+            display: none;
         }
 
         .message {
-            margin-top: 16px;
             text-align: center;
-            font-size: 14px;
+            margin-top: 16px;
             min-height: 20px;
+            font-size: 14px;
         }
 
         .back-login {
@@ -126,8 +129,12 @@
             font-size: 14px;
         }
 
-        .back-login:hover {
-            text-decoration: underline;
+        .success {
+            color: #00d26a;
+        }
+
+        .error {
+            color: #ff5555;
         }
 
     </style>
@@ -148,27 +155,26 @@
         </div>
 
 
-        <h2>
-            Forgot PIN
-        </h2>
+        <!-- STEP 1 -->
 
+        <div id="step1">
 
-        <form id="forgotPinForm">
+            <h2>
+                Forgot PIN
+            </h2>
 
             <div class="form-group">
 
-                <label for="mobile">
+                <label>
                     Mobile Number
                 </label>
 
                 <input
                     type="tel"
                     id="mobile"
-                    name="mobile"
-                    placeholder="Enter 10-digit mobile number"
                     maxlength="10"
                     inputmode="numeric"
-                    required
+                    placeholder="Enter 10-digit mobile number"
                 >
 
             </div>
@@ -176,29 +182,105 @@
 
             <div class="form-group">
 
-                <label for="email">
+                <label>
                     Gmail Address
                 </label>
 
                 <input
                     type="email"
                     id="email"
-                    name="email"
                     placeholder="Enter your Gmail address"
-                    required
                 >
 
             </div>
 
 
-            <button
-                type="submit"
-                id="sendOtpBtn"
-            >
+            <button id="sendOtpBtn">
                 Send OTP
             </button>
 
-        </form>
+        </div>
+
+
+        <!-- STEP 2 -->
+
+        <div id="step2" class="hidden">
+
+            <h2>
+                Verify OTP
+            </h2>
+
+            <div class="form-group">
+
+                <label>
+                    Enter 6-digit OTP
+                </label>
+
+                <input
+                    type="text"
+                    id="otp"
+                    maxlength="6"
+                    inputmode="numeric"
+                    placeholder="Enter OTP"
+                >
+
+            </div>
+
+
+            <button id="verifyOtpBtn">
+                Verify OTP
+            </button>
+
+        </div>
+
+
+        <!-- STEP 3 -->
+
+        <div id="step3" class="hidden">
+
+            <h2>
+                Create New PIN
+            </h2>
+
+            <div class="form-group">
+
+                <label>
+                    New 4-digit PIN
+                </label>
+
+                <input
+                    type="password"
+                    id="newPin"
+                    maxlength="4"
+                    inputmode="numeric"
+                    placeholder="Enter new PIN"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Confirm New PIN
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPin"
+                    maxlength="4"
+                    inputmode="numeric"
+                    placeholder="Confirm new PIN"
+                >
+
+            </div>
+
+
+            <button id="resetPinBtn">
+                Reset PIN
+            </button>
+
+        </div>
 
 
         <div
@@ -219,52 +301,392 @@
 
     <script>
 
-        const form =
-            document.getElementById("forgotPinForm");
+        const step1 =
+            document.getElementById("step1");
+
+        const step2 =
+            document.getElementById("step2");
+
+        const step3 =
+            document.getElementById("step3");
 
         const message =
             document.getElementById("message");
 
+
         const sendOtpBtn =
             document.getElementById("sendOtpBtn");
 
+        const verifyOtpBtn =
+            document.getElementById("verifyOtpBtn");
 
-        form.addEventListener("submit", function (event) {
-
-            event.preventDefault();
-
-
-            const mobile =
-                document.getElementById("mobile").value.trim();
-
-            const email =
-                document.getElementById("email").value.trim();
+        const resetPinBtn =
+            document.getElementById("resetPinBtn");
 
 
-            if (!/^[6-9]\d{9}$/.test(mobile)) {
+        let mobile = "";
+        let email = "";
 
-                message.textContent =
-                    "Please enter a valid 10-digit mobile number.";
 
-                return;
+        function showMessage(text, type = "") {
+
+            message.textContent = text;
+
+            message.className =
+                "message " + type;
+
+        }
+
+
+        // ==========================================
+        // SEND OTP
+        // ==========================================
+
+        sendOtpBtn.addEventListener(
+            "click",
+            async function () {
+
+                mobile =
+                    document
+                        .getElementById("mobile")
+                        .value
+                        .trim();
+
+                email =
+                    document
+                        .getElementById("email")
+                        .value
+                        .trim();
+
+
+                if (!/^[6-9]\d{9}$/.test(mobile)) {
+
+                    showMessage(
+                        "Please enter a valid mobile number.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (!email) {
+
+                    showMessage(
+                        "Please enter your Gmail address.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                sendOtpBtn.disabled = true;
+
+                sendOtpBtn.textContent =
+                    "Sending OTP...";
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            "/api/send-otp",
+                            {
+
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body:
+                                    JSON.stringify({
+                                        mobile,
+                                        email
+                                    })
+
+                            }
+                        );
+
+
+                    const data =
+                        await response.json();
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            data.message ||
+                            "Unable to send OTP."
+                        );
+
+                    }
+
+
+                    showMessage(
+                        "OTP sent to your Gmail.",
+                        "success"
+                    );
+
+
+                    step1.classList.add("hidden");
+
+                    step2.classList.remove("hidden");
+
+
+                } catch (error) {
+
+                    showMessage(
+                        error.message,
+                        "error"
+                    );
+
+                } finally {
+
+                    sendOtpBtn.disabled = false;
+
+                    sendOtpBtn.textContent =
+                        "Send OTP";
+
+                }
 
             }
+        );
 
 
-            if (!email) {
+        // ==========================================
+        // VERIFY OTP
+        // ==========================================
 
-                message.textContent =
-                    "Please enter your Gmail address.";
+        verifyOtpBtn.addEventListener(
+            "click",
+            async function () {
 
-                return;
+                const otp =
+                    document
+                        .getElementById("otp")
+                        .value
+                        .trim();
+
+
+                if (!/^\d{6}$/.test(otp)) {
+
+                    showMessage(
+                        "Please enter the 6-digit OTP.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                verifyOtpBtn.disabled = true;
+
+                verifyOtpBtn.textContent =
+                    "Verifying...";
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            "/api/verify-otp",
+                            {
+
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body:
+                                    JSON.stringify({
+                                        mobile,
+                                        otp
+                                    })
+
+                            }
+                        );
+
+
+                    const data =
+                        await response.json();
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            data.message ||
+                            "OTP verification failed."
+                        );
+
+                    }
+
+
+                    showMessage(
+                        "OTP verified successfully.",
+                        "success"
+                    );
+
+
+                    step2.classList.add("hidden");
+
+                    step3.classList.remove("hidden");
+
+
+                } catch (error) {
+
+                    showMessage(
+                        error.message,
+                        "error"
+                    );
+
+                } finally {
+
+                    verifyOtpBtn.disabled = false;
+
+                    verifyOtpBtn.textContent =
+                        "Verify OTP";
+
+                }
 
             }
+        );
 
 
-            message.textContent =
-                "OTP system will be connected in the next step.";
+        // ==========================================
+        // RESET PIN
+        // ==========================================
 
-        });
+        resetPinBtn.addEventListener(
+            "click",
+            async function () {
+
+                const newPin =
+                    document
+                        .getElementById("newPin")
+                        .value
+                        .trim();
+
+                const confirmPin =
+                    document
+                        .getElementById("confirmPin")
+                        .value
+                        .trim();
+
+
+                if (!/^\d{4}$/.test(newPin)) {
+
+                    showMessage(
+                        "PIN must contain exactly 4 digits.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if (newPin !== confirmPin) {
+
+                    showMessage(
+                        "PINs do not match.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                resetPinBtn.disabled = true;
+
+                resetPinBtn.textContent =
+                    "Resetting PIN...";
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            "/api/reset-pin",
+                            {
+
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body:
+                                    JSON.stringify({
+                                        mobile,
+                                        pin: newPin
+                                    })
+
+                            }
+                        );
+
+
+                    const data =
+                        await response.json();
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            data.message ||
+                            "Unable to reset PIN."
+                        );
+
+                    }
+
+
+                    showMessage(
+                        "PIN reset successfully. You can now login.",
+                        "success"
+                    );
+
+
+                    step3.classList.add("hidden");
+
+
+                    setTimeout(
+                        function () {
+
+                            window.location.href =
+                                "login.html";
+
+                        },
+                        2000
+                    );
+
+
+                } catch (error) {
+
+                    showMessage(
+                        error.message,
+                        "error"
+                    );
+
+                } finally {
+
+                    resetPinBtn.disabled = false;
+
+                    resetPinBtn.textContent =
+                        "Reset PIN";
+
+                }
+
+            }
+        );
 
     </script>
 
