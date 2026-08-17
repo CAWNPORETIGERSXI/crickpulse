@@ -45,6 +45,7 @@
                 #050505;
         }
 
+
         .auth-card {
 
             width: 100%;
@@ -66,6 +67,7 @@
 
             text-align: center;
         }
+
 
         .auth-logo {
 
@@ -92,6 +94,7 @@
             font-weight: 900;
         }
 
+
         .auth-card h1 {
 
             margin: 0;
@@ -101,10 +104,12 @@
             font-weight: 900;
         }
 
+
         .auth-card h1 span {
 
             color: #ff8800;
         }
+
 
         .subtitle {
 
@@ -114,6 +119,7 @@
 
             font-size: 14px;
         }
+
 
         .auth-label {
 
@@ -129,6 +135,7 @@
 
             text-align: left;
         }
+
 
         .auth-input {
 
@@ -151,6 +158,7 @@
             box-sizing: border-box;
         }
 
+
         .auth-input:focus {
 
             border-color: #ff8800;
@@ -159,6 +167,7 @@
                 0 0 0 2px
                 rgba(255,136,0,.08);
         }
+
 
         .pin-input {
 
@@ -170,6 +179,7 @@
 
             font-weight: 800;
         }
+
 
         .auth-btn {
 
@@ -194,12 +204,14 @@
             cursor: pointer;
         }
 
+
         .auth-btn:disabled {
 
             opacity: .55;
 
             cursor: not-allowed;
         }
+
 
         .secondary-btn {
 
@@ -222,6 +234,7 @@
             cursor: pointer;
         }
 
+
         .link-btn {
 
             margin-top: 15px;
@@ -239,6 +252,7 @@
             cursor: pointer;
         }
 
+
         .message {
 
             min-height: 20px;
@@ -250,20 +264,24 @@
             line-height: 1.5;
         }
 
+
         .message.error {
 
             color: #ff4a4a;
         }
+
 
         .message.success {
 
             color: #55d66a;
         }
 
+
         .hidden {
 
             display: none;
         }
+
 
         .security-note {
 
@@ -275,6 +293,7 @@
 
             line-height: 1.5;
         }
+
 
         .back-home {
 
@@ -288,6 +307,7 @@
 
             font-size: 12px;
         }
+
 
         .back-home:hover {
 
@@ -351,9 +371,9 @@
 
 
 
-        <!-- ===============================
+        <!-- ==============================
              LOGIN
-        ================================= -->
+        =============================== -->
 
         <section id="loginBox">
 
@@ -430,9 +450,9 @@
 
 
 
-        <!-- ===============================
+        <!-- ==============================
              REGISTER
-        ================================= -->
+        =============================== -->
 
         <section
             id="registerBox"
@@ -536,9 +556,9 @@
 
 
 
-        <!-- ===============================
+        <!-- ==============================
              FORGOT PIN
-        ================================= -->
+        =============================== -->
 
         <section
             id="forgotBox"
@@ -548,7 +568,7 @@
             <p class="subtitle">
 
                 Enter your registered Gmail.
-                Recovery will be available here.
+                We will send recovery instructions.
 
             </p>
 
@@ -620,10 +640,6 @@
 
 <script>
 
-    /* =====================================
-       ELEMENTS
-    ====================================== */
-
     const loginBox =
         document.getElementById(
             "loginBox"
@@ -645,11 +661,6 @@
         );
 
 
-
-    /* =====================================
-       MESSAGE
-    ====================================== */
-
     function showMessage(
         text,
         type = ""
@@ -662,11 +673,6 @@
             "message " + type;
     }
 
-
-
-    /* =====================================
-       DIGITS ONLY
-    ====================================== */
 
     function onlyDigits(input) {
 
@@ -696,6 +702,7 @@
                     )
                     .value
                     .trim();
+
 
                 const pin =
                     document
@@ -756,8 +763,8 @@
 
                                 body:
                                     JSON.stringify({
-                                        mobile,
-                                        pin
+                                        mobile: mobile,
+                                        pin: pin
                                     })
 
                             }
@@ -768,11 +775,14 @@
                         await response.json();
 
 
-                    if (!response.ok) {
+                    if (
+                        !response.ok ||
+                        !data.success
+                    ) {
 
                         showMessage(
                             data.message ||
-                            "Unable to login.",
+                            "Invalid mobile number or PIN.",
                             "error"
                         );
 
@@ -781,15 +791,10 @@
 
 
                     showMessage(
-                        "Login successful.",
+                        "Login successful!",
                         "success"
                     );
 
-
-                    /*
-                     * Temporary successful-login action.
-                     * Later we can redirect to dashboard.
-                     */
 
                     setTimeout(
                         function () {
@@ -798,7 +803,7 @@
                                 "index.html";
 
                         },
-                        800
+                        1000
                     );
 
 
@@ -809,8 +814,9 @@
                         error
                     );
 
+
                     showMessage(
-                        "Unable to connect to the server.",
+                        "Unable to connect to login server.",
                         "error"
                     );
 
@@ -839,6 +845,7 @@
                     .value
                     .trim();
 
+
                 const email =
                     document
                     .getElementById(
@@ -847,6 +854,7 @@
                     .value
                     .trim();
 
+
                 const pin =
                     document
                     .getElementById(
@@ -854,6 +862,7 @@
                     )
                     .value
                     .trim();
+
 
                 const confirmPin =
                     document
@@ -942,9 +951,16 @@
 
                                 body:
                                     JSON.stringify({
-                                        mobile,
-                                        email,
-                                        pin
+
+                                        mobile:
+                                            mobile,
+
+                                        email:
+                                            email,
+
+                                        pin:
+                                            pin
+
                                     })
 
                             }
@@ -955,7 +971,10 @@
                         await response.json();
 
 
-                    if (!response.ok) {
+                    if (
+                        !response.ok ||
+                        !data.success
+                    ) {
 
                         showMessage(
                             data.message ||
@@ -968,43 +987,10 @@
 
 
                     showMessage(
-                        "Account created successfully. Please login.",
+                        "Account created successfully! Please login.",
                         "success"
                     );
 
-
-                    /*
-                     * Clear registration fields
-                     */
-
-                    document
-                        .getElementById(
-                            "registerMobile"
-                        )
-                        .value = "";
-
-                    document
-                        .getElementById(
-                            "registerEmail"
-                        )
-                        .value = "";
-
-                    document
-                        .getElementById(
-                            "registerPin"
-                        )
-                        .value = "";
-
-                    document
-                        .getElementById(
-                            "confirmPin"
-                        )
-                        .value = "";
-
-
-                    /*
-                     * Return to login
-                     */
 
                     setTimeout(
                         function () {
@@ -1027,7 +1013,7 @@
                             );
 
                         },
-                        1000
+                        1200
                     );
 
 
@@ -1038,8 +1024,9 @@
                         error
                     );
 
+
                     showMessage(
-                        "Unable to connect to the server.",
+                        "Unable to connect to account server.",
                         "error"
                     );
 
@@ -1052,11 +1039,7 @@
 
     /* =====================================
        FORGOT PIN
-       =====================================
-
-       IMPORTANT:
-       OTP/Resend is NOT connected yet.
-       We will do that after Login works.
+       अभी इसे बाद में पूरा करेंगे
     ====================================== */
 
     document
@@ -1066,7 +1049,7 @@
             function () {
 
                 showMessage(
-                    "Forgot PIN recovery will be connected next.",
+                    "Forgot PIN will be activated after account login is completed.",
                     "error"
                 );
 
@@ -1229,10 +1212,11 @@
 
 
     console.log(
-        "CRICKPULSE authentication system loaded."
+        "CRICKPULSE authentication interface loaded."
     );
 
 </script>
+
 
 </body>
 
