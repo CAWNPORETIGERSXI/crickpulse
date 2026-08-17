@@ -1,1 +1,273 @@
-. 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="CRICKPULSE - Forgot PIN"
+    >
+
+    <title>CRICKPULSE - Forgot PIN</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .forgot-container {
+            width: 100%;
+            max-width: 420px;
+            background: #111;
+            border: 1px solid #ff8800;
+            border-radius: 14px;
+            padding: 30px 22px;
+            box-shadow: 0 0 20px rgba(255, 136, 0, 0.15);
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 30px;
+            font-weight: 800;
+            color: #ff8800;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #bbb;
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 22px;
+            font-size: 22px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border-radius: 8px;
+            border: 1px solid #444;
+            background: #1b1b1b;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #ff8800;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #ff8800;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .message {
+            margin-top: 16px;
+            text-align: center;
+            font-size: 14px;
+            min-height: 20px;
+        }
+
+        .back-login {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #ff8800;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-login:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="forgot-container">
+
+        <div class="logo">
+            CRICKPULSE
+        </div>
+
+        <div class="subtitle">
+            Cricket. Passion. Pulse.
+        </div>
+
+
+        <h2>
+            Forgot PIN
+        </h2>
+
+
+        <form id="forgotPinForm">
+
+            <div class="form-group">
+
+                <label for="mobile">
+                    Mobile Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="mobile"
+                    name="mobile"
+                    placeholder="Enter 10-digit mobile number"
+                    maxlength="10"
+                    inputmode="numeric"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    Gmail Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your Gmail address"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                id="sendOtpBtn"
+            >
+                Send OTP
+            </button>
+
+        </form>
+
+
+        <div
+            id="message"
+            class="message"
+        ></div>
+
+
+        <a
+            href="login.html"
+            class="back-login"
+        >
+            ← Back to Login
+        </a>
+
+    </div>
+
+
+    <script>
+
+        const form =
+            document.getElementById("forgotPinForm");
+
+        const message =
+            document.getElementById("message");
+
+        const sendOtpBtn =
+            document.getElementById("sendOtpBtn");
+
+
+        form.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+
+            const mobile =
+                document.getElementById("mobile").value.trim();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+
+            if (!/^[6-9]\d{9}$/.test(mobile)) {
+
+                message.textContent =
+                    "Please enter a valid 10-digit mobile number.";
+
+                return;
+
+            }
+
+
+            if (!email) {
+
+                message.textContent =
+                    "Please enter your Gmail address.";
+
+                return;
+
+            }
+
+
+            message.textContent =
+                "OTP system will be connected in the next step.";
+
+        });
+
+    </script>
+
+</body>
+
+</html>
