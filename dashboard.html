@@ -2,1487 +2,670 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<meta name="description"
-      content="CRICKPULSE - Your Cricket. Your Pulse.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>CRICKPULSE | Home</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- =====================================================
-     FONT
-===================================================== -->
-
-<link rel="preconnect"
-      href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 
-/* =====================================================
-   CRICKPULSE
-   FINAL HOME / DASHBOARD
-   WHITE + PURPLE + LIGHT RED
-===================================================== */
+:root{
+    --purple:#6d35d9;
+    --purple-dark:#5420b8;
+    --purple-light:#8b5cf6;
 
-:root {
+    --purple-bg:#f3efff;
+    --red:#ff6475;
+    --red-bg:#fff0f2;
 
-    --purple: #6d35d9;
-    --purple-dark: #5420b8;
-    --purple-light: #8b5cf6;
+    --black:#17171f;
+    --dark:#292933;
+    --gray:#777783;
+    --border:#e7e6ec;
 
-    --purple-soft: #f3efff;
-    --purple-border: #dfd2ff;
-
-    --red: #ff6475;
-    --red-soft: #fff0f2;
-
-    --green: #18a66a;
-    --green-soft: #eafaf3;
-
-    --text: #17171f;
-    --text-soft: #3d3d48;
-    --muted: #777783;
-
-    --white: #ffffff;
-    --page: #f7f6fa;
-
-    --border: #e8e7ed;
-
-    --shadow:
-        0 4px 18px rgba(40,30,75,0.07);
+    --white:#ffffff;
+    --page:#faf9fc;
 }
 
-
-/* =====================================================
-   RESET
-===================================================== */
-
-* {
-
-    margin: 0;
-    padding: 0;
-
-    box-sizing: border-box;
-
-    font-family:
-        "Inter",
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Inter",sans-serif;
 }
 
-
-html {
-    scroll-behavior: smooth;
+body{
+    background:var(--page);
+    color:var(--black);
+    padding-bottom:92px;
+    -webkit-font-smoothing:antialiased;
 }
 
-
-body {
-
-    background:
-        var(--page);
-
-    color:
-        var(--text);
-
-    font-size:
-        16px;
-
-    line-height:
-        1.5;
-
-    overflow-x:
-        hidden;
-
-    padding-bottom:
-        82px;
-
-    -webkit-font-smoothing:
-        antialiased;
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
+/* ================= HEADER ================= */
 
-a {
-
-    color:
-        inherit;
-
-    text-decoration:
-        none;
+.header{
+    height:70px;
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-
-button {
-
-    font-family:
-        inherit;
+.header-inner{
+    height:100%;
+    padding:0 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-.header {
-
-    position:
-        sticky;
-
-    top:
-        0;
-
-    z-index:
-        1000;
-
-    height:
-        68px;
-
-    background:
-        rgba(255,255,255,0.98);
-
-    border-bottom:
-        1px solid var(--border);
-
-    backdrop-filter:
-        blur(14px);
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:11px;
 }
 
-
-.header-inner {
-
-    max-width:
-        1100px;
-
-    height:
-        100%;
-
-    margin:
-        auto;
-
-    padding:
-        0 16px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
+.logo{
+    width:43px;
+    height:43px;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--purple),var(--purple-light));
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:15px;
+    font-weight:900;
 }
 
-
-/* =====================================================
-   BRAND
-===================================================== */
-
-.brand {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        10px;
+.logo-name{
+    font-size:21px;
+    line-height:1.05;
+    font-weight:900;
 }
 
-
-.brand-mark {
-
-    width:
-        42px;
-
-    height:
-        42px;
-
-    flex-shrink:
-        0;
-
-    border-radius:
-        12px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--purple),
-            var(--purple-light)
-        );
-
-    color:
-        var(--white);
-
-    font-size:
-        15px;
-
-    font-weight:
-        900;
-
-    box-shadow:
-        0 5px 15px rgba(109,53,217,0.20);
+.logo-sub{
+    margin-top:3px;
+    font-size:10px;
+    color:var(--gray);
+    font-weight:600;
 }
 
-
-.brand-name {
-
-    font-size:
-        20px;
-
-    font-weight:
-        900;
-
-    letter-spacing:
-        0.3px;
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:13px;
 }
 
-
-.brand-tagline {
-
-    margin-top:
-        -2px;
-
-    color:
-        var(--muted);
-
-    font-size:
-        10px;
-
-    font-weight:
-        600;
+.bell{
+    width:38px;
+    height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
 }
 
-
-/* =====================================================
-   HEADER ACTIONS
-===================================================== */
-
-.header-actions {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        9px;
+.header-avatar{
+    width:41px;
+    height:41px;
+    border-radius:50%;
+    background:var(--purple-bg);
+    border:2px solid #dfd2ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+    color:var(--purple);
 }
 
+/* ================= PAGE ================= */
 
-.notification {
-
-    width:
-        40px;
-
-    height:
-        40px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        50%;
-
-    background:
-        var(--white);
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    font-size:
-        19px;
+.page{
+    max-width:1050px;
+    margin:auto;
+    padding:20px 16px 30px;
 }
 
+/* ================= PROFILE ================= */
 
-.header-profile {
-
-    width:
-        40px;
-
-    height:
-        40px;
-
-    border:
-        2px solid var(--purple-border);
-
-    border-radius:
-        50%;
-
-    background:
-        var(--purple-soft);
-
-    color:
-        var(--purple);
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    font-size:
-        19px;
+.profile{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:28px;
 }
 
-
-/* =====================================================
-   MAIN CONTAINER
-===================================================== */
-
-.container {
-
-    max-width:
-        1100px;
-
-    margin:
-        auto;
-
-    padding:
-        18px 15px 30px;
+.profile-left{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    min-width:0;
 }
 
-
-/* =====================================================
-   PROFILE AREA
-===================================================== */
-
-.profile-area {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
-
-    gap:
-        12px;
-
-    padding:
-        6px 2px 19px;
+.profile-photo{
+    width:64px;
+    height:64px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:var(--purple-bg);
+    border:2px solid #dfd2ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:27px;
 }
 
-
-.profile-left {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        12px;
-
-    min-width:
-        0;
+.profile-text{
+    min-width:0;
 }
 
-
-.profile-photo {
-
-    width:
-        62px;
-
-    height:
-        62px;
-
-    flex-shrink:
-        0;
-
-    border-radius:
-        50%;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    background:
-        var(--purple-soft);
-
-    border:
-        2px solid var(--purple-border);
-
-    color:
-        var(--purple);
-
-    font-size:
-        27px;
+.profile-text h1{
+    font-size:24px;
+    line-height:1.18;
+    font-weight:900;
 }
 
-
-.profile-details {
-
-    min-width:
-        0;
+.profile-text p{
+    margin-top:5px;
+    color:var(--gray);
+    font-size:14px;
+    font-weight:600;
 }
 
-
-.profile-details h1 {
-
-    font-size:
-        22px;
-
-    line-height:
-        1.2;
-
-    font-weight:
-        900;
-
-    white-space:
-        nowrap;
-
-    overflow:
-        hidden;
-
-    text-overflow:
-        ellipsis;
+.follow{
+    flex-shrink:0;
+    border:0;
+    background:var(--purple);
+    color:#fff;
+    height:40px;
+    padding:0 17px;
+    border-radius:21px;
+    font-size:14px;
+    font-weight:800;
 }
 
+/* ================= SECTION ================= */
 
-.profile-details p {
-
-    margin-top:
-        4px;
-
-    color:
-        var(--muted);
-
-    font-size:
-        13px;
-
-    font-weight:
-        500;
+.section{
+    margin-top:27px;
 }
 
-
-.follow-button {
-
-    flex-shrink:
-        0;
-
-    height:
-        38px;
-
-    padding:
-        0 15px;
-
-    border:
-        none;
-
-    border-radius:
-        20px;
-
-    background:
-        var(--purple);
-
-    color:
-        var(--white);
-
-    font-size:
-        13px;
-
-    font-weight:
-        800;
-
-    box-shadow:
-        0 5px 14px rgba(109,53,217,0.18);
+.section-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:14px;
 }
 
-
-/* =====================================================
-   SECTION
-===================================================== */
-
-.section {
-
-    margin-top:
-        18px;
+.section-title{
+    font-size:24px;
+    line-height:1.2;
+    font-weight:900;
 }
 
-
-.section-header {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
-
-    gap:
-        10px;
-
-    margin-bottom:
-        12px;
+.view{
+    color:var(--purple);
+    font-size:14px;
+    font-weight:800;
 }
 
+/* ================= MATCHES ================= */
 
-.section-title {
-
-    font-size:
-        21px;
-
-    line-height:
-        1.2;
-
-    font-weight:
-        900;
+.match-row{
+    display:flex;
+    gap:14px;
+    overflow-x:auto;
+    padding:2px 2px 12px;
+    scrollbar-width:none;
 }
 
-
-.section-link {
-
-    flex-shrink:
-        0;
-
-    color:
-        var(--purple);
-
-    font-size:
-        13px;
-
-    font-weight:
-        800;
+.match-row::-webkit-scrollbar{
+    display:none;
 }
 
-
-/* =====================================================
-   MATCH SCROLLER
-===================================================== */
-
-.match-scroll {
-
-    display:
-        flex;
-
-    gap:
-        12px;
-
-    overflow-x:
-        auto;
-
-    padding:
-        2px 2px 11px;
-
-    scrollbar-width:
-        none;
-
-    scroll-snap-type:
-        x mandatory;
+.match{
+    min-width:310px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:17px;
+    box-shadow:0 5px 20px rgba(50,40,90,.07);
 }
 
-
-.match-scroll::-webkit-scrollbar {
-    display: none;
+.match-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:12px;
 }
 
-
-/* =====================================================
-   MATCH CARD
-===================================================== */
-
-.match-card {
-
-    min-width:
-        292px;
-
-    max-width:
-        292px;
-
-    scroll-snap-align:
-        start;
-
-    padding:
-        15px;
-
-    background:
-        var(--white);
-
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        17px;
-
-    box-shadow:
-        var(--shadow);
-
-    transition:
-        transform 0.15s ease;
+.status{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:5px 10px;
+    border-radius:20px;
+    background:var(--red-bg);
+    color:var(--red);
+    font-size:11px;
+    font-weight:900;
 }
 
-
-.match-card:active {
-
-    transform:
-        scale(0.98);
+.dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--red);
 }
 
-
-/* =====================================================
-   MATCH CARD TOP
-===================================================== */
-
-.match-top {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
-
-    margin-bottom:
-        10px;
+.format{
+    color:var(--gray);
+    font-size:12px;
+    font-weight:800;
 }
 
-
-.match-status {
-
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    gap:
-        5px;
-
-    padding:
-        5px 9px;
-
-    border-radius:
-        15px;
-
-    background:
-        var(--green-soft);
-
-    color:
-        var(--green);
-
-    font-size:
-        10px;
-
-    font-weight:
-        900;
-
-    letter-spacing:
-        0.3px;
+.match-date{
+    color:var(--gray);
+    font-size:12px;
+    font-weight:600;
+    margin-bottom:14px;
 }
 
-
-.status-dot {
-
-    width:
-        7px;
-
-    height:
-        7px;
-
-    border-radius:
-        50%;
-
-    background:
-        var(--green);
+.team{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    min-height:43px;
 }
 
-
-.match-format {
-
-    color:
-        var(--muted);
-
-    font-size:
-        11px;
-
-    font-weight:
-        800;
+.team-left{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:0;
 }
 
-
-/* =====================================================
-   MATCH INFO
-===================================================== */
-
-.match-info {
-
-    color:
-        var(--muted);
-
-    font-size:
-        11px;
-
-    font-weight:
-        600;
-
-    margin-bottom:
-        12px;
+.team-logo{
+    width:34px;
+    height:34px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:var(--purple-bg);
+    border:1px solid #dfd2ff;
+    color:var(--purple);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:11px;
+    font-weight:900;
 }
 
-
-/* =====================================================
-   TEAMS
-===================================================== */
-
-.teams {
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    gap:
-        9px;
+.team-name{
+    font-size:15px;
+    font-weight:800;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
-
-.team {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
+.score{
+    font-size:15px;
+    font-weight:900;
+    flex-shrink:0;
 }
 
-
-.team-left {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        8px;
-
-    min-width:
-        0;
+.match-bottom{
+    border-top:1px solid var(--border);
+    margin-top:11px;
+    padding-top:11px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
 }
 
-
-.team-logo {
-
-    width:
-        32px;
-
-    height:
-        32px;
-
-    flex-shrink:
-        0;
-
-    border-radius:
-        50%;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    background:
-        var(--purple-soft);
-
-    border:
-        1px solid var(--purple-border);
-
-    color:
-        var(--purple);
-
-    font-size:
-        11px;
-
-    font-weight:
-        900;
+.result{
+    color:var(--purple);
+    font-size:11px;
+    font-weight:800;
 }
 
-
-.team-name {
-
-    font-size:
-        14px;
-
-    font-weight:
-        800;
-
-    white-space:
-        nowrap;
-
-    overflow:
-        hidden;
-
-    text-overflow:
-        ellipsis;
+.venue{
+    color:var(--gray);
+    font-size:10px;
+    font-weight:600;
+    text-align:right;
 }
 
+/* ================= QUICK MENU ================= */
 
-.team-score {
-
-    flex-shrink:
-        0;
-
-    font-size:
-        14px;
-
-    font-weight:
-        900;
+.quick{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
 }
 
-
-/* =====================================================
-   MATCH FOOTER
-===================================================== */
-
-.match-footer {
-
-    margin-top:
-        12px;
-
-    padding-top:
-        10px;
-
-    border-top:
-        1px solid var(--border);
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
-
-    gap:
-        8px;
+.quick-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:16px;
+    min-height:94px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    box-shadow:0 4px 16px rgba(50,40,90,.06);
 }
 
-
-.match-result {
-
-    color:
-        var(--purple);
-
-    font-size:
-        11px;
-
-    font-weight:
-        800;
+.quick-icon{
+    width:39px;
+    height:39px;
+    border-radius:12px;
+    background:var(--purple-bg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
 }
 
-
-.match-venue {
-
-    color:
-        var(--muted);
-
-    font-size:
-        10px;
-
-    font-weight:
-        600;
-
-    text-align:
-        right;
+.quick-card span{
+    font-size:12px;
+    font-weight:800;
 }
 
+/* ================= PLAYERS ================= */
 
-/* =====================================================
-   UPCOMING CARD
-===================================================== */
-
-.match-card.upcoming .match-status {
-
-    background:
-        var(--purple-soft);
-
-    color:
-        var(--purple);
+.player-row{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    padding:2px 2px 10px;
 }
 
-
-.match-card.upcoming .status-dot {
-
-    background:
-        var(--purple);
+.player-row::-webkit-scrollbar{
+    display:none;
 }
 
-
-/* =====================================================
-   QUICK MENU
-===================================================== */
-
-.quick-menu {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:
-        9px;
+.player{
+    min-width:150px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:15px;
 }
 
-
-.quick-item {
-
-    min-height:
-        88px;
-
-    padding:
-        10px 5px;
-
-    background:
-        var(--white);
-
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        15px;
-
-    box-shadow:
-        var(--shadow);
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    text-align:
-        center;
+.player-photo{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:var(--purple-bg);
+    border:1px solid #dfd2ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+    margin-bottom:9px;
 }
 
-
-.quick-icon {
-
-    width:
-        36px;
-
-    height:
-        36px;
-
-    margin-bottom:
-        6px;
-
-    border-radius:
-        11px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    background:
-        var(--purple-soft);
-
-    color:
-        var(--purple);
-
-    font-size:
-        18px;
+.player-name{
+    font-size:14px;
+    font-weight:900;
 }
 
-
-.quick-item span {
-
-    font-size:
-        10px;
-
-    line-height:
-        1.2;
-
-    font-weight:
-        800;
+.player-role{
+    color:var(--gray);
+    font-size:11px;
+    margin-top:3px;
+    font-weight:600;
 }
 
+/* ================= BOTTOM NAV ================= */
 
-/* =====================================================
-   PEOPLE SECTION
-===================================================== */
+.bottom-nav{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:78px;
+    background:#fff;
+    border-top:1px solid var(--border);
+    box-shadow:0 -5px 20px rgba(40,30,70,.08);
+    z-index:3000;
 
-.people-scroll {
-
-    display:
-        flex;
-
-    gap:
-        11px;
-
-    overflow-x:
-        auto;
-
-    padding:
-        2px 2px 10px;
-
-    scrollbar-width:
-        none;
+    display:flex;
+    align-items:stretch;
 }
 
+.nav-item{
+    flex:1;
+    min-width:0;
 
-.people-scroll::-webkit-scrollbar {
-    display: none;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    gap:5px;
+
+    color:#777783;
+
+    font-size:23px;
+    font-weight:700;
+
+    position:relative;
 }
 
-
-.person {
-
-    min-width:
-        142px;
-
-    padding:
-        14px;
-
-    background:
-        var(--white);
-
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        16px;
-
-    box-shadow:
-        var(--shadow);
+.nav-item span{
+    font-size:11px;
+    font-weight:800;
+    white-space:nowrap;
 }
 
-
-.person-photo {
-
-    width:
-        50px;
-
-    height:
-        50px;
-
-    margin-bottom:
-        8px;
-
-    border-radius:
-        50%;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    background:
-        var(--purple-soft);
-
-    border:
-        1px solid var(--purple-border);
-
-    color:
-        var(--purple);
-
-    font-size:
-        22px;
+.nav-item.active{
+    color:var(--purple);
 }
 
-
-.person-name {
-
-    font-size:
-        13px;
-
-    font-weight:
-        900;
-
-    white-space:
-        nowrap;
-
-    overflow:
-        hidden;
-
-    text-overflow:
-        ellipsis;
+.nav-item.active::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:38px;
+    height:3px;
+    background:var(--purple);
+    border-radius:0 0 5px 5px;
 }
 
+/* ================= DESKTOP ================= */
 
-.person-role {
+@media(min-width:701px){
 
-    margin-top:
-        2px;
-
-    color:
-        var(--muted);
-
-    font-size:
-        10px;
-
-    font-weight:
-        600;
-}
-
-
-/* =====================================================
-   BOTTOM NAVIGATION
-===================================================== */
-
-.bottom-nav {
-
-    position:
-        fixed;
-
-    left:
-        0;
-
-    right:
-        0;
-
-    bottom:
-        0;
-
-    z-index:
-        3000;
-
-    height:
-        73px;
-
-    display:
-        flex;
-
-    align-items:
-        stretch;
-
-    background:
-        rgba(255,255,255,0.98);
-
-    border-top:
-        1px solid var(--border);
-
-    box-shadow:
-        0 -5px 20px rgba(40,30,70,0.08);
-
-    backdrop-filter:
-        blur(14px);
-}
-
-
-.bottom-nav a {
-
-    position:
-        relative;
-
-    flex:
-        1;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    gap:
-        3px;
-
-    color:
-        #888894;
-
-    font-size:
-        21px;
-}
-
-
-.bottom-nav a span {
-
-    font-size:
-        10px;
-
-    font-weight:
-        800;
-}
-
-
-.bottom-nav a.active {
-
-    color:
-        var(--purple);
-}
-
-
-.bottom-nav a.active::before {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    top:
-        0;
-
-    left:
-        50%;
-
-    transform:
-        translateX(-50%);
-
-    width:
-        34px;
-
-    height:
-        3px;
-
-    border-radius:
-        0 0 5px 5px;
-
-    background:
-        var(--purple);
-}
-
-
-/* =====================================================
-   DESKTOP
-===================================================== */
-
-@media (min-width: 701px) {
-
-    .match-scroll {
-
-        display:
-            grid;
-
-        grid-template-columns:
-            repeat(3,1fr);
-
-        overflow:
-            visible;
+    .bottom-nav{
+        max-width:680px;
+        left:50%;
+        right:auto;
+        transform:translateX(-50%);
+        border:1px solid var(--border);
+        border-bottom:0;
+        border-radius:18px 18px 0 0;
     }
 
-
-    .match-card {
-
-        min-width:
-            0;
-
-        max-width:
-            none;
+    .match-row{
+        overflow:visible;
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
     }
 
-
-    .people-scroll {
-
-        display:
-            grid;
-
-        grid-template-columns:
-            repeat(4,1fr);
-
-        overflow:
-            visible;
+    .match{
+        min-width:0;
     }
 
-
-    .person {
-
-        min-width:
-            0;
+    .player-row{
+        overflow:visible;
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
     }
 
-
-    .bottom-nav {
-
-        max-width:
-            650px;
-
-        left:
-            50%;
-
-        right:
-            auto;
-
-        transform:
-            translateX(-50%);
-
-        border:
-            1px solid var(--border);
-
-        border-bottom:
-            none;
-
-        border-radius:
-            18px 18px 0 0;
+    .player{
+        min-width:0;
     }
 }
 
+/* ================= MOBILE ================= */
 
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
+@media(max-width:500px){
 
-@media (max-width: 380px) {
-
-    .brand-name {
-        font-size: 18px;
+    .page{
+        padding:18px 14px 25px;
     }
 
-
-    .profile-details h1 {
-        font-size: 20px;
+    .profile{
+        margin-bottom:25px;
     }
 
-
-    .follow-button {
-        padding: 0 12px;
+    .profile-photo{
+        width:60px;
+        height:60px;
     }
 
-
-    .section-title {
-        font-size: 19px;
+    .profile-text h1{
+        font-size:21px;
     }
 
-
-    .match-card {
-        min-width: 275px;
-        max-width: 275px;
+    .profile-text p{
+        font-size:13px;
     }
 
-
-    .quick-menu {
-        gap: 6px;
+    .follow{
+        height:38px;
+        padding:0 14px;
+        font-size:13px;
     }
 
+    .section{
+        margin-top:25px;
+    }
 
-    .quick-item {
-        min-height: 82px;
+    .section-title{
+        font-size:22px;
+    }
+
+    .match{
+        min-width:300px;
+    }
+
+    .quick{
+        gap:8px;
+    }
+
+    .quick-card{
+        min-height:88px;
+    }
+
+    .quick-card span{
+        font-size:10px;
+    }
+
+    .bottom-nav{
+        height:78px;
+    }
+
+    .nav-item{
+        font-size:22px;
+    }
+
+    .nav-item span{
+        font-size:10px;
+    }
+}
+
+@media(max-width:360px){
+
+    .brand-name{
+        font-size:18px;
+    }
+
+    .brand-sub{
+        font-size:9px;
+    }
+
+    .profile-text h1{
+        font-size:19px;
+    }
+
+    .section-title{
+        font-size:20px;
+    }
+
+    .match{
+        min-width:285px;
+    }
+
+    .nav-item{
+        font-size:20px;
+    }
+
+    .nav-item span{
+        font-size:9px;
     }
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+<!-- ================= HEADER ================= -->
 
 <header class="header">
 
     <div class="header-inner">
 
+        <a href="dashboard.html" class="logo-area">
 
-        <a href="dashboard.html"
-           class="brand">
-
-            <div class="brand-mark">
+            <div class="logo">
                 CP
             </div>
 
             <div>
-
-                <div class="brand-name">
+                <div class="logo-name">
                     CRICKPULSE
                 </div>
 
-                <div class="brand-tagline">
+                <div class="logo-sub">
                     Your Cricket. Your Pulse.
                 </div>
-
             </div>
 
         </a>
 
 
-        <div class="header-actions">
+        <div class="header-right">
 
-            <a href="#notifications"
-               class="notification"
-               aria-label="Notifications">
-
+            <a href="#" class="bell">
                 🔔
-
             </a>
 
-
-            <a href="#profile"
-               class="header-profile"
-               aria-label="Profile">
-
+            <a href="#" class="header-avatar">
                 👤
-
             </a>
 
         </div>
@@ -1493,18 +676,14 @@ button {
 
 
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
+<!-- ================= MAIN ================= -->
 
-<main class="container">
+<main class="page">
 
 
-    <!-- =================================================
-         PROFILE
-    ================================================= -->
+    <!-- PROFILE -->
 
-    <section class="profile-area">
+    <section class="profile">
 
         <div class="profile-left">
 
@@ -1512,15 +691,14 @@ button {
                 👤
             </div>
 
-
-            <div class="profile-details">
+            <div class="profile-text">
 
                 <h1>
                     Welcome to CRICKPULSE
                 </h1>
 
                 <p>
-                    Your cricket world, all in one place.
+                    Follow players, teams & matches
                 </p>
 
             </div>
@@ -1528,7 +706,7 @@ button {
         </div>
 
 
-        <button class="follow-button">
+        <button class="follow">
             + Follow
         </button>
 
@@ -1536,116 +714,95 @@ button {
 
 
 
-    <!-- =================================================
-         MATCHES OF YOUR INTEREST
-    ================================================= -->
+    <!-- MATCHES -->
 
     <section class="section">
 
-        <div class="section-header">
+        <div class="section-head">
 
             <h2 class="section-title">
                 Matches of Your Interest
             </h2>
 
-            <a href="view-all.html"
-               class="section-link">
-
+            <a href="#" class="view">
                 View All
-
             </a>
 
         </div>
 
 
-        <div class="match-scroll">
+        <div class="match-row">
 
 
-            <!-- MATCH 1 -->
-
-            <a href="#match1"
-               class="match-card">
-
+            <a href="#" class="match">
 
                 <div class="match-top">
 
-                    <div class="match-status">
-
-                        <span class="status-dot"></span>
-
+                    <div class="status">
+                        <span class="dot"></span>
                         LIVE
-
                     </div>
 
-                    <div class="match-format">
+                    <div class="format">
                         T20
                     </div>
 
                 </div>
 
-
-                <div class="match-info">
-
+                <div class="match-date">
                     Today • 6:00 PM
-
                 </div>
 
 
-                <div class="teams">
+                <div class="team">
 
+                    <div class="team-left">
 
-                    <div class="team">
-
-                        <div class="team-left">
-
-                            <div class="team-logo">
-                                CP
-                            </div>
-
-                            <div class="team-name">
-                                CRICKPULSE XI
-                            </div>
-
+                        <div class="team-logo">
+                            CP
                         </div>
 
-                        <div class="team-score">
-                            148/4
+                        <div class="team-name">
+                            CRICKPULSE XI
                         </div>
 
                     </div>
 
-
-                    <div class="team">
-
-                        <div class="team-left">
-
-                            <div class="team-logo">
-                                W
-                            </div>
-
-                            <div class="team-name">
-                                WARRIORS XI
-                            </div>
-
-                        </div>
-
-                        <div class="team-score">
-                            145/7
-                        </div>
-
+                    <div class="score">
+                        148/4
                     </div>
-
 
                 </div>
 
 
-                <div class="match-footer">
+                <div class="team">
 
-                    <div class="match-result">
+                    <div class="team-left">
+
+                        <div class="team-logo">
+                            W
+                        </div>
+
+                        <div class="team-name">
+                            WARRIORS XI
+                        </div>
+
+                    </div>
+
+                    <div class="score">
+                        145/7
+                    </div>
+
+                </div>
+
+
+                <div class="match-bottom">
+
+                    <div class="result">
                         CRICKPULSE XI need 3 runs
                     </div>
 
-                    <div class="match-venue">
+                    <div class="venue">
                         Main Ground
                     </div>
 
@@ -1655,91 +812,80 @@ button {
 
 
 
-            <!-- MATCH 2 -->
-
-            <a href="#match2"
-               class="match-card upcoming">
-
+            <a href="#" class="match">
 
                 <div class="match-top">
 
-                    <div class="match-status">
+                    <div class="status"
+                         style="background:#f3efff;color:#6d35d9;">
 
-                        <span class="status-dot"></span>
+                        <span class="dot"
+                              style="background:#6d35d9;"></span>
 
                         UPCOMING
 
                     </div>
 
-                    <div class="match-format">
+                    <div class="format">
                         T20
                     </div>
 
                 </div>
 
-
-                <div class="match-info">
-
+                <div class="match-date">
                     Tomorrow • 5:30 PM
-
                 </div>
 
 
-                <div class="teams">
+                <div class="team">
 
+                    <div class="team-left">
 
-                    <div class="team">
-
-                        <div class="team-left">
-
-                            <div class="team-logo">
-                                CP
-                            </div>
-
-                            <div class="team-name">
-                                CRICKPULSE XI
-                            </div>
-
+                        <div class="team-logo">
+                            CP
                         </div>
 
-                        <div class="team-score">
-                            —
+                        <div class="team-name">
+                            CRICKPULSE XI
                         </div>
 
                     </div>
 
-
-                    <div class="team">
-
-                        <div class="team-left">
-
-                            <div class="team-logo">
-                                T
-                            </div>
-
-                            <div class="team-name">
-                                TIGERS XI
-                            </div>
-
-                        </div>
-
-                        <div class="team-score">
-                            —
-                        </div>
-
+                    <div class="score">
+                        —
                     </div>
-
 
                 </div>
 
 
-                <div class="match-footer">
+                <div class="team">
 
-                    <div class="match-result">
+                    <div class="team-left">
+
+                        <div class="team-logo">
+                            T
+                        </div>
+
+                        <div class="team-name">
+                            TIGERS XI
+                        </div>
+
+                    </div>
+
+                    <div class="score">
+                        —
+                    </div>
+
+                </div>
+
+
+                <div class="match-bottom">
+
+                    <div class="result">
                         Match starts at 5:30 PM
                     </div>
 
-                    <div class="match-venue">
+                    <div class="venue">
                         Stadium
                     </div>
 
@@ -1749,91 +895,80 @@ button {
 
 
 
-            <!-- MATCH 3 -->
-
-            <a href="#match3"
-               class="match-card upcoming">
-
+            <a href="#" class="match">
 
                 <div class="match-top">
 
-                    <div class="match-status">
+                    <div class="status"
+                         style="background:#f3efff;color:#6d35d9;">
 
-                        <span class="status-dot"></span>
+                        <span class="dot"
+                              style="background:#6d35d9;"></span>
 
                         UPCOMING
 
                     </div>
 
-                    <div class="match-format">
+                    <div class="format">
                         ODI
                     </div>
 
                 </div>
 
-
-                <div class="match-info">
-
+                <div class="match-date">
                     Friday • 10:00 AM
-
                 </div>
 
 
-                <div class="teams">
+                <div class="team">
 
+                    <div class="team-left">
 
-                    <div class="team">
-
-                        <div class="team-left">
-
-                            <div class="team-logo">
-                                A
-                            </div>
-
-                            <div class="team-name">
-                                ALL STARS XI
-                            </div>
-
+                        <div class="team-logo">
+                            A
                         </div>
 
-                        <div class="team-score">
-                            —
+                        <div class="team-name">
+                            ALL STARS XI
                         </div>
 
                     </div>
 
-
-                    <div class="team">
-
-                        <div class="team-left">
-
-                            <div class="team-logo">
-                                K
-                            </div>
-
-                            <div class="team-name">
-                                KINGS XI
-                            </div>
-
-                        </div>
-
-                        <div class="team-score">
-                            —
-                        </div>
-
+                    <div class="score">
+                        —
                     </div>
-
 
                 </div>
 
 
-                <div class="match-footer">
+                <div class="team">
 
-                    <div class="match-result">
+                    <div class="team-left">
+
+                        <div class="team-logo">
+                            K
+                        </div>
+
+                        <div class="team-name">
+                            KINGS XI
+                        </div>
+
+                    </div>
+
+                    <div class="score">
+                        —
+                    </div>
+
+                </div>
+
+
+                <div class="match-bottom">
+
+                    <div class="result">
                         Follow this match
                     </div>
 
-                    <div class="match-venue">
+                    <div class="venue">
                         Cricket Ground
                     </div>
 
@@ -1841,38 +976,32 @@ button {
 
             </a>
 
-
         </div>
 
     </section>
 
 
 
-    <!-- =================================================
-         QUICK MENU
-    ================================================= -->
+    <!-- QUICK MENU -->
 
     <section class="section">
 
-        <div class="section-header">
+        <div class="section-head">
 
             <h2 class="section-title">
                 My Cricket
             </h2>
 
-            <a href="#my-cricket"
-               class="section-link">
+            <a href="#" class="view">
                 View All
             </a>
 
         </div>
 
 
-        <div class="quick-menu">
+        <div class="quick">
 
-
-            <a href="#matches"
-               class="quick-item">
+            <a href="#" class="quick-card">
 
                 <div class="quick-icon">
                     🏏
@@ -1885,8 +1014,7 @@ button {
             </a>
 
 
-            <a href="#teams"
-               class="quick-item">
+            <a href="#" class="quick-card">
 
                 <div class="quick-icon">
                     👥
@@ -1899,8 +1027,7 @@ button {
             </a>
 
 
-            <a href="#players"
-               class="quick-item">
+            <a href="#" class="quick-card">
 
                 <div class="quick-icon">
                     ⭐
@@ -1913,8 +1040,7 @@ button {
             </a>
 
 
-            <a href="#stats"
-               class="quick-item">
+            <a href="#" class="quick-card">
 
                 <div class="quick-icon">
                     📊
@@ -1926,126 +1052,113 @@ button {
 
             </a>
 
-
         </div>
 
     </section>
 
 
 
-    <!-- =================================================
-         PLAYERS
-    ================================================= -->
+    <!-- PLAYERS -->
 
     <section class="section">
 
-        <div class="section-header">
+        <div class="section-head">
 
             <h2 class="section-title">
                 Players You May Know
             </h2>
 
-            <a href="#players"
-               class="section-link">
+            <a href="#" class="view">
                 View All
             </a>
 
         </div>
 
 
-        <div class="people-scroll">
+        <div class="player-row">
 
 
-            <a href="#player1"
-               class="person">
+            <a href="#" class="player">
 
-                <div class="person-photo">
+                <div class="player-photo">
                     👤
                 </div>
 
-                <div class="person-name">
+                <div class="player-name">
                     Player Profile
                 </div>
 
-                <div class="person-role">
+                <div class="player-role">
                     Batsman
                 </div>
 
             </a>
 
 
-            <a href="#player2"
-               class="person">
+            <a href="#" class="player">
 
-                <div class="person-photo">
+                <div class="player-photo">
                     👤
                 </div>
 
-                <div class="person-name">
+                <div class="player-name">
                     Player Profile
                 </div>
 
-                <div class="person-role">
+                <div class="player-role">
                     Bowler
                 </div>
 
             </a>
 
 
-            <a href="#player3"
-               class="person">
+            <a href="#" class="player">
 
-                <div class="person-photo">
+                <div class="player-photo">
                     👤
                 </div>
 
-                <div class="person-name">
+                <div class="player-name">
                     Player Profile
                 </div>
 
-                <div class="person-role">
+                <div class="player-role">
                     All Rounder
                 </div>
 
             </a>
 
 
-            <a href="#player4"
-               class="person">
+            <a href="#" class="player">
 
-                <div class="person-photo">
+                <div class="player-photo">
                     👤
                 </div>
 
-                <div class="person-name">
+                <div class="player-name">
                     Player Profile
                 </div>
 
-                <div class="person-role">
+                <div class="player-role">
                     Wicket Keeper
                 </div>
 
             </a>
 
-
         </div>
 
     </section>
-
 
 </main>
 
 
 
-<!-- =====================================================
-     BOTTOM NAVIGATION
-===================================================== -->
+<!-- ================= BOTTOM NAV ================= -->
 
 <nav class="bottom-nav">
 
-
     <a href="dashboard.html"
-       class="active">
+       class="nav-item active">
 
         🏠
 
@@ -2056,7 +1169,8 @@ button {
     </a>
 
 
-    <a href="#looking">
+    <a href="#looking"
+       class="nav-item">
 
         🔎
 
@@ -2067,7 +1181,8 @@ button {
     </a>
 
 
-    <a href="#my-cricket">
+    <a href="#my-cricket"
+       class="nav-item">
 
         🏏
 
@@ -2078,7 +1193,8 @@ button {
     </a>
 
 
-    <a href="#community">
+    <a href="#community"
+       class="nav-item">
 
         👥
 
@@ -2089,7 +1205,8 @@ button {
     </a>
 
 
-    <a href="#score">
+    <a href="#score"
+       class="nav-item">
 
         📋
 
@@ -2099,10 +1216,8 @@ button {
 
     </a>
 
-
 </nav>
 
 
 </body>
-
 </html>
