@@ -3,833 +3,808 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <meta
-        name="description"
-        content="CRICKPULSE - Dashboard"
-    >
+<meta
+    name="description"
+    content="CRICKPULSE - Dashboard"
+>
 
-    <title>CRICKPULSE | Home</title>
+<title>CRICKPULSE | Home</title>
 
 
-    <style>
+<style>
 
-        /* =========================================
-           RESET
-        ========================================= */
+/* =================================================
+   RESET
+================================================= */
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 
-        body {
+body {
 
-            font-family:
-                Verdana,
-                Geneva,
-                sans-serif;
+    font-family:
+        Verdana,
+        Geneva,
+        sans-serif;
 
-            background: #f7f5ff;
+    background: #f7f5ff;
 
-            color: #171225;
+    color: #171225;
 
-            min-height: 100vh;
-        }
+    min-height: 100vh;
+}
 
 
+/* =================================================
+   HEADER
+================================================= */
 
-        /* =========================================
-           HEADER
-        ========================================= */
+.top-header {
 
-        .top-header {
+    height: 78px;
 
-            height: 76px;
+    background: #ffffff;
 
-            background: #ffffff;
+    border-bottom: 1px solid #e4ddf2;
 
-            border-bottom:
-                1px solid #e5def4;
+    display: flex;
 
-            display: flex;
+    align-items: center;
 
-            align-items: center;
+    justify-content: flex-start;
 
-            justify-content: flex-start;
+    padding: 0 15px;
 
-            padding: 0 16px;
+    position: sticky;
 
-            position: sticky;
+    top: 0;
 
-            top: 0;
+    z-index: 100;
+}
 
-            z-index: 100;
-        }
 
+/* =================================================
+   LARGE LEFT HAMBURGER
+================================================= */
 
+.menu-button {
 
-        /* =========================================
-           HAMBURGER
-        ========================================= */
+    width: 62px;
 
-        .menu-button {
+    height: 62px;
 
-            width: 58px;
+    border: none;
 
-            height: 58px;
+    background: #eee7ff;
 
-            border: 0;
+    border-radius: 12px;
 
-            background: #f0eaff;
+    display: flex;
 
-            border-radius: 15px;
+    flex-direction: column;
 
-            display: flex;
+    align-items: center;
 
-            flex-direction: column;
+    justify-content: center;
 
-            justify-content: center;
+    gap: 7px;
 
-            align-items: center;
+    cursor: pointer;
 
-            gap: 6px;
+    flex-shrink: 0;
 
-            cursor: pointer;
+    margin-right: 14px;
+}
 
-            flex-shrink: 0;
 
-            margin-right: 14px;
-        }
+.menu-button span {
 
+    width: 36px;
 
-        .menu-button span {
+    height: 5px;
 
-            width: 31px;
+    background: #6328c7;
 
-            height: 4px;
+    border-radius: 3px;
 
-            background: #6430c5;
+    display: block;
+}
 
-            border-radius: 10px;
-        }
 
+/* =================================================
+   BRAND
+================================================= */
 
+.brand {
 
-        /* =========================================
-           BRAND
-        ========================================= */
+    display: flex;
 
-        .brand {
+    align-items: center;
 
-            display: flex;
+    gap: 11px;
+}
 
-            align-items: center;
 
-            gap: 11px;
-        }
+.brand-logo {
 
+    width: 48px;
 
-        .brand-logo {
+    height: 48px;
 
-            width: 46px;
+    background: #6c35d9;
 
-            height: 46px;
+    color: #ffffff;
 
-            border-radius: 13px;
+    border-radius: 12px;
 
-            background: #6c35d9;
+    display: flex;
 
-            color: #ffffff;
+    align-items: center;
 
-            display: flex;
+    justify-content: center;
 
-            align-items: center;
+    font-size: 19px;
 
-            justify-content: center;
+    font-weight: 900;
+}
 
-            font-size: 18px;
 
-            font-weight: 900;
-        }
+.brand-name {
 
+    font-size: 24px;
 
-        .brand-name {
+    font-weight: 900;
 
-            font-family:
-                Verdana,
-                Geneva,
-                sans-serif;
+    letter-spacing: .3px;
+}
 
-            font-size: 23px;
 
-            font-weight: 900;
+.brand-name span {
 
-            letter-spacing: .3px;
-        }
+    color: #6c35d9;
+}
 
 
-        .brand-name span {
+/* =================================================
+   DASHBOARD
+================================================= */
 
-            color: #6c35d9;
-        }
+.dashboard {
 
+    max-width: 760px;
 
+    margin: auto;
 
-        /* =========================================
-           MAIN DASHBOARD
-        ========================================= */
+    padding:
+        34px 16px 50px;
+}
 
-        .dashboard {
 
-            padding:
-                32px 16px 50px;
+.welcome-card {
 
-            max-width: 760px;
+    background: #ffffff;
 
-            margin: auto;
-        }
+    border:
+        1px solid #e2daf2;
 
+    border-radius: 20px;
 
-        .welcome-card {
+    padding:
+        32px 24px;
 
-            background: #ffffff;
+    box-shadow:
+        0 10px 30px
+        rgba(76,45,130,.08);
+}
 
-            border-radius: 22px;
 
-            padding: 30px 23px;
+.welcome-small {
 
-            border:
-                1px solid #e4dcf4;
+    color: #7659a9;
 
-            box-shadow:
-                0 10px 30px
-                rgba(76, 45, 130, .08);
-        }
+    font-size: 18px;
 
+    font-weight: 700;
 
-        .welcome-small {
+    margin-bottom: 10px;
+}
 
-            color: #7659a9;
 
-            font-size: 17px;
+.welcome-title {
 
-            font-weight: 700;
+    font-size: 36px;
 
-            margin-bottom: 9px;
-        }
+    line-height: 1.2;
 
+    font-weight: 900;
+}
 
-        .welcome-title {
 
-            font-size: 34px;
+.welcome-title span {
 
-            line-height: 1.2;
+    color: #6c35d9;
+}
 
-            font-weight: 900;
 
-            letter-spacing: -.5px;
-        }
+.welcome-text {
 
+    margin-top: 14px;
 
-        .welcome-title span {
+    color: #6d667c;
 
-            color: #6c35d9;
-        }
+    font-size: 19px;
 
+    line-height: 1.6;
 
-        .welcome-text {
+    font-weight: 500;
+}
 
-            margin-top: 13px;
 
-            color: #6d667c;
+/* =================================================
+   OVERLAY
+================================================= */
 
-            font-size: 18px;
+.menu-overlay {
 
-            line-height: 1.55;
+    position: fixed;
 
-            font-weight: 500;
-        }
+    inset: 0;
 
+    background:
+        rgba(10,5,20,.55);
 
+    z-index: 200;
 
-        /* =========================================
-           MENU OVERLAY
-        ========================================= */
+    opacity: 0;
 
-        .menu-overlay {
+    visibility: hidden;
 
-            position: fixed;
+    transition:
+        opacity .25s ease,
+        visibility .25s ease;
+}
 
-            inset: 0;
 
-            background:
-                rgba(15, 10, 25, .48);
+.menu-overlay.active {
 
-            z-index: 200;
+    opacity: 1;
 
-            opacity: 0;
+    visibility: visible;
+}
 
-            visibility: hidden;
 
-            transition:
-                opacity .25s ease,
-                visibility .25s ease;
-        }
+/* =================================================
+   SIDE MENU
+================================================= */
 
+.side-menu {
 
-        .menu-overlay.active {
+    position: absolute;
 
-            opacity: 1;
+    top: 0;
 
-            visibility: visible;
-        }
+    left: 0;
 
+    width: min(95%, 455px);
 
+    height: 100%;
 
-        /* =========================================
-           SIDE MENU
-        ========================================= */
+    background: #6428c7;
 
-        .side-menu {
+    box-shadow:
+        10px 0 40px
+        rgba(0,0,0,.30);
 
-            position: absolute;
+    transform:
+        translateX(-100%);
 
-            top: 0;
+    transition:
+        transform .30s ease;
 
-            left: 0;
+    display: flex;
 
-            width: min(94%, 430px);
+    flex-direction: column;
 
-            height: 100%;
+    overflow: hidden;
+}
 
-            background: #6428c7;
 
-            box-shadow:
-                10px 0 40px
-                rgba(0,0,0,.25);
+.menu-overlay.active
+.side-menu {
 
-            transform:
-                translateX(-100%);
+    transform:
+        translateX(0);
+}
 
-            transition:
-                transform .30s ease;
 
-            display: flex;
+/* =================================================
+   MENU HEADER
+================================================= */
 
-            flex-direction: column;
+.menu-top {
 
-            overflow: hidden;
-        }
+    min-height: 80px;
 
+    padding:
+        0 18px;
 
-        .menu-overlay.active
-        .side-menu {
+    background: #5420ad;
 
-            transform:
-                translateX(0);
-        }
+    display: flex;
 
+    align-items: center;
 
+    justify-content: space-between;
 
-        /* =========================================
-           MENU HEADER
-        ========================================= */
+    border-bottom:
+        2px solid
+        rgba(255,255,255,.18);
+}
 
-        .menu-top {
 
-            min-height: 78px;
+.menu-title {
 
-            padding:
-                0 18px;
+    color: #ffffff;
 
-            border-bottom:
-                1px solid
-                rgba(255,255,255,.18);
+    font-size: 27px;
 
-            display: flex;
+    font-weight: 900;
+}
 
-            align-items: center;
 
-            justify-content: space-between;
+.close-button {
 
-            background: #5720b4;
-        }
+    width: 50px;
 
+    height: 50px;
 
-        .menu-title {
+    border: none;
 
-            font-size: 25px;
+    background:
+        rgba(255,255,255,.14);
 
-            font-weight: 900;
+    color: #ffffff;
 
-            color: #ffffff;
+    border-radius: 8px;
 
-            letter-spacing: .2px;
-        }
+    font-size: 36px;
 
+    cursor: pointer;
 
-        .close-button {
+    line-height: 1;
+}
 
-            width: 48px;
 
-            height: 48px;
+/* =================================================
+   PROFILE
+================================================= */
 
-            border: 0;
+.profile-section {
 
-            border-radius: 13px;
+    padding:
+        23px 18px;
 
-            background:
-                rgba(255,255,255,.14);
+    background: #7132d2;
 
-            color: #ffffff;
+    border-bottom:
+        2px solid
+        rgba(255,255,255,.18);
+}
 
-            font-size: 34px;
 
-            line-height: 1;
+.profile-row {
 
-            cursor: pointer;
-        }
+    display: flex;
 
+    align-items: center;
 
+    gap: 16px;
+}
 
-        /* =========================================
-           PROFILE
-        ========================================= */
 
-        .profile-section {
+.profile-photo {
 
-            padding:
-                22px 18px;
+    width: 76px;
 
-            background:
-                #702fd2;
+    height: 76px;
 
-            border-bottom:
-                1px solid
-                rgba(255,255,255,.18);
-        }
+    flex: 0 0 76px;
 
+    border-radius: 50%;
 
-        .profile-row {
+    background:
+        rgba(255,255,255,.18);
 
-            display: flex;
+    border:
+        3px solid #ffffff;
 
-            align-items: center;
+    display: flex;
 
-            gap: 15px;
-        }
+    align-items: center;
 
+    justify-content: center;
 
-        .profile-photo {
+    color: #ffffff;
 
-            width: 72px;
+    font-size: 29px;
 
-            height: 72px;
+    font-weight: 900;
 
-            flex: 0 0 72px;
+    overflow: hidden;
+}
 
-            border-radius: 50%;
 
-            background:
-                rgba(255,255,255,.20);
+.profile-photo img {
 
-            border:
-                3px solid
-                rgba(255,255,255,.85);
+    width: 100%;
 
-            box-shadow:
-                0 4px 14px
-                rgba(0,0,0,.15);
+    height: 100%;
 
-            display: flex;
+    object-fit: cover;
 
-            align-items: center;
+    display: none;
+}
 
-            justify-content: center;
 
-            color: #ffffff;
+.profile-info {
 
-            font-size: 27px;
+    min-width: 0;
 
-            font-weight: 900;
+    flex: 1;
+}
 
-            overflow: hidden;
-        }
 
+.profile-name {
 
-        .profile-photo img {
+    color: #ffffff;
 
-            width: 100%;
+    font-size: 22px;
 
-            height: 100%;
+    font-weight: 900;
 
-            object-fit: cover;
+    white-space: nowrap;
 
-            display: none;
-        }
+    overflow: hidden;
 
+    text-overflow: ellipsis;
+}
 
-        .profile-info {
 
-            min-width: 0;
+.profile-mobile {
 
-            flex: 1;
-        }
+    margin-top: 6px;
 
+    color: #ffffff;
 
-        .profile-name {
+    font-size: 17px;
 
-            font-size: 21px;
+    font-weight: 700;
+}
 
-            font-weight: 900;
 
-            color: #ffffff;
+.profile-email {
 
-            white-space: nowrap;
+    margin-top: 5px;
 
-            overflow: hidden;
+    color:
+        rgba(255,255,255,.85);
 
-            text-overflow: ellipsis;
-        }
+    font-size: 15px;
 
+    font-weight: 600;
 
-        .profile-mobile {
+    white-space: nowrap;
 
-            margin-top: 5px;
+    overflow: hidden;
 
-            font-size: 16px;
+    text-overflow: ellipsis;
+}
 
-            font-weight: 700;
 
-            color: #ffffff;
-        }
+/* =================================================
+   MENU AREA
+================================================= */
 
+.menu-section {
 
-        .profile-email {
+    flex: 1;
 
-            margin-top: 4px;
+    overflow-y: auto;
 
-            font-size: 14px;
+    padding:
+        15px 14px 28px;
 
-            font-weight: 600;
+    background: #6428c7;
+}
 
-            color:
-                rgba(255,255,255,.82);
 
-            white-space: nowrap;
+.menu-label {
 
-            overflow: hidden;
+    padding:
+        7px 8px 15px;
 
-            text-overflow: ellipsis;
-        }
+    color:
+        rgba(255,255,255,.75);
 
+    font-size: 14px;
 
+    font-weight: 900;
 
-        /* =========================================
-           MENU CONTENT
-        ========================================= */
+    letter-spacing: 1.5px;
+}
 
-        .menu-section {
 
-            padding:
-                14px 13px 25px;
+/* =================================================
+   EVERY MENU ITEM = RED BOX
+================================================= */
 
-            overflow-y: auto;
+.menu-item {
 
-            flex: 1;
+    width: 100%;
 
-            background: #6428c7;
-        }
+    min-height: 78px;
 
+    margin-bottom: 13px;
 
-        .menu-label {
+    padding:
+        11px 13px;
 
-            padding:
-                8px 10px 13px;
+    border:
+        3px solid #ff3b30;
 
-            color:
-                rgba(255,255,255,.72);
+    border-radius: 5px;
 
-            font-size: 13px;
+    background: #e52b25;
 
-            font-weight: 800;
+    color: #ffffff;
 
-            text-transform: uppercase;
+    display: flex;
 
-            letter-spacing: 1.3px;
-        }
+    align-items: center;
 
+    gap: 15px;
 
+    text-align: left;
 
-        /* =========================================
-           MENU ITEMS
-        ========================================= */
+    cursor: pointer;
 
-        .menu-item {
+    font-family:
+        Verdana,
+        Geneva,
+        sans-serif;
 
-            width: 100%;
+    font-size: 22px;
 
-            min-height: 68px;
+    font-weight: 900;
 
-            border: 0;
+    line-height: 1.25;
 
-            background:
-                transparent;
+    box-shadow:
+        0 4px 10px
+        rgba(0,0,0,.15);
 
-            border-radius: 14px;
+    transition:
+        transform .15s ease,
+        background .15s ease;
+}
 
-            padding:
-                10px 12px;
 
-            display: flex;
+.menu-item:active {
 
-            align-items: center;
+    transform: scale(.98);
 
-            gap: 14px;
+    background: #c9221d;
+}
 
-            text-align: left;
 
-            cursor: pointer;
+.menu-icon {
 
-            color: #ffffff;
+    width: 52px;
 
-            font-size: 18px;
+    height: 52px;
 
-            font-weight: 900;
+    flex: 0 0 52px;
 
-            font-family:
-                Verdana,
-                Geneva,
-                sans-serif;
+    background:
+        rgba(255,255,255,.17);
 
-            transition:
-                background .2s ease;
-        }
+    border:
+        2px solid
+        rgba(255,255,255,.35);
 
+    border-radius: 5px;
 
-        .menu-item:hover {
+    display: flex;
 
-            background:
-                rgba(255,255,255,.12);
-        }
+    align-items: center;
 
+    justify-content: center;
 
-        .menu-icon {
+    color: #ffffff;
 
-            width: 46px;
+    font-size: 28px;
 
-            height: 46px;
+    font-weight: 900;
+}
 
-            flex: 0 0 46px;
 
-            border-radius: 12px;
+.menu-item-text {
 
-            background:
-                rgba(255,255,255,.16);
+    flex: 1;
 
-            color: #ffffff;
+    color: #ffffff;
 
-            display: flex;
+    font-size: 22px;
 
-            align-items: center;
+    font-weight: 900;
 
-            justify-content: center;
+    line-height: 1.3;
+}
 
-            font-size: 24px;
 
-            font-weight: 900;
-        }
+.menu-arrow {
 
+    color: #ffffff;
 
-        .menu-item-text {
+    font-size: 34px;
 
-            flex: 1;
+    font-weight: 900;
 
-            line-height: 1.3;
+    flex-shrink: 0;
+}
 
-            color: #ffffff;
-        }
 
+/* =================================================
+   RED SEPARATOR BETWEEN GROUPS
+================================================= */
 
-        .menu-arrow {
+.red-section-line {
 
-            color:
-                rgba(255,255,255,.75);
+    width: 100%;
 
-            font-size: 30px;
+    height: 6px;
 
-            font-weight: 500;
-        }
+    background: #ff3b30;
 
+    margin:
+        5px 0 18px;
 
+    border-radius: 0;
+}
 
-        /* =========================================
-           RED DIVIDER
-        ========================================= */
 
-        .red-divider {
+/* =================================================
+   MOBILE
+================================================= */
 
-            width: 100%;
+@media (max-width: 480px) {
 
-            height: 8px;
+    .top-header {
 
-            background: #e53935;
+        height: 76px;
 
-            border-radius: 8px;
+        padding: 0 11px;
+    }
 
-            margin:
-                10px 0 12px;
 
-            box-shadow:
-                0 2px 8px
-                rgba(229,57,53,.30);
-        }
+    .menu-button {
 
+        width: 60px;
 
+        height: 60px;
 
-        /* =========================================
-           MOBILE
-        ========================================= */
+        margin-right: 10px;
+    }
 
-        @media (max-width: 480px) {
 
-            .top-header {
+    .menu-button span {
 
-                height: 74px;
+        width: 35px;
 
-                padding:
-                    0 12px;
-            }
+        height: 5px;
+    }
 
 
-            .menu-button {
+    .brand-logo {
 
-                width: 58px;
+        width: 43px;
 
-                height: 58px;
+        height: 43px;
 
-                margin-right: 11px;
-            }
+        font-size: 17px;
+    }
 
 
-            .menu-button span {
+    .brand-name {
 
-                width: 32px;
+        font-size: 20px;
+    }
 
-                height: 4px;
-            }
 
+    .dashboard {
 
-            .brand-name {
+        padding:
+            25px 14px 45px;
+    }
 
-                font-size: 20px;
-            }
 
+    .welcome-title {
 
-            .brand-logo {
+        font-size: 33px;
+    }
 
-                width: 43px;
 
-                height: 43px;
-            }
+    .welcome-text {
 
+        font-size: 18px;
+    }
 
-            .dashboard {
 
-                padding:
-                    24px 14px 45px;
-            }
+    .side-menu {
 
+        width: 96%;
+    }
 
-            .welcome-card {
 
-                padding:
-                    27px 20px;
-            }
+    .menu-title {
 
+        font-size: 25px;
+    }
 
-            .welcome-small {
 
-                font-size: 16px;
-            }
+    .menu-item {
 
+        min-height: 80px;
 
-            .welcome-title {
+        font-size: 21px;
+    }
 
-                font-size: 31px;
-            }
 
+    .menu-item-text {
 
-            .welcome-text {
+        font-size: 21px;
+    }
 
-                font-size: 17px;
-            }
 
+    .menu-icon {
 
-            .side-menu {
+        width: 51px;
 
-                width: 94%;
-            }
+        height: 51px;
 
+        font-size: 27px;
+    }
 
-            .menu-title {
+}
 
-                font-size: 23px;
-            }
 
-
-            .profile-name {
-
-                font-size: 20px;
-            }
-
-
-            .menu-item {
-
-                min-height: 70px;
-
-                font-size: 18px;
-            }
-
-
-            .menu-icon {
-
-                width: 46px;
-
-                height: 46px;
-
-                font-size: 23px;
-            }
-
-        }
-
-    </style>
+</style>
 
 </head>
-
 
 
 <body>
 
 
-
-<!-- =========================================
+<!-- =================================================
      HEADER
-========================================= -->
+================================================= -->
 
 <header class="top-header">
 
 
-    <!-- HAMBURGER LEFT -->
+    <!-- LEFT HAMBURGER -->
 
     <button
         class="menu-button"
@@ -844,7 +819,6 @@
         <span></span>
 
     </button>
-
 
 
     <!-- BRAND -->
@@ -866,9 +840,9 @@
 
 
 
-<!-- =========================================
+<!-- =================================================
      DASHBOARD
-========================================= -->
+================================================= -->
 
 <main class="dashboard">
 
@@ -896,9 +870,9 @@
 
 
 
-<!-- =========================================
+<!-- =================================================
      SIDE MENU
-========================================= -->
+================================================= -->
 
 <div
     class="menu-overlay"
@@ -934,7 +908,6 @@
 
         <section class="profile-section">
 
-
             <div class="profile-row">
 
 
@@ -946,7 +919,6 @@
                         alt="Player"
                     >
 
-
                     <span id="profileInitial">
                         P
                     </span>
@@ -954,9 +926,7 @@
                 </div>
 
 
-
                 <div class="profile-info">
-
 
                     <div
                         class="profile-name"
@@ -981,8 +951,8 @@
                         Gmail / Email
                     </div>
 
-
                 </div>
+
 
             </div>
 
@@ -1053,9 +1023,9 @@
 
 
 
-            <!-- RED DIVIDER -->
+            <!-- RED SEPARATOR -->
 
-            <div class="red-divider"></div>
+            <div class="red-section-line"></div>
 
 
 
@@ -1147,108 +1117,237 @@
 
 <script>
 
+/* =================================================
+   LOGIN CHECK
+================================================= */
 
-    /* =========================================
-       LOGIN CHECK
-    ========================================= */
-
-    const loggedIn =
-        sessionStorage.getItem(
-            "crickpulseLoggedIn"
-        );
-
-
-    if (loggedIn !== "true") {
-
-        window.location.href =
-            "auth.html";
-
-    }
-
-
-
-    /* =========================================
-       PROFILE MOBILE
-    ========================================= */
-
-    const mobile =
-        sessionStorage.getItem(
-            "crickpulseMobile"
-        );
-
-
-    if (mobile) {
-
-        document
-            .getElementById("profileMobile")
-            .textContent = mobile;
-
-    }
-
-
-
-    /* =========================================
-       HAMBURGER
-    ========================================= */
-
-    const openMenu =
-        document.getElementById(
-            "openMenu"
-        );
-
-
-    const closeMenu =
-        document.getElementById(
-            "closeMenu"
-        );
-
-
-    const menuOverlay =
-        document.getElementById(
-            "menuOverlay"
-        );
-
-
-    openMenu.addEventListener(
-        "click",
-        function () {
-
-            menuOverlay.classList.add(
-                "active"
-            );
-
-        }
+const loggedIn =
+    sessionStorage.getItem(
+        "crickpulseLoggedIn"
     );
 
 
-    closeMenu.addEventListener(
-        "click",
-        function () {
+if (loggedIn !== "true") {
+
+    window.location.href =
+        "auth.html";
+}
+
+
+
+/* =================================================
+   PROFILE MOBILE
+================================================= */
+
+const mobile =
+    sessionStorage.getItem(
+        "crickpulseMobile"
+    );
+
+
+if (mobile) {
+
+    document
+        .getElementById("profileMobile")
+        .textContent = mobile;
+
+}
+
+
+
+/* =================================================
+   MENU
+================================================= */
+
+const openMenu =
+    document.getElementById(
+        "openMenu"
+    );
+
+
+const closeMenu =
+    document.getElementById(
+        "closeMenu"
+    );
+
+
+const menuOverlay =
+    document.getElementById(
+        "menuOverlay"
+    );
+
+
+openMenu.addEventListener(
+    "click",
+    function () {
+
+        menuOverlay.classList.add(
+            "active"
+        );
+
+    }
+);
+
+
+closeMenu.addEventListener(
+    "click",
+    function () {
+
+        menuOverlay.classList.remove(
+            "active"
+        );
+
+    }
+);
+
+
+/* =================================================
+   CLOSE OUTSIDE MENU
+================================================= */
+
+menuOverlay.addEventListener(
+    "click",
+    function (event) {
+
+        if (
+            event.target === menuOverlay
+        ) {
 
             menuOverlay.classList.remove(
                 "active"
             );
 
         }
+
+    }
+);
+
+
+
+/* =================================================
+   MENU BUTTONS
+================================================= */
+
+document
+    .getElementById("addTournamentBtn")
+    .addEventListener(
+        "click",
+        function () {
+
+            console.log(
+                "Add Tournament / Series"
+            );
+
+        }
+    );
+
+
+document
+    .getElementById("newMatchBtn")
+    .addEventListener(
+        "click",
+        function () {
+
+            console.log(
+                "Start New Match"
+            );
+
+        }
+    );
+
+
+document
+    .getElementById("myCricketBtn")
+    .addEventListener(
+        "click",
+        function () {
+
+            console.log(
+                "My Cricket"
+            );
+
+        }
+    );
+
+
+document
+    .getElementById("contactBtn")
+    .addEventListener(
+        "click",
+        function () {
+
+            console.log(
+                "Contact"
+            );
+
+        }
     );
 
 
 
-    /* =========================================
-       CLOSE OUTSIDE
-    ========================================= */
+/* =================================================
+   SHARE
+================================================= */
 
-    menuOverlay.addEventListener(
+document
+    .getElementById("shareBtn")
+    .addEventListener(
         "click",
-        function (event) {
+        async function () {
+
+
+            const shareData = {
+
+                title:
+                    "CRICKPULSE",
+
+                text:
+                    "Join me on CRICKPULSE.",
+
+                url:
+                    window.location.origin
+
+            };
+
 
             if (
-                event.target === menuOverlay
+                navigator.share
             ) {
 
-                menuOverlay.classList.remove(
-                    "active"
-                );
+                try {
+
+                    await navigator.share(
+                        shareData
+                    );
+
+                } catch (error) {
+
+                    console.log(
+                        "Share cancelled."
+                    );
+
+                }
+
+            } else {
+
+                try {
+
+                    await navigator.clipboard.writeText(
+                        window.location.origin
+                    );
+
+
+                    alert(
+                        "CRICKPULSE link copied."
+                    );
+
+                } catch (error) {
+
+                    alert(
+                        "Please copy the site link manually."
+                    );
+
+                }
 
             }
 
@@ -1256,143 +1355,9 @@
     );
 
 
-
-    /* =========================================
-       MENU BUTTONS
-    ========================================= */
-
-    document
-        .getElementById("addTournamentBtn")
-        .addEventListener(
-            "click",
-            function () {
-
-                console.log(
-                    "Add Tournament / Series"
-                );
-
-            }
-        );
-
-
-    document
-        .getElementById("newMatchBtn")
-        .addEventListener(
-            "click",
-            function () {
-
-                console.log(
-                    "Start New Match"
-                );
-
-            }
-        );
-
-
-    document
-        .getElementById("myCricketBtn")
-        .addEventListener(
-            "click",
-            function () {
-
-                console.log(
-                    "My Cricket"
-                );
-
-            }
-        );
-
-
-    document
-        .getElementById("contactBtn")
-        .addEventListener(
-            "click",
-            function () {
-
-                console.log(
-                    "Contact"
-                );
-
-            }
-        );
-
-
-
-    /* =========================================
-       SHARE
-    ========================================= */
-
-    document
-        .getElementById("shareBtn")
-        .addEventListener(
-            "click",
-            async function () {
-
-
-                const shareData = {
-
-                    title:
-                        "CRICKPULSE",
-
-                    text:
-                        "Join me on CRICKPULSE.",
-
-                    url:
-                        window.location.origin
-
-                };
-
-
-                if (
-                    navigator.share
-                ) {
-
-                    try {
-
-                        await navigator.share(
-                            shareData
-                        );
-
-                    } catch (error) {
-
-                        console.log(
-                            "Share cancelled."
-                        );
-
-                    }
-
-                } else {
-
-                    try {
-
-                        await navigator.clipboard.writeText(
-                            window.location.origin
-                        );
-
-
-                        alert(
-                            "CRICKPULSE link copied."
-                        );
-
-                    } catch (error) {
-
-                        alert(
-                            "Please copy the site link manually."
-                        );
-
-                    }
-
-                }
-
-            }
-        );
-
-
-
-    console.log(
-        "CRICKPULSE dashboard loaded."
-    );
-
+console.log(
+    "CRICKPULSE dashboard loaded."
+);
 
 </script>
 
