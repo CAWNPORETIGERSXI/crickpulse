@@ -24,174 +24,548 @@
 
     <style>
 
-        .auth-page {
-            min-height: calc(100vh - 72px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 16px;
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(255,136,0,.12),
-                    transparent 55%
-                ),
-                #050505;
-        }
+/* =========================================================
+   CRICKPULSE AUTH SCREEN
+   WHITE + PURPLE + RED + BLACK
+   LARGE + THIN + CLEAN FONT
+========================================================= */
 
-        .auth-card {
-            width: 100%;
-            max-width: 440px;
-            padding: 32px 22px;
-            background: #101010;
-            border: 1px solid rgba(255,136,0,.30);
-            border-radius: 18px;
-            box-shadow:
-                0 0 35px rgba(255,136,0,.08);
-            text-align: center;
-        }
+.auth-page {
 
-        .auth-logo {
-            width: 62px;
-            height: 62px;
-            margin: 0 auto 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #ff8800;
-            color: #050505;
-            border-radius: 14px;
-            font-size: 21px;
-            font-weight: 900;
-        }
+    min-height: calc(100vh - 72px);
 
-        .auth-card h1 {
-            margin: 0;
-            font-size: 28px;
-            font-weight: 900;
-        }
+    display: flex;
 
-        .auth-card h1 span {
-            color: #ff8800;
-        }
+    align-items: center;
 
-        .subtitle {
-            margin: 9px 0 28px;
-            color: #a9a9a9;
-            font-size: 14px;
-        }
+    justify-content: center;
 
-        .auth-label {
-            display: block;
-            margin: 14px 0 8px;
-            color: #fff;
-            font-size: 13px;
-            font-weight: 700;
-            text-align: left;
-        }
+    padding: 40px 16px;
 
-        .auth-input {
-            width: 100%;
-            padding: 14px 13px;
-            background: #050505;
-            border: 1px solid #333;
-            border-radius: 8px;
-            color: #fff;
-            font-size: 16px;
-            outline: none;
-            box-sizing: border-box;
-        }
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(109, 53, 217, 0.12),
+            transparent 55%
+        ),
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #faf8ff
+        );
+}
 
-        .auth-input:focus {
-            border-color: #ff8800;
-            box-shadow:
-                0 0 0 2px rgba(255,136,0,.08);
-        }
 
-        .pin-input {
-            text-align: center;
-            letter-spacing: 8px;
-            font-size: 22px;
-            font-weight: 800;
-        }
+/* =========================================================
+   AUTH CARD
+========================================================= */
 
-        .auth-btn {
-            width: 100%;
-            margin-top: 18px;
-            padding: 14px;
-            border: 0;
-            border-radius: 8px;
-            background: #ff8800;
-            color: #050505;
-            font-size: 14px;
-            font-weight: 900;
-            cursor: pointer;
-        }
+.auth-card {
 
-        .auth-btn:disabled {
-            opacity: .55;
-            cursor: not-allowed;
-        }
+    width: 100%;
 
-        .secondary-btn {
-            width: 100%;
-            margin-top: 10px;
-            padding: 13px;
-            border: 1px solid #333;
-            border-radius: 8px;
-            background: transparent;
-            color: #fff;
-            font-weight: 800;
-            cursor: pointer;
-        }
+    max-width: 440px;
 
-        .link-btn {
-            margin-top: 15px;
-            border: 0;
-            background: transparent;
-            color: #ff8800;
-            font-size: 13px;
-            font-weight: 800;
-            cursor: pointer;
-        }
+    padding: 34px 24px;
 
-        .message {
-            min-height: 20px;
-            margin-top: 18px;
-            font-size: 13px;
-            line-height: 1.5;
-        }
+    background: #ffffff;
 
-        .message.error {
-            color: #ff4a4a;
-        }
+    border:
+        1px solid #e3d8ff;
 
-        .message.success {
-            color: #55d66a;
-        }
+    border-radius: 20px;
 
-        .hidden {
-            display: none;
-        }
+    box-shadow:
+        0 18px 55px
+        rgba(65, 45, 110, 0.12);
 
-        .security-note {
-            margin-top: 25px;
-            color: #666;
-            font-size: 11px;
-            line-height: 1.5;
-        }
+    text-align: center;
+}
 
-        .back-home {
-            display: inline-block;
-            margin-top: 20px;
-            color: #999;
-            text-decoration: none;
-            font-size: 12px;
-        }
 
-        .back-home:hover {
-            color: #ff8800;
-        }
+/* =========================================================
+   AUTH LOGO
+========================================================= */
+
+.auth-logo {
+
+    width: 64px;
+
+    height: 64px;
+
+    margin:
+        0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d35d9,
+            #8b5cf6
+        );
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    font-weight: 500;
+
+    box-shadow:
+        0 9px 25px
+        rgba(109, 53, 217, 0.22);
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.auth-card h1 {
+
+    margin: 0;
+
+    color: #17171f;
+
+    font-size: 30px;
+
+    line-height: 1.2;
+
+    font-weight: 500;
+
+    letter-spacing: 0.3px;
+}
+
+.auth-card h1 span {
+
+    color: #6d35d9;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
+.subtitle {
+
+    margin:
+        10px 0 28px;
+
+    color: #707080;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.auth-label {
+
+    display: block;
+
+    margin:
+        16px 0 8px;
+
+    color: #292934;
+
+    font-size: 15px;
+
+    line-height: 1.4;
+
+    font-weight: 500;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.auth-input {
+
+    width: 100%;
+
+    padding:
+        15px 14px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #dedee7;
+
+    border-radius: 10px;
+
+    color: #17171f;
+
+    font-size: 17px;
+
+    font-weight: 400;
+
+    outline: none;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.auth-input::placeholder {
+
+    color: #aaaab5;
+
+    font-weight: 400;
+}
+
+.auth-input:focus {
+
+    border-color: #6d35d9;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(109, 53, 217, 0.10);
+}
+
+
+/* =========================================================
+   PIN INPUT
+========================================================= */
+
+.pin-input {
+
+    text-align: center;
+
+    letter-spacing: 8px;
+
+    font-size: 23px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   MAIN BUTTON
+========================================================= */
+
+.auth-btn {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border: 0;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d35d9,
+            #8b5cf6
+        );
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.3px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 22px
+        rgba(109, 53, 217, 0.20);
+}
+
+.auth-btn:disabled {
+
+    opacity: 0.55;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+========================================================= */
+
+.secondary-btn {
+
+    width: 100%;
+
+    margin-top: 11px;
+
+    padding: 14px;
+
+    border:
+        1px solid #e0d7f5;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #17171f;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+.secondary-btn:hover {
+
+    background: #f5f0ff;
+
+    border-color: #6d35d9;
+
+    color: #6d35d9;
+}
+
+
+/* =========================================================
+   FORGOT PIN
+========================================================= */
+
+.link-btn {
+
+    margin-top: 16px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #6d35d9;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+.link-btn:hover {
+
+    color: #5420b8;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.message {
+
+    min-height: 22px;
+
+    margin-top: 18px;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    font-weight: 400;
+}
+
+.message.error {
+
+    color: #e5485d;
+}
+
+.message.success {
+
+    color: #239b5b;
+}
+
+
+/* =========================================================
+   HIDDEN
+========================================================= */
+
+.hidden {
+
+    display: none;
+}
+
+
+/* =========================================================
+   SECURITY NOTE
+========================================================= */
+
+.security-note {
+
+    margin-top: 25px;
+
+    color: #92929d;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   BACK HOME
+========================================================= */
+
+.back-home {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: #777784;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 400;
+}
+
+.back-home:hover {
+
+    color: #6d35d9;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .auth-page {
+
+        min-height: calc(100vh - 68px);
+
+        padding:
+            28px 15px 40px;
+    }
+
+    .auth-card {
+
+        padding:
+            30px 20px;
+
+        border-radius:
+            18px;
+    }
+
+    .auth-logo {
+
+        width: 60px;
+
+        height: 60px;
+
+        font-size: 19px;
+    }
+
+    .auth-card h1 {
+
+        font-size: 28px;
+
+        font-weight: 500;
+    }
+
+    .subtitle {
+
+        font-size: 15px;
+
+        margin-bottom: 25px;
+    }
+
+    .auth-label {
+
+        font-size: 15px;
+
+        font-weight: 500;
+    }
+
+    .auth-input {
+
+        padding:
+            15px 13px;
+
+        font-size: 17px;
+    }
+
+    .pin-input {
+
+        font-size: 22px;
+
+        letter-spacing: 8px;
+    }
+
+    .auth-btn {
+
+        padding: 16px;
+
+        font-size: 16px;
+    }
+
+    .secondary-btn {
+
+        padding: 15px;
+
+        font-size: 15px;
+    }
+
+    .link-btn {
+
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .auth-card {
+
+        padding:
+            27px 17px;
+    }
+
+    .auth-card h1 {
+
+        font-size: 26px;
+    }
+
+    .auth-input {
+
+        font-size: 16px;
+    }
+
+    .auth-label {
+
+        font-size: 14px;
+    }
+}
 
     </style>
 
@@ -200,6 +574,10 @@
 
 <body>
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header class="header">
 
@@ -233,29 +611,39 @@
 </header>
 
 
+<!-- =====================================================
+     AUTH PAGE
+===================================================== -->
 
 <main class="auth-page">
 
     <div class="auth-card">
 
+
+        <!-- LOGO -->
+
         <div class="auth-logo">
             CP
         </div>
+
+
+        <!-- TITLE -->
 
         <h1>
             CRICK<span>PULSE</span>
         </h1>
 
 
-        <!-- ================================
+        <!-- =================================================
              LOGIN
-        ================================= -->
+        ================================================== -->
 
         <section id="loginBox">
 
             <p class="subtitle">
                 Login to your CRICKPULSE account
             </p>
+
 
             <label
                 class="auth-label"
@@ -274,6 +662,7 @@
                 autocomplete="tel"
             >
 
+
             <label
                 class="auth-label"
                 for="loginPin"
@@ -291,6 +680,7 @@
                 autocomplete="current-password"
             >
 
+
             <button
                 id="loginBtn"
                 class="auth-btn"
@@ -299,6 +689,7 @@
                 LOGIN
             </button>
 
+
             <button
                 id="forgotPinBtn"
                 class="link-btn"
@@ -306,6 +697,7 @@
             >
                 Forgot PIN?
             </button>
+
 
             <button
                 id="createAccountBtn"
@@ -318,10 +710,9 @@
         </section>
 
 
-
-        <!-- ================================
+        <!-- =================================================
              REGISTER
-        ================================= -->
+        ================================================== -->
 
         <section
             id="registerBox"
@@ -331,6 +722,7 @@
             <p class="subtitle">
                 Create your CRICKPULSE account
             </p>
+
 
             <label
                 class="auth-label"
@@ -348,6 +740,7 @@
                 placeholder="Enter mobile number"
             >
 
+
             <label
                 class="auth-label"
                 for="registerEmail"
@@ -362,6 +755,7 @@
                 placeholder="example@gmail.com"
                 autocomplete="email"
             >
+
 
             <label
                 class="auth-label"
@@ -379,6 +773,7 @@
                 placeholder="••••"
             >
 
+
             <label
                 class="auth-label"
                 for="confirmPin"
@@ -395,6 +790,7 @@
                 placeholder="••••"
             >
 
+
             <button
                 id="registerBtn"
                 class="auth-btn"
@@ -402,6 +798,7 @@
             >
                 CREATE ACCOUNT
             </button>
+
 
             <button
                 id="backLoginBtn"
@@ -414,10 +811,9 @@
         </section>
 
 
-
-        <!-- ================================
+        <!-- =================================================
              FORGOT PIN
-        ================================= -->
+        ================================================== -->
 
         <section
             id="forgotBox"
@@ -428,6 +824,8 @@
                 Reset your CRICKPULSE PIN
             </p>
 
+
+            <!-- STEP 1 -->
 
             <div id="forgotStep1">
 
@@ -476,6 +874,8 @@
             </div>
 
 
+            <!-- STEP 2 -->
+
             <div
                 id="forgotStep2"
                 class="hidden"
@@ -484,6 +884,7 @@
                 <p class="subtitle">
                     Enter the 6-digit OTP sent to your Gmail.
                 </p>
+
 
                 <label
                     class="auth-label"
@@ -502,6 +903,7 @@
                     autocomplete="one-time-code"
                 >
 
+
                 <button
                     id="verifyForgotOtpBtn"
                     class="auth-btn"
@@ -513,6 +915,8 @@
             </div>
 
 
+            <!-- STEP 3 -->
+
             <div
                 id="forgotStep3"
                 class="hidden"
@@ -521,6 +925,7 @@
                 <p class="subtitle">
                     Create your new 4-digit PIN.
                 </p>
+
 
                 <label
                     class="auth-label"
@@ -539,6 +944,7 @@
                     autocomplete="new-password"
                 >
 
+
                 <label
                     class="auth-label"
                     for="forgotConfirmPin"
@@ -555,6 +961,7 @@
                     placeholder="••••"
                     autocomplete="new-password"
                 >
+
 
                 <button
                     id="resetForgotPinBtn"
@@ -578,6 +985,7 @@
         </section>
 
 
+        <!-- MESSAGE -->
 
         <div
             id="message"
@@ -585,11 +993,15 @@
         ></div>
 
 
+        <!-- SECURITY -->
+
         <p class="security-note">
             Your recovery email is used only
             for account recovery.
         </p>
 
+
+        <!-- BACK HOME -->
 
         <a
             href="index.html"
@@ -603,6 +1015,10 @@
 </main>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+     LOGIN / REGISTER / FORGOT PIN
+===================================================== -->
 
 <script>
 
@@ -664,7 +1080,7 @@ function onlyDigits(input) {
 
 /* =====================================
    LOGIN
-   LOGIN SUCCESS → DASHBOARD
+   SUCCESS → DASHBOARD
 ====================================== */
 
 document
@@ -761,11 +1177,6 @@ document
             }
 
 
-            /*
-             * LOGIN SUCCESS
-             * Save basic login state
-             */
-
             sessionStorage.setItem(
                 "crickpulseLoggedIn",
                 "true"
@@ -782,10 +1193,6 @@ document
                 "success"
             );
 
-
-            /*
-             * OPEN DASHBOARD
-             */
 
             setTimeout(function () {
 
@@ -817,7 +1224,6 @@ document
         }
 
     });
-
 
 
 /* =====================================
@@ -1005,9 +1411,8 @@ document
     });
 
 
-
 /* =====================================
-   FORGOT PIN - SEND OTP
+   FORGOT PIN — SEND OTP
 ====================================== */
 
 document
@@ -1116,13 +1521,13 @@ document
                 data.token || "";
 
 
-            forgotStep1
-                .classList
-                .add("hidden");
+            forgotStep1.classList.add(
+                "hidden"
+            );
 
-            forgotStep2
-                .classList
-                .remove("hidden");
+            forgotStep2.classList.remove(
+                "hidden"
+            );
 
 
             showMessage(
@@ -1153,7 +1558,6 @@ document
         }
 
     });
-
 
 
 /* =====================================
@@ -1248,13 +1652,13 @@ document
                 recoveryOtpToken;
 
 
-            forgotStep2
-                .classList
-                .add("hidden");
+            forgotStep2.classList.add(
+                "hidden"
+            );
 
-            forgotStep3
-                .classList
-                .remove("hidden");
+            forgotStep3.classList.remove(
+                "hidden"
+            );
 
 
             showMessage(
@@ -1285,7 +1689,6 @@ document
         }
 
     });
-
 
 
 /* =====================================
@@ -1437,17 +1840,17 @@ document
                     .value = "";
 
 
-                forgotStep1
-                    .classList
-                    .remove("hidden");
+                forgotStep1.classList.remove(
+                    "hidden"
+                );
 
-                forgotStep2
-                    .classList
-                    .add("hidden");
+                forgotStep2.classList.add(
+                    "hidden"
+                );
 
-                forgotStep3
-                    .classList
-                    .add("hidden");
+                forgotStep3.classList.add(
+                    "hidden"
+                );
 
 
                 recoveryMobile = "";
@@ -1483,9 +1886,8 @@ document
     });
 
 
-
 /* =====================================
-   SCREEN SWITCHING
+   CREATE ACCOUNT
 ====================================== */
 
 document
@@ -1503,6 +1905,10 @@ document
     });
 
 
+/* =====================================
+   BACK TO LOGIN
+====================================== */
+
 document
     .getElementById("backLoginBtn")
     .addEventListener("click", function () {
@@ -1518,6 +1924,10 @@ document
     });
 
 
+/* =====================================
+   FORGOT PIN SCREEN
+====================================== */
+
 document
     .getElementById("forgotPinBtn")
     .addEventListener("click", function () {
@@ -1529,17 +1939,27 @@ document
         forgotBox.classList.remove("hidden");
 
 
-        forgotStep1.classList.remove("hidden");
+        forgotStep1.classList.remove(
+            "hidden"
+        );
 
-        forgotStep2.classList.add("hidden");
+        forgotStep2.classList.add(
+            "hidden"
+        );
 
-        forgotStep3.classList.add("hidden");
+        forgotStep3.classList.add(
+            "hidden"
+        );
 
 
         showMessage("", "");
 
     });
 
+
+/* =====================================
+   FORGOT BACK
+====================================== */
 
 document
     .getElementById("forgotBackBtn")
@@ -1554,7 +1974,6 @@ document
         showMessage("", "");
 
     });
-
 
 
 /* =====================================
@@ -1590,6 +2009,10 @@ document
 
 });
 
+
+/* =====================================
+   SYSTEM READY
+====================================== */
 
 console.log(
     "CRICKPULSE authentication system loaded."
