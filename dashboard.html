@@ -2,1150 +2,698 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>CRICKPULSE | Home</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
-    --purple:#6d35d9;
-    --purple-dark:#5420b8;
-    --purple-light:#8b5cf6;
-
-    --purple-bg:#f3efff;
-    --red:#ff6475;
-    --red-bg:#fff0f2;
-
-    --black:#17171f;
-    --dark:#292933;
-    --gray:#777783;
-    --border:#e7e6ec;
-
-    --white:#ffffff;
-    --page:#faf9fc;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Inter",sans-serif;
-}
-
-body{
-    background:var(--page);
-    color:var(--black);
-    padding-bottom:92px;
-    -webkit-font-smoothing:antialiased;
-}
-
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-/* ================= HEADER ================= */
-
-.header{
-    height:70px;
-    background:#fff;
-    border-bottom:1px solid var(--border);
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.header-inner{
-    height:100%;
-    padding:0 18px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.logo-area{
-    display:flex;
-    align-items:center;
-    gap:11px;
-}
-
-.logo{
-    width:43px;
-    height:43px;
-    border-radius:12px;
-    background:linear-gradient(135deg,var(--purple),var(--purple-light));
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:15px;
-    font-weight:900;
-}
-
-.logo-name{
-    font-size:21px;
-    line-height:1.05;
-    font-weight:900;
-}
-
-.logo-sub{
-    margin-top:3px;
-    font-size:10px;
-    color:var(--gray);
-    font-weight:600;
-}
-
-.header-right{
-    display:flex;
-    align-items:center;
-    gap:13px;
-}
-
-.bell{
-    width:38px;
-    height:38px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:20px;
-}
-
-.header-avatar{
-    width:41px;
-    height:41px;
-    border-radius:50%;
-    background:var(--purple-bg);
-    border:2px solid #dfd2ff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:19px;
-    color:var(--purple);
-}
-
-/* ================= PAGE ================= */
-
-.page{
-    max-width:1050px;
-    margin:auto;
-    padding:20px 16px 30px;
-}
-
-/* ================= PROFILE ================= */
-
-.profile{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-    margin-bottom:28px;
-}
-
-.profile-left{
-    display:flex;
-    align-items:center;
-    gap:13px;
-    min-width:0;
-}
-
-.profile-photo{
-    width:64px;
-    height:64px;
-    flex-shrink:0;
-    border-radius:50%;
-    background:var(--purple-bg);
-    border:2px solid #dfd2ff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:27px;
-}
-
-.profile-text{
-    min-width:0;
-}
-
-.profile-text h1{
-    font-size:24px;
-    line-height:1.18;
-    font-weight:900;
-}
-
-.profile-text p{
-    margin-top:5px;
-    color:var(--gray);
-    font-size:14px;
-    font-weight:600;
-}
-
-.follow{
-    flex-shrink:0;
-    border:0;
-    background:var(--purple);
-    color:#fff;
-    height:40px;
-    padding:0 17px;
-    border-radius:21px;
-    font-size:14px;
-    font-weight:800;
-}
-
-/* ================= SECTION ================= */
-
-.section{
-    margin-top:27px;
-}
-
-.section-head{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:14px;
-}
-
-.section-title{
-    font-size:24px;
-    line-height:1.2;
-    font-weight:900;
-}
-
-.view{
-    color:var(--purple);
-    font-size:14px;
-    font-weight:800;
-}
-
-/* ================= MATCHES ================= */
-
-.match-row{
-    display:flex;
-    gap:14px;
-    overflow-x:auto;
-    padding:2px 2px 12px;
-    scrollbar-width:none;
-}
-
-.match-row::-webkit-scrollbar{
-    display:none;
-}
-
-.match{
-    min-width:310px;
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:17px;
-    padding:17px;
-    box-shadow:0 5px 20px rgba(50,40,90,.07);
-}
-
-.match-top{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:12px;
-}
-
-.status{
-    display:flex;
-    align-items:center;
-    gap:6px;
-    padding:5px 10px;
-    border-radius:20px;
-    background:var(--red-bg);
-    color:var(--red);
-    font-size:11px;
-    font-weight:900;
-}
-
-.dot{
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:var(--red);
-}
-
-.format{
-    color:var(--gray);
-    font-size:12px;
-    font-weight:800;
-}
-
-.match-date{
-    color:var(--gray);
-    font-size:12px;
-    font-weight:600;
-    margin-bottom:14px;
-}
-
-.team{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    min-height:43px;
-}
-
-.team-left{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    min-width:0;
-}
-
-.team-logo{
-    width:34px;
-    height:34px;
-    flex-shrink:0;
-    border-radius:50%;
-    background:var(--purple-bg);
-    border:1px solid #dfd2ff;
-    color:var(--purple);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:11px;
-    font-weight:900;
-}
-
-.team-name{
-    font-size:15px;
-    font-weight:800;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-}
-
-.score{
-    font-size:15px;
-    font-weight:900;
-    flex-shrink:0;
-}
-
-.match-bottom{
-    border-top:1px solid var(--border);
-    margin-top:11px;
-    padding-top:11px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-}
-
-.result{
-    color:var(--purple);
-    font-size:11px;
-    font-weight:800;
-}
-
-.venue{
-    color:var(--gray);
-    font-size:10px;
-    font-weight:600;
-    text-align:right;
-}
-
-/* ================= QUICK MENU ================= */
-
-.quick{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-}
-
-.quick-card{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:16px;
-    min-height:94px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    box-shadow:0 4px 16px rgba(50,40,90,.06);
-}
-
-.quick-icon{
-    width:39px;
-    height:39px;
-    border-radius:12px;
-    background:var(--purple-bg);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:20px;
-}
-
-.quick-card span{
-    font-size:12px;
-    font-weight:800;
-}
-
-/* ================= PLAYERS ================= */
-
-.player-row{
-    display:flex;
-    gap:12px;
-    overflow-x:auto;
-    scrollbar-width:none;
-    padding:2px 2px 10px;
-}
-
-.player-row::-webkit-scrollbar{
-    display:none;
-}
-
-.player{
-    min-width:150px;
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:16px;
-    padding:15px;
-}
-
-.player-photo{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    background:var(--purple-bg);
-    border:1px solid #dfd2ff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:23px;
-    margin-bottom:9px;
-}
-
-.player-name{
-    font-size:14px;
-    font-weight:900;
-}
-
-.player-role{
-    color:var(--gray);
-    font-size:11px;
-    margin-top:3px;
-    font-weight:600;
-}
-
-/* ================= BOTTOM NAV ================= */
-
-.bottom-nav{
-    position:fixed;
-    left:0;
-    right:0;
-    bottom:0;
-    height:78px;
-    background:#fff;
-    border-top:1px solid var(--border);
-    box-shadow:0 -5px 20px rgba(40,30,70,.08);
-    z-index:3000;
-
-    display:flex;
-    align-items:stretch;
-}
-
-.nav-item{
-    flex:1;
-    min-width:0;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-
-    gap:5px;
-
-    color:#777783;
-
-    font-size:23px;
-    font-weight:700;
-
-    position:relative;
-}
-
-.nav-item span{
-    font-size:11px;
-    font-weight:800;
-    white-space:nowrap;
-}
-
-.nav-item.active{
-    color:var(--purple);
-}
-
-.nav-item.active::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:50%;
-    transform:translateX(-50%);
-    width:38px;
-    height:3px;
-    background:var(--purple);
-    border-radius:0 0 5px 5px;
-}
-
-/* ================= DESKTOP ================= */
-
-@media(min-width:701px){
-
-    .bottom-nav{
-        max-width:680px;
-        left:50%;
-        right:auto;
-        transform:translateX(-50%);
-        border:1px solid var(--border);
-        border-bottom:0;
-        border-radius:18px 18px 0 0;
-    }
-
-    .match-row{
-        overflow:visible;
-        display:grid;
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .match{
-        min-width:0;
-    }
-
-    .player-row{
-        overflow:visible;
-        display:grid;
-        grid-template-columns:repeat(4,1fr);
-    }
-
-    .player{
-        min-width:0;
-    }
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:500px){
-
-    .page{
-        padding:18px 14px 25px;
-    }
-
-    .profile{
-        margin-bottom:25px;
-    }
-
-    .profile-photo{
-        width:60px;
-        height:60px;
-    }
-
-    .profile-text h1{
-        font-size:21px;
-    }
-
-    .profile-text p{
-        font-size:13px;
-    }
-
-    .follow{
-        height:38px;
-        padding:0 14px;
-        font-size:13px;
-    }
-
-    .section{
-        margin-top:25px;
-    }
-
-    .section-title{
-        font-size:22px;
-    }
-
-    .match{
-        min-width:300px;
-    }
-
-    .quick{
-        gap:8px;
-    }
-
-    .quick-card{
-        min-height:88px;
-    }
-
-    .quick-card span{
-        font-size:10px;
-    }
-
-    .bottom-nav{
-        height:78px;
-    }
-
-    .nav-item{
-        font-size:22px;
-    }
-
-    .nav-item span{
-        font-size:10px;
-    }
-}
-
-@media(max-width:360px){
-
-    .brand-name{
-        font-size:18px;
-    }
-
-    .brand-sub{
-        font-size:9px;
-    }
-
-    .profile-text h1{
-        font-size:19px;
-    }
-
-    .section-title{
-        font-size:20px;
-    }
-
-    .match{
-        min-width:285px;
-    }
-
-    .nav-item{
-        font-size:20px;
-    }
-
-    .nav-item span{
-        font-size:9px;
-    }
-}
-
-</style>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="CRICKPULSE - Dashboard"
+    >
+
+    <title>CRICKPULSE | Home</title>
+
+    <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            background: #f7f5ff;
+            color: #171225;
+
+            min-height: 100vh;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        .top-header {
+
+            height: 68px;
+
+            background: #ffffff;
+
+            border-bottom: 1px solid #e7e1f5;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 16px;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+        }
+
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+
+        .brand-logo {
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 12px;
+
+            background: #6c35d9;
+
+            color: #ffffff;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 17px;
+
+            font-weight: 900;
+        }
+
+
+        .brand-name {
+
+            font-size: 21px;
+
+            font-weight: 900;
+
+            letter-spacing: .3px;
+        }
+
+
+        .brand-name span {
+
+            color: #6c35d9;
+        }
+
+
+        /* =========================================
+           HAMBURGER BUTTON
+        ========================================= */
+
+        .menu-button {
+
+            width: 46px;
+            height: 46px;
+
+            border: 0;
+
+            background: #f1edff;
+
+            border-radius: 12px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 5px;
+
+            cursor: pointer;
+        }
+
+
+        .menu-button span {
+
+            width: 22px;
+
+            height: 3px;
+
+            background: #5b2fc2;
+
+            border-radius: 10px;
+        }
+
+
+        /* =========================================
+           MAIN DASHBOARD
+        ========================================= */
+
+        .dashboard {
+
+            padding: 28px 16px 40px;
+
+            max-width: 700px;
+
+            margin: auto;
+        }
+
+
+        .welcome-card {
+
+            background: #ffffff;
+
+            border-radius: 20px;
+
+            padding: 25px 20px;
+
+            border: 1px solid #e8e1f7;
+
+            box-shadow:
+                0 8px 25px rgba(76, 45, 130, .07);
+        }
+
+
+        .welcome-small {
+
+            color: #7659a9;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            margin-bottom: 7px;
+        }
+
+
+        .welcome-title {
+
+            font-size: 28px;
+
+            line-height: 1.2;
+
+            font-weight: 900;
+        }
+
+
+        .welcome-title span {
+
+            color: #6c35d9;
+        }
+
+
+        .welcome-text {
+
+            margin-top: 10px;
+
+            color: #6d667c;
+
+            font-size: 16px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================================
+           SIDE MENU OVERLAY
+        ========================================= */
+
+        .menu-overlay {
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                rgba(15, 10, 25, .45);
+
+            z-index: 200;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition:
+                opacity .25s ease,
+                visibility .25s ease;
+        }
+
+
+        .menu-overlay.active {
+
+            opacity: 1;
+
+            visibility: visible;
+        }
+
+
+        /* =========================================
+           SIDE MENU
+        ========================================= */
+
+        .side-menu {
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: min(88%, 390px);
+
+            height: 100%;
+
+            background: #ffffff;
+
+            box-shadow:
+                8px 0 35px rgba(0,0,0,.18);
+
+            transform:
+                translateX(-100%);
+
+            transition:
+                transform .28s ease;
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+
+        .menu-overlay.active .side-menu {
+
+            transform:
+                translateX(0);
+        }
+
+
+        /* =========================================
+           MENU TOP
+        ========================================= */
+
+        .menu-top {
+
+            min-height: 68px;
+
+            padding: 0 16px;
+
+            border-bottom: 1px solid #eee9f7;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .menu-title {
+
+            font-size: 21px;
+
+            font-weight: 900;
+
+            color: #211733;
+        }
+
+
+        .close-button {
+
+            width: 42px;
+            height: 42px;
+
+            border: 0;
+
+            border-radius: 12px;
+
+            background: #f2eff9;
+
+            color: #33244d;
+
+            font-size: 27px;
+
+            line-height: 1;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           PART 1 - PLAYER PROFILE
+        ========================================= */
+
+        .profile-section {
+
+            padding: 20px 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f5f0ff,
+                    #ffffff
+                );
+
+            border-bottom: 1px solid #e8e1f5;
+        }
+
+
+        .profile-row {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+        }
+
+
+        .profile-photo {
+
+            width: 66px;
+            height: 66px;
+
+            flex: 0 0 66px;
+
+            border-radius: 50%;
+
+            background: #e8ddff;
+
+            border: 3px solid #ffffff;
+
+            box-shadow:
+                0 3px 12px rgba(92, 47, 180, .18);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #6c35d9;
+
+            font-size: 24px;
+
+            font-weight: 900;
+
+            overflow: hidden;
+        }
+
+
+        .profile-photo img {
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: none;
+        }
+
+
+        .profile-info {
+
+            min-width: 0;
+
+            flex: 1;
+        }
+
+
+        .profile-name {
+
+            font-size: 20px;
+
+            font-weight: 900;
+
+            color: #1b1428;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+        }
+
+
+        .profile-mobile {
+
+            margin-top: 4px;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            color: #665d72;
+        }
+
+
+        .profile-email {
+
+            margin-top: 3px;
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            color: #786f85;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+        }
+
+
+        /* =========================================
+           PART 2 - MENU
+        ========================================= */
+
+        .menu-section {
+
+            padding: 12px 12px 20px;
+
+            overflow-y: auto;
+
+            flex: 1;
+        }
+
+
+        .menu-label {
+
+            padding: 8px 10px 10px;
+
+            color: #8b819a;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        .menu-item {
+
+            width: 100%;
+
+            min-height: 58px;
+
+            border: 0;
+
+            background: transparent;
+
+            border-radius: 13px;
+
+            padding: 10px 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            text-align: left;
+
+            cursor: pointer;
+
+            color: #251b35;
+
+            font-size: 16px;
+
+            font-weight: 750;
+        }
+
+
+        .menu-item:hover {
+
+            background: #f4f0ff;
+        }
+
+
+        .menu-icon {
+
+            width: 38px;
+            height: 38px;
+
+            flex: 0 0 38px;
+
+            border-radius: 10px;
+
+            background: #f0eaff;
+
+            color: #6430c5;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 19px;
+
+            font-weight: 800;
+        }
+
+
+        .menu-item-text {
+
+            flex: 1;
+
+            line-height: 1.25;
+        }
+
+
+        .menu-arrow {
+
+            color: #aaa1b4;
+
+            font-size: 22px;
+
+            font-weight: 500;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 480px) {
+
+            .brand-name {
+
+                font-size: 19px;
+            }
+
+            .dashboard {
+
+                padding-top: 20px;
+            }
+
+            .welcome-title {
+
+                font-size: 26px;
+            }
+
+            .side-menu {
+
+                width: 91%;
+            }
+
+            .profile-name {
+
+                font-size: 19px;
+            }
+
+            .menu-item {
+
+                font-size: 16px;
+
+                min-height: 60px;
+            }
+        }
+
+    </style>
+
 </head>
 
 
 <body>
 
 
-<!-- ================= HEADER ================= -->
+<!-- =========================================
+     HEADER
+========================================= -->
 
-<header class="header">
+<header class="top-header">
 
-    <div class="header-inner">
+    <div class="brand">
 
-        <a href="dashboard.html" class="logo-area">
+        <div class="brand-logo">
+            CP
+        </div>
 
-            <div class="logo">
-                CP
-            </div>
-
-            <div>
-                <div class="logo-name">
-                    CRICKPULSE
-                </div>
-
-                <div class="logo-sub">
-                    Your Cricket. Your Pulse.
-                </div>
-            </div>
-
-        </a>
-
-
-        <div class="header-right">
-
-            <a href="#" class="bell">
-                🔔
-            </a>
-
-            <a href="#" class="header-avatar">
-                👤
-            </a>
-
+        <div class="brand-name">
+            CRICK<span>PULSE</span>
         </div>
 
     </div>
+
+
+    <button
+        class="menu-button"
+        id="openMenu"
+        aria-label="Open menu"
+    >
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
 
 </header>
 
 
 
-<!-- ================= MAIN ================= -->
+<!-- =========================================
+     DASHBOARD
+========================================= -->
 
-<main class="page">
+<main class="dashboard">
 
+    <section class="welcome-card">
 
-    <!-- PROFILE -->
-
-    <section class="profile">
-
-        <div class="profile-left">
-
-            <div class="profile-photo">
-                👤
-            </div>
-
-            <div class="profile-text">
-
-                <h1>
-                    Welcome to CRICKPULSE
-                </h1>
-
-                <p>
-                    Follow players, teams & matches
-                </p>
-
-            </div>
-
+        <div class="welcome-small">
+            Welcome to
         </div>
 
-
-        <button class="follow">
-            + Follow
-        </button>
-
-    </section>
-
-
-
-    <!-- MATCHES -->
-
-    <section class="section">
-
-        <div class="section-head">
-
-            <h2 class="section-title">
-                Matches of Your Interest
-            </h2>
-
-            <a href="#" class="view">
-                View All
-            </a>
-
-        </div>
-
-
-        <div class="match-row">
-
-
-            <a href="#" class="match">
-
-                <div class="match-top">
-
-                    <div class="status">
-                        <span class="dot"></span>
-                        LIVE
-                    </div>
-
-                    <div class="format">
-                        T20
-                    </div>
-
-                </div>
-
-                <div class="match-date">
-                    Today • 6:00 PM
-                </div>
-
-
-                <div class="team">
-
-                    <div class="team-left">
-
-                        <div class="team-logo">
-                            CP
-                        </div>
-
-                        <div class="team-name">
-                            CRICKPULSE XI
-                        </div>
-
-                    </div>
-
-                    <div class="score">
-                        148/4
-                    </div>
-
-                </div>
-
-
-                <div class="team">
-
-                    <div class="team-left">
-
-                        <div class="team-logo">
-                            W
-                        </div>
-
-                        <div class="team-name">
-                            WARRIORS XI
-                        </div>
-
-                    </div>
-
-                    <div class="score">
-                        145/7
-                    </div>
-
-                </div>
-
-
-                <div class="match-bottom">
-
-                    <div class="result">
-                        CRICKPULSE XI need 3 runs
-                    </div>
-
-                    <div class="venue">
-                        Main Ground
-                    </div>
-
-                </div>
-
-            </a>
-
-
-
-            <a href="#" class="match">
-
-                <div class="match-top">
-
-                    <div class="status"
-                         style="background:#f3efff;color:#6d35d9;">
-
-                        <span class="dot"
-                              style="background:#6d35d9;"></span>
-
-                        UPCOMING
-
-                    </div>
-
-                    <div class="format">
-                        T20
-                    </div>
-
-                </div>
-
-                <div class="match-date">
-                    Tomorrow • 5:30 PM
-                </div>
-
-
-                <div class="team">
-
-                    <div class="team-left">
-
-                        <div class="team-logo">
-                            CP
-                        </div>
-
-                        <div class="team-name">
-                            CRICKPULSE XI
-                        </div>
-
-                    </div>
-
-                    <div class="score">
-                        —
-                    </div>
-
-                </div>
-
-
-                <div class="team">
-
-                    <div class="team-left">
-
-                        <div class="team-logo">
-                            T
-                        </div>
-
-                        <div class="team-name">
-                            TIGERS XI
-                        </div>
-
-                    </div>
-
-                    <div class="score">
-                        —
-                    </div>
-
-                </div>
-
-
-                <div class="match-bottom">
-
-                    <div class="result">
-                        Match starts at 5:30 PM
-                    </div>
-
-                    <div class="venue">
-                        Stadium
-                    </div>
-
-                </div>
-
-            </a>
-
-
-
-            <a href="#" class="match">
-
-                <div class="match-top">
-
-                    <div class="status"
-                         style="background:#f3efff;color:#6d35d9;">
-
-                        <span class="dot"
-                              style="background:#6d35d9;"></span>
-
-                        UPCOMING
-
-                    </div>
-
-                    <div class="format">
-                        ODI
-                    </div>
-
-                </div>
-
-                <div class="match-date">
-                    Friday • 10:00 AM
-                </div>
-
-
-                <div class="team">
-
-                    <div class="team-left">
-
-                        <div class="team-logo">
-                            A
-                        </div>
-
-                        <div class="team-name">
-                            ALL STARS XI
-                        </div>
-
-                    </div>
-
-                    <div class="score">
-                        —
-                    </div>
-
-                </div>
-
-
-                <div class="team">
-
-                    <div class="team-left">
-
-                        <div class="team-logo">
-                            K
-                        </div>
-
-                        <div class="team-name">
-                            KINGS XI
-                        </div>
-
-                    </div>
-
-                    <div class="score">
-                        —
-                    </div>
-
-                </div>
-
-
-                <div class="match-bottom">
-
-                    <div class="result">
-                        Follow this match
-                    </div>
-
-                    <div class="venue">
-                        Cricket Ground
-                    </div>
-
-                </div>
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- QUICK MENU -->
-
-    <section class="section">
-
-        <div class="section-head">
-
-            <h2 class="section-title">
-                My Cricket
-            </h2>
-
-            <a href="#" class="view">
-                View All
-            </a>
-
-        </div>
-
-
-        <div class="quick">
-
-            <a href="#" class="quick-card">
-
-                <div class="quick-icon">
-                    🏏
-                </div>
-
-                <span>
-                    My Matches
-                </span>
-
-            </a>
-
-
-            <a href="#" class="quick-card">
-
-                <div class="quick-icon">
-                    👥
-                </div>
-
-                <span>
-                    My Teams
-                </span>
-
-            </a>
-
-
-            <a href="#" class="quick-card">
-
-                <div class="quick-icon">
-                    ⭐
-                </div>
-
-                <span>
-                    Players
-                </span>
-
-            </a>
-
-
-            <a href="#" class="quick-card">
-
-                <div class="quick-icon">
-                    📊
-                </div>
-
-                <span>
-                    My Stats
-                </span>
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- PLAYERS -->
-
-    <section class="section">
-
-        <div class="section-head">
-
-            <h2 class="section-title">
-                Players You May Know
-            </h2>
-
-            <a href="#" class="view">
-                View All
-            </a>
-
-        </div>
-
-
-        <div class="player-row">
-
-
-            <a href="#" class="player">
-
-                <div class="player-photo">
-                    👤
-                </div>
-
-                <div class="player-name">
-                    Player Profile
-                </div>
-
-                <div class="player-role">
-                    Batsman
-                </div>
-
-            </a>
-
-
-            <a href="#" class="player">
-
-                <div class="player-photo">
-                    👤
-                </div>
-
-                <div class="player-name">
-                    Player Profile
-                </div>
-
-                <div class="player-role">
-                    Bowler
-                </div>
-
-            </a>
-
-
-            <a href="#" class="player">
-
-                <div class="player-photo">
-                    👤
-                </div>
-
-                <div class="player-name">
-                    Player Profile
-                </div>
-
-                <div class="player-role">
-                    All Rounder
-                </div>
-
-            </a>
-
-
-            <a href="#" class="player">
-
-                <div class="player-photo">
-                    👤
-                </div>
-
-                <div class="player-name">
-                    Player Profile
-                </div>
-
-                <div class="player-role">
-                    Wicket Keeper
-                </div>
-
-            </a>
-
-        </div>
+        <h1 class="welcome-title">
+            CRICK<span>PULSE</span>
+        </h1>
+
+        <p class="welcome-text">
+            Your cricket journey starts here.
+        </p>
 
     </section>
 
@@ -1153,71 +701,482 @@ a{
 
 
 
-<!-- ================= BOTTOM NAV ================= -->
+<!-- =========================================
+     HAMBURGER MENU
+========================================= -->
 
-<nav class="bottom-nav">
-
-    <a href="dashboard.html"
-       class="nav-item active">
-
-        🏠
-
-        <span>
-            Home
-        </span>
-
-    </a>
+<div
+    class="menu-overlay"
+    id="menuOverlay"
+>
 
 
-    <a href="#looking"
-       class="nav-item">
-
-        🔎
-
-        <span>
-            Looking
-        </span>
-
-    </a>
+    <aside class="side-menu">
 
 
-    <a href="#my-cricket"
-       class="nav-item">
+        <!-- MENU HEADER -->
 
-        🏏
+        <div class="menu-top">
 
-        <span>
-            My Cricket
-        </span>
+            <div class="menu-title">
+                CRICKPULSE
+            </div>
 
-    </a>
+            <button
+                class="close-button"
+                id="closeMenu"
+                aria-label="Close menu"
+            >
+                ×
+            </button>
 
-
-    <a href="#community"
-       class="nav-item">
-
-        👥
-
-        <span>
-            Community
-        </span>
-
-    </a>
+        </div>
 
 
-    <a href="#score"
-       class="nav-item">
 
-        📋
+        <!-- =====================================
+             PART 1 - PLAYER PROFILE
+        ====================================== -->
 
-        <span>
-            Score
-        </span>
+        <section class="profile-section">
 
-    </a>
+            <div class="profile-row">
 
-</nav>
+
+                <div class="profile-photo">
+
+                    <img
+                        id="profilePhoto"
+                        src=""
+                        alt="Player"
+                    >
+
+                    <span id="profileInitial">
+                        P
+                    </span>
+
+                </div>
+
+
+                <div class="profile-info">
+
+                    <div
+                        class="profile-name"
+                        id="profileName"
+                    >
+                        Player Name
+                    </div>
+
+
+                    <div
+                        class="profile-mobile"
+                        id="profileMobile"
+                    >
+                        Mobile Number
+                    </div>
+
+
+                    <div
+                        class="profile-email"
+                        id="profileEmail"
+                    >
+                        Gmail / Email
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             PART 2 - MENU
+        ====================================== -->
+
+        <section class="menu-section">
+
+
+            <div class="menu-label">
+                Menu
+            </div>
+
+
+            <!-- 1 -->
+
+            <button
+                class="menu-item"
+                type="button"
+                id="addTournamentBtn"
+            >
+
+                <div class="menu-icon">
+                    🏆
+                </div>
+
+                <div class="menu-item-text">
+                    Add a Tournament / Series
+                </div>
+
+                <div class="menu-arrow">
+                    ›
+                </div>
+
+            </button>
+
+
+
+            <!-- 2 -->
+
+            <button
+                class="menu-item"
+                type="button"
+                id="newMatchBtn"
+            >
+
+                <div class="menu-icon">
+                    🏏
+                </div>
+
+                <div class="menu-item-text">
+                    Start a New Match
+                </div>
+
+                <div class="menu-arrow">
+                    ›
+                </div>
+
+            </button>
+
+
+
+            <!-- 3 -->
+
+            <button
+                class="menu-item"
+                type="button"
+                id="myCricketBtn"
+            >
+
+                <div class="menu-icon">
+                    👤
+                </div>
+
+                <div class="menu-item-text">
+                    My Cricket
+                </div>
+
+                <div class="menu-arrow">
+                    ›
+                </div>
+
+            </button>
+
+
+
+            <!-- 4 -->
+
+            <button
+                class="menu-item"
+                type="button"
+                id="contactBtn"
+            >
+
+                <div class="menu-icon">
+                    💬
+                </div>
+
+                <div class="menu-item-text">
+                    Contact
+                </div>
+
+                <div class="menu-arrow">
+                    ›
+                </div>
+
+            </button>
+
+
+
+            <!-- 5 -->
+
+            <button
+                class="menu-item"
+                type="button"
+                id="shareBtn"
+            >
+
+                <div class="menu-icon">
+                    ↗
+                </div>
+
+                <div class="menu-item-text">
+                    Share the Site / App
+                </div>
+
+                <div class="menu-arrow">
+                    ›
+                </div>
+
+            </button>
+
+
+        </section>
+
+
+    </aside>
+
+</div>
+
+
+
+<script>
+
+    /* =========================================
+       LOGIN CHECK
+    ========================================= */
+
+    const loggedIn =
+        sessionStorage.getItem(
+            "crickpulseLoggedIn"
+        );
+
+
+    if (loggedIn !== "true") {
+
+        window.location.href =
+            "auth.html";
+
+    }
+
+
+    /* =========================================
+       PROFILE DATA
+    ========================================= */
+
+    const mobile =
+        sessionStorage.getItem(
+            "crickpulseMobile"
+        );
+
+
+    if (mobile) {
+
+        document
+            .getElementById("profileMobile")
+            .textContent = mobile;
+
+    }
+
+
+    /*
+     * Name and Gmail will be connected
+     * to the player's account data
+     * in the next step.
+     */
+
+
+    /* =========================================
+       HAMBURGER OPEN / CLOSE
+    ========================================= */
+
+    const openMenu =
+        document.getElementById(
+            "openMenu"
+        );
+
+    const closeMenu =
+        document.getElementById(
+            "closeMenu"
+        );
+
+    const menuOverlay =
+        document.getElementById(
+            "menuOverlay"
+        );
+
+
+    openMenu.addEventListener(
+        "click",
+        function () {
+
+            menuOverlay.classList.add(
+                "active"
+            );
+
+        }
+    );
+
+
+    closeMenu.addEventListener(
+        "click",
+        function () {
+
+            menuOverlay.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+
+    /* Close by tapping outside */
+
+    menuOverlay.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                event.target === menuOverlay
+            ) {
+
+                menuOverlay.classList.remove(
+                    "active"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =========================================
+       MENU BUTTONS
+       Pages will be connected later.
+    ========================================= */
+
+    document
+        .getElementById("addTournamentBtn")
+        .addEventListener(
+            "click",
+            function () {
+
+                console.log(
+                    "Add Tournament / Series"
+                );
+
+            }
+        );
+
+
+    document
+        .getElementById("newMatchBtn")
+        .addEventListener(
+            "click",
+            function () {
+
+                console.log(
+                    "Start New Match"
+                );
+
+            }
+        );
+
+
+    document
+        .getElementById("myCricketBtn")
+        .addEventListener(
+            "click",
+            function () {
+
+                console.log(
+                    "My Cricket"
+                );
+
+            }
+        );
+
+
+    document
+        .getElementById("contactBtn")
+        .addEventListener(
+            "click",
+            function () {
+
+                console.log(
+                    "Contact"
+                );
+
+            }
+        );
+
+
+    /* =========================================
+       SHARE
+    ========================================= */
+
+    document
+        .getElementById("shareBtn")
+        .addEventListener(
+            "click",
+            async function () {
+
+                const shareData = {
+
+                    title:
+                        "CRICKPULSE",
+
+                    text:
+                        "Join me on CRICKPULSE.",
+
+                    url:
+                        window.location.origin
+
+                };
+
+
+                if (
+                    navigator.share
+                ) {
+
+                    try {
+
+                        await navigator.share(
+                            shareData
+                        );
+
+                    } catch (error) {
+
+                        console.log(
+                            "Share cancelled."
+                        );
+
+                    }
+
+                } else {
+
+                    try {
+
+                        await navigator.clipboard.writeText(
+                            window.location.origin
+                        );
+
+                        alert(
+                            "CRICKPULSE link copied."
+                        );
+
+                    } catch (error) {
+
+                        alert(
+                            "Please copy the site link manually."
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+
+    console.log(
+        "CRICKPULSE dashboard loaded."
+    );
+
+</script>
 
 
 </body>
+
 </html>
