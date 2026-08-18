@@ -31,24 +31,15 @@
         }
 
 
-        /* =========================================
-           BODY
-        ========================================= */
-
         body {
 
-            font-family:
-                Verdana,
-                Geneva,
-                sans-serif;
+            font-family: Verdana, Geneva, sans-serif;
 
             background: #f7f5ff;
 
             color: #171225;
 
             min-height: 100vh;
-
-            font-weight: 400;
         }
 
 
@@ -58,7 +49,7 @@
 
         .top-header {
 
-            height: 74px;
+            height: 72px;
 
             background: #ffffff;
 
@@ -68,9 +59,7 @@
 
             align-items: center;
 
-            justify-content: flex-start;
-
-            padding: 0 14px;
+            padding: 0 16px;
 
             position: sticky;
 
@@ -81,28 +70,14 @@
 
 
         /* =========================================
-           HEADER LEFT
-        ========================================= */
-
-        .header-left {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 14px;
-        }
-
-
-        /* =========================================
-           HAMBURGER
+           HAMBURGER - LEFT
         ========================================= */
 
         .menu-button {
 
-            width: 56px;
+            width: 54px;
 
-            height: 56px;
+            height: 54px;
 
             border: 0;
 
@@ -124,27 +99,19 @@
 
             flex-shrink: 0;
 
-            -webkit-tap-highlight-color: transparent;
+            margin-right: 14px;
         }
 
 
         .menu-button span {
 
-            display: block;
-
-            width: 32px;
+            width: 29px;
 
             height: 4px;
 
-            background: #5b2fc2;
+            background: #6330c7;
 
             border-radius: 10px;
-        }
-
-
-        .menu-button:active {
-
-            transform: scale(.96);
         }
 
 
@@ -182,19 +149,17 @@
 
             font-size: 17px;
 
-            font-weight: 400;
+            font-weight: 900;
         }
 
 
         .brand-name {
 
-            font-size: 24px;
+            font-size: 21px;
 
-            font-weight: 400;
+            font-weight: 900;
 
-            letter-spacing: .2px;
-
-            color: #171225;
+            letter-spacing: .3px;
         }
 
 
@@ -218,10 +183,6 @@
         }
 
 
-        /* =========================================
-           WELCOME CARD
-        ========================================= */
-
         .welcome-card {
 
             background: #ffffff;
@@ -233,12 +194,7 @@
             border: 1px solid #e8e1f7;
 
             box-shadow:
-                0 8px 25px rgba(
-                    76,
-                    45,
-                    130,
-                    .07
-                );
+                0 8px 25px rgba(76, 45, 130, .07);
         }
 
 
@@ -246,23 +202,21 @@
 
             color: #7659a9;
 
-            font-size: 18px;
+            font-size: 16px;
 
-            font-weight: 400;
+            font-weight: 700;
 
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
 
         .welcome-title {
 
-            font-size: 36px;
+            font-size: 30px;
 
             line-height: 1.2;
 
-            font-weight: 400;
-
-            letter-spacing: -.5px;
+            font-weight: 900;
         }
 
 
@@ -274,20 +228,18 @@
 
         .welcome-text {
 
-            margin-top: 12px;
+            margin-top: 11px;
 
             color: #6d667c;
 
-            font-size: 19px;
+            font-size: 17px;
 
             line-height: 1.6;
-
-            font-weight: 400;
         }
 
 
         /* =========================================
-           MENU OVERLAY
+           OVERLAY
         ========================================= */
 
         .menu-overlay {
@@ -297,12 +249,7 @@
             inset: 0;
 
             background:
-                rgba(
-                    15,
-                    10,
-                    25,
-                    .45
-                );
+                rgba(15, 10, 25, .55);
 
             z-index: 200;
 
@@ -326,6 +273,7 @@
 
         /* =========================================
            SIDE MENU
+           WIDER + PURPLE
         ========================================= */
 
         .side-menu {
@@ -336,23 +284,14 @@
 
             left: 0;
 
-            width: min(
-                88%,
-                390px
-            );
+            width: min(94%, 430px);
 
             height: 100%;
 
-            background: #ffffff;
+            background: #6c35d9;
 
             box-shadow:
-                8px 0 35px
-                rgba(
-                    0,
-                    0,
-                    0,
-                    .18
-                );
+                8px 0 35px rgba(0, 0, 0, .28);
 
             transform:
                 translateX(-100%);
@@ -366,8 +305,7 @@
         }
 
 
-        .menu-overlay.active
-        .side-menu {
+        .menu-overlay.active .side-menu {
 
             transform:
                 translateX(0);
@@ -375,34 +313,35 @@
 
 
         /* =========================================
-           MENU HEADER
+           MENU TOP
         ========================================= */
 
         .menu-top {
 
             min-height: 74px;
 
-            padding: 0 16px;
+            padding: 0 18px;
 
             border-bottom:
-                1px solid #eee9f7;
+                1px solid rgba(255,255,255,.20);
 
             display: flex;
 
             align-items: center;
 
-            justify-content:
-                space-between;
+            justify-content: space-between;
         }
 
 
         .menu-title {
 
-            font-size: 25px;
+            font-size: 22px;
 
-            font-weight: 400;
+            font-weight: 900;
 
-            color: #211733;
+            color: #ffffff;
+
+            letter-spacing: .3px;
         }
 
 
@@ -414,11 +353,12 @@
 
             border: 0;
 
-            border-radius: 12px;
+            border-radius: 13px;
 
-            background: #f2eff9;
+            background:
+                rgba(255,255,255,.16);
 
-            color: #33244d;
+            color: #ffffff;
 
             font-size: 30px;
 
@@ -426,7 +366,7 @@
 
             cursor: pointer;
 
-            font-weight: 400;
+            font-family: Verdana, Geneva, sans-serif;
         }
 
 
@@ -436,17 +376,13 @@
 
         .profile-section {
 
-            padding: 21px 18px;
+            padding: 22px 19px;
 
             background:
-                linear-gradient(
-                    135deg,
-                    #f5f0ff,
-                    #ffffff
-                );
+                rgba(0,0,0,.10);
 
             border-bottom:
-                1px solid #e8e1f5;
+                1px solid rgba(255,255,255,.18);
         }
 
 
@@ -456,32 +392,26 @@
 
             align-items: center;
 
-            gap: 14px;
+            gap: 15px;
         }
 
 
         .profile-photo {
 
-            width: 68px;
+            width: 70px;
 
-            height: 68px;
+            height: 70px;
 
-            flex: 0 0 68px;
+            flex: 0 0 70px;
 
             border-radius: 50%;
 
-            background: #e8ddff;
+            background: #ffffff;
 
-            border: 3px solid #ffffff;
+            border: 3px solid rgba(255,255,255,.9);
 
             box-shadow:
-                0 3px 12px
-                rgba(
-                    92,
-                    47,
-                    180,
-                    .18
-                );
+                0 4px 14px rgba(0,0,0,.18);
 
             display: flex;
 
@@ -493,7 +423,7 @@
 
             font-size: 25px;
 
-            font-weight: 400;
+            font-weight: 900;
 
             overflow: hidden;
         }
@@ -521,11 +451,11 @@
 
         .profile-name {
 
-            font-size: 23px;
+            font-size: 20px;
 
-            font-weight: 400;
+            font-weight: 900;
 
-            color: #1b1428;
+            color: #ffffff;
 
             white-space: nowrap;
 
@@ -539,11 +469,11 @@
 
             margin-top: 5px;
 
-            font-size: 18px;
+            font-size: 15px;
 
-            font-weight: 400;
+            font-weight: 700;
 
-            color: #665d72;
+            color: #f3edff;
         }
 
 
@@ -551,11 +481,11 @@
 
             margin-top: 4px;
 
-            font-size: 17px;
+            font-size: 14px;
 
-            font-weight: 400;
+            font-weight: 600;
 
-            color: #786f85;
+            color: #e3d8ff;
 
             white-space: nowrap;
 
@@ -571,7 +501,7 @@
 
         .menu-section {
 
-            padding: 13px 12px 20px;
+            padding: 14px 13px 22px;
 
             overflow-y: auto;
 
@@ -581,17 +511,15 @@
 
         .menu-label {
 
-            padding:
-                8px 10px 11px;
+            padding: 9px 11px 12px;
 
-            color: #8b819a;
+            color: #ddd0ff;
 
-            font-size: 14px;
+            font-size: 13px;
 
-            font-weight: 400;
+            font-weight: 900;
 
-            text-transform:
-                uppercase;
+            text-transform: uppercase;
 
             letter-spacing: 1px;
         }
@@ -605,53 +533,70 @@
 
             width: 100%;
 
-            min-height: 66px;
+            min-height: 64px;
 
             border: 0;
 
             background: transparent;
 
-            border-radius: 13px;
+            border-radius: 14px;
 
-            padding: 10px 12px;
+            padding: 10px 13px;
 
             display: flex;
 
             align-items: center;
 
-            gap: 13px;
+            gap: 14px;
 
             text-align: left;
 
             cursor: pointer;
 
-            color: #251b35;
+            color: #ffffff;
 
-            font-size: 19px;
+            font-family: Verdana, Geneva, sans-serif;
 
-            font-weight: 400;
+            font-size: 17px;
+
+            font-weight: 900;
+
+            margin-bottom: 4px;
         }
 
 
         .menu-item:hover {
 
-            background: #f4f0ff;
+            background:
+                rgba(255,255,255,.14);
         }
 
 
+        .menu-item:active {
+
+            background:
+                rgba(255,255,255,.20);
+        }
+
+
+        /* =========================================
+           MENU ICON
+        ========================================= */
+
         .menu-icon {
 
-            width: 42px;
+            width: 43px;
 
-            height: 42px;
+            height: 43px;
 
-            flex: 0 0 42px;
+            flex: 0 0 43px;
 
-            border-radius: 11px;
+            border-radius: 12px;
 
-            background: #f0eaff;
+            background:
+                rgba(255,255,255,.16);
 
-            color: #6430c5;
+            color: #ffffff;
 
             display: flex;
 
@@ -661,7 +606,7 @@
 
             font-size: 21px;
 
-            font-weight: 400;
+            font-weight: 900;
         }
 
 
@@ -669,17 +614,19 @@
 
             flex: 1;
 
-            line-height: 1.35;
+            line-height: 1.3;
+
+            color: #ffffff;
         }
 
 
         .menu-arrow {
 
-            color: #aaa1b4;
+            color: #e4d9ff;
 
-            font-size: 29px;
+            font-size: 27px;
 
-            font-weight: 300;
+            font-weight: 700;
         }
 
 
@@ -694,13 +641,7 @@
 
                 height: 72px;
 
-                padding: 0 11px;
-            }
-
-
-            .header-left {
-
-                gap: 12px;
+                padding: 0 12px;
             }
 
 
@@ -709,12 +650,14 @@
                 width: 56px;
 
                 height: 56px;
+
+                margin-right: 12px;
             }
 
 
             .menu-button span {
 
-                width: 32px;
+                width: 31px;
 
                 height: 4px;
             }
@@ -722,9 +665,7 @@
 
             .brand-name {
 
-                font-size: 22px;
-
-                font-weight: 400;
+                font-size: 19px;
             }
 
 
@@ -733,90 +674,44 @@
                 width: 42px;
 
                 height: 42px;
-
-                font-size: 16px;
             }
 
 
             .dashboard {
 
-                padding:
-                    22px 14px 40px;
-            }
-
-
-            .welcome-card {
-
-                padding:
-                    27px 19px;
-            }
-
-
-            .welcome-small {
-
-                font-size: 17px;
+                padding-top: 22px;
             }
 
 
             .welcome-title {
 
-                font-size: 34px;
-
-                font-weight: 400;
+                font-size: 28px;
             }
 
 
             .welcome-text {
 
-                font-size: 18px;
+                font-size: 16px;
             }
 
 
             .side-menu {
 
-                width: 91%;
-            }
-
-
-            .menu-title {
-
-                font-size: 23px;
-            }
-
-
-            .profile-name {
-
-                font-size: 21px;
-            }
-
-
-            .profile-mobile {
-
-                font-size: 17px;
-            }
-
-
-            .profile-email {
-
-                font-size: 16px;
+                width: 94%;
             }
 
 
             .menu-item {
 
-                font-size: 18px;
+                min-height: 66px;
 
-                min-height: 64px;
-
-                font-weight: 400;
+                font-size: 17px;
             }
 
 
-            .menu-icon {
+            .profile-name {
 
-                width: 41px;
-
-                height: 41px;
+                font-size: 19px;
             }
 
         }
@@ -836,43 +731,32 @@
 <header class="top-header">
 
 
-    <div class="header-left">
+    <!-- HAMBURGER LEFT -->
+
+    <button
+        class="menu-button"
+        id="openMenu"
+        aria-label="Open menu"
+    >
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
 
 
-        <!-- HAMBURGER - LEFT -->
+    <!-- BRAND -->
 
-        <button
-            class="menu-button"
-            id="openMenu"
-            aria-label="Open menu"
-        >
+    <div class="brand">
 
-            <span></span>
-
-            <span></span>
-
-            <span></span>
-
-        </button>
-
-
-        <!-- BRAND -->
-
-        <div class="brand">
-
-
-            <div class="brand-logo">
-                CP
-            </div>
-
-
-            <div class="brand-name">
-                CRICK<span>PULSE</span>
-            </div>
-
-
+        <div class="brand-logo">
+            CP
         </div>
 
+        <div class="brand-name">
+            CRICK<span>PULSE</span>
+        </div>
 
     </div>
 
@@ -887,27 +771,21 @@
 
 <main class="dashboard">
 
-
     <section class="welcome-card">
-
 
         <div class="welcome-small">
             Welcome to
         </div>
 
-
         <h1 class="welcome-title">
             CRICK<span>PULSE</span>
         </h1>
-
 
         <p class="welcome-text">
             Your cricket journey starts here.
         </p>
 
-
     </section>
-
 
 </main>
 
@@ -930,7 +808,6 @@
 
         <div class="menu-top">
 
-
             <div class="menu-title">
                 CRICKPULSE
             </div>
@@ -944,21 +821,20 @@
                 ×
             </button>
 
-
         </div>
 
 
 
-        <!-- PLAYER PROFILE -->
+        <!-- =====================================
+             PLAYER PROFILE
+        ====================================== -->
 
         <section class="profile-section">
-
 
             <div class="profile-row">
 
 
                 <div class="profile-photo">
-
 
                     <img
                         id="profilePhoto"
@@ -966,19 +842,14 @@
                         alt="Player"
                     >
 
-
-                    <span
-                        id="profileInitial"
-                    >
+                    <span id="profileInitial">
                         P
                     </span>
-
 
                 </div>
 
 
                 <div class="profile-info">
-
 
                     <div
                         class="profile-name"
@@ -1003,26 +874,24 @@
                         Gmail / Email
                     </div>
 
-
                 </div>
 
-
             </div>
-
 
         </section>
 
 
 
-        <!-- MENU -->
+        <!-- =====================================
+             MENU
+        ====================================== -->
 
         <section class="menu-section">
 
 
             <div class="menu-label">
-                Menu
+                MENU
             </div>
-
 
 
             <!-- 1 -->
@@ -1037,11 +906,9 @@
                     🏆
                 </div>
 
-
                 <div class="menu-item-text">
                     Add a Tournament / Series
                 </div>
-
 
                 <div class="menu-arrow">
                     ›
@@ -1063,11 +930,9 @@
                     🏏
                 </div>
 
-
                 <div class="menu-item-text">
                     Start a New Match
                 </div>
-
 
                 <div class="menu-arrow">
                     ›
@@ -1089,11 +954,9 @@
                     👤
                 </div>
 
-
                 <div class="menu-item-text">
                     My Cricket
                 </div>
-
 
                 <div class="menu-arrow">
                     ›
@@ -1115,11 +978,9 @@
                     💬
                 </div>
 
-
                 <div class="menu-item-text">
                     Contact
                 </div>
-
 
                 <div class="menu-arrow">
                     ›
@@ -1141,11 +1002,9 @@
                     ↗
                 </div>
 
-
                 <div class="menu-item-text">
                     Share the Site / App
                 </div>
-
 
                 <div class="menu-arrow">
                     ›
@@ -1158,7 +1017,6 @@
 
 
     </aside>
-
 
 </div>
 
@@ -1187,7 +1045,7 @@
 
 
     /* =========================================
-       PROFILE MOBILE
+       PROFILE DATA
     ========================================= */
 
     const mobile =
@@ -1199,9 +1057,7 @@
     if (mobile) {
 
         document
-            .getElementById(
-                "profileMobile"
-            )
+            .getElementById("profileMobile")
             .textContent = mobile;
 
     }
@@ -1230,9 +1086,6 @@
         );
 
 
-
-    /* OPEN MENU */
-
     openMenu.addEventListener(
         "click",
         function () {
@@ -1244,9 +1097,6 @@
         }
     );
 
-
-
-    /* CLOSE MENU */
 
     closeMenu.addEventListener(
         "click",
@@ -1260,16 +1110,14 @@
     );
 
 
-
-    /* CLOSE OUTSIDE */
+    /* Close outside menu */
 
     menuOverlay.addEventListener(
         "click",
         function (event) {
 
             if (
-                event.target ===
-                menuOverlay
+                event.target === menuOverlay
             ) {
 
                 menuOverlay.classList.remove(
@@ -1288,9 +1136,7 @@
     ========================================= */
 
     document
-        .getElementById(
-            "addTournamentBtn"
-        )
+        .getElementById("addTournamentBtn")
         .addEventListener(
             "click",
             function () {
@@ -1304,9 +1150,7 @@
 
 
     document
-        .getElementById(
-            "newMatchBtn"
-        )
+        .getElementById("newMatchBtn")
         .addEventListener(
             "click",
             function () {
@@ -1320,9 +1164,7 @@
 
 
     document
-        .getElementById(
-            "myCricketBtn"
-        )
+        .getElementById("myCricketBtn")
         .addEventListener(
             "click",
             function () {
@@ -1336,9 +1178,7 @@
 
 
     document
-        .getElementById(
-            "contactBtn"
-        )
+        .getElementById("contactBtn")
         .addEventListener(
             "click",
             function () {
@@ -1357,9 +1197,7 @@
     ========================================= */
 
     document
-        .getElementById(
-            "shareBtn"
-        )
+        .getElementById("shareBtn")
         .addEventListener(
             "click",
             async function () {
@@ -1389,9 +1227,7 @@
                             shareData
                         );
 
-                    }
-
-                    catch (error) {
+                    } catch (error) {
 
                         console.log(
                             "Share cancelled."
@@ -1399,25 +1235,19 @@
 
                     }
 
-                }
-
-                else {
+                } else {
 
                     try {
 
-                        await navigator
-                            .clipboard
-                            .writeText(
-                                window.location.origin
-                            );
+                        await navigator.clipboard.writeText(
+                            window.location.origin
+                        );
 
                         alert(
                             "CRICKPULSE link copied."
                         );
 
-                    }
-
-                    catch (error) {
+                    } catch (error) {
 
                         alert(
                             "Please copy the site link manually."
@@ -1427,7 +1257,6 @@
 
                 }
 
-
             }
         );
 
@@ -1435,7 +1264,6 @@
     console.log(
         "CRICKPULSE dashboard loaded."
     );
-
 
 </script>
 
