@@ -5,23 +5,11 @@
 
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<meta
-    name="description"
-    content="CRICKPULSE - My Matches"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>CRICKPULSE | My Matches</title>
 
 <style>
-
-/* =========================================
-   RESET
-========================================= */
 
 * {
     margin: 0;
@@ -30,11 +18,7 @@
 }
 
 body {
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
     background: #faf9fd;
     color: #20202a;
 }
@@ -44,68 +28,193 @@ a {
     color: inherit;
 }
 
-button {
-    font-family: inherit;
-}
 
-
-/* =========================================
+/* ================================
    HEADER
-========================================= */
+================================ */
 
 .matches-header {
-
     position: sticky;
     top: 0;
     z-index: 1000;
-
-    background:
-        rgba(255,255,255,0.97);
-
-    border-bottom:
-        1px solid #eeeaf7;
-
-    backdrop-filter: blur(15px);
+    background: #ffffff;
+    border-bottom: 1px solid #e9e6ef;
 }
 
 .header-inner {
-
     max-width: 1200px;
-
     min-height: 68px;
-
     margin: auto;
-
-    padding:
-        0 18px;
+    padding: 0 18px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 }
 
 .brand {
-
     display: flex;
-
     align-items: center;
-
     gap: 11px;
 }
 
 .brand-mark {
-
     width: 42px;
     height: 42px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #6d35d9,
+        #8b5cf6
+    );
+
+    color: white;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.brand-text h1 {
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.brand-text span {
+    display: block;
+    margin-top: 2px;
+    color: #92919e;
+    font-size: 9px;
+}
+
+.back-btn {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #e6e1f1;
+    border-radius: 11px;
+
+    background: white;
+
+    color: #6d35d9;
+
+    font-size: 20px;
+    font-weight: 900;
+}
+
+
+/* ================================
+   MAIN
+================================ */
+
+.page {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 18px 100px;
+}
+
+
+/* ================================
+   MY MATCHES
+================================ */
+
+.page-heading span {
+    display: block;
+
+    color: #6d35d9;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.page-heading h2 {
+    margin-top: 7px;
+
+    color: #20202a;
+
+    font-size: 34px;
+    font-weight: 900;
+}
+
+.page-heading p {
+    margin-top: 9px;
+
+    color: #858594;
+
+    font-size: 14px;
+}
+
+
+/* ================================
+   BIG FILTER BLOCKS
+================================ */
+
+.tabs {
+
+    margin-top: 27px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+
+    padding: 8px;
+
+    border: 1px solid #e5e0ef;
+
+    border-radius: 17px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 8px 25px
+        rgba(65,45,110,0.07);
+}
+
+
+.tab {
+
+    min-height: 78px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #f5f2fa;
+
+    color: #666474;
+
+    font-size: 20px;
+
+    font-weight: 900;
+
+    letter-spacing: 0.4px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: 0.2s ease;
+}
+
+
+.tab.active {
 
     background:
         linear-gradient(
@@ -114,196 +223,20 @@ button {
             #8b5cf6
         );
 
-    color: #ffffff;
-
-    font-size: 14px;
-
-    font-weight: 900;
+    color: white;
 
     box-shadow:
-        0 7px 18px
-        rgba(109,53,217,0.20);
-}
-
-.brand-text h1 {
-
-    font-size: 17px;
-
-    font-weight: 900;
-}
-
-.brand-text span {
-
-    display: block;
-
-    margin-top: 2px;
-
-    color: #92919e;
-
-    font-size: 9px;
-}
-
-.back-btn {
-
-    width: 40px;
-    height: 40px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border:
-        1px solid #e6e1f1;
-
-    border-radius: 11px;
-
-    background: #ffffff;
-
-    color: #6d35d9;
-
-    font-size: 20px;
-
-    font-weight: 900;
-}
-
-
-/* =========================================
-   PAGE
-========================================= */
-
-.page {
-
-    max-width: 1200px;
-
-    margin: auto;
-
-    padding:
-        30px 18px 105px;
-}
-
-
-/* =========================================
-   PAGE HEADING
-========================================= */
-
-.page-heading span {
-
-    display: block;
-
-    color: #6d35d9;
-
-    font-size: 12px;
-
-    font-weight: 900;
-
-    letter-spacing: 1px;
-}
-
-.page-heading h2 {
-
-    margin-top: 7px;
-
-    color: #20202a;
-
-    font-size: 34px;
-
-    line-height: 1.15;
-
-    font-weight: 900;
-}
-
-.page-heading p {
-
-    margin-top: 9px;
-
-    color: #858594;
-
-    font-size: 13px;
-
-    line-height: 1.5;
-}
-
-
-/* =========================================
-   TABS
-========================================= */
-
-.tabs {
-
-    margin-top: 26px;
-
-    padding: 6px;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 6px;
-
-    border:
-        1px solid #e5e0ef;
-
-    border-radius: 15px;
-
-    background: #ffffff;
-
-    box-shadow:
-        0 7px 22px
-        rgba(65,45,110,0.07);
-}
-
-.tab {
-
-    min-height: 58px;
-
-    padding:
-        13px 8px;
-
-    border: none;
-
-    border-radius: 11px;
-
-    background: transparent;
-
-    color: #777585;
-
-    font-size: 17px;
-
-    font-weight: 900;
-
-    letter-spacing: 0.3px;
-
-    cursor: pointer;
-}
-
-.tab.active {
-
-    background: #6d35d9;
-
-    color: #ffffff;
-
-    box-shadow:
-        0 7px 17px
+        0 8px 20px
         rgba(109,53,217,0.25);
 }
 
-.tab:not(.active):hover {
 
-    background: #f5f1ff;
-
-    color: #6d35d9;
-}
-
-
-/* =========================================
+/* ================================
    SECTION
-========================================= */
+================================ */
 
 .section {
-
-    margin-top: 30px;
+    margin-top: 32px;
 }
 
 .section-title {
@@ -314,18 +247,14 @@ button {
 
     justify-content: space-between;
 
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 .section-title h3 {
 
-    color: #20202a;
-
     font-size: 25px;
 
     font-weight: 900;
-
-    line-height: 1.2;
 }
 
 .section-title span {
@@ -338,9 +267,9 @@ button {
 }
 
 
-/* =========================================
-   MATCH LIST
-========================================= */
+/* ================================
+   MATCH CARDS
+================================ */
 
 .match-list {
 
@@ -352,47 +281,21 @@ button {
     gap: 15px;
 }
 
-
-/* =========================================
-   MATCH CARD
-========================================= */
-
 .match-card {
 
-    position: relative;
+    padding: 21px;
 
-    padding: 20px;
-
-    border:
-        1px solid #e9e6ef;
+    border: 1px solid #e9e6ef;
 
     border-radius: 17px;
 
-    background: #ffffff;
+    background: white;
 
     box-shadow:
         0 8px 25px
         rgba(65,45,110,0.06);
-
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease;
 }
 
-.match-card:hover {
-
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 14px 30px
-        rgba(65,45,110,0.11);
-}
-
-
-/* =========================================
-   MATCH TOP
-========================================= */
 
 .match-top {
 
@@ -407,8 +310,7 @@ button {
 
 .match-status {
 
-    padding:
-        7px 11px;
+    padding: 7px 12px;
 
     border-radius: 20px;
 
@@ -425,15 +327,15 @@ button {
 
     color: #858594;
 
-    font-size: 11px;
+    font-size: 12px;
 
     font-weight: 800;
 }
 
 
-/* =========================================
+/* ================================
    TEAMS
-========================================= */
+================================ */
 
 .teams {
 
@@ -465,10 +367,8 @@ button {
 
 .team-logo {
 
-    width: 44px;
-    height: 44px;
-
-    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
 
     display: flex;
 
@@ -479,16 +379,12 @@ button {
 
     background: #f2edff;
 
-    color: #6d35d9;
-
     font-size: 20px;
 }
 
 .team-name {
 
-    color: #20202a;
-
-    font-size: 14px;
+    font-size: 15px;
 
     font-weight: 900;
 
@@ -516,9 +412,9 @@ button {
 }
 
 
-/* =========================================
+/* ================================
    MATCH INFO
-========================================= */
+================================ */
 
 .match-info {
 
@@ -528,18 +424,16 @@ button {
 
     justify-content: space-between;
 
-    gap: 10px;
-
     margin-top: 19px;
 
-    padding-top: 13px;
+    padding-top: 14px;
 
     border-top:
         1px solid #f0edf4;
 
     color: #858594;
 
-    font-size: 11px;
+    font-size: 12px;
 
     font-weight: 700;
 }
@@ -551,62 +445,10 @@ button {
     font-weight: 900;
 }
 
-.result.loss {
 
-    color: #e4475b;
-}
-
-
-/* =========================================
-   EMPTY
-========================================= */
-
-.empty {
-
-    padding:
-        48px 20px;
-
-    border:
-        1px dashed #ded9e9;
-
-    border-radius: 17px;
-
-    background: #ffffff;
-
-    text-align: center;
-}
-
-.empty-icon {
-
-    margin-bottom: 12px;
-
-    font-size: 38px;
-}
-
-.empty h4 {
-
-    font-size: 17px;
-
-    font-weight: 900;
-}
-
-.empty p {
-
-    max-width: 320px;
-
-    margin: 7px auto 0;
-
-    color: #858594;
-
-    font-size: 12px;
-
-    line-height: 1.5;
-}
-
-
-/* =========================================
+/* ================================
    BOTTOM NAV
-========================================= */
+================================ */
 
 .bottom-nav {
 
@@ -620,10 +462,9 @@ button {
 
     height: 70px;
 
-    padding:
-        7px 8px;
-
     display: flex;
+
+    padding: 7px 8px;
 
     background:
         rgba(255,255,255,0.97);
@@ -634,8 +475,6 @@ button {
     box-shadow:
         0 -8px 25px
         rgba(50,40,80,0.08);
-
-    backdrop-filter: blur(15px);
 }
 
 .bottom-nav a {
@@ -645,6 +484,7 @@ button {
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     flex-direction: column;
@@ -654,8 +494,6 @@ button {
     color: #858594;
 
     font-size: 20px;
-
-    font-weight: 700;
 }
 
 .bottom-nav a span {
@@ -671,22 +509,16 @@ button {
 }
 
 
-/* =========================================
+/* ================================
    MOBILE
-========================================= */
+================================ */
 
 @media (max-width: 700px) {
 
     .page {
 
         padding:
-            27px 16px 105px;
-    }
-
-
-    .page-heading span {
-
-        font-size: 12px;
+            27px 16px 100px;
     }
 
 
@@ -706,68 +538,33 @@ button {
 
         margin-top: 24px;
 
-        padding: 6px;
+        gap: 7px;
 
-        gap: 5px;
+        padding: 7px;
     }
 
 
     .tab {
 
-        min-height: 56px;
+        min-height: 74px;
 
-        font-size: 16px;
+        font-size: 17px;
 
         font-weight: 900;
 
-        padding:
-            12px 4px;
-    }
-
-
-    .section {
-
-        margin-top: 29px;
+        padding: 8px 3px;
     }
 
 
     .section-title h3 {
 
         font-size: 23px;
-
-        font-weight: 900;
-    }
-
-
-    .section-title span {
-
-        font-size: 11px;
     }
 
 
     .match-list {
 
         grid-template-columns: 1fr;
-
-        gap: 13px;
-    }
-
-
-    .match-card {
-
-        padding: 19px;
-    }
-
-
-    .match-status {
-
-        font-size: 11px;
-    }
-
-
-    .match-date {
-
-        font-size: 11px;
     }
 
 
@@ -782,65 +579,30 @@ button {
         font-size: 16px;
     }
 
-
-    .match-info {
-
-        font-size: 11px;
-    }
-
-
-    .team-logo {
-
-        width: 42px;
-        height: 42px;
-
-        font-size: 19px;
-    }
-
-
-    .bottom-nav {
-
-        display: flex;
-    }
-
 }
 
 
-/* =========================================
-   SMALL MOBILE
-========================================= */
+/* ================================
+   VERY SMALL MOBILE
+================================ */
 
 @media (max-width: 380px) {
+
+    .tab {
+
+        min-height: 68px;
+
+        font-size: 15px;
+    }
 
     .page-heading h2 {
 
         font-size: 29px;
     }
 
-
-    .tab {
-
-        min-height: 54px;
-
-        font-size: 15px;
-    }
-
-
     .section-title h3 {
 
         font-size: 21px;
-    }
-
-
-    .team-name {
-
-        font-size: 13px;
-    }
-
-
-    .team-score {
-
-        font-size: 15px;
     }
 
 }
@@ -852,10 +614,6 @@ button {
 
 <body>
 
-
-<!-- =========================================
-     HEADER
-========================================= -->
 
 <header class="matches-header">
 
@@ -897,14 +655,8 @@ button {
 </header>
 
 
-<!-- =========================================
-     MAIN
-========================================= -->
-
 <main class="page">
 
-
-    <!-- PAGE HEADING -->
 
     <div class="page-heading">
 
@@ -917,15 +669,13 @@ button {
         </h2>
 
         <p>
-            Follow your upcoming, live and completed matches.
+            Follow your live, upcoming and completed matches.
         </p>
 
     </div>
 
 
-    <!-- =====================================
-         TABS
-    ====================================== -->
+    <!-- BIG LIVE / UPCOMING / COMPLETED -->
 
     <div class="tabs">
 
@@ -955,13 +705,11 @@ button {
     </div>
 
 
-    <!-- =====================================
-         LIVE
-    ====================================== -->
+    <!-- LIVE -->
 
     <section
         id="live"
-        class="section match-section"
+        class="section"
     >
 
         <div class="section-title">
@@ -971,7 +719,7 @@ button {
             </h3>
 
             <span>
-                1 MATCH
+                LIVE NOW
             </span>
 
         </div>
@@ -979,11 +727,7 @@ button {
 
         <div class="match-list">
 
-
-            <a
-                href="#"
-                class="match-card"
-            >
+            <div class="match-card">
 
                 <div class="match-top">
 
@@ -999,7 +743,6 @@ button {
 
 
                 <div class="teams">
-
 
                     <div class="team">
 
@@ -1062,20 +805,18 @@ button {
 
                 </div>
 
-            </a>
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- =====================================
-         UPCOMING
-    ====================================== -->
+    <!-- UPCOMING -->
 
     <section
         id="upcoming"
-        class="section match-section"
+        class="section"
         style="display:none;"
     >
 
@@ -1086,7 +827,7 @@ button {
             </h3>
 
             <span>
-                2 MATCHES
+                UPCOMING
             </span>
 
         </div>
@@ -1094,11 +835,7 @@ button {
 
         <div class="match-list">
 
-
-            <a
-                href="#"
-                class="match-card"
-            >
+            <div class="match-card">
 
                 <div class="match-top">
 
@@ -1160,88 +897,18 @@ button {
 
                 </div>
 
-            </a>
-
-
-            <a
-                href="#"
-                class="match-card"
-            >
-
-                <div class="match-top">
-
-                    <span class="match-status">
-                        UPCOMING
-                    </span>
-
-                    <span class="match-date">
-                        28 AUG 2026
-                    </span>
-
-                </div>
-
-
-                <div class="teams">
-
-                    <div class="team">
-
-                        <div class="team-logo">
-                            🏏
-                        </div>
-
-                        <div class="team-name">
-                            WARRIORS XI
-                        </div>
-
-                    </div>
-
-
-                    <div class="vs">
-                        VS
-                    </div>
-
-
-                    <div class="team right">
-
-                        <div class="team-name">
-                            CRICKPULSE XI
-                        </div>
-
-                        <div class="team-logo">
-                            🏏
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="match-info">
-
-                    <span>
-                        T20
-                    </span>
-
-                    <span>
-                        7:00 PM
-                    </span>
-
-                </div>
-
-            </a>
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- =====================================
-         COMPLETED
-    ====================================== -->
+    <!-- COMPLETED -->
 
     <section
         id="completed"
-        class="section match-section"
+        class="section"
         style="display:none;"
     >
 
@@ -1252,7 +919,7 @@ button {
             </h3>
 
             <span>
-                RECENT
+                COMPLETED
             </span>
 
         </div>
@@ -1260,11 +927,7 @@ button {
 
         <div class="match-list">
 
-
-            <a
-                href="#"
-                class="match-card"
-            >
+            <div class="match-card">
 
                 <div class="match-top">
 
@@ -1342,7 +1005,7 @@ button {
 
                 </div>
 
-            </a>
+            </div>
 
         </div>
 
@@ -1351,10 +1014,6 @@ button {
 
 </main>
 
-
-<!-- =========================================
-     BOTTOM NAV
-========================================= -->
 
 <nav class="bottom-nav">
 
@@ -1418,64 +1077,34 @@ button {
 </nav>
 
 
-<!-- =========================================
-     JAVASCRIPT
-========================================= -->
-
 <script>
 
 function showTab(tabName, button) {
 
-    const sections =
-        document.querySelectorAll(
-            ".match-section"
-        );
+    document
+        .querySelectorAll(".section")
+        .forEach(function(section) {
+
+            section.style.display = "none";
+
+        });
 
 
-    sections.forEach(
-        function(section) {
-
-            section.style.display =
-                "none";
-
-        }
-    );
+    document
+        .getElementById(tabName)
+        .style.display = "block";
 
 
-    const selected =
-        document.getElementById(
-            tabName
-        );
+    document
+        .querySelectorAll(".tab")
+        .forEach(function(tab) {
+
+            tab.classList.remove("active");
+
+        });
 
 
-    if (selected) {
-
-        selected.style.display =
-            "block";
-
-    }
-
-
-    const buttons =
-        document.querySelectorAll(
-            ".tab"
-        );
-
-
-    buttons.forEach(
-        function(btn) {
-
-            btn.classList.remove(
-                "active"
-            );
-
-        }
-    );
-
-
-    button.classList.add(
-        "active"
-    );
+    button.classList.add("active");
 
 }
 
