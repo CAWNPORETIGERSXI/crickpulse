@@ -13,6 +13,11 @@
 
 <title>CRICKPULSE | Home</title>
 
+
+<!-- =====================================================
+     FONT
+===================================================== -->
+
 <link rel="preconnect"
       href="https://fonts.googleapis.com">
 
@@ -28,8 +33,8 @@
 
 /* =====================================================
    CRICKPULSE
+   FINAL HOME / DASHBOARD
    WHITE + PURPLE + LIGHT RED
-   CRICKHEROES-INSPIRED MOBILE DASHBOARD
 ===================================================== */
 
 :root {
@@ -39,21 +44,25 @@
     --purple-light: #8b5cf6;
 
     --purple-soft: #f3efff;
-    --purple-border: #e3d8ff;
+    --purple-border: #dfd2ff;
 
-    --red: #ff6675;
+    --red: #ff6475;
     --red-soft: #fff0f2;
 
-    --text: #181820;
+    --green: #18a66a;
+    --green-soft: #eafaf3;
+
+    --text: #17171f;
+    --text-soft: #3d3d48;
     --muted: #777783;
 
     --white: #ffffff;
-    --page: #f8f7fb;
+    --page: #f7f6fa;
 
     --border: #e8e7ed;
 
     --shadow:
-        0 5px 20px rgba(50,40,90,0.07);
+        0 4px 18px rgba(40,30,75,0.07);
 }
 
 
@@ -102,6 +111,9 @@ body {
 
     padding-bottom:
         82px;
+
+    -webkit-font-smoothing:
+        antialiased;
 }
 
 
@@ -115,8 +127,15 @@ a {
 }
 
 
+button {
+
+    font-family:
+        inherit;
+}
+
+
 /* =====================================================
-   TOP HEADER
+   HEADER
 ===================================================== */
 
 .header {
@@ -130,21 +149,27 @@ a {
     z-index:
         1000;
 
+    height:
+        68px;
+
     background:
-        var(--white);
+        rgba(255,255,255,0.98);
 
     border-bottom:
         1px solid var(--border);
+
+    backdrop-filter:
+        blur(14px);
 }
 
 
 .header-inner {
 
-    height:
-        68px;
-
     max-width:
         1100px;
+
+    height:
+        100%;
 
     margin:
         auto;
@@ -164,7 +189,7 @@ a {
 
 
 /* =====================================================
-   LOGO
+   BRAND
 ===================================================== */
 
 .brand {
@@ -187,6 +212,9 @@ a {
 
     height:
         42px;
+
+    flex-shrink:
+        0;
 
     border-radius:
         12px;
@@ -215,6 +243,9 @@ a {
 
     font-weight:
         900;
+
+    box-shadow:
+        0 5px 15px rgba(109,53,217,0.20);
 }
 
 
@@ -227,7 +258,7 @@ a {
         900;
 
     letter-spacing:
-        0.2px;
+        0.3px;
 }
 
 
@@ -248,10 +279,10 @@ a {
 
 
 /* =====================================================
-   PROFILE / FOLLOW AREA
+   HEADER ACTIONS
 ===================================================== */
 
-.top-actions {
+.header-actions {
 
     display:
         flex;
@@ -260,39 +291,11 @@ a {
         center;
 
     gap:
-        10px;
+        9px;
 }
 
 
-.follow-button {
-
-    height:
-        38px;
-
-    padding:
-        0 15px;
-
-    border:
-        none;
-
-    border-radius:
-        20px;
-
-    background:
-        var(--purple);
-
-    color:
-        var(--white);
-
-    font-size:
-        13px;
-
-    font-weight:
-        800;
-}
-
-
-.profile-button {
+.notification {
 
     width:
         40px;
@@ -301,10 +304,13 @@ a {
         40px;
 
     border:
-        1px solid var(--purple-border);
+        1px solid var(--border);
 
     border-radius:
         50%;
+
+    background:
+        var(--white);
 
     display:
         flex;
@@ -315,11 +321,39 @@ a {
     justify-content:
         center;
 
+    font-size:
+        19px;
+}
+
+
+.header-profile {
+
+    width:
+        40px;
+
+    height:
+        40px;
+
+    border:
+        2px solid var(--purple-border);
+
+    border-radius:
+        50%;
+
     background:
         var(--purple-soft);
 
     color:
         var(--purple);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
 
     font-size:
         19px;
@@ -327,7 +361,7 @@ a {
 
 
 /* =====================================================
-   MAIN
+   MAIN CONTAINER
 ===================================================== */
 
 .container {
@@ -339,15 +373,34 @@ a {
         auto;
 
     padding:
-        20px 15px 30px;
+        18px 15px 30px;
 }
 
 
 /* =====================================================
-   PROFILE INTRO
+   PROFILE AREA
 ===================================================== */
 
-.profile-intro {
+.profile-area {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        12px;
+
+    padding:
+        6px 2px 19px;
+}
+
+
+.profile-left {
 
     display:
         flex;
@@ -356,14 +409,14 @@ a {
         center;
 
     gap:
-        14px;
+        12px;
 
-    padding:
-        5px 2px 20px;
+    min-width:
+        0;
 }
 
 
-.profile-avatar {
+.profile-photo {
 
     width:
         62px;
@@ -396,24 +449,40 @@ a {
         var(--purple);
 
     font-size:
-        28px;
+        27px;
 }
 
 
-.profile-info h1 {
+.profile-details {
+
+    min-width:
+        0;
+}
+
+
+.profile-details h1 {
 
     font-size:
-        23px;
+        22px;
+
+    line-height:
+        1.2;
 
     font-weight:
         900;
 
-    line-height:
-        1.2;
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
 }
 
 
-.profile-info p {
+.profile-details p {
 
     margin-top:
         4px;
@@ -422,15 +491,49 @@ a {
         var(--muted);
 
     font-size:
-        14px;
+        13px;
 
     font-weight:
         500;
 }
 
 
+.follow-button {
+
+    flex-shrink:
+        0;
+
+    height:
+        38px;
+
+    padding:
+        0 15px;
+
+    border:
+        none;
+
+    border-radius:
+        20px;
+
+    background:
+        var(--purple);
+
+    color:
+        var(--white);
+
+    font-size:
+        13px;
+
+    font-weight:
+        800;
+
+    box-shadow:
+        0 5px 14px rgba(109,53,217,0.18);
+}
+
+
 /* =====================================================
-   SECTION HEADER
+   SECTION
 ===================================================== */
 
 .section {
@@ -440,7 +543,7 @@ a {
 }
 
 
-.section-head {
+.section-header {
 
     display:
         flex;
@@ -451,25 +554,31 @@ a {
     justify-content:
         space-between;
 
+    gap:
+        10px;
+
     margin-bottom:
         12px;
 }
 
 
-.section-head h2 {
+.section-title {
 
     font-size:
         21px;
 
-    font-weight:
-        900;
-
     line-height:
         1.2;
+
+    font-weight:
+        900;
 }
 
 
-.view-all {
+.section-link {
+
+    flex-shrink:
+        0;
 
     color:
         var(--purple);
@@ -483,7 +592,7 @@ a {
 
 
 /* =====================================================
-   MATCH HORIZONTAL SCROLLER
+   MATCH SCROLLER
 ===================================================== */
 
 .match-scroll {
@@ -498,20 +607,18 @@ a {
         auto;
 
     padding:
-        2px 2px 10px;
-
-    scroll-snap-type:
-        x mandatory;
+        2px 2px 11px;
 
     scrollbar-width:
         none;
+
+    scroll-snap-type:
+        x mandatory;
 }
 
 
 .match-scroll::-webkit-scrollbar {
-
-    display:
-        none;
+    display: none;
 }
 
 
@@ -522,13 +629,16 @@ a {
 .match-card {
 
     min-width:
-        285px;
+        292px;
 
     max-width:
-        285px;
+        292px;
 
     scroll-snap-align:
         start;
+
+    padding:
+        15px;
 
     background:
         var(--white);
@@ -537,19 +647,28 @@ a {
         1px solid var(--border);
 
     border-radius:
-        16px;
-
-    padding:
-        15px;
+        17px;
 
     box-shadow:
         var(--shadow);
+
+    transition:
+        transform 0.15s ease;
 }
 
 
-/* MATCH TOP */
+.match-card:active {
 
-.match-card-top {
+    transform:
+        scale(0.98);
+}
+
+
+/* =====================================================
+   MATCH CARD TOP
+===================================================== */
+
+.match-top {
 
     display:
         flex;
@@ -561,7 +680,7 @@ a {
         space-between;
 
     margin-bottom:
-        12px;
+        10px;
 }
 
 
@@ -583,20 +702,23 @@ a {
         15px;
 
     background:
-        var(--red-soft);
+        var(--green-soft);
 
     color:
-        var(--red);
+        var(--green);
 
     font-size:
-        11px;
+        10px;
 
     font-weight:
         900;
+
+    letter-spacing:
+        0.3px;
 }
 
 
-.match-status-dot {
+.status-dot {
 
     width:
         7px;
@@ -608,7 +730,7 @@ a {
         50%;
 
     background:
-        var(--red);
+        var(--green);
 }
 
 
@@ -625,12 +747,11 @@ a {
 }
 
 
-/* MATCH DATE */
+/* =====================================================
+   MATCH INFO
+===================================================== */
 
-.match-date {
-
-    margin-bottom:
-        12px;
+.match-info {
 
     color:
         var(--muted);
@@ -640,12 +761,17 @@ a {
 
     font-weight:
         600;
+
+    margin-bottom:
+        12px;
 }
 
 
-/* TEAMS */
+/* =====================================================
+   TEAMS
+===================================================== */
 
-.match-teams {
+.teams {
 
     display:
         flex;
@@ -658,7 +784,7 @@ a {
 }
 
 
-.team-row {
+.team {
 
     display:
         flex;
@@ -671,7 +797,7 @@ a {
 }
 
 
-.team-name {
+.team-left {
 
     display:
         flex;
@@ -682,21 +808,21 @@ a {
     gap:
         8px;
 
-    font-size:
-        15px;
-
-    font-weight:
-        800;
+    min-width:
+        0;
 }
 
 
 .team-logo {
 
     width:
-        30px;
+        32px;
 
     height:
-        30px;
+        32px;
+
+    flex-shrink:
+        0;
 
     border-radius:
         50%;
@@ -720,24 +846,50 @@ a {
         var(--purple);
 
     font-size:
-        12px;
+        11px;
 
     font-weight:
         900;
+}
+
+
+.team-name {
+
+    font-size:
+        14px;
+
+    font-weight:
+        800;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
 }
 
 
 .team-score {
 
+    flex-shrink:
+        0;
+
     font-size:
-        15px;
+        14px;
 
     font-weight:
         900;
 }
 
 
-.match-result {
+/* =====================================================
+   MATCH FOOTER
+===================================================== */
+
+.match-footer {
 
     margin-top:
         12px;
@@ -748,22 +900,54 @@ a {
     border-top:
         1px solid var(--border);
 
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        8px;
+}
+
+
+.match-result {
+
     color:
         var(--purple);
 
     font-size:
-        12px;
+        11px;
 
     font-weight:
         800;
 }
 
 
+.match-venue {
+
+    color:
+        var(--muted);
+
+    font-size:
+        10px;
+
+    font-weight:
+        600;
+
+    text-align:
+        right;
+}
+
+
 /* =====================================================
-   UPCOMING MATCH CARD
+   UPCOMING CARD
 ===================================================== */
 
-.upcoming .match-status {
+.match-card.upcoming .match-status {
 
     background:
         var(--purple-soft);
@@ -773,7 +957,7 @@ a {
 }
 
 
-.upcoming .match-status-dot {
+.match-card.upcoming .status-dot {
 
     background:
         var(--purple);
@@ -781,29 +965,29 @@ a {
 
 
 /* =====================================================
-   QUICK ACTIONS
+   QUICK MENU
 ===================================================== */
 
-.quick-actions {
+.quick-menu {
 
     display:
         grid;
 
     grid-template-columns:
-        repeat(4, 1fr);
+        repeat(4,1fr);
 
     gap:
-        10px;
+        9px;
 }
 
 
-.quick-card {
+.quick-item {
 
     min-height:
         88px;
 
     padding:
-        12px 7px;
+        10px 5px;
 
     background:
         var(--white);
@@ -813,6 +997,9 @@ a {
 
     border-radius:
         15px;
+
+    box-shadow:
+        var(--shadow);
 
     display:
         flex;
@@ -828,9 +1015,6 @@ a {
 
     text-align:
         center;
-
-    box-shadow:
-        var(--shadow);
 }
 
 
@@ -841,6 +1025,9 @@ a {
 
     height:
         36px;
+
+    margin-bottom:
+        6px;
 
     border-radius:
         11px;
@@ -862,16 +1049,16 @@ a {
 
     font-size:
         18px;
-
-    margin-bottom:
-        6px;
 }
 
 
-.quick-card span {
+.quick-item span {
 
     font-size:
-        11px;
+        10px;
+
+    line-height:
+        1.2;
 
     font-weight:
         800;
@@ -879,7 +1066,7 @@ a {
 
 
 /* =====================================================
-   PEOPLE / CONTACTS
+   PEOPLE SECTION
 ===================================================== */
 
 .people-scroll {
@@ -888,30 +1075,31 @@ a {
         flex;
 
     gap:
-        12px;
+        11px;
 
     overflow-x:
         auto;
 
-    scrollbar-width:
-        none;
-
     padding:
         2px 2px 10px;
+
+    scrollbar-width:
+        none;
 }
 
 
 .people-scroll::-webkit-scrollbar {
-
-    display:
-        none;
+    display: none;
 }
 
 
-.person-card {
+.person {
 
     min-width:
-        145px;
+        142px;
+
+    padding:
+        14px;
 
     background:
         var(--white);
@@ -922,27 +1110,24 @@ a {
     border-radius:
         16px;
 
-    padding:
-        15px;
-
     box-shadow:
         var(--shadow);
 }
 
 
-.person-avatar {
+.person-photo {
 
     width:
-        52px;
+        50px;
 
     height:
-        52px;
+        50px;
+
+    margin-bottom:
+        8px;
 
     border-radius:
         50%;
-
-    margin-bottom:
-        9px;
 
     display:
         flex;
@@ -970,7 +1155,7 @@ a {
 .person-name {
 
     font-size:
-        14px;
+        13px;
 
     font-weight:
         900;
@@ -995,7 +1180,7 @@ a {
         var(--muted);
 
     font-size:
-        11px;
+        10px;
 
     font-weight:
         600;
@@ -1024,13 +1209,7 @@ a {
         3000;
 
     height:
-        72px;
-
-    background:
-        rgba(255,255,255,0.98);
-
-    border-top:
-        1px solid var(--border);
+        73px;
 
     display:
         flex;
@@ -1038,16 +1217,24 @@ a {
     align-items:
         stretch;
 
+    background:
+        rgba(255,255,255,0.98);
+
+    border-top:
+        1px solid var(--border);
+
     box-shadow:
-        0 -5px 20px
-        rgba(40,30,70,0.08);
+        0 -5px 20px rgba(40,30,70,0.08);
 
     backdrop-filter:
-        blur(15px);
+        blur(14px);
 }
 
 
 .bottom-nav a {
+
+    position:
+        relative;
 
     flex:
         1;
@@ -1068,7 +1255,7 @@ a {
         3px;
 
     color:
-        #858591;
+        #888894;
 
     font-size:
         21px;
@@ -1103,8 +1290,14 @@ a {
     top:
         0;
 
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
     width:
-        32px;
+        34px;
 
     height:
         3px;
@@ -1118,31 +1311,21 @@ a {
 
 
 /* =====================================================
-   TABLET / DESKTOP
+   DESKTOP
 ===================================================== */
 
 @media (min-width: 701px) {
 
-    .container {
-
-        padding-left:
-            25px;
-
-        padding-right:
-            25px;
-    }
-
-
     .match-scroll {
-
-        overflow-x:
-            visible;
 
         display:
             grid;
 
         grid-template-columns:
-            repeat(3, 1fr);
+            repeat(3,1fr);
+
+        overflow:
+            visible;
     }
 
 
@@ -1158,18 +1341,18 @@ a {
 
     .people-scroll {
 
-        overflow-x:
-            visible;
-
         display:
             grid;
 
         grid-template-columns:
-            repeat(4, 1fr);
+            repeat(4,1fr);
+
+        overflow:
+            visible;
     }
 
 
-    .person-card {
+    .person {
 
         min-width:
             0;
@@ -1209,54 +1392,38 @@ a {
 @media (max-width: 380px) {
 
     .brand-name {
-
-        font-size:
-            18px;
+        font-size: 18px;
     }
 
 
-    .brand-tagline {
-
-        font-size:
-            9px;
+    .profile-details h1 {
+        font-size: 20px;
     }
 
 
-    .profile-info h1 {
-
-        font-size:
-            21px;
+    .follow-button {
+        padding: 0 12px;
     }
 
 
-    .section-head h2 {
-
-        font-size:
-            19px;
+    .section-title {
+        font-size: 19px;
     }
 
 
     .match-card {
-
-        min-width:
-            270px;
-
-        max-width:
-            270px;
+        min-width: 275px;
+        max-width: 275px;
     }
 
 
-    .quick-actions {
-
-        gap:
-            7px;
+    .quick-menu {
+        gap: 6px;
     }
 
 
-    .quick-card {
-
-        min-height:
-            82px;
+    .quick-item {
+        min-height: 82px;
     }
 }
 
@@ -1275,6 +1442,7 @@ a {
 <header class="header">
 
     <div class="header-inner">
+
 
         <a href="dashboard.html"
            class="brand">
@@ -1298,15 +1466,23 @@ a {
         </a>
 
 
-        <div class="top-actions">
+        <div class="header-actions">
 
-            <button class="follow-button">
-                + Follow
-            </button>
+            <a href="#notifications"
+               class="notification"
+               aria-label="Notifications">
+
+                🔔
+
+            </a>
+
 
             <a href="#profile"
-               class="profile-button">
+               class="header-profile"
+               aria-label="Profile">
+
                 👤
+
             </a>
 
         </div>
@@ -1324,25 +1500,37 @@ a {
 <main class="container">
 
 
-    <!-- PROFILE INTRO -->
+    <!-- =================================================
+         PROFILE
+    ================================================= -->
 
-    <section class="profile-intro">
+    <section class="profile-area">
 
-        <div class="profile-avatar">
-            👤
+        <div class="profile-left">
+
+            <div class="profile-photo">
+                👤
+            </div>
+
+
+            <div class="profile-details">
+
+                <h1>
+                    Welcome to CRICKPULSE
+                </h1>
+
+                <p>
+                    Your cricket world, all in one place.
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="profile-info">
 
-            <h1>
-                Welcome to CRICKPULSE
-            </h1>
-
-            <p>
-                Follow matches, players & cricket you love.
-            </p>
-
-        </div>
+        <button class="follow-button">
+            + Follow
+        </button>
 
     </section>
 
@@ -1354,15 +1542,17 @@ a {
 
     <section class="section">
 
-        <div class="section-head">
+        <div class="section-header">
 
-            <h2>
+            <h2 class="section-title">
                 Matches of Your Interest
             </h2>
 
             <a href="view-all.html"
-               class="view-all">
+               class="section-link">
+
                 View All
+
             </a>
 
         </div>
@@ -1376,11 +1566,12 @@ a {
             <a href="#match1"
                class="match-card">
 
-                <div class="match-card-top">
+
+                <div class="match-top">
 
                     <div class="match-status">
 
-                        <span class="match-status-dot"></span>
+                        <span class="status-dot"></span>
 
                         LIVE
 
@@ -1393,22 +1584,27 @@ a {
                 </div>
 
 
-                <div class="match-date">
+                <div class="match-info">
+
                     Today • 6:00 PM
+
                 </div>
 
 
-                <div class="match-teams">
+                <div class="teams">
 
-                    <div class="team-row">
 
-                        <div class="team-name">
+                    <div class="team">
+
+                        <div class="team-left">
 
                             <div class="team-logo">
                                 CP
                             </div>
 
-                            CRICKPULSE XI
+                            <div class="team-name">
+                                CRICKPULSE XI
+                            </div>
 
                         </div>
 
@@ -1419,15 +1615,17 @@ a {
                     </div>
 
 
-                    <div class="team-row">
+                    <div class="team">
 
-                        <div class="team-name">
+                        <div class="team-left">
 
                             <div class="team-logo">
                                 W
                             </div>
 
-                            WARRIORS XI
+                            <div class="team-name">
+                                WARRIORS XI
+                            </div>
 
                         </div>
 
@@ -1437,11 +1635,20 @@ a {
 
                     </div>
 
+
                 </div>
 
 
-                <div class="match-result">
-                    CRICKPULSE XI need 3 runs
+                <div class="match-footer">
+
+                    <div class="match-result">
+                        CRICKPULSE XI need 3 runs
+                    </div>
+
+                    <div class="match-venue">
+                        Main Ground
+                    </div>
+
                 </div>
 
             </a>
@@ -1453,11 +1660,12 @@ a {
             <a href="#match2"
                class="match-card upcoming">
 
-                <div class="match-card-top">
+
+                <div class="match-top">
 
                     <div class="match-status">
 
-                        <span class="match-status-dot"></span>
+                        <span class="status-dot"></span>
 
                         UPCOMING
 
@@ -1470,22 +1678,27 @@ a {
                 </div>
 
 
-                <div class="match-date">
+                <div class="match-info">
+
                     Tomorrow • 5:30 PM
+
                 </div>
 
 
-                <div class="match-teams">
+                <div class="teams">
 
-                    <div class="team-row">
 
-                        <div class="team-name">
+                    <div class="team">
+
+                        <div class="team-left">
 
                             <div class="team-logo">
                                 CP
                             </div>
 
-                            CRICKPULSE XI
+                            <div class="team-name">
+                                CRICKPULSE XI
+                            </div>
 
                         </div>
 
@@ -1496,15 +1709,17 @@ a {
                     </div>
 
 
-                    <div class="team-row">
+                    <div class="team">
 
-                        <div class="team-name">
+                        <div class="team-left">
 
                             <div class="team-logo">
                                 T
                             </div>
 
-                            TIGERS XI
+                            <div class="team-name">
+                                TIGERS XI
+                            </div>
 
                         </div>
 
@@ -1514,11 +1729,20 @@ a {
 
                     </div>
 
+
                 </div>
 
 
-                <div class="match-result">
-                    Match starts at 5:30 PM
+                <div class="match-footer">
+
+                    <div class="match-result">
+                        Match starts at 5:30 PM
+                    </div>
+
+                    <div class="match-venue">
+                        Stadium
+                    </div>
+
                 </div>
 
             </a>
@@ -1530,11 +1754,12 @@ a {
             <a href="#match3"
                class="match-card upcoming">
 
-                <div class="match-card-top">
+
+                <div class="match-top">
 
                     <div class="match-status">
 
-                        <span class="match-status-dot"></span>
+                        <span class="status-dot"></span>
 
                         UPCOMING
 
@@ -1547,22 +1772,27 @@ a {
                 </div>
 
 
-                <div class="match-date">
+                <div class="match-info">
+
                     Friday • 10:00 AM
+
                 </div>
 
 
-                <div class="match-teams">
+                <div class="teams">
 
-                    <div class="team-row">
 
-                        <div class="team-name">
+                    <div class="team">
+
+                        <div class="team-left">
 
                             <div class="team-logo">
                                 A
                             </div>
 
-                            ALL STARS XI
+                            <div class="team-name">
+                                ALL STARS XI
+                            </div>
 
                         </div>
 
@@ -1573,15 +1803,17 @@ a {
                     </div>
 
 
-                    <div class="team-row">
+                    <div class="team">
 
-                        <div class="team-name">
+                        <div class="team-left">
 
                             <div class="team-logo">
                                 K
                             </div>
 
-                            KINGS XI
+                            <div class="team-name">
+                                KINGS XI
+                            </div>
 
                         </div>
 
@@ -1591,14 +1823,24 @@ a {
 
                     </div>
 
+
                 </div>
 
 
-                <div class="match-result">
-                    Follow this match
+                <div class="match-footer">
+
+                    <div class="match-result">
+                        Follow this match
+                    </div>
+
+                    <div class="match-venue">
+                        Cricket Ground
+                    </div>
+
                 </div>
 
             </a>
+
 
         </div>
 
@@ -1607,30 +1849,30 @@ a {
 
 
     <!-- =================================================
-         QUICK ACTIONS
+         QUICK MENU
     ================================================= -->
 
     <section class="section">
 
-        <div class="section-head">
+        <div class="section-header">
 
-            <h2>
+            <h2 class="section-title">
                 My Cricket
             </h2>
 
             <a href="#my-cricket"
-               class="view-all">
+               class="section-link">
                 View All
             </a>
 
         </div>
 
 
-        <div class="quick-actions">
+        <div class="quick-menu">
 
 
             <a href="#matches"
-               class="quick-card">
+               class="quick-item">
 
                 <div class="quick-icon">
                     🏏
@@ -1644,7 +1886,7 @@ a {
 
 
             <a href="#teams"
-               class="quick-card">
+               class="quick-item">
 
                 <div class="quick-icon">
                     👥
@@ -1658,7 +1900,7 @@ a {
 
 
             <a href="#players"
-               class="quick-card">
+               class="quick-item">
 
                 <div class="quick-icon">
                     ⭐
@@ -1672,7 +1914,7 @@ a {
 
 
             <a href="#stats"
-               class="quick-card">
+               class="quick-item">
 
                 <div class="quick-icon">
                     📊
@@ -1684,6 +1926,7 @@ a {
 
             </a>
 
+
         </div>
 
     </section>
@@ -1691,19 +1934,19 @@ a {
 
 
     <!-- =================================================
-         PEOPLE YOU MAY FOLLOW
+         PLAYERS
     ================================================= -->
 
     <section class="section">
 
-        <div class="section-head">
+        <div class="section-header">
 
-            <h2>
+            <h2 class="section-title">
                 Players You May Know
             </h2>
 
             <a href="#players"
-               class="view-all">
+               class="section-link">
                 View All
             </a>
 
@@ -1713,9 +1956,10 @@ a {
         <div class="people-scroll">
 
 
-            <div class="person-card">
+            <a href="#player1"
+               class="person">
 
-                <div class="person-avatar">
+                <div class="person-photo">
                     👤
                 </div>
 
@@ -1727,12 +1971,13 @@ a {
                     Batsman
                 </div>
 
-            </div>
+            </a>
 
 
-            <div class="person-card">
+            <a href="#player2"
+               class="person">
 
-                <div class="person-avatar">
+                <div class="person-photo">
                     👤
                 </div>
 
@@ -1744,12 +1989,13 @@ a {
                     Bowler
                 </div>
 
-            </div>
+            </a>
 
 
-            <div class="person-card">
+            <a href="#player3"
+               class="person">
 
-                <div class="person-avatar">
+                <div class="person-photo">
                     👤
                 </div>
 
@@ -1761,12 +2007,13 @@ a {
                     All Rounder
                 </div>
 
-            </div>
+            </a>
 
 
-            <div class="person-card">
+            <a href="#player4"
+               class="person">
 
-                <div class="person-avatar">
+                <div class="person-photo">
                     👤
                 </div>
 
@@ -1778,11 +2025,13 @@ a {
                     Wicket Keeper
                 </div>
 
-            </div>
+            </a>
+
 
         </div>
 
     </section>
+
 
 </main>
 
@@ -1793,6 +2042,7 @@ a {
 ===================================================== -->
 
 <nav class="bottom-nav">
+
 
     <a href="dashboard.html"
        class="active">
@@ -1848,6 +2098,7 @@ a {
         </span>
 
     </a>
+
 
 </nav>
 
