@@ -247,9 +247,7 @@
         </h1>
 
 
-        <!-- ================================
-             LOGIN
-        ================================= -->
+        <!-- LOGIN -->
 
         <section id="loginBox">
 
@@ -319,9 +317,7 @@
 
 
 
-        <!-- ================================
-             REGISTER
-        ================================= -->
+        <!-- REGISTER -->
 
         <section
             id="registerBox"
@@ -415,9 +411,7 @@
 
 
 
-        <!-- ================================
-             FORGOT PIN
-        ================================= -->
+        <!-- FORGOT PIN -->
 
         <section
             id="forgotBox"
@@ -450,7 +444,6 @@
                     autocomplete="tel"
                 >
 
-
                 <label
                     class="auth-label"
                     for="forgotEmail"
@@ -465,7 +458,6 @@
                     placeholder="example@gmail.com"
                     autocomplete="email"
                 >
-
 
                 <button
                     id="sendForgotOtpBtn"
@@ -489,7 +481,6 @@
                     Enter the 6-digit OTP sent to your Gmail.
                 </p>
 
-
                 <label
                     class="auth-label"
                     for="forgotOtp"
@@ -506,7 +497,6 @@
                     placeholder="••••••"
                     autocomplete="one-time-code"
                 >
-
 
                 <button
                     id="verifyForgotOtpBtn"
@@ -530,7 +520,6 @@
                     Create your new 4-digit PIN.
                 </p>
 
-
                 <label
                     class="auth-label"
                     for="forgotNewPin"
@@ -548,7 +537,6 @@
                     autocomplete="new-password"
                 >
 
-
                 <label
                     class="auth-label"
                     for="forgotConfirmPin"
@@ -565,7 +553,6 @@
                     placeholder="••••"
                     autocomplete="new-password"
                 >
-
 
                 <button
                     id="resetForgotPinBtn"
@@ -643,11 +630,6 @@
     const forgotStep3 =
         document.getElementById("forgotStep3");
 
-
-    /*
-     * Temporary recovery data
-     * केवल इस browser session के लिए
-     */
 
     let recoveryMobile = "";
     let recoveryEmail = "";
@@ -770,6 +752,18 @@
                 );
 
 
+                /* =================================
+                   LOGIN → DASHBOARD
+                ================================= */
+
+                setTimeout(function () {
+
+                    window.location.href =
+                        "dashboard.html";
+
+                }, 500);
+
+
             } catch (error) {
 
                 console.error(
@@ -789,7 +783,7 @@
 
 
     /* =====================================
-       REGISTER / CREATE ACCOUNT
+       REGISTER
     ====================================== */
 
     document
@@ -886,13 +880,9 @@
                         },
 
                         body: JSON.stringify({
-
                             mobile: mobile,
-
                             email: email,
-
                             pin: pin
-
                         })
 
                     });
@@ -922,17 +912,9 @@
 
                 setTimeout(function () {
 
-                    registerBox
-                        .classList
-                        .add("hidden");
-
-                    forgotBox
-                        .classList
-                        .add("hidden");
-
-                    loginBox
-                        .classList
-                        .remove("hidden");
+                    registerBox.classList.add("hidden");
+                    forgotBox.classList.add("hidden");
+                    loginBox.classList.remove("hidden");
 
                     document
                         .getElementById("loginMobile")
@@ -1039,11 +1021,8 @@
                         },
 
                         body: JSON.stringify({
-
                             mobile: mobile,
-
                             email: email
-
                         })
 
                     });
@@ -1067,24 +1046,11 @@
 
                 recoveryMobile = mobile;
                 recoveryEmail = email;
+                recoveryOtpToken = data.token || "";
 
 
-                /*
-                 * Server should return a temporary
-                 * recovery token.
-                 */
-
-                recoveryOtpToken =
-                    data.token || "";
-
-
-                forgotStep1
-                    .classList
-                    .add("hidden");
-
-                forgotStep2
-                    .classList
-                    .remove("hidden");
+                forgotStep1.classList.add("hidden");
+                forgotStep2.classList.remove("hidden");
 
 
                 showMessage(
@@ -1177,11 +1143,8 @@
                         body: JSON.stringify({
 
                             mobile: recoveryMobile,
-
                             email: recoveryEmail,
-
                             otp: otp,
-
                             token: recoveryOtpToken
 
                         })
@@ -1205,23 +1168,13 @@
                 }
 
 
-                /*
-                 * Server can issue a verified
-                 * recovery token here.
-                 */
-
                 recoveryOtpToken =
                     data.token ||
                     recoveryOtpToken;
 
 
-                forgotStep2
-                    .classList
-                    .add("hidden");
-
-                forgotStep3
-                    .classList
-                    .remove("hidden");
+                forgotStep2.classList.add("hidden");
+                forgotStep3.classList.remove("hidden");
 
 
                 showMessage(
@@ -1331,11 +1284,8 @@
                         body: JSON.stringify({
 
                             mobile: recoveryMobile,
-
                             email: recoveryEmail,
-
                             newPin: newPin,
-
                             token: recoveryOtpToken
 
                         })
@@ -1367,17 +1317,9 @@
 
                 setTimeout(function () {
 
-                    forgotBox
-                        .classList
-                        .add("hidden");
-
-                    registerBox
-                        .classList
-                        .add("hidden");
-
-                    loginBox
-                        .classList
-                        .remove("hidden");
+                    forgotBox.classList.add("hidden");
+                    registerBox.classList.add("hidden");
+                    loginBox.classList.remove("hidden");
 
 
                     document
@@ -1412,23 +1354,14 @@
                         .value = "";
 
 
-                    forgotStep1
-                        .classList
-                        .remove("hidden");
-
-                    forgotStep2
-                        .classList
-                        .add("hidden");
-
-                    forgotStep3
-                        .classList
-                        .add("hidden");
+                    forgotStep1.classList.remove("hidden");
+                    forgotStep2.classList.add("hidden");
+                    forgotStep3.classList.add("hidden");
 
 
                     recoveryMobile = "";
                     recoveryEmail = "";
                     recoveryOtpToken = "";
-
 
                 }, 1500);
 
@@ -1466,17 +1399,9 @@
         .getElementById("createAccountBtn")
         .addEventListener("click", function () {
 
-            loginBox
-                .classList
-                .add("hidden");
-
-            forgotBox
-                .classList
-                .add("hidden");
-
-            registerBox
-                .classList
-                .remove("hidden");
+            loginBox.classList.add("hidden");
+            forgotBox.classList.add("hidden");
+            registerBox.classList.remove("hidden");
 
             showMessage("", "");
 
@@ -1487,17 +1412,9 @@
         .getElementById("backLoginBtn")
         .addEventListener("click", function () {
 
-            registerBox
-                .classList
-                .add("hidden");
-
-            forgotBox
-                .classList
-                .add("hidden");
-
-            loginBox
-                .classList
-                .remove("hidden");
+            registerBox.classList.add("hidden");
+            forgotBox.classList.add("hidden");
+            loginBox.classList.remove("hidden");
 
             showMessage("", "");
 
@@ -1508,30 +1425,14 @@
         .getElementById("forgotPinBtn")
         .addEventListener("click", function () {
 
-            loginBox
-                .classList
-                .add("hidden");
-
-            registerBox
-                .classList
-                .add("hidden");
-
-            forgotBox
-                .classList
-                .remove("hidden");
+            loginBox.classList.add("hidden");
+            registerBox.classList.add("hidden");
+            forgotBox.classList.remove("hidden");
 
 
-            forgotStep1
-                .classList
-                .remove("hidden");
-
-            forgotStep2
-                .classList
-                .add("hidden");
-
-            forgotStep3
-                .classList
-                .add("hidden");
+            forgotStep1.classList.remove("hidden");
+            forgotStep2.classList.add("hidden");
+            forgotStep3.classList.add("hidden");
 
 
             showMessage("", "");
@@ -1543,17 +1444,9 @@
         .getElementById("forgotBackBtn")
         .addEventListener("click", function () {
 
-            forgotBox
-                .classList
-                .add("hidden");
-
-            registerBox
-                .classList
-                .add("hidden");
-
-            loginBox
-                .classList
-                .remove("hidden");
+            forgotBox.classList.add("hidden");
+            registerBox.classList.add("hidden");
+            loginBox.classList.remove("hidden");
 
             showMessage("", "");
 
