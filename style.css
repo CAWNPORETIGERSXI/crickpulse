@@ -2598,3 +2598,211 @@ select {
             9px;
     }
 }
+/* =========================================================
+   CRICKPULSE — LARGE & CLEAR TYPOGRAPHY
+========================================================= */
+
+body {
+    font-family:
+        "Inter",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    font-size: 18px;
+    line-height: 1.65;
+}
+
+/* Main headings */
+h1 {
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 42px;
+    line-height: 1.2;
+    font-weight: 900;
+}
+
+h3 {
+    font-size: 30px;
+    line-height: 1.25;
+    font-weight: 900;
+}
+
+h4 {
+    font-size: 21px;
+    line-height: 1.35;
+    font-weight: 800;
+}
+
+/* Paragraphs */
+p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* Navigation */
+.desktop-nav a {
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.mobile-menu a {
+    font-size: 18px;
+}
+
+/* Buttons */
+.primary-btn,
+.secondary-btn {
+    font-size: 18px;
+    font-weight: 900;
+}
+
+/* Cards */
+.quick-card h4,
+.dashboard-action h4,
+.cricket-card h4 {
+    font-size: 20px;
+}
+
+.quick-card p,
+.dashboard-action p,
+.cricket-card p {
+    font-size: 16px;
+}
+
+/* Match information */
+.team-name {
+    font-size: 20px;
+}
+
+.team-score {
+    font-size: 28px;
+}
+
+.match-info {
+    font-size: 16px;
+}
+
+/* Dashboard */
+.welcome-text h2 {
+    font-size: 38px;
+}
+
+.welcome-text p {
+    font-size: 17px;
+}
+
+.dashboard-section-title h3 {
+    font-size: 28px;
+}
+
+.dashboard-section-title span {
+    font-size: 15px;
+}
+
+/* Statistics */
+.dashboard-stat strong {
+    font-size: 40px;
+}
+
+.dashboard-stat span {
+    font-size: 14px;
+}
+
+/* Bottom navigation */
+.bottom-nav a {
+    font-size: 24px;
+}
+
+.bottom-nav a span {
+    font-size: 12px;
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   MOBILE — LARGE & CLEAR
+========================================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        font-size: 17px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 34px;
+    }
+
+    h3 {
+        font-size: 27px;
+    }
+
+    h4 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .brand-text h1 {
+        font-size: 21px;
+    }
+
+    .brand-text span {
+        font-size: 12px;
+    }
+
+    .welcome-text h2 {
+        font-size: 30px;
+    }
+
+    .welcome-text p {
+        font-size: 16px;
+    }
+
+    .dashboard-section-title h3 {
+        font-size: 25px;
+    }
+
+    .dashboard-section-title span {
+        font-size: 13px;
+    }
+
+    .team-box strong {
+        font-size: 16px;
+    }
+
+    .team-score {
+        font-size: 28px;
+    }
+
+    .live-footer {
+        font-size: 14px;
+    }
+
+    .dashboard-action h4 {
+        font-size: 18px;
+    }
+
+    .dashboard-action p {
+        font-size: 14px;
+    }
+
+    .cricket-card h4 {
+        font-size: 19px;
+    }
+
+    .cricket-card p {
+        font-size: 
