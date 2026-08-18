@@ -1,12 +1,13 @@
 /* ==========================================
    CRICKPULSE
-   PREMIUM WHITE + PURPLE + LIGHT RED THEME
-   ========================================== */
+   PREMIUM WHITE + PURPLE + LIGHT RED
+   LARGE & MOBILE-READABLE TYPOGRAPHY
+========================================== */
 
 
 /* ==========================================
    RESET
-   ========================================== */
+========================================== */
 
 * {
     margin: 0;
@@ -16,6 +17,7 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
@@ -27,9 +29,12 @@ body {
     background: #ffffff;
     color: #20202a;
 
-    line-height: 1.5;
+    font-size: 17px;
+    line-height: 1.6;
 
     overflow-x: hidden;
+
+    -webkit-text-size-adjust: 100%;
 }
 
 a {
@@ -46,39 +51,29 @@ select {
 
 
 /* ==========================================
-   COLOR VARIABLES
-   ========================================== */
+   COLORS
+========================================== */
 
 :root {
 
     --purple: #6d35d9;
-
     --purple-dark: #5420b8;
-
     --purple-light: #8b5cf6;
-
     --purple-soft: #f2edff;
-
     --purple-border: #e3d8ff;
 
     --red: #ff6b7a;
-
     --red-light: #fff0f2;
 
     --white: #ffffff;
-
     --black: #17171f;
 
     --text: #20202a;
-
     --text-light: #626272;
-
     --muted: #858594;
 
     --border: #e9e9ef;
-
     --card: #ffffff;
-
     --background: #faf9fd;
 
     --success: #28b765;
@@ -93,78 +88,59 @@ select {
 
 /* ==========================================
    HEADER
-   ========================================== */
+========================================== */
 
 .header {
-
     position: sticky;
-
     top: 0;
-
     z-index: 1000;
 
     width: 100%;
 
     background:
-        rgba(255, 255, 255, 0.94);
+        rgba(255, 255, 255, 0.96);
 
     border-bottom:
         1px solid var(--border);
 
     backdrop-filter: blur(15px);
-
     -webkit-backdrop-filter: blur(15px);
 }
 
-
 .header-inner {
-
     width: 100%;
-
     max-width: 1200px;
 
-    min-height: 74px;
+    min-height: 78px;
 
     margin: auto;
-
-    padding:
-        0 20px;
+    padding: 0 20px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 }
 
 
 /* ==========================================
    BRAND
-   ========================================== */
+========================================== */
 
 .brand {
-
     display: flex;
-
     align-items: center;
-
-    gap: 11px;
+    gap: 12px;
 }
 
-
 .brand-mark {
-
-    width: 45px;
-
-    height: 45px;
+    width: 48px;
+    height: 48px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    border-radius: 12px;
+    border-radius: 13px;
 
     background:
         linear-gradient(
@@ -175,8 +151,7 @@ select {
 
     color: #ffffff;
 
-    font-size: 14px;
-
+    font-size: 16px;
     font-weight: 900;
 
     box-shadow:
@@ -184,28 +159,22 @@ select {
         rgba(109, 53, 217, 0.25);
 }
 
-
 .brand-text h1 {
-
-    font-size: 19px;
-
+    font-size: 21px;
     font-weight: 900;
-
     letter-spacing: 0.5px;
-
     color: var(--text);
 }
 
-
 .brand-text span {
-
     display: block;
 
-    margin-top: 1px;
+    margin-top: 2px;
 
     color: var(--muted);
 
-    font-size: 9px;
+    font-size: 11px;
+    font-weight: 700;
 
     letter-spacing: 0.3px;
 }
@@ -213,43 +182,33 @@ select {
 
 /* ==========================================
    DESKTOP NAVIGATION
-   ========================================== */
+========================================== */
 
 .desktop-nav {
-
     display: flex;
-
     align-items: center;
-
-    gap: 22px;
+    gap: 24px;
 }
-
 
 .desktop-nav a {
-
     color: #555563;
 
-    font-size: 13px;
-
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 800;
 
     transition:
-        color 0.2s ease;
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
-
 .desktop-nav a:hover {
-
     color: var(--purple);
 }
 
-
 .desktop-nav .nav-login {
+    padding: 11px 19px;
 
-    padding:
-        10px 17px;
-
-    border-radius: 9px;
+    border-radius: 10px;
 
     background:
         linear-gradient(
@@ -265,37 +224,35 @@ select {
         rgba(109, 53, 217, 0.20);
 }
 
-
 .desktop-nav .nav-login:hover {
-
     color: #ffffff;
-
     transform: translateY(-1px);
 }
 
 
 /* ==========================================
    MOBILE MENU BUTTON
-   ========================================== */
+========================================== */
 
 .menu-btn {
-
     display: none;
 
-    width: 44px;
+    width: 46px;
+    height: 46px;
 
-    height: 44px;
+    align-items: center;
+    justify-content: center;
 
     border:
         1px solid var(--purple-border);
 
-    border-radius: 10px;
+    border-radius: 11px;
 
     background: var(--purple-soft);
 
     color: var(--purple);
 
-    font-size: 24px;
+    font-size: 25px;
 
     cursor: pointer;
 }
@@ -303,16 +260,14 @@ select {
 
 /* ==========================================
    MOBILE MENU
-   ========================================== */
+========================================== */
 
 .mobile-menu {
-
     display: none;
 
     width: 100%;
 
-    padding:
-        10px 20px 20px;
+    padding: 10px 20px 22px;
 
     background: #ffffff;
 
@@ -324,45 +279,35 @@ select {
         rgba(30, 20, 50, 0.08);
 }
 
-
 .mobile-menu.active {
-
     display: block;
 }
 
-
 .mobile-menu a {
-
     display: block;
 
-    padding: 14px 5px;
+    padding: 16px 5px;
 
     border-bottom:
         1px solid var(--border);
 
     color: #454552;
 
-    font-size: 14px;
-
-    font-weight: 700;
+    font-size: 17px;
+    font-weight: 800;
 }
 
-
 .mobile-menu a:hover {
-
     color: var(--purple);
 }
 
-
 .mobile-menu .mobile-login {
-
     margin-top: 12px;
 
-    padding: 14px;
+    padding: 15px;
 
     border: 0;
-
-    border-radius: 9px;
+    border-radius: 10px;
 
     background:
         linear-gradient(
@@ -379,10 +324,9 @@ select {
 
 /* ==========================================
    HERO
-   ========================================== */
+========================================== */
 
 .hero {
-
     position: relative;
 
     max-width: 1200px;
@@ -390,9 +334,7 @@ select {
     min-height: 650px;
 
     margin: auto;
-
-    padding:
-        85px 20px;
+    padding: 85px 20px;
 
     display: grid;
 
@@ -406,19 +348,15 @@ select {
     overflow: hidden;
 }
 
-
 .hero::before {
-
     content: "";
 
     position: absolute;
 
     width: 420px;
-
     height: 420px;
 
     left: -160px;
-
     top: 80px;
 
     border-radius: 50%;
@@ -431,19 +369,15 @@ select {
     pointer-events: none;
 }
 
-
 .hero::after {
-
     content: "";
 
     position: absolute;
 
     width: 300px;
-
     height: 300px;
 
     right: -100px;
-
     top: 30px;
 
     border-radius: 50%;
@@ -456,50 +390,39 @@ select {
     pointer-events: none;
 }
 
-
 .hero-content {
-
     position: relative;
-
     z-index: 2;
 
     max-width: 700px;
 }
 
-
 .hero-badge {
-
     display: inline-block;
 
-    margin-bottom: 20px;
-
-    padding:
-        8px 13px;
+    margin-bottom: 22px;
+    padding: 9px 15px;
 
     border:
         1px solid var(--purple-border);
 
     border-radius: 30px;
 
-    background:
-        var(--purple-soft);
+    background: var(--purple-soft);
 
     color: var(--purple);
 
-    font-size: 11px;
-
-    font-weight: 800;
+    font-size: 14px;
+    font-weight: 900;
 
     letter-spacing: 0.7px;
 }
 
-
 .hero h2 {
-
     font-size:
-        clamp(42px, 7vw, 78px);
+        clamp(46px, 7vw, 80px);
 
-    line-height: 0.98;
+    line-height: 1;
 
     font-weight: 950;
 
@@ -508,24 +431,19 @@ select {
     color: var(--text);
 }
 
-
 .hero h2 span {
-
     display: block;
-
     color: var(--purple);
 }
 
-
 .hero-content > p {
-
     max-width: 620px;
 
-    margin-top: 25px;
+    margin-top: 26px;
 
     color: var(--text-light);
 
-    font-size: 16px;
+    font-size: 18px;
 
     line-height: 1.7;
 }
@@ -533,38 +451,31 @@ select {
 
 /* ==========================================
    HERO BUTTONS
-   ========================================== */
+========================================== */
 
 .hero-buttons {
-
     display: flex;
-
     flex-wrap: wrap;
 
-    gap: 12px;
+    gap: 13px;
 
-    margin-top: 30px;
+    margin-top: 31px;
 }
-
 
 .primary-btn,
 .secondary-btn {
-
     display: inline-flex;
 
     align-items: center;
-
     justify-content: center;
 
-    min-height: 49px;
+    min-height: 53px;
 
-    padding:
-        0 21px;
+    padding: 0 23px;
 
-    border-radius: 9px;
+    border-radius: 10px;
 
-    font-size: 13px;
-
+    font-size: 16px;
     font-weight: 900;
 
     transition:
@@ -573,9 +484,7 @@ select {
         background 0.2s ease;
 }
 
-
 .primary-btn {
-
     background:
         linear-gradient(
             135deg,
@@ -590,9 +499,7 @@ select {
         rgba(109, 53, 217, 0.22);
 }
 
-
 .primary-btn:hover {
-
     background:
         linear-gradient(
             135deg,
@@ -607,21 +514,16 @@ select {
         rgba(109, 53, 217, 0.28);
 }
 
-
 .secondary-btn {
-
     border:
         1px solid var(--purple-border);
 
-    background:
-        #ffffff;
+    background: #ffffff;
 
     color: var(--purple);
 }
 
-
 .secondary-btn:hover {
-
     border-color: var(--purple);
 
     background: var(--purple-soft);
@@ -632,20 +534,18 @@ select {
 
 /* ==========================================
    HERO SCORE CARD
-   ========================================== */
+========================================== */
 
 .hero-score-card {
-
     position: relative;
-
     z-index: 2;
 
-    padding: 25px;
+    padding: 27px;
 
     border:
         1px solid var(--purple-border);
 
-    border-radius: 20px;
+    border-radius: 21px;
 
     background:
         linear-gradient(
@@ -658,109 +558,85 @@ select {
         0 25px 65px
         rgba(73, 47, 130, 0.13);
 
-    transform:
-        rotate(1deg);
+    transform: rotate(1deg);
 }
 
-
 .score-top {
-
     display: flex;
 
     justify-content: space-between;
-
     align-items: center;
 
-    padding-bottom: 18px;
+    padding-bottom: 19px;
 
     border-bottom:
         1px solid var(--border);
 }
 
-
 .score-top span {
-
     color: var(--red);
 
-    font-size: 11px;
-
+    font-size: 14px;
     font-weight: 900;
 }
 
-
 .score-top small {
+    padding: 5px 9px;
 
-    padding:
-        4px 8px;
-
-    border-radius: 5px;
+    border-radius: 6px;
 
     background: var(--purple-soft);
 
     color: var(--purple);
 
-    font-size: 10px;
-
-    font-weight: 800;
+    font-size: 12px;
+    font-weight: 900;
 }
 
-
 .score-team {
-
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
 
     gap: 15px;
 
-    padding:
-        20px 0;
+    padding: 21px 0;
 }
-
 
 .score-team strong {
-
     color: var(--text);
 
-    font-size: 14px;
+    font-size: 17px;
 }
-
 
 .score-team b {
-
     color: var(--purple);
 
-    font-size: 25px;
+    font-size: 29px;
 }
 
-
 .score-over {
-
-    padding:
-        8px 0;
+    padding: 9px 0;
 
     color: var(--muted);
 
-    font-size: 11px;
+    font-size: 14px;
 
     text-align: center;
 }
 
-
 .score-footer {
-
     margin-top: 5px;
 
-    padding-top: 15px;
+    padding-top: 16px;
 
     border-top:
         1px solid var(--border);
 
     color: var(--text-light);
 
-    font-size: 11px;
+    font-size: 14px;
 
     text-align: center;
 }
@@ -768,97 +644,78 @@ select {
 
 /* ==========================================
    SECTION COMMON
-   ========================================== */
+========================================== */
 
 .quick-section,
 .content-section {
-
     max-width: 1200px;
 
     margin: auto;
 
-    padding:
-        75px 20px;
+    padding: 78px 20px;
 }
-
-
-.quick-section {
-
-    background: transparent;
-}
-
 
 .section-heading {
-
-    margin-bottom: 30px;
+    margin-bottom: 31px;
 }
-
 
 .section-heading > span,
 .section-heading-row span:first-child {
-
     color: var(--purple);
 
-    font-size: 11px;
-
+    font-size: 14px;
     font-weight: 900;
 
     letter-spacing: 1px;
 }
 
-
 .section-heading h3,
 .section-heading-row h3 {
-
-    margin-top: 7px;
+    margin-top: 8px;
 
     color: var(--text);
 
-    font-size: 30px;
+    font-size: 32px;
 
-    line-height: 1.15;
+    line-height: 1.2;
+
+    font-weight: 900;
 }
 
-
 .section-heading-row {
-
     display: flex;
 
     align-items: flex-end;
-
     justify-content: space-between;
 
     gap: 20px;
 
-    margin-bottom: 30px;
+    margin-bottom: 31px;
 }
 
 
 /* ==========================================
    QUICK ACTIONS
-   ========================================== */
+========================================== */
 
 .quick-grid {
-
     display: grid;
 
     grid-template-columns:
         repeat(4, 1fr);
 
-    gap: 15px;
+    gap: 16px;
 }
 
-
 .quick-card {
+    min-height: 190px;
 
-    min-height: 185px;
-
-    padding: 22px;
+    padding: 24px;
 
     border:
         1px solid var(--border);
 
-    border-radius: 15px;
+    border-radius: 16px;
 
     background: var(--card);
 
@@ -870,9 +727,7 @@ select {
         box-shadow 0.2s ease;
 }
 
-
 .quick-card:hover {
-
     transform: translateY(-5px);
 
     border-color:
@@ -882,92 +737,77 @@ select {
         var(--shadow-hover);
 }
 
-
 .quick-icon {
-
-    width: 45px;
-
-    height: 45px;
+    width: 48px;
+    height: 48px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     margin-bottom: 20px;
 
-    border-radius: 11px;
+    border-radius: 12px;
 
-    background:
-        var(--purple-soft);
+    background: var(--purple-soft);
 
     color: var(--purple);
 
-    font-size: 21px;
+    font-size: 23px;
 }
 
-
 .quick-card h4 {
-
-    margin-bottom: 6px;
+    margin-bottom: 7px;
 
     color: var(--text);
 
-    font-size: 15px;
+    font-size: 19px;
+    line-height: 1.3;
 }
 
-
 .quick-card p {
-
     color: var(--muted);
 
-    font-size: 12px;
+    font-size: 15px;
 
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 
 /* ==========================================
    LIVE SECTION
-   ========================================== */
+========================================== */
 
 .live-indicator {
-
     color: var(--red) !important;
 
-    font-size: 11px !important;
-
+    font-size: 14px !important;
     font-weight: 900;
 
     background: var(--red-light);
 
-    padding:
-        5px 9px;
+    padding: 6px 11px;
 
     border-radius: 20px;
 }
 
-
 .empty-card {
-
-    min-height: 230px;
+    min-height: 240px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     flex-direction: column;
 
-    padding: 30px;
+    padding: 31px;
 
     border:
-        1px dashed
-        #dcdce5;
+        1px dashed #dcdce5;
 
-    border-radius: 15px;
+    border-radius: 16px;
 
     background:
         linear-gradient(
@@ -979,108 +819,92 @@ select {
     text-align: center;
 }
 
-
 .empty-icon {
-
-    width: 58px;
-
-    height: 58px;
+    width: 61px;
+    height: 61px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 
     border-radius: 50%;
 
     background: var(--purple-soft);
 
-    font-size: 28px;
+    font-size: 30px;
 }
 
-
 .empty-card h4 {
-
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 
     color: var(--text);
 
-    font-size: 16px;
+    font-size: 20px;
 }
 
-
 .empty-card p {
-
-    max-width: 400px;
+    max-width: 420px;
 
     color: var(--muted);
 
-    font-size: 12px;
+    font-size: 15px;
 }
 
 
 /* ==========================================
    SMALL ACTION
-   ========================================== */
+========================================== */
 
 .small-action {
-
-    padding:
-        8px 12px;
+    padding: 10px 14px;
 
     border:
         1px solid var(--purple-border);
 
-    border-radius: 8px;
+    border-radius: 9px;
 
     background: var(--purple-soft);
 
     color: var(--purple);
 
-    font-size: 11px;
+    font-size: 15px;
 
-    font-weight: 800;
+    font-weight: 900;
 
     transition:
         background 0.2s ease,
         color 0.2s ease;
 }
 
-
 .small-action:hover {
-
     background: var(--purple);
-
     color: #ffffff;
 }
 
 
 /* ==========================================
    MATCH CARDS
-   ========================================== */
+========================================== */
 
 .match-placeholder-grid {
-
     display: grid;
 
     grid-template-columns:
         repeat(2, 1fr);
 
-    gap: 15px;
+    gap: 16px;
 }
 
-
 .match-card {
-
-    padding: 25px;
+    padding: 27px;
 
     border:
         1px solid var(--border);
 
-    border-radius: 15px;
+    border-radius: 16px;
 
     background: var(--card);
 
@@ -1093,85 +917,138 @@ select {
         box-shadow 0.2s ease;
 }
 
-
 .match-card:hover {
-
     transform: translateY(-4px);
 
-    box-shadow: var(--shadow-hover);
+    box-shadow:
+        var(--shadow-hover);
 }
 
-
 .match-date {
-
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 
     color: var(--purple);
 
-    font-size: 10px;
+    font-size: 14px;
 
     font-weight: 900;
 
     letter-spacing: 1px;
 }
 
-
 .match-card h4 {
-
     display: inline-block;
 
     margin: 0 7px;
 
     color: var(--text);
 
-    font-size: 16px;
+    font-size: 19px;
 }
 
-
 .match-card > span {
-
     color: var(--red);
 
-    font-size: 11px;
+    font-size: 14px;
 
     font-weight: 900;
 }
 
-
 .match-card p {
-
-    margin-top: 14px;
+    margin-top: 15px;
 
     color: var(--muted);
 
-    font-size: 11px;
+    font-size: 14px;
 }
 
 
 /* ==========================================
    FEATURE CARDS
-   ========================================== */
+========================================== */
 
 .feature-grid {
-
     display: grid;
 
     grid-template-columns:
         repeat(2, 1fr);
 
-    gap: 15px;
+    gap: 16px;
 }
 
-
 .feature-card {
-
-    padding: 25px;
+    padding: 27px;
 
     display: flex;
 
     align-items: flex-start;
 
-    gap: 18px;
+    gap: 19px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 16px;
+
+    background: var(--card);
+
+    box-shadow: var(--shadow);
+}
+
+.feature-icon {
+    width: 51px;
+    height: 51px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: var(--purple-soft);
+
+    font-size: 24px;
+}
+
+.feature-card h4 {
+    margin-bottom: 8px;
+
+    color: var(--text);
+
+    font-size: 20px;
+}
+
+.feature-card p {
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+.wide-card {
+    max-width: 700px;
+}
+
+
+/* ==========================================
+   STATISTICS
+========================================== */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+.stat-card {
+    padding: 27px;
 
     border:
         1px solid var(--border);
@@ -1181,133 +1058,49 @@ select {
     background: var(--card);
 
     box-shadow: var(--shadow);
-}
-
-
-.feature-icon {
-
-    width: 48px;
-
-    height: 48px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 11px;
-
-    background: var(--purple-soft);
-
-    font-size: 22px;
-}
-
-
-.feature-card h4 {
-
-    margin-bottom: 7px;
-
-    color: var(--text);
-
-    font-size: 16px;
-}
-
-
-.feature-card p {
-
-    color: var(--muted);
-
-    font-size: 12px;
-
-    line-height: 1.7;
-}
-
-
-.wide-card {
-
-    max-width: 700px;
-}
-
-
-/* ==========================================
-   STATISTICS
-   ========================================== */
-
-.stats-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 14px;
-}
-
-
-.stat-card {
-
-    padding: 25px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 14px;
-
-    background: var(--card);
-
-    box-shadow: var(--shadow);
 
     text-align: center;
 }
 
-
 .stat-card strong {
-
     display: block;
 
     color: var(--purple);
 
-    font-size: 32px;
+    font-size: 38px;
 
     line-height: 1;
 }
 
-
 .stat-card span {
-
     display: block;
 
-    margin-top: 9px;
+    margin-top: 10px;
 
     color: var(--muted);
 
-    font-size: 11px;
+    font-size: 14px;
 
-    font-weight: 700;
+    font-weight: 800;
 }
 
 
 /* ==========================================
    CTA
-   ========================================== */
+========================================== */
 
 .cta-section {
-
     max-width: 1160px;
 
     margin:
         40px auto 80px;
 
     padding:
-        45px 35px;
+        48px 36px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
 
     gap: 30px;
@@ -1315,7 +1108,7 @@ select {
     border:
         1px solid var(--purple-border);
 
-    border-radius: 20px;
+    border-radius: 21px;
 
     background:
         linear-gradient(
@@ -1329,56 +1122,48 @@ select {
         rgba(83, 47, 145, 0.07);
 }
 
-
 .cta-section > div > span {
-
     color: var(--purple);
 
-    font-size: 10px;
+    font-size: 13px;
 
     font-weight: 900;
 
     letter-spacing: 1px;
 }
 
-
 .cta-section h3 {
-
-    margin-top: 8px;
+    margin-top: 9px;
 
     color: var(--text);
 
-    font-size: 29px;
+    font-size: 32px;
 }
 
-
 .cta-section p {
-
-    margin-top: 7px;
+    margin-top: 8px;
 
     color: var(--muted);
 
-    font-size: 12px;
+    font-size: 15px;
 }
 
 
 /* ==========================================
    FOOTER
-   ========================================== */
+========================================== */
 
 .footer {
-
     max-width: 1200px;
 
     margin: auto;
 
     padding:
-        35px 20px;
+        38px 20px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
 
     gap: 20px;
@@ -1387,84 +1172,188 @@ select {
         1px solid var(--border);
 }
 
-
 .footer-brand {
-
     display: flex;
 
     align-items: center;
 
-    gap: 10px;
+    gap: 11px;
 }
 
-
 .footer-brand .brand-mark {
-
-    width: 36px;
-
-    height: 36px;
+    width: 38px;
+    height: 38px;
 
     border-radius: 9px;
 
-    font-size: 12px;
+    font-size: 13px;
 }
 
-
 .footer-brand strong {
-
     color: var(--text);
+
+    font-size: 15px;
+}
+
+.footer-brand p {
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+.footer-copy {
+    color: #9999a5;
 
     font-size: 13px;
 }
 
 
-.footer-brand p {
+/* ==========================================
+   GLOBAL MATCH / PAGE ELEMENTS
+========================================== */
 
-    color: var(--muted);
-
-    font-size: 9px;
+.page-heading span {
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 1px;
 }
 
+.page-heading h2 {
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1.15;
+}
 
-.footer-copy {
+.page-heading p {
+    font-size: 16px;
+    line-height: 1.6;
+}
 
-    color: #9999a5;
+.tab {
+    font-size: 18px;
+    font-weight: 900;
 
-    font-size: 10px;
+    min-height: 58px;
+}
+
+.section-title h3 {
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+.section-title span {
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.match-status {
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.team-name {
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.team-score {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.vs {
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.match-info {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.team-logo {
+    font-size: 23px;
 }
 
 
 /* ==========================================
-   RESPONSIVE — TABLET
-   ========================================== */
+   BOTTOM NAVIGATION
+========================================== */
+
+.bottom-nav {
+    position: fixed;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 2000;
+
+    min-height: 74px;
+
+    display: flex;
+
+    padding: 7px 8px;
+
+    background:
+        rgba(255, 255, 255, 0.97);
+
+    border-top:
+        1px solid var(--border);
+}
+
+.bottom-nav a {
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    color: #858594;
+
+    font-size: 24px;
+}
+
+.bottom-nav a span {
+    font-size: 13px;
+
+    font-weight: 900;
+}
+
+.bottom-nav a.active {
+    color: var(--purple);
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
 
 @media (max-width: 950px) {
 
     .desktop-nav {
-
-        gap: 13px;
+        gap: 15px;
     }
-
 
     .desktop-nav a {
-
-        font-size: 11px;
+        font-size: 14px;
     }
 
-
     .hero {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
         gap: 40px;
 
         min-height: auto;
     }
 
-
     .hero-score-card {
-
         max-width: 500px;
 
         width: 100%;
@@ -1472,335 +1361,416 @@ select {
         margin: auto;
     }
 
-
     .quick-grid {
-
         grid-template-columns:
             repeat(2, 1fr);
     }
-
 
     .stats-grid {
-
         grid-template-columns:
             repeat(2, 1fr);
     }
-
 }
 
 
 /* ==========================================
-   RESPONSIVE — MOBILE
-   ========================================== */
+   MOBILE
+========================================== */
 
 @media (max-width: 700px) {
 
-    .header-inner {
+    body {
+        font-size: 17px;
 
-        min-height: 64px;
-
-        padding:
-            0 15px;
+        line-height: 1.6;
     }
 
 
-    .desktop-nav {
+    /* HEADER */
 
+    .header-inner {
+        min-height: 68px;
+
+        padding: 0 15px;
+    }
+
+    .desktop-nav {
         display: none;
     }
 
-
     .menu-btn {
-
         display: flex;
-
-        align-items: center;
-
-        justify-content: center;
     }
-
 
     .brand-mark {
+        width: 43px;
+        height: 43px;
 
-        width: 41px;
-
-        height: 41px;
-
-        border-radius: 10px;
-    }
-
-
-    .brand-text h1 {
-
-        font-size: 17px;
-    }
-
-
-    .brand-text span {
-
-        font-size: 8px;
-    }
-
-
-    .hero {
-
-        padding:
-            55px 16px 45px;
-    }
-
-
-    .hero h2 {
-
-        font-size: 43px;
-
-        letter-spacing: -1.5px;
-    }
-
-
-    .hero-content > p {
+        border-radius: 11px;
 
         font-size: 14px;
     }
 
+    .brand-text h1 {
+        font-size: 19px;
+    }
+
+    .brand-text span {
+        font-size: 10px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        padding:
+            58px 16px 48px;
+    }
+
+    .hero-badge {
+        font-size: 13px;
+    }
+
+    .hero h2 {
+        font-size: 45px;
+
+        letter-spacing: -1.5px;
+    }
+
+    .hero-content > p {
+        font-size: 16px;
+
+        line-height: 1.7;
+    }
 
     .hero-buttons {
-
         flex-direction: column;
     }
 
-
     .primary-btn,
     .secondary-btn {
-
         width: 100%;
-    }
 
+        min-height: 54px;
+
+        font-size: 17px;
+    }
 
     .hero-score-card {
-
         transform: none;
 
-        padding: 21px;
+        padding: 22px;
 
-        border-radius: 17px;
+        border-radius: 18px;
     }
 
+    .score-top span {
+        font-size: 14px;
+    }
+
+    .score-top small {
+        font-size: 12px;
+    }
+
+    .score-team strong {
+        font-size: 17px;
+    }
+
+    .score-team b {
+        font-size: 29px;
+    }
+
+    .score-over,
+    .score-footer {
+        font-size: 14px;
+    }
+
+
+    /* SECTIONS */
 
     .quick-section,
     .content-section {
-
         padding:
-            55px 16px;
+            58px 16px;
     }
 
+    .section-heading {
+        margin-bottom: 25px;
+    }
+
+    .section-heading > span,
+    .section-heading-row span:first-child {
+        font-size: 13px;
+    }
 
     .section-heading h3,
     .section-heading-row h3 {
-
-        font-size: 25px;
+        font-size: 27px;
     }
 
-
     .section-heading-row {
-
         align-items: flex-start;
 
         flex-direction: column;
     }
 
 
-    .quick-grid {
+    /* QUICK CARDS */
 
-        grid-template-columns:
-            1fr;
+    .quick-grid {
+        grid-template-columns: 1fr;
     }
 
+    .quick-card {
+        min-height: 175px;
+
+        padding: 23px;
+    }
+
+    .quick-card h4 {
+        font-size: 19px;
+    }
+
+    .quick-card p {
+        font-size: 15px;
+    }
+
+
+    /* MATCHES */
 
     .match-placeholder-grid {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
 
+    .match-card {
+        padding: 25px;
+    }
+
+    .match-date {
+        font-size: 14px;
+    }
+
+    .match-card h4 {
+        font-size: 18px;
+    }
+
+    .match-card > span {
+        font-size: 14px;
+    }
+
+    .match-card p {
+        font-size: 14px;
+    }
+
+
+    /* FEATURES */
 
     .feature-grid {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
-
 
     .feature-card {
+        padding: 22px;
+    }
 
-        padding: 20px;
+    .feature-card h4 {
+        font-size: 19px;
+    }
+
+    .feature-card p {
+        font-size: 15px;
     }
 
 
-    .stats-grid {
+    /* STATISTICS */
 
+    .stats-grid {
         grid-template-columns:
             repeat(2, 1fr);
     }
 
-
     .stat-card {
-
-        padding: 20px 12px;
+        padding:
+            22px 12px;
     }
-
 
     .stat-card strong {
+        font-size: 32px;
+    }
 
-        font-size: 27px;
+    .stat-card span {
+        font-size: 13px;
     }
 
 
-    .cta-section {
+    /* CTA */
 
+    .cta-section {
         margin:
-            20px 16px 55px;
+            20px 16px 58px;
 
         padding:
-            30px 22px;
+            32px 22px;
 
         flex-direction: column;
 
         align-items: flex-start;
 
-        border-radius: 17px;
+        border-radius: 18px;
     }
-
 
     .cta-section h3 {
-
-        font-size: 25px;
+        font-size: 27px;
     }
 
+    .cta-section p {
+        font-size: 15px;
+    }
 
     .cta-section .primary-btn {
-
         width: 100%;
     }
 
 
-    .footer {
+    /* PAGE HEADINGS */
 
+    .page-heading span {
+        font-size: 13px;
+    }
+
+    .page-heading h2 {
+        font-size: 32px;
+    }
+
+    .page-heading p {
+        font-size: 16px;
+    }
+
+
+    /* TABS */
+
+    .tab {
+        font-size: 17px;
+
+        min-height: 57px;
+    }
+
+
+    /* SECTION TITLES */
+
+    .section-title h3 {
+        font-size: 25px;
+    }
+
+    .section-title span {
+        font-size: 13px;
+    }
+
+
+    /* MATCH INFORMATION */
+
+    .match-status {
+        font-size: 14px;
+    }
+
+    .team-name {
+        font-size: 17px;
+    }
+
+    .team-score {
+        font-size: 21px;
+    }
+
+    .vs {
+        font-size: 14px;
+    }
+
+    .match-info {
+        font-size: 14px;
+    }
+
+    .team-logo {
+        font-size: 22px;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
         padding:
-            30px 16px;
+            32px 16px;
 
         flex-direction: column;
 
         align-items: flex-start;
     }
 
+    .footer-copy {
+        font-size: 13px;
+    }
+
+
+    /* BOTTOM NAV */
+
+    .bottom-nav {
+        min-height: 76px;
+    }
+
+    .bottom-nav a {
+        font-size: 24px;
+    }
+
+    .bottom-nav a span {
+        font-size: 12px;
+    }
 }
 
 
 /* ==========================================
-   EXTRA SMALL DEVICES
-   ========================================== */
+   EXTRA SMALL MOBILE
+========================================== */
 
 @media (max-width: 380px) {
 
+    body {
+        font-size: 16px;
+    }
+
     .hero h2 {
-
-        font-size: 38px;
+        font-size: 40px;
     }
 
-
-    .brand-text span {
-
-        display: none;
+    .page-heading h2 {
+        font-size: 29px;
     }
 
-
-    .stats-grid {
-
-        gap: 9px;
+    .section-heading h3,
+    .section-heading-row h3 {
+        font-size: 25px;
     }
 
-
-    .stat-card {
-
-        padding:
-            18px 8px;
+    .section-title h3 {
+        font-size: 23px;
     }
 
-}
-/* =========================================
-   GLOBAL FONT SIZE BOOST
-========================================= */
+    .team-name {
+        font-size: 16px;
+    }
 
-.page-heading span {
-    font-size: 12px;
-}
+    .team-score {
+        font-size: 20px;
+    }
 
-.page-heading h2 {
-    font-size: 34px;
-    font-weight: 900;
-}
+    .match-info {
+        font-size: 14px;
+    }
 
-.page-heading p {
-    font-size: 13px;
-}
+    .quick-card p,
+    .feature-card p {
+        font-size: 14px;
+    }
 
-
-.tab {
-    font-size: 17px;
-    font-weight: 900;
-    min-height: 56px;
-}
-
-
-.section-title h3 {
-    font-size: 24px;
-    font-weight: 900;
-}
-
-.section-title span {
-    font-size: 11px;
-}
-
-
-.match-status {
-    font-size: 11px;
-    font-weight: 900;
-}
-
-.match-date {
-    font-size: 11px;
-}
-
-
-.team-name {
-    font-size: 14px;
-    font-weight: 900;
-}
-
-.team-score {
-    font-size: 16px;
-    font-weight: 900;
-}
-
-.vs {
-    font-size: 11px;
-}
-
-
-.match-info {
-    font-size: 11px;
-}
-
-
-.team-logo {
-    font-size: 19px;
-}
-
-
-.bottom-nav a {
-    font-size: 20px;
-}
-
-.bottom-nav a span {
-    font-size: 9px;
+    .bottom-nav a span {
+        font-size: 11px;
+    }
 }
