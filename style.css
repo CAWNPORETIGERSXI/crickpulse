@@ -1774,3 +1774,270 @@ select {
         font-size: 11px;
     }
 }
+/* =========================================
+   CRICKPULSE DASHBOARD
+   FINAL LARGE + CLEAN TYPOGRAPHY
+========================================= */
+
+/* Dashboard headings */
+.dashboard-section-title h3 {
+    font-size: 26px !important;
+    font-weight: 900 !important;
+    line-height: 1.2;
+}
+
+.dashboard-section-title > span,
+.dashboard-section-title div > span {
+    font-size: 15px !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.8px;
+}
+
+/* Welcome */
+.welcome-text span {
+    font-size: 15px !important;
+    font-weight: 900 !important;
+}
+
+.welcome-text h2 {
+    font-size: 34px !important;
+    font-weight: 900 !important;
+    line-height: 1.2;
+}
+
+.welcome-text p {
+    font-size: 16px !important;
+}
+
+/* LIVE CARD */
+.live-badge {
+    font-size: 15px !important;
+    font-weight: 900 !important;
+    padding: 7px 12px !important;
+}
+
+.live-format {
+    font-size: 14px !important;
+    font-weight: 800 !important;
+}
+
+.team-box strong {
+    font-size: 19px !important;
+    font-weight: 900 !important;
+}
+
+.team-box span {
+    font-size: 14px !important;
+}
+
+.team-score {
+    font-size: 32px !important;
+    font-weight: 900 !important;
+}
+
+.versus {
+    font-size: 14px !important;
+    font-weight: 900 !important;
+}
+
+.live-footer {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+}
+
+/* QUICK ACTIONS */
+.dashboard-action h4 {
+    font-size: 18px !important;
+    font-weight: 900 !important;
+}
+
+.dashboard-action p {
+    font-size: 14px !important;
+    line-height: 1.55;
+}
+
+.action-icon {
+    font-size: 24px !important;
+}
+
+/* MY CRICKET */
+.cricket-card h4 {
+    font-size: 19px !important;
+    font-weight: 900 !important;
+}
+
+.cricket-card p {
+    font-size: 14px !important;
+    line-height: 1.6;
+}
+
+.card-link {
+    font-size: 13px !important;
+    font-weight: 900 !important;
+}
+
+/* STATISTICS */
+.dashboard-stat strong {
+    font-size: 36px !important;
+    font-weight: 900 !important;
+}
+
+.dashboard-stat span {
+    font-size: 13px !important;
+    font-weight: 900 !important;
+}
+
+/* PROFILE */
+.profile-button {
+    font-size: 22px !important;
+}
+
+
+/* =========================================
+   MOBILE TYPOGRAPHY
+========================================= */
+
+@media (max-width: 700px) {
+
+    .welcome-text span {
+        font-size: 14px !important;
+    }
+
+    .welcome-text h2 {
+        font-size: 29px !important;
+        line-height: 1.25;
+    }
+
+    .welcome-text p {
+        font-size: 15px !important;
+    }
+
+    /* LIVE / UPCOMING / COMPLETED TYPE LABELS */
+    .dashboard-section-title h3 {
+        font-size: 25px !important;
+    }
+
+    .dashboard-section-title > span,
+    .dashboard-section-title div > span {
+        font-size: 15px !important;
+    }
+
+    /* LIVE CARD */
+    .live-badge {
+        font-size: 14px !important;
+    }
+
+    .live-format {
+        font-size: 14px !important;
+    }
+
+    .team-box strong {
+        font-size: 17px !important;
+        line-height: 1.25;
+    }
+
+    .team-box span {
+        font-size: 13px !important;
+    }
+
+    .team-score {
+        font-size: 29px !important;
+    }
+
+    .versus {
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 13px !important;
+    }
+
+    .live-footer {
+        font-size: 14px !important;
+        line-height: 1.5;
+    }
+
+    /* QUICK ACTIONS */
+    .dashboard-action {
+        padding: 20px !important;
+    }
+
+    .dashboard-action h4 {
+        font-size: 18px !important;
+    }
+
+    .dashboard-action p {
+        font-size: 14px !important;
+    }
+
+    /* MY CRICKET */
+    .cricket-card h4 {
+        font-size: 19px !important;
+    }
+
+    .cricket-card p {
+        font-size: 14px !important;
+    }
+
+    .card-link {
+        font-size: 13px !important;
+    }
+
+    /* STATS */
+    .dashboard-stat strong {
+        font-size: 34px !important;
+    }
+
+    .dashboard-stat span {
+        font-size: 13px !important;
+    }
+
+    /* BOTTOM NAV */
+    .bottom-nav a {
+        font-size: 23px !important;
+    }
+
+    .bottom-nav a span {
+        font-size: 12px !important;
+        font-weight: 900 !important;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .welcome-text h2 {
+        font-size: 27px !important;
+    }
+
+    .dashboard-section-title h3 {
+        font-size: 23px !important;
+    }
+
+    .team-box strong {
+        font-size: 15px !important;
+    }
+
+    .team-score {
+        font-size: 26px !important;
+    }
+
+    .dashboard-action h4 {
+        font-size: 17px !important;
+    }
+
+    .dashboard-action p {
+        font-size: 13px !important;
+    }
+
+    .cricket-card h4 {
+        font-size: 18px !important;
+    }
+
+    .cricket-card p {
+        font-size: 13px !important;
+    }
+
+}
