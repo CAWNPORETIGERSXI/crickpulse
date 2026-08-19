@@ -5,8 +5,10 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>CRICKPULSE | Number of Teams</title>
 
@@ -19,123 +21,137 @@
 }
 
 body{
-    font-family:Verdana, Geneva, sans-serif;
+    font-family:Verdana,Geneva,sans-serif;
     background:#f7f5ff;
     color:#171225;
     min-height:100vh;
 }
 
-/* HEADER */
-
 .top-header{
     height:82px;
-    background:#ffffff;
+    background:#fff;
     border-bottom:1px solid #e4ddf2;
+
     display:flex;
     align-items:center;
+
     padding:0 15px;
 }
 
 .back-button{
     width:58px;
     height:58px;
-    border:2px solid #ff3b30;
+
+    border:1.5px solid #ff3b30;
     border-radius:8px;
-    background:#ffffff;
+
+    background:#fff;
     color:#6328c7;
+
     font-size:42px;
     font-weight:900;
+
     cursor:pointer;
 }
 
 .page-title{
     flex:1;
     text-align:center;
+
     font-size:27px;
     font-weight:900;
+
     margin-right:58px;
 }
-
-/* MAIN */
 
 .page{
     width:100%;
     max-width:760px;
+
     margin:auto;
+
     padding:35px 16px 60px;
 }
 
-/* CARD */
-
 .card{
-    background:#ffffff;
-    border:2px solid #ff3b30;
+    background:#fff;
+
+    border:1.5px solid #ff3b30;
     border-radius:10px;
+
     padding:30px 24px;
-    box-shadow:0 6px 20px rgba(0,0,0,.06);
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.06);
 }
 
 .title{
     font-size:34px;
     font-weight:900;
+
     margin-bottom:12px;
 }
 
 .subtitle{
     font-size:21px;
     color:#6d667c;
+
     line-height:1.5;
+
     margin-bottom:30px;
 }
 
-/* FIELD */
-
 .field-label{
     display:block;
+
     font-size:22px;
     font-weight:900;
+
     margin-bottom:10px;
 }
 
 .team-input{
     width:100%;
     height:62px;
-    border:2px solid #ff3b30;
+
+    border:1.5px solid #ff3b30;
     border-radius:8px;
-    background:#ffffff;
+
+    background:#fff;
+
     padding:0 15px;
-    font-family:Verdana, Geneva, sans-serif;
+
+    font-family:Verdana,Geneva,sans-serif;
+
     font-size:24px;
     font-weight:800;
+
     outline:none;
 }
-
-.team-input:focus{
-    border-color:#ff3b30;
-    box-shadow:0 0 0 3px rgba(255,59,48,.12);
-}
-
-/* DONE */
 
 .done-button{
     width:100%;
     height:62px;
+
     margin-top:28px;
-    border:2px solid #ff3b30;
+
+    border:1.5px solid #ff3b30;
     border-radius:8px;
+
     background:#6c35d9;
-    color:#ffffff;
-    font-family:Verdana, Geneva, sans-serif;
+    color:#fff;
+
+    font-family:Verdana,Geneva,sans-serif;
+
     font-size:24px;
     font-weight:900;
+
     cursor:pointer;
 }
 
-.done-button:active{
-    transform:scale(.98);
+.done-button:disabled{
+    opacity:.65;
 }
-
-/* MOBILE */
 
 @media(max-width:480px){
 
@@ -184,6 +200,7 @@ body{
         height:60px;
         font-size:23px;
     }
+
 }
 
 </style>
@@ -194,59 +211,59 @@ body{
 
 <header class="top-header">
 
-    <button
-        class="back-button"
-        id="backButton"
-        type="button"
-    >
-        ‹
-    </button>
+<button
+    class="back-button"
+    id="backButton"
+    type="button"
+>
+‹
+</button>
 
-    <div class="page-title">
-        Tournament Setup
-    </div>
+<div class="page-title">
+Tournament Setup
+</div>
 
 </header>
 
 
 <main class="page">
 
-    <section class="card">
+<section class="card">
 
-        <div class="title">
-            Number of Teams
-        </div>
+<div class="title">
+Number of Teams
+</div>
 
-        <div class="subtitle">
-            How many teams are participating?
-        </div>
+<div class="subtitle">
+How many teams are participating?
+</div>
 
-        <label
-            class="field-label"
-            for="teamCount"
-        >
-            Total number of teams
-        </label>
+<label
+    class="field-label"
+    for="teamCount"
+>
+Total number of teams
+</label>
 
-        <input
-            class="team-input"
-            id="teamCount"
-            type="number"
-            min="2"
-            max="100"
-            inputmode="numeric"
-            placeholder="Enter number of teams"
-        >
+<input
+    class="team-input"
+    id="teamCount"
+    type="number"
+    min="2"
+    max="100"
+    inputmode="numeric"
+    placeholder="Enter number of teams"
+>
 
-        <button
-            class="done-button"
-            id="doneButton"
-            type="button"
-        >
-            DONE
-        </button>
+<button
+    class="done-button"
+    id="doneButton"
+    type="button"
+>
+DONE
+</button>
 
-    </section>
+</section>
 
 </main>
 
@@ -254,16 +271,50 @@ body{
 <script>
 
 const backButton =
-    document.getElementById("backButton");
+    document.getElementById(
+        "backButton"
+    );
 
 const doneButton =
-    document.getElementById("doneButton");
+    document.getElementById(
+        "doneButton"
+    );
 
 const teamCount =
-    document.getElementById("teamCount");
+    document.getElementById(
+        "teamCount"
+    );
 
 
-/* BACK */
+/* =========================================
+   GET TOURNAMENT ID
+========================================= */
+
+const eventId =
+    sessionStorage.getItem(
+        "crickpulseEventId"
+    );
+
+
+/* =========================================
+   CHECK TOURNAMENT ID
+========================================= */
+
+if(!eventId){
+
+    alert(
+        "Tournament ID is missing. Please create the tournament again."
+    );
+
+    window.location.href =
+        "create-event.html";
+
+}
+
+
+/* =========================================
+   BACK
+========================================= */
 
 backButton.addEventListener(
     "click",
@@ -275,14 +326,19 @@ backButton.addEventListener(
 );
 
 
-/* DONE */
+/* =========================================
+   DONE
+========================================= */
 
 doneButton.addEventListener(
     "click",
     function(){
 
         const count =
-            Number(teamCount.value);
+            Number(
+                teamCount.value
+            );
+
 
         if(!count){
 
@@ -291,7 +347,9 @@ doneButton.addEventListener(
             );
 
             return;
+
         }
+
 
         if(count < 2){
 
@@ -300,27 +358,50 @@ doneButton.addEventListener(
             );
 
             return;
+
         }
 
 
-        /*
-         SAVE TEAM COUNT
-        */
+        if(count > 100){
+
+            alert(
+                "Maximum 100 teams are allowed."
+            );
+
+            return;
+
+        }
+
+
+        /* SAVE TEAM COUNT */
 
         sessionStorage.setItem(
             "crickpulseTeamCount",
-            count
+            String(count)
         );
 
 
-        /*
-         NEXT SCREEN
-        */
+        /* KEEP EVENT ID */
+
+        sessionStorage.setItem(
+            "crickpulseEventId",
+            eventId
+        );
+
+
+        /* NEXT SCREEN */
 
         window.location.href =
             "invite-captains.html";
 
     }
+);
+
+
+console.log(
+    "CRICKPULSE Number of Teams loaded.",
+    "Event ID:",
+    eventId
 );
 
 </script>
