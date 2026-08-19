@@ -1,1 +1,512 @@
-. 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>CRICKPULSE | Invite Captains</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Verdana, Geneva, sans-serif;
+    background:#f7f5ff;
+    color:#171225;
+    min-height:100vh;
+}
+
+/* HEADER */
+
+.top-header{
+    height:82px;
+    background:#ffffff;
+    border-bottom:1px solid #e4ddf2;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 15px;
+}
+
+.back-button{
+    width:58px;
+    height:58px;
+
+    border:1.5px solid #ff3b30;
+    border-radius:8px;
+
+    background:#ffffff;
+    color:#6328c7;
+
+    font-size:42px;
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.page-title{
+    flex:1;
+
+    text-align:center;
+
+    font-size:27px;
+    font-weight:900;
+
+    margin-right:58px;
+}
+
+/* MAIN */
+
+.page{
+    width:100%;
+    max-width:760px;
+
+    margin:auto;
+
+    padding:35px 16px 60px;
+}
+
+/* MAIN CARD */
+
+.card{
+    background:#ffffff;
+
+    border:1.5px solid #ff3b30;
+    border-radius:10px;
+
+    padding:30px 24px;
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.06);
+}
+
+.title{
+    font-size:34px;
+    font-weight:900;
+
+    margin-bottom:12px;
+}
+
+.subtitle{
+    font-size:21px;
+
+    color:#6d667c;
+
+    line-height:1.5;
+
+    margin-bottom:28px;
+}
+
+/* TEAM COUNT */
+
+.team-count-box{
+
+    border:1.5px solid #ff3b30;
+    border-radius:8px;
+
+    padding:17px;
+
+    margin-bottom:28px;
+
+    background:#ffffff;
+}
+
+.team-count-label{
+    font-size:19px;
+    font-weight:700;
+
+    color:#6d667c;
+}
+
+.team-count-number{
+    margin-top:6px;
+
+    font-size:32px;
+    font-weight:900;
+
+    color:#6c35d9;
+}
+
+/* SHARE */
+
+.share-button{
+
+    width:100%;
+
+    min-height:64px;
+
+    border:1.5px solid #ff3b30;
+    border-radius:8px;
+
+    background:#6c35d9;
+    color:#ffffff;
+
+    font-family:Verdana, Geneva, sans-serif;
+
+    font-size:23px;
+    font-weight:900;
+
+    cursor:pointer;
+
+    padding:10px 15px;
+}
+
+.share-button:active{
+    transform:scale(.98);
+}
+
+/* OR */
+
+.or-text{
+
+    text-align:center;
+
+    margin:22px 0;
+
+    font-size:21px;
+
+    font-weight:900;
+
+    color:#6d667c;
+}
+
+/* MANUAL */
+
+.manual-button{
+
+    width:100%;
+
+    min-height:64px;
+
+    border:1.5px solid #ff3b30;
+    border-radius:8px;
+
+    background:#ffffff;
+
+    color:#6c35d9;
+
+    font-family:Verdana, Geneva, sans-serif;
+
+    font-size:23px;
+    font-weight:900;
+
+    cursor:pointer;
+
+    padding:10px 15px;
+}
+
+.manual-button:active{
+    transform:scale(.98);
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+    .top-header{
+        height:76px;
+        padding:0 11px;
+    }
+
+    .back-button{
+        width:52px;
+        height:52px;
+
+        font-size:38px;
+    }
+
+    .page-title{
+        font-size:23px;
+
+        margin-right:52px;
+    }
+
+    .page{
+        padding:25px 14px 50px;
+    }
+
+    .card{
+        padding:27px 18px;
+    }
+
+    .title{
+        font-size:31px;
+    }
+
+    .subtitle{
+        font-size:20px;
+    }
+
+    .team-count-label{
+        font-size:18px;
+    }
+
+    .team-count-number{
+        font-size:30px;
+    }
+
+    .share-button,
+    .manual-button{
+        font-size:21px;
+    }
+
+    .or-text{
+        font-size:20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="top-header">
+
+    <button
+        class="back-button"
+        id="backButton"
+        type="button"
+    >
+        ‹
+    </button>
+
+    <div class="page-title">
+        Tournament Setup
+    </div>
+
+</header>
+
+
+<main class="page">
+
+    <section class="card">
+
+        <div class="title">
+            Invite Captains to Add Teams
+        </div>
+
+        <div class="subtitle">
+            Invite team captains to add their teams
+            to this tournament.
+        </div>
+
+
+        <!-- TEAM COUNT -->
+
+        <div class="team-count-box">
+
+            <div class="team-count-label">
+                Total number of teams
+            </div>
+
+            <div
+                class="team-count-number"
+                id="teamCountDisplay"
+            >
+                0
+            </div>
+
+        </div>
+
+
+        <!-- SHARE WITH CAPTAINS -->
+
+        <button
+            class="share-button"
+            id="shareButton"
+            type="button"
+        >
+            Share with Captains
+        </button>
+
+
+        <!-- OR -->
+
+        <div class="or-text">
+            OR
+        </div>
+
+
+        <!-- ADD MANUALLY -->
+
+        <button
+            class="manual-button"
+            id="manualButton"
+            type="button"
+        >
+            Add Manually
+        </button>
+
+    </section>
+
+</main>
+
+
+<script>
+
+/* =================================================
+   TEAM COUNT
+================================================= */
+
+const savedCount =
+    sessionStorage.getItem(
+        "crickpulseTeamCount"
+    );
+
+
+const teamCountDisplay =
+    document.getElementById(
+        "teamCountDisplay"
+    );
+
+
+if(savedCount){
+
+    teamCountDisplay.textContent =
+        savedCount;
+
+}
+else{
+
+    alert(
+        "Team count not found."
+    );
+
+    window.location.href =
+        "number-of-teams.html";
+
+}
+
+
+/* =================================================
+   BACK
+================================================= */
+
+document
+    .getElementById("backButton")
+    .addEventListener(
+        "click",
+        function(){
+
+            window.history.back();
+
+        }
+    );
+
+
+/* =================================================
+   SHARE WITH CAPTAINS
+================================================= */
+
+document
+    .getElementById("shareButton")
+    .addEventListener(
+        "click",
+        async function(){
+
+            const shareText =
+                "Join my team on CRICKPULSE.";
+
+            const shareUrl =
+                window.location.origin;
+
+            const shareData = {
+
+                title:
+                    "CRICKPULSE",
+
+                text:
+                    shareText,
+
+                url:
+                    shareUrl
+
+            };
+
+
+            if(navigator.share){
+
+                try{
+
+                    await navigator.share(
+                        shareData
+                    );
+
+                }
+                catch(error){
+
+                    console.log(
+                        "Share cancelled."
+                    );
+
+                }
+
+            }
+            else{
+
+                try{
+
+                    await navigator.clipboard.writeText(
+                        shareUrl
+                    );
+
+                    alert(
+                        "CRICKPULSE invite link copied."
+                    );
+
+                }
+                catch(error){
+
+                    alert(
+                        "Please copy the invite link manually."
+                    );
+
+                }
+
+            }
+
+        }
+    );
+
+
+/* =================================================
+   ADD MANUALLY
+================================================= */
+
+document
+    .getElementById("manualButton")
+    .addEventListener(
+        "click",
+        function(){
+
+            window.location.href =
+                "add-teams.html";
+
+        }
+    );
+
+
+console.log(
+    "CRICKPULSE Invite Captains loaded."
+);
+
+</script>
+
+
+</body>
+
+</html>
