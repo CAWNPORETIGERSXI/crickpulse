@@ -22,17 +22,23 @@
 
 body{
     font-family:Verdana,Geneva,sans-serif;
+
     background:#f7f5ff;
+
     color:#171225;
+
     min-height:100vh;
 }
 
 .top-header{
     height:82px;
+
     background:#fff;
+
     border-bottom:1px solid #e4ddf2;
 
     display:flex;
+
     align-items:center;
 
     padding:0 15px;
@@ -46,6 +52,7 @@ body{
     border-radius:8px;
 
     background:#fff;
+
     color:#6328c7;
 
     font-size:42px;
@@ -56,6 +63,7 @@ body{
 
 .page-title{
     flex:1;
+
     text-align:center;
 
     font-size:27px;
@@ -66,6 +74,7 @@ body{
 
 .page{
     width:100%;
+
     max-width:760px;
 
     margin:auto;
@@ -77,6 +86,7 @@ body{
     background:#fff;
 
     border:1.5px solid #ff3b30;
+
     border-radius:10px;
 
     padding:30px 24px;
@@ -87,6 +97,7 @@ body{
 
 .title{
     font-size:34px;
+
     font-weight:900;
 
     margin-bottom:12px;
@@ -94,6 +105,7 @@ body{
 
 .subtitle{
     font-size:21px;
+
     color:#6d667c;
 
     line-height:1.5;
@@ -103,6 +115,7 @@ body{
 
 .team-count-box{
     border:1.5px solid #ff3b30;
+
     border-radius:8px;
 
     padding:17px;
@@ -114,7 +127,9 @@ body{
 
 .team-count-label{
     font-size:19px;
+
     font-weight:700;
+
     color:#6d667c;
 }
 
@@ -122,6 +137,7 @@ body{
     margin-top:6px;
 
     font-size:32px;
+
     font-weight:900;
 
     color:#6c35d9;
@@ -129,15 +145,19 @@ body{
 
 .share-button,
 .manual-button{
+
     width:100%;
+
     min-height:64px;
 
     border:1.5px solid #ff3b30;
+
     border-radius:8px;
 
     font-family:Verdana,Geneva,sans-serif;
 
     font-size:23px;
+
     font-weight:900;
 
     cursor:pointer;
@@ -147,11 +167,13 @@ body{
 
 .share-button{
     background:#6c35d9;
+
     color:#fff;
 }
 
 .manual-button{
     background:#fff;
+
     color:#6c35d9;
 }
 
@@ -166,26 +188,62 @@ body{
     margin:22px 0;
 
     font-size:21px;
+
     font-weight:900;
 
     color:#6d667c;
+}
+
+.event-id-box{
+    margin-top:25px;
+
+    padding:14px;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:8px;
+
+    background:#fff;
+}
+
+.event-id-label{
+    font-size:16px;
+
+    font-weight:700;
+
+    color:#6d667c;
+
+    margin-bottom:6px;
+}
+
+.event-id-value{
+    font-size:15px;
+
+    font-weight:800;
+
+    color:#171225;
+
+    word-break:break-all;
 }
 
 @media(max-width:480px){
 
     .top-header{
         height:76px;
+
         padding:0 11px;
     }
 
     .back-button{
         width:52px;
         height:52px;
+
         font-size:38px;
     }
 
     .page-title{
         font-size:23px;
+
         margin-right:52px;
     }
 
@@ -251,9 +309,11 @@ Tournament Setup
 
 <section class="card">
 
+
 <div class="title">
 Invite Captains to Add Teams
 </div>
+
 
 <div class="subtitle">
 Invite team captains to add their teams
@@ -299,6 +359,23 @@ OR
 Add Manually
 </button>
 
+
+<div class="event-id-box">
+
+<div class="event-id-label">
+Tournament ID
+</div>
+
+<div
+    class="event-id-value"
+    id="eventIdDisplay"
+>
+Loading...
+</div>
+
+</div>
+
+
 </section>
 
 </main>
@@ -325,9 +402,14 @@ const eventName =
         "crickpulseEventName"
     );
 
+const eventType =
+    sessionStorage.getItem(
+        "crickpulseEventType"
+    );
+
 
 /* =========================================
-   SHOW COUNT
+   ELEMENTS
 ========================================= */
 
 const teamCountDisplay =
@@ -335,6 +417,41 @@ const teamCountDisplay =
         "teamCountDisplay"
     );
 
+const eventIdDisplay =
+    document.getElementById(
+        "eventIdDisplay"
+    );
+
+const shareButton =
+    document.getElementById(
+        "shareButton"
+    );
+
+const manualButton =
+    document.getElementById(
+        "manualButton"
+    );
+
+
+/* =========================================
+   CHECK EVENT ID
+========================================= */
+
+if(!eventId){
+
+    alert(
+        "Tournament ID is missing. Please create the tournament again."
+    );
+
+    window.location.href =
+        "create-event.html";
+
+}
+
+
+/* =========================================
+   CHECK TEAM COUNT
+========================================= */
 
 if(!teamCount){
 
@@ -346,10 +463,24 @@ if(!teamCount){
         "number-of-teams.html";
 
 }
-else{
+
+
+/* =========================================
+   SHOW DATA
+========================================= */
+
+if(teamCount){
 
     teamCountDisplay.textContent =
         teamCount;
+
+}
+
+
+if(eventId){
+
+    eventIdDisplay.textContent =
+        eventId;
 
 }
 
@@ -371,12 +502,27 @@ document
 
 
 /* =========================================
+   CREATE UNIQUE INVITE LINK
+========================================= */
+
+function getInviteLink(){
+
+    return (
+        window.location.origin +
+        "/join-team.html?eventId=" +
+        encodeURIComponent(
+            eventId
+        )
+    );
+
+}
+
+
+/* =========================================
    SHARE WITH CAPTAINS
 ========================================= */
 
-document
-.getElementById("shareButton")
-.addEventListener(
+shareButton.addEventListener(
     "click",
     async function(){
 
@@ -391,44 +537,33 @@ document
         }
 
 
-        /*
-           THIS IS THE UNIQUE
-           TOURNAMENT LINK
-        */
-
         const inviteLink =
-            window.location.origin +
-            "/join-team.html?eventId=" +
-            encodeURIComponent(
-                eventId
+            getInviteLink();
+
+
+        const title =
+            eventName ||
+            (
+                eventType ||
+                "CRICKPULSE Tournament"
             );
 
 
         const message =
             "You are invited to add your team to " +
-            (
-                eventName ||
-                "this CRICKPULSE Tournament"
-            ) +
+            title +
             ".\n\n" +
             "Tournament Invite Link:\n" +
             inviteLink;
 
 
-        const shareData = {
+        /*
+        MOBILE SHARE
 
-            title:
-                eventName ||
-                "CRICKPULSE Tournament",
-
-            text:
-                message,
-
-            url:
-                inviteLink
-
-        };
-
+        On Android, this normally opens
+        the system share sheet where
+        WhatsApp can be selected.
+        */
 
         if(
             navigator.share
@@ -436,8 +571,21 @@ document
 
             try{
 
-                await navigator.share(
-                    shareData
+                await navigator.share({
+
+                    title:
+                        title,
+
+                    text:
+                        message,
+
+                    url:
+                        inviteLink
+
+                });
+
+                console.log(
+                    "Tournament invite shared."
                 );
 
             }
@@ -449,28 +597,32 @@ document
 
             }
 
+            return;
+
         }
-        else{
 
-            try{
 
-                await navigator.clipboard.writeText(
-                    inviteLink
-                );
+        /*
+        FALLBACK
+        */
 
-                alert(
-                    "Tournament invite link copied."
-                );
+        try{
 
-            }
-            catch(error){
+            await navigator.clipboard.writeText(
+                inviteLink
+            );
 
-                alert(
-                    "Tournament invite link:\n\n" +
-                    inviteLink
-                );
+            alert(
+                "Tournament invite link copied."
+            );
 
-            }
+        }
+        catch(error){
+
+            alert(
+                "Tournament Invite Link:\n\n" +
+                inviteLink
+            );
 
         }
 
@@ -482,9 +634,7 @@ document
    ADD MANUALLY
 ========================================= */
 
-document
-.getElementById("manualButton")
-.addEventListener(
+manualButton.addEventListener(
     "click",
     function(){
 
@@ -510,7 +660,20 @@ document
 
 
 console.log(
-    "CRICKPULSE Invite Captains loaded."
+    "CRICKPULSE Invite Captains loaded.",
+    {
+        eventId:
+            eventId,
+
+        eventName:
+            eventName,
+
+        eventType:
+            eventType,
+
+        teamCount:
+            teamCount
+    }
 );
 
 </script>
