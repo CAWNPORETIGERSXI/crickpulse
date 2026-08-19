@@ -639,6 +639,14 @@ input[type="file"] {
 }
 
 
+.create-button:disabled {
+
+    opacity: .65;
+
+    cursor: not-allowed;
+}
+
+
 .create-button:active {
 
     transform: scale(.98);
@@ -812,12 +820,9 @@ input[type="file"] {
 <main class="page">
 
 
-    <!-- =================================================
-         TOURNAMENT / SERIES
-    ================================================= -->
+    <!-- EVENT TYPE -->
 
     <div class="event-type">
-
 
         <button
             class="event-type-button active"
@@ -836,14 +841,11 @@ input[type="file"] {
             Series
         </button>
 
-
     </div>
 
 
 
-    <!-- =================================================
-         BANNER
-    ================================================= -->
+    <!-- BANNER -->
 
     <label
         class="banner-box"
@@ -876,12 +878,9 @@ input[type="file"] {
 
 
 
-    <!-- =================================================
-         LOGO
-    ================================================= -->
+    <!-- LOGO -->
 
     <div class="logo-area">
-
 
         <label
             class="logo-box"
@@ -912,24 +911,20 @@ input[type="file"] {
             accept="image/*"
         >
 
-
     </div>
 
 
 
-    <!-- =================================================
-         NAME
-    ================================================= -->
+    <!-- NAME -->
 
     <div class="field">
-
 
         <label
             class="field-label"
             id="eventNameLabel"
             for="eventName"
         >
-            Tournament / Series Name
+            Tournament Name
         </label>
 
 
@@ -937,21 +932,17 @@ input[type="file"] {
             class="line-input"
             id="eventName"
             type="text"
-            placeholder="Tournament / Series Name"
+            placeholder="Tournament Name"
             autocomplete="off"
         >
-
 
     </div>
 
 
 
-    <!-- =================================================
-         CITY
-    ================================================= -->
+    <!-- CITY -->
 
     <div class="field">
-
 
         <label
             class="field-label"
@@ -969,17 +960,13 @@ input[type="file"] {
             autocomplete="address-level2"
         >
 
-
     </div>
 
 
 
-    <!-- =================================================
-         GROUND
-    ================================================= -->
+    <!-- GROUND -->
 
     <div class="field">
-
 
         <label
             class="field-label"
@@ -997,17 +984,13 @@ input[type="file"] {
             autocomplete="off"
         >
 
-
     </div>
 
 
 
-    <!-- =================================================
-         ORGANIZER
-    ================================================= -->
+    <!-- ORGANIZER -->
 
     <section class="organizer-section">
-
 
         <div class="organizer-title">
             Organizer
@@ -1015,7 +998,6 @@ input[type="file"] {
 
 
         <div class="organizer-field">
-
 
             <span class="organizer-label">
                 Organizer Name
@@ -1029,12 +1011,10 @@ input[type="file"] {
                 Loading...
             </div>
 
-
         </div>
 
 
         <div class="organizer-field">
-
 
             <span class="organizer-label">
                 Organizer Number
@@ -1048,12 +1028,10 @@ input[type="file"] {
                 Loading...
             </div>
 
-
         </div>
 
 
         <div class="organizer-field">
-
 
             <span class="organizer-label">
                 Organizer Email
@@ -1067,28 +1045,24 @@ input[type="file"] {
                 Loading...
             </div>
 
-
         </div>
-
 
     </section>
 
 
 
-    <!-- =================================================
-         TOURNAMENT DETAILS
-    ================================================= -->
+    <!-- DETAILS -->
 
     <div class="details-title">
         Tournament / Series Details
     </div>
 
 
+    <!-- DATES -->
+
     <div class="date-row">
 
-
         <div class="date-field">
-
 
             <label for="startDate">
                 Start Date
@@ -1101,12 +1075,10 @@ input[type="file"] {
                 type="date"
             >
 
-
         </div>
 
 
         <div class="date-field">
-
 
             <label for="endDate">
                 End Date
@@ -1119,20 +1091,15 @@ input[type="file"] {
                 type="date"
             >
 
-
         </div>
-
 
     </div>
 
 
 
-    <!-- =================================================
-         CATEGORY
-    ================================================= -->
+    <!-- CATEGORY -->
 
     <section class="choice-section">
-
 
         <div class="choice-title">
             Tournament Category
@@ -1143,7 +1110,6 @@ input[type="file"] {
             class="choice-grid"
             id="categoryGrid"
         >
-
 
             <button
                 class="choice-button"
@@ -1198,20 +1164,15 @@ input[type="file"] {
                 Club
             </button>
 
-
         </div>
-
 
     </section>
 
 
 
-    <!-- =================================================
-         BALL TYPE
-    ================================================= -->
+    <!-- BALL -->
 
     <section class="choice-section">
-
 
         <div class="choice-title">
             Select Ball Type
@@ -1222,7 +1183,6 @@ input[type="file"] {
             class="choice-grid"
             id="ballGrid"
         >
-
 
             <button
                 class="choice-button"
@@ -1250,20 +1210,15 @@ input[type="file"] {
                 Other
             </button>
 
-
         </div>
-
 
     </section>
 
 
 
-    <!-- =================================================
-         PITCH TYPE
-    ================================================= -->
+    <!-- PITCH -->
 
     <section class="choice-section">
-
 
         <div class="choice-title">
             Pitch Type
@@ -1274,7 +1229,6 @@ input[type="file"] {
             class="choice-grid"
             id="pitchGrid"
         >
-
 
             <button
                 class="choice-button"
@@ -1320,20 +1274,15 @@ input[type="file"] {
                 Matting
             </button>
 
-
         </div>
-
 
     </section>
 
 
 
-    <!-- =================================================
-         MATCH TYPE
-    ================================================= -->
+    <!-- MATCH -->
 
     <section class="choice-section">
-
 
         <div class="choice-title">
             Match Type
@@ -1344,7 +1293,6 @@ input[type="file"] {
             class="choice-grid"
             id="matchGrid"
         >
-
 
             <button
                 class="choice-button"
@@ -1381,17 +1329,13 @@ input[type="file"] {
                 The Hundred
             </button>
 
-
         </div>
-
 
     </section>
 
 
 
-    <!-- =================================================
-         CREATE
-    ================================================= -->
+    <!-- CREATE -->
 
     <button
         class="create-button"
@@ -1406,11 +1350,27 @@ input[type="file"] {
 
 
 
-<script>
+<!-- =================================================
+     FIREBASE SCRIPT
+================================================= -->
 
-/* =================================================
-   LOGIN CHECK
-================================================= */
+<script type="module">
+
+import {
+    db
+} from "./firebase.js";
+
+
+import {
+    collection,
+    addDoc,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+// =================================================
+// LOGIN CHECK
+// =================================================
 
 const loggedIn =
     sessionStorage.getItem(
@@ -1426,9 +1386,9 @@ if (loggedIn !== "true") {
 }
 
 
-/* =================================================
-   BACK BUTTON
-================================================= */
+// =================================================
+// BACK
+// =================================================
 
 document
     .getElementById("backButton")
@@ -1443,11 +1403,12 @@ document
     );
 
 
-/* =================================================
-   EVENT TYPE
-================================================= */
+// =================================================
+// EVENT TYPE
+// =================================================
 
-let eventType = "Tournament";
+let eventType =
+    "Tournament";
 
 
 const tournamentButton =
@@ -1480,11 +1441,16 @@ const createButton =
     );
 
 
+// =================================================
+// TOURNAMENT
+// =================================================
+
 tournamentButton.addEventListener(
     "click",
     function () {
 
-        eventType = "Tournament";
+        eventType =
+            "Tournament";
 
 
         tournamentButton
@@ -1512,11 +1478,16 @@ tournamentButton.addEventListener(
 );
 
 
+// =================================================
+// SERIES
+// =================================================
+
 seriesButton.addEventListener(
     "click",
     function () {
 
-        eventType = "Series";
+        eventType =
+            "Series";
 
 
         seriesButton
@@ -1544,9 +1515,9 @@ seriesButton.addEventListener(
 );
 
 
-/* =================================================
-   BANNER PREVIEW
-================================================= */
+// =================================================
+// BANNER PREVIEW
+// =================================================
 
 const bannerInput =
     document.getElementById(
@@ -1575,7 +1546,9 @@ bannerInput.addEventListener(
 
 
         if (!file) {
+
             return;
+
         }
 
 
@@ -1606,9 +1579,9 @@ bannerInput.addEventListener(
 );
 
 
-/* =================================================
-   LOGO PREVIEW
-================================================= */
+// =================================================
+// LOGO PREVIEW
+// =================================================
 
 const logoInput =
     document.getElementById(
@@ -1637,7 +1610,9 @@ logoInput.addEventListener(
 
 
         if (!file) {
+
             return;
+
         }
 
 
@@ -1668,11 +1643,13 @@ logoInput.addEventListener(
 );
 
 
-/* =================================================
-   SINGLE SELECT
-================================================= */
+// =================================================
+// SINGLE SELECT
+// =================================================
 
-function setupSingleSelect(gridId) {
+function setupSingleSelect(
+    gridId
+) {
 
     const grid =
         document.getElementById(
@@ -1693,21 +1670,20 @@ function setupSingleSelect(gridId) {
                 "click",
                 function () {
 
-
                     buttons.forEach(
                         function (item) {
 
-                            item.classList
-                                .remove(
-                                    "active"
-                                );
+                            item.classList.remove(
+                                "active"
+                            );
 
                         }
                     );
 
 
-                    button.classList
-                        .add("active");
+                    button.classList.add(
+                        "active"
+                    );
 
                 }
             );
@@ -1738,9 +1714,9 @@ setupSingleSelect(
 );
 
 
-/* =================================================
-   ORGANIZER AUTO-FILL
-================================================= */
+// =================================================
+// ORGANIZER
+// =================================================
 
 const savedName =
     sessionStorage.getItem(
@@ -1761,33 +1737,39 @@ const savedEmail =
 
 
 document
-    .getElementById("organizerName")
+    .getElementById(
+        "organizerName"
+    )
     .textContent =
         savedName ||
         "Logged-in Player";
 
 
 document
-    .getElementById("organizerNumber")
+    .getElementById(
+        "organizerNumber"
+    )
     .textContent =
         savedMobile ||
         "Registered Mobile";
 
 
 document
-    .getElementById("organizerEmail")
+    .getElementById(
+        "organizerEmail"
+    )
     .textContent =
         savedEmail ||
         "Registered Email";
 
 
-/* =================================================
-   CREATE BUTTON
-================================================= */
+// =================================================
+// SAVE EVENT
+// =================================================
 
 createButton.addEventListener(
     "click",
-    function () {
+    async function () {
 
 
         const name =
@@ -1796,42 +1778,56 @@ createButton.addEventListener(
 
         const city =
             document
-                .getElementById("city")
+                .getElementById(
+                    "city"
+                )
                 .value
                 .trim();
 
 
         const ground =
             document
-                .getElementById("ground")
+                .getElementById(
+                    "ground"
+                )
                 .value
                 .trim();
 
 
         const startDate =
             document
-                .getElementById("startDate")
+                .getElementById(
+                    "startDate"
+                )
                 .value;
 
 
         const endDate =
             document
-                .getElementById("endDate")
+                .getElementById(
+                    "endDate"
+                )
                 .value;
 
+
+        // =====================================
+        // VALIDATION
+        // =====================================
 
         if (!name) {
 
             alert(
                 "Please enter " +
                 (
-                    eventType === "Tournament"
+                    eventType ===
+                    "Tournament"
                     ? "Tournament Name"
                     : "Series Name"
                 )
             );
 
             return;
+
         }
 
 
@@ -1842,6 +1838,7 @@ createButton.addEventListener(
             );
 
             return;
+
         }
 
 
@@ -1852,6 +1849,7 @@ createButton.addEventListener(
             );
 
             return;
+
         }
 
 
@@ -1862,6 +1860,7 @@ createButton.addEventListener(
             );
 
             return;
+
         }
 
 
@@ -1872,6 +1871,7 @@ createButton.addEventListener(
             );
 
             return;
+
         }
 
 
@@ -1885,6 +1885,7 @@ createButton.addEventListener(
             );
 
             return;
+
         }
 
 
@@ -1919,6 +1920,7 @@ createButton.addEventListener(
             );
 
             return;
+
         }
 
 
@@ -1929,6 +1931,7 @@ createButton.addEventListener(
             );
 
             return;
+
         }
 
 
@@ -1939,6 +1942,7 @@ createButton.addEventListener(
             );
 
             return;
+
         }
 
 
@@ -1949,59 +1953,133 @@ createButton.addEventListener(
             );
 
             return;
+
         }
 
 
-        console.log({
+        // =====================================
+        // SAVING
+        // =====================================
 
-            eventType:
-                eventType,
-
-            name:
-                name,
-
-            city:
-                city,
-
-            ground:
-                ground,
-
-            organizerName:
-                savedName || "",
-
-            organizerNumber:
-                savedMobile || "",
-
-            organizerEmail:
-                savedEmail || "",
-
-            startDate:
-                startDate,
-
-            endDate:
-                endDate,
-
-            category:
-                category.dataset.value,
-
-            ballType:
-                ballType.dataset.value,
-
-            pitchType:
-                pitchType.dataset.value,
-
-            matchType:
-                matchType.dataset.value
-
-        });
+        createButton.disabled =
+            true;
 
 
-        alert(
-            eventType +
-            " form completed successfully."
-        );
+        createButton.textContent =
+            "SAVING...";
 
-    }
+
+        try {
+
+
+            const eventData = {
+
+                eventType:
+                    eventType,
+
+                eventName:
+                    name,
+
+                city:
+                    city,
+
+                ground:
+                    ground,
+
+                organizerName:
+                    savedName || "",
+
+                organizerNumber:
+                    savedMobile || "",
+
+                organizerEmail:
+                    savedEmail || "",
+
+                startDate:
+                    startDate,
+
+                endDate:
+                    endDate,
+
+                category:
+                    category.dataset.value,
+
+                ballType:
+                    ballType.dataset.value,
+
+                pitchType:
+                    pitchType.dataset.value,
+
+                matchType:
+                    matchType.dataset.value,
+
+                status:
+                    "UPCOMING",
+
+                createdAt:
+                    serverTimestamp()
+
+            };
+
+
+            const docRef =
+                await addDoc(
+                    collection(
+                        db,
+                        "events"
+                    ),
+                    eventData
+                );
+
+
+            console.log(
+                "Event saved successfully:",
+                docRef.id
+            );
+
+
+            alert(
+                eventType +
+                " created successfully!"
+            );
+
+
+            window.location.href =
+                "dashboard.html";
+
+
+        } catch (error) {
+
+
+            console.error(
+                "Firestore Error:",
+                error
+            );
+
+
+            alert(
+                "Event save failed.\n\n" +
+                error.message
+            );
+
+
+            createButton.disabled =
+                false;
+
+
+            createButton.textContent =
+                eventType ===
+                "Tournament"
+                ? "CREATE TOURNAMENT"
+                : "CREATE SERIES";
+
+        }
+
+    });
+
+
+console.log(
+    "CRICKPULSE Create Event + Firestore loaded."
 );
 
 </script>
