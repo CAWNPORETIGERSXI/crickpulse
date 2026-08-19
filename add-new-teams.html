@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CRICKPULSE | Add New Teams</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#ffffff;
+    color:#111111;
+    min-height:100vh;
+}
+
+/* HEADER */
+
+.header{
+    height:70px;
+    background:#ffffff;
+    border-bottom:1px solid #e00000;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+
+.logo{
+    font-size:27px;
+    font-weight:800;
+    letter-spacing:1px;
+    color:#111111;
+}
+
+.logo span{
+    color:#e00000;
+}
+
+.back-btn{
+    border:1px solid #e00000;
+    background:#ffffff;
+    color:#e00000;
+    border-radius:10px;
+    padding:10px 16px;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* PAGE */
+
+.container{
+    width:100%;
+    max-width:600px;
+    margin:auto;
+    padding:24px 18px 40px;
+}
+
+.title{
+    text-align:center;
+    font-size:28px;
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    text-align:center;
+    font-size:17px;
+    color:#666;
+    margin-bottom:25px;
+}
+
+/* SAVED TEAMS */
+
+.saved-team{
+    border:1px solid #e00000;
+    border-radius:14px;
+    padding:13px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:16px;
+    background:#fff;
+}
+
+.saved-logo{
+    width:62px;
+    height:62px;
+    border-radius:50%;
+    border:1px solid #e00000;
+    object-fit:cover;
+    background:#f5f5f5;
+}
+
+.saved-info{
+    flex:1;
+}
+
+.saved-info h3{
+    font-size:21px;
+    margin-bottom:5px;
+}
+
+.saved-info p{
+    font-size:16px;
+    color:#666;
+}
+
+.remove-btn{
+    border:1px solid #e00000;
+    background:#fff;
+    color:#e00000;
+    border-radius:8px;
+    padding:8px 10px;
+    font-size:14px;
+    cursor:pointer;
+}
+
+/* FORM CARD */
+
+.team-card{
+    border:1px solid #e00000;
+    border-radius:16px;
+    padding:20px 17px;
+    background:#fff;
+}
+
+.logo-section{
+    text-align:center;
+    margin-bottom:23px;
+}
+
+.logo-circle{
+    width:125px;
+    height:125px;
+    border-radius:50%;
+    border:2px solid #e00000;
+    margin:0 auto 10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:#fafafa;
+    cursor:pointer;
+}
+
+.logo-circle img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:none;
+}
+
+.logo-placeholder{
+    color:#888;
+    text-align:center;
+    font-size:16px;
+    padding:10px;
+}
+
+.logo-label{
+    color:#e00000;
+    font-size:16px;
+    font-weight:700;
+}
+
+/* INPUTS */
+
+.field{
+    margin-bottom:19px;
+}
+
+.field label{
+    display:block;
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.field input{
+    width:100%;
+    height:53px;
+    border:1px solid #e00000;
+    border-radius:10px;
+    padding:0 14px;
+    font-size:18px;
+    outline:none;
+    background:#fff;
+}
+
+.field input:focus{
+    box-shadow:0 0 0 2px rgba(224,0,0,.10);
+}
+
+.mobile-wrap{
+    display:flex;
+    gap:8px;
+}
+
+.country-code{
+    width:72px !important;
+    text-align:center;
+    background:#f7f7f7 !important;
+    font-weight:700;
+}
+
+.mobile-input{
+    flex:1;
+}
+
+/* CAPTAIN STATUS */
+
+.captain-status{
+    font-size:15px;
+    margin-top:7px;
+    min-height:20px;
+}
+
+.status-success{
+    color:green;
+}
+
+.status-manual{
+    color:#777;
+}
+
+/* ADD BUTTON */
+
+.add-team-btn{
+    width:100%;
+    height:57px;
+    margin-top:8px;
+    border:1px solid #e00000;
+    border-radius:11px;
+    background:#ffffff;
+    color:#e00000;
+    font-size:19px;
+    font-weight:800;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+}
+
+.plus{
+    font-size:28px;
+    line-height:1;
+}
+
+.add-team-btn:active{
+    transform:scale(.98);
+}
+
+/* DONE */
+
+.done-btn{
+    width:100%;
+    height:58px;
+    margin-top:20px;
+    border:none;
+    border-radius:11px;
+    background:#e00000;
+    color:#ffffff;
+    font-size:20px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.done-btn:active{
+    transform:scale(.98);
+}
+
+/* HIDDEN */
+
+.hidden{
+    display:none;
+}
+
+/* MOBILE */
+
+@media(max-width:420px){
+
+    .container{
+        padding:20px 14px 35px;
+    }
+
+    .title{
+        font-size:25px;
+    }
+
+    .team-card{
+        padding:18px 14px;
+    }
+
+    .field input{
+        font-size:17px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        CRICK<span>PULSE</span>
+    </div>
+
+    <button class="back-btn" onclick="goBack()">
+        ← Back
+    </button>
+
+</header>
+
+
+<main class="container">
+
+    <h1 class="title">Add New Teams</h1>
+
+    <p class="subtitle">
+        Add all the teams participating in this tournament
+    </p>
+
+
+    <!-- SAVED TEAMS WILL APPEAR HERE -->
+
+    <div id="savedTeams"></div>
+
+
+    <!-- NEW TEAM FORM -->
+
+    <div class="team-card">
+
+        <!-- LOGO -->
+
+        <div class="logo-section">
+
+            <label for="logoInput">
+
+                <div class="logo-circle">
+
+                    <img id="logoPreview">
+
+                    <div id="logoPlaceholder" class="logo-placeholder">
+                        Team Logo
+                    </div>
+
+                </div>
+
+            </label>
+
+            <input
+                type="file"
+                id="logoInput"
+                accept="image/*"
+                hidden
+            >
+
+            <div class="logo-label">
+                Add Team Logo
+            </div>
+
+        </div>
+
+
+        <!-- TEAM NAME -->
+
+        <div class="field">
+
+            <label>Team Name</label>
+
+            <input
+                type="text"
+                id="teamName"
+                placeholder="Enter team name"
+            >
+
+        </div>
+
+
+        <!-- CITY -->
+
+        <div class="field">
+
+            <label>City</label>
+
+            <input
+                type="text"
+                id="city"
+                placeholder="Enter city"
+            >
+
+        </div>
+
+
+        <!-- CAPTAIN MOBILE -->
+
+        <div class="field">
+
+            <label>Captain Mobile Number</label>
+
+            <div class="mobile-wrap">
+
+                <input
+                    type="text"
+                    value="+91"
+                    class="country-code"
+                    readonly
+                >
+
+                <input
+                    type="tel"
+                    id="captainMobile"
+                    class="mobile-input"
+                    maxlength="10"
+                    placeholder="Enter mobile number"
+                >
+
+            </div>
+
+            <div id="captainStatus" class="captain-status"></div>
+
+        </div>
+
+
+        <!-- CAPTAIN NAME -->
+
+        <div class="field">
+
+            <label>Captain Name</label>
+
+            <input
+                type="text"
+                id="captainName"
+                placeholder="Enter captain name"
+            >
+
+        </div>
+
+
+        <!-- ADD NEW TEAM -->
+
+        <button
+            class="add-team-btn"
+            onclick="addNewTeam()"
+        >
+
+            <span>Add New Team</span>
+
+            <span class="plus">＋</span>
+
+        </button>
+
+    </div>
+
+
+    <!-- DONE -->
+
+    <button
+        class="done-btn"
+        onclick="finishTeams()"
+    >
+        Done
+    </button>
+
+</main>
+
+
+<script>
+
+let teams = [];
+
+let selectedLogo = "";
+
+
+/* LOGO PREVIEW */
+
+document
+.getElementById("logoInput")
+.addEventListener("change", function(){
+
+    const file = this.files[0];
+
+    if(!file){
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        selectedLogo = e.target.result;
+
+        const preview =
+            document.getElementById("logoPreview");
+
+        preview.src = selectedLogo;
+
+        preview.style.display = "block";
+
+        document
+        .getElementById("logoPlaceholder")
+        .style.display = "none";
+
+    };
+
+    reader.readAsDataURL(file);
+
+});
+
+
+/* CAPTAIN MOBILE CHECK */
+
+document
+.getElementById("captainMobile")
+.addEventListener("input", function(){
+
+    this.value = this.value.replace(/\D/g,"");
+
+    const number = this.value;
+
+    const status =
+        document.getElementById("captainStatus");
+
+    const captainName =
+        document.getElementById("captainName");
+
+
+    if(number.length === 10){
+
+        /*
+         * फिलहाल demo lookup.
+         * बाद में Firebase से registered player
+         * का नाम यहाँ automatically आएगा.
+         */
+
+        const registeredPlayers = {
+
+            "9876543210":"Rahul Sharma",
+            "9123456789":"Amit Kumar"
+
+        };
+
+
+        if(registeredPlayers[number]){
+
+            captainName.value =
+                registeredPlayers[number];
+
+            captainName.readOnly = true;
+
+            status.innerHTML =
+                "✓ Registered player found";
+
+            status.className =
+                "captain-status status-success";
+
+        }else{
+
+            captainName.value = "";
+
+            captainName.readOnly = false;
+
+            status.innerHTML =
+                "Captain not registered. Enter name manually.";
+
+            status.className =
+                "captain-status status-manual";
+
+        }
+
+    }else{
+
+        captainName.value = "";
+
+        captainName.readOnly = false;
+
+        status.innerHTML = "";
+
+    }
+
+});
+
+
+/* ADD NEW TEAM */
+
+function addNewTeam(){
+
+    const teamName =
+        document.getElementById("teamName")
+        .value.trim();
+
+    const city =
+        document.getElementById("city")
+        .value.trim();
+
+    const mobile =
+        document.getElementById("captainMobile")
+        .value.trim();
+
+    const captainName =
+        document.getElementById("captainName")
+        .value.trim();
+
+
+    if(!teamName){
+
+        alert("Please enter Team Name.");
+
+        return;
+
+    }
+
+    if(!city){
+
+        alert("Please enter City.");
+
+        return;
+
+    }
+
+    if(mobile.length !== 10){
+
+        alert("Please enter a valid 10-digit mobile number.");
+
+        return;
+
+    }
+
+    if(!captainName){
+
+        alert("Please enter Captain Name.");
+
+        return;
+
+    }
+
+
+    const team = {
+
+        id:Date.now(),
+
+        teamName:teamName,
+
+        city:city,
+
+        captainMobile:"+91 " + mobile,
+
+        captainName:captainName,
+
+        logo:selectedLogo
+
+    };
+
+
+    teams.push(team);
+
+    renderTeams();
+
+    clearForm();
+
+}
+
+
+/* SHOW SAVED TEAMS */
+
+function renderTeams(){
+
+    const container =
+        document.getElementById("savedTeams");
+
+    container.innerHTML = "";
+
+
+    teams.forEach(function(team){
+
+        const card =
+            document.createElement("div");
+
+        card.className = "saved-team";
+
+
+        const logo =
+            team.logo
+            ? `<img class="saved-logo" src="${team.logo}">`
+            : `<div class="saved-logo"></div>`;
+
+
+        card.innerHTML = `
+
+            ${logo}
+
+            <div class="saved-info">
+
+                <h3>${escapeHTML(team.teamName)}</h3>
+
+                <p>${escapeHTML(team.city)}</p>
+
+                <p>
+                    Captain: ${escapeHTML(team.captainName)}
+                </p>
+
+            </div>
+
+            <button
+                class="remove-btn"
+                onclick="removeTeam(${team.id})"
+            >
+                Remove
+            </button>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* CLEAR FORM FOR NEXT TEAM */
+
+function clearForm(){
+
+    document.getElementById("teamName").value = "";
+
+    document.getElementById("city").value = "";
+
+    document.getElementById("captainMobile").value = "";
+
+    document.getElementById("captainName").value = "";
+
+    document.getElementById("captainName").readOnly = false;
+
+    document.getElementById("captainStatus").innerHTML = "";
+
+    selectedLogo = "";
+
+    document.getElementById("logoPreview").src = "";
+
+    document.getElementById("logoPreview").style.display = "none";
+
+    document.getElementById("logoPlaceholder").style.display = "block";
+
+    document.getElementById("logoInput").value = "";
+
+}
+
+
+/* REMOVE TEAM */
+
+function removeTeam(id){
+
+    teams =
+        teams.filter(function(team){
+
+            return team.id !== id;
+
+        });
+
+    renderTeams();
+
+}
+
+
+/* DONE */
+
+function finishTeams(){
+
+    if(teams.length === 0){
+
+        alert("Please add at least one team.");
+
+        return;
+
+    }
+
+
+    /*
+     * अगला चरण:
+     * यहाँ Firebase Firestore में
+     * सभी teams tournament के साथ save होंगी.
+     */
+
+    console.log("Teams ready to save:", teams);
+
+    alert(
+        teams.length +
+        " team(s) ready to be saved to the tournament."
+    );
+
+}
+
+
+/* BACK */
+
+function goBack(){
+
+    history.back();
+
+}
+
+
+/* SECURITY */
+
+function escapeHTML(value){
+
+    return value
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+</script>
+
+</body>
+</html>
