@@ -30,6 +30,10 @@ body{
     min-height:100vh;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 .top-header{
     height:82px;
 
@@ -49,6 +53,7 @@ body{
     height:58px;
 
     border:1.5px solid #ff3b30;
+
     border-radius:8px;
 
     background:#fff;
@@ -56,6 +61,7 @@ body{
     color:#6328c7;
 
     font-size:42px;
+
     font-weight:900;
 
     cursor:pointer;
@@ -67,10 +73,16 @@ body{
     text-align:center;
 
     font-size:27px;
+
     font-weight:900;
 
     margin-right:58px;
 }
+
+
+/* =========================
+   PAGE
+========================= */
 
 .page{
     width:100%;
@@ -81,6 +93,11 @@ body{
 
     padding:35px 16px 60px;
 }
+
+
+/* =========================
+   CARD
+========================= */
 
 .card{
     background:#fff;
@@ -113,6 +130,11 @@ body{
     margin-bottom:28px;
 }
 
+
+/* =========================
+   TEAM COUNT
+========================= */
+
 .team-count-box{
     border:1.5px solid #ff3b30;
 
@@ -142,6 +164,11 @@ body{
 
     color:#6c35d9;
 }
+
+
+/* =========================
+   BUTTONS
+========================= */
 
 .share-button,
 .manual-button{
@@ -182,6 +209,11 @@ body{
     transform:scale(.98);
 }
 
+
+/* =========================
+   OR
+========================= */
+
 .or-text{
     text-align:center;
 
@@ -193,6 +225,11 @@ body{
 
     color:#6d667c;
 }
+
+
+/* =========================
+   EVENT ID
+========================= */
 
 .event-id-box{
     margin-top:25px;
@@ -225,6 +262,11 @@ body{
 
     word-break:break-all;
 }
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:480px){
 
@@ -286,7 +328,13 @@ body{
 
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header class="top-header">
 
@@ -298,12 +346,18 @@ body{
 ‹
 </button>
 
+
 <div class="page-title">
-Tournament Setup
+    Tournament Setup
 </div>
 
 </header>
 
+
+
+<!-- =========================
+     PAGE
+========================= -->
 
 <main class="page">
 
@@ -311,66 +365,89 @@ Tournament Setup
 
 
 <div class="title">
-Invite Captains to Add Teams
+    Invite Captains to Add Teams
 </div>
 
 
 <div class="subtitle">
-Invite team captains to add their teams
-to this tournament.
+    Invite team captains to add their teams
+    to this tournament.
 </div>
 
+
+
+<!-- =========================
+     TEAM COUNT
+========================= -->
 
 <div class="team-count-box">
 
 <div class="team-count-label">
-Total number of teams
+    Total number of teams
 </div>
+
 
 <div
     class="team-count-number"
     id="teamCountDisplay"
 >
-0
+    0
 </div>
 
 </div>
 
+
+
+<!-- =========================
+     SHARE
+========================= -->
 
 <button
     class="share-button"
     id="shareButton"
     type="button"
 >
-Share with Captains
+    Share with Captains
 </button>
 
 
+
 <div class="or-text">
-OR
+    OR
 </div>
 
+
+
+<!-- =========================
+     ADD MANUALLY
+========================= -->
 
 <button
     class="manual-button"
     id="manualButton"
     type="button"
 >
-Add Manually
+    Add Manually
 </button>
 
+
+
+<!-- =========================
+     EVENT ID
+========================= -->
 
 <div class="event-id-box">
 
 <div class="event-id-label">
-Tournament ID
+    Tournament ID
 </div>
+
 
 <div
     class="event-id-value"
     id="eventIdDisplay"
 >
-Loading...
+    Loading...
 </div>
 
 </div>
@@ -381,10 +458,11 @@ Loading...
 </main>
 
 
+
 <script>
 
 /* =========================================
-   GET DATA
+   GET TOURNAMENT DATA
 ========================================= */
 
 const teamCount =
@@ -392,15 +470,18 @@ const teamCount =
         "crickpulseTeamCount"
     );
 
+
 const eventId =
     sessionStorage.getItem(
         "crickpulseEventId"
     );
 
+
 const eventName =
     sessionStorage.getItem(
         "crickpulseEventName"
     );
+
 
 const eventType =
     sessionStorage.getItem(
@@ -417,15 +498,18 @@ const teamCountDisplay =
         "teamCountDisplay"
     );
 
+
 const eventIdDisplay =
     document.getElementById(
         "eventIdDisplay"
     );
 
+
 const shareButton =
     document.getElementById(
         "shareButton"
     );
+
 
 const manualButton =
     document.getElementById(
@@ -443,6 +527,7 @@ if(!eventId){
         "Tournament ID is missing. Please create the tournament again."
     );
 
+
     window.location.href =
         "create-event.html";
 
@@ -459,6 +544,7 @@ if(!teamCount){
         "Team count not found."
     );
 
+
     window.location.href =
         "number-of-teams.html";
 
@@ -466,7 +552,7 @@ if(!teamCount){
 
 
 /* =========================================
-   SHOW DATA
+   SHOW TOURNAMENT DATA
 ========================================= */
 
 if(teamCount){
@@ -486,11 +572,13 @@ if(eventId){
 
 
 /* =========================================
-   BACK
+   BACK BUTTON
 ========================================= */
 
 document
-.getElementById("backButton")
+.getElementById(
+    "backButton"
+)
 .addEventListener(
     "click",
     function(){
@@ -543,10 +631,8 @@ shareButton.addEventListener(
 
         const title =
             eventName ||
-            (
-                eventType ||
-                "CRICKPULSE Tournament"
-            );
+            eventType ||
+            "CRICKPULSE Tournament";
 
 
         const message =
@@ -558,11 +644,13 @@ shareButton.addEventListener(
 
 
         /*
+        ========================================
         MOBILE SHARE
+        ========================================
 
-        On Android, this normally opens
-        the system share sheet where
-        WhatsApp can be selected.
+        Android का system share sheet खुलेगा.
+        वहाँ WhatsApp सहित available
+        sharing apps दिखाई देंगी.
         */
 
         if(
@@ -584,6 +672,7 @@ shareButton.addEventListener(
 
                 });
 
+
                 console.log(
                     "Tournament invite shared."
                 );
@@ -603,14 +692,19 @@ shareButton.addEventListener(
 
 
         /*
+        ========================================
         FALLBACK
+        ========================================
         */
 
         try{
 
-            await navigator.clipboard.writeText(
+            await navigator
+            .clipboard
+            .writeText(
                 inviteLink
             );
+
 
             alert(
                 "Tournament invite link copied."
@@ -649,8 +743,25 @@ manualButton.addEventListener(
         }
 
 
+        /*
+        ========================================
+        IMPORTANT
+
+        पहले यहाँ:
+
+        add-teams.html
+
+        था।
+
+        अब सही page:
+
+        add-new-teams.html
+
+        ========================================
+        */
+
         window.location.href =
-            "add-teams.html?eventId=" +
+            "add-new-teams.html?eventId=" +
             encodeURIComponent(
                 eventId
             );
@@ -659,9 +770,14 @@ manualButton.addEventListener(
 );
 
 
+/* =========================================
+   DEBUG
+========================================= */
+
 console.log(
     "CRICKPULSE Invite Captains loaded.",
     {
+
         eventId:
             eventId,
 
@@ -673,10 +789,12 @@ console.log(
 
         teamCount:
             teamCount
+
     }
 );
 
 </script>
+
 
 </body>
 
