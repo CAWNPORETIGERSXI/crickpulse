@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>CRICKPULSE | Add Manually</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Verdana,Geneva,sans-serif;
+    background:#f7f5ff;
+    color:#171225;
+    min-height:100vh;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.top-header{
+    height:82px;
+    background:#fff;
+    border-bottom:1px solid #e4ddf2;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 15px;
+}
+
+.back-button{
+    width:58px;
+    height:58px;
+
+    border:1.5px solid #ff3b30;
+    border-radius:8px;
+
+    background:#fff;
+    color:#6328c7;
+
+    font-size:42px;
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.page-title{
+    flex:1;
+
+    text-align:center;
+
+    font-size:27px;
+    font-weight:900;
+
+    margin-right:58px;
+}
+
+/* ================================
+   PAGE
+================================ */
+
+.page{
+    width:100%;
+    max-width:760px;
+
+    margin:auto;
+
+    padding:30px 16px 60px;
+}
+
+/* ================================
+   CARD
+================================ */
+
+.card{
+    background:#fff;
+
+    border:1.5px solid #ff3b30;
+    border-radius:10px;
+
+    padding:28px 22px;
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.06);
+}
+
+.title{
+    font-size:32px;
+    font-weight:900;
+
+    margin-bottom:10px;
+}
+
+.subtitle{
+    font-size:20px;
+    color:#6d667c;
+
+    line-height:1.5;
+
+    margin-bottom:28px;
+}
+
+/* ================================
+   OPTIONS
+================================ */
+
+.option{
+    width:100%;
+
+    background:#fff;
+
+    border:1.5px solid #ff3b30;
+    border-radius:9px;
+
+    margin-bottom:16px;
+
+    overflow:hidden;
+}
+
+.option-main{
+    width:100%;
+
+    min-height:70px;
+
+    padding:14px 16px;
+
+    background:#fff;
+
+    border:0;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    font-family:Verdana,Geneva,sans-serif;
+
+    cursor:pointer;
+
+    text-align:left;
+}
+
+.option-icon{
+    width:45px;
+    height:45px;
+
+    border-radius:8px;
+
+    border:1.5px solid #ff3b30;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:23px;
+
+    flex-shrink:0;
+
+    color:#6c35d9;
+}
+
+.option-content{
+    flex:1;
+}
+
+.option-title{
+    font-size:21px;
+    font-weight:900;
+
+    color:#171225;
+}
+
+.option-description{
+    margin-top:4px;
+
+    font-size:16px;
+
+    color:#6d667c;
+
+    line-height:1.35;
+}
+
+.arrow{
+    font-size:30px;
+    font-weight:900;
+
+    color:#6c35d9;
+}
+
+/* ================================
+   INVITE SUB OPTIONS
+================================ */
+
+.invite-sub{
+    display:none;
+
+    border-top:1.5px solid #ff3b30;
+
+    padding:14px;
+}
+
+.invite-sub.show{
+    display:block;
+}
+
+.sub-button{
+    width:100%;
+
+    min-height:58px;
+
+    margin-bottom:10px;
+
+    border:1.5px solid #ff3b30;
+    border-radius:8px;
+
+    background:#fff;
+
+    color:#6c35d9;
+
+    font-family:Verdana,Geneva,sans-serif;
+
+    font-size:19px;
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.sub-button:last-child{
+    margin-bottom:0;
+}
+
+.sub-button:active,
+.option-main:active{
+    transform:scale(.98);
+}
+
+/* ================================
+   EVENT INFO
+================================ */
+
+.event-box{
+    margin-top:25px;
+
+    padding:15px;
+
+    border:1.5px solid #ff3b30;
+    border-radius:8px;
+
+    background:#fff;
+}
+
+.event-label{
+    font-size:16px;
+
+    font-weight:700;
+
+    color:#6d667c;
+
+    margin-bottom:6px;
+}
+
+.event-value{
+    font-size:15px;
+
+    font-weight:800;
+
+    word-break:break-all;
+}
+
+/* ================================
+   QR AREA
+================================ */
+
+.qr-area{
+    display:none;
+
+    margin-top:20px;
+
+    padding:18px;
+
+    border:1.5px solid #ff3b30;
+    border-radius:8px;
+
+    text-align:center;
+
+    background:#fff;
+}
+
+.qr-area.show{
+    display:block;
+}
+
+.qr-title{
+    font-size:21px;
+    font-weight:900;
+
+    margin-bottom:8px;
+}
+
+.qr-text{
+    font-size:17px;
+
+    color:#6d667c;
+
+    line-height:1.45;
+
+    margin-bottom:16px;
+}
+
+.camera-button{
+    width:100%;
+
+    min-height:60px;
+
+    border:1.5px solid #ff3b30;
+    border-radius:8px;
+
+    background:#6c35d9;
+
+    color:#fff;
+
+    font-family:Verdana,Geneva,sans-serif;
+
+    font-size:20px;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+/* ================================
+   HIDDEN CAMERA
+================================ */
+
+#qrVideo{
+    width:100%;
+
+    max-height:300px;
+
+    border-radius:8px;
+
+    margin-top:15px;
+
+    display:none;
+
+    background:#000;
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media(max-width:480px){
+
+    .top-header{
+        height:76px;
+
+        padding:0 11px;
+    }
+
+    .back-button{
+        width:52px;
+        height:52px;
+
+        font-size:38px;
+    }
+
+    .page-title{
+        font-size:23px;
+
+        margin-right:52px;
+    }
+
+    .page{
+        padding:25px 14px 50px;
+    }
+
+    .card{
+        padding:26px 17px;
+    }
+
+    .title{
+        font-size:29px;
+    }
+
+    .subtitle{
+        font-size:19px;
+    }
+
+    .option-title{
+        font-size:20px;
+    }
+
+    .option-description{
+        font-size:15px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<header class="top-header">
+
+<button
+    class="back-button"
+    id="backButton"
+    type="button"
+>
+‹
+</button>
+
+<div class="page-title">
+Add Manually
+</div>
+
+</header>
+
+
+<main class="page">
+
+<section class="card">
+
+<div class="title">
+Add Teams
+</div>
+
+<div class="subtitle">
+Choose how you want to add teams to this tournament or series.
+</div>
+
+
+<!-- =================================
+     OPTION 1
+================================= -->
+
+<div class="option">
+
+<button
+    class="option-main"
+    id="inviteButton"
+    type="button"
+>
+
+<div class="option-icon">
+↗
+</div>
+
+<div class="option-content">
+
+<div class="option-title">
+Invite Link
+</div>
+
+<div class="option-description">
+Share an invite link with team captains.
+</div>
+
+</div>
+
+<div
+    class="arrow"
+    id="inviteArrow"
+>
+›
+</div>
+
+</button>
+
+
+<div
+    class="invite-sub"
+    id="inviteSub"
+>
+
+<button
+    class="sub-button"
+    id="shareButton"
+    type="button"
+>
+Share
+</button>
+
+<button
+    class="sub-button"
+    id="whatsappButton"
+    type="button"
+>
+WhatsApp
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =================================
+     OPTION 2
+================================= -->
+
+<div class="option">
+
+<button
+    class="option-main"
+    id="yourTeamsButton"
+    type="button"
+>
+
+<div class="option-icon">
+✓
+</div>
+
+<div class="option-content">
+
+<div class="option-title">
+Your Teams
+</div>
+
+<div class="option-description">
+Select a team already available in CRICKPULSE.
+</div>
+
+</div>
+
+<div class="arrow">
+›
+</div>
+
+</button>
+
+</div>
+
+
+<!-- =================================
+     OPTION 3
+================================= -->
+
+<div class="option">
+
+<button
+    class="option-main"
+    id="addNewTeamButton"
+    type="button"
+>
+
+<div class="option-icon">
++
+</div>
+
+<div class="option-content">
+
+<div class="option-title">
+Add New Teams
+</div>
+
+<div class="option-description">
+Create and add a new team manually.
+</div>
+
+</div>
+
+<div class="arrow">
+›
+</div>
+
+</button>
+
+</div>
+
+
+<!-- =================================
+     OPTION 4
+================================= -->
+
+<div class="option">
+
+<button
+    class="option-main"
+    id="qrButton"
+    type="button"
+>
+
+<div class="option-icon">
+▣
+</div>
+
+<div class="option-content">
+
+<div class="option-title">
+Add via QR
+</div>
+
+<div class="option-description">
+Scan a team QR code using your camera.
+</div>
+
+</div>
+
+<div
+    class="arrow"
+    id="qrArrow"
+>
+›
+</div>
+
+</button>
+
+
+<div
+    class="qr-area"
+    id="qrArea"
+>
+
+<div class="qr-title">
+Scan QR Code
+</div>
+
+<div class="qr-text">
+Tap the button below to open your camera and scan the team QR code.
+</div>
+
+<button
+    class="camera-button"
+    id="cameraButton"
+    type="button"
+>
+Open Camera
+</button>
+
+<video
+    id="qrVideo"
+    autoplay
+    playsinline
+></video>
+
+</div>
+
+</div>
+
+
+<!-- =================================
+     EVENT INFORMATION
+================================= -->
+
+<div class="event-box">
+
+<div class="event-label">
+Event ID
+</div>
+
+<div
+    class="event-value"
+    id="eventIdDisplay"
+>
+Loading...
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<script>
+
+/* =========================================
+   GET EVENT DATA
+========================================= */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const eventId =
+    params.get("eventId") ||
+    sessionStorage.getItem(
+        "crickpulseEventId"
+    );
+
+const eventName =
+    sessionStorage.getItem(
+        "crickpulseEventName"
+    ) ||
+    "CRICKPULSE Tournament";
+
+const eventType =
+    sessionStorage.getItem(
+        "crickpulseEventType"
+    ) ||
+    "TOURNAMENT";
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const eventIdDisplay =
+    document.getElementById(
+        "eventIdDisplay"
+    );
+
+const inviteButton =
+    document.getElementById(
+        "inviteButton"
+    );
+
+const inviteSub =
+    document.getElementById(
+        "inviteSub"
+    );
+
+const shareButton =
+    document.getElementById(
+        "shareButton"
+    );
+
+const whatsappButton =
+    document.getElementById(
+        "whatsappButton"
+    );
+
+const yourTeamsButton =
+    document.getElementById(
+        "yourTeamsButton"
+    );
+
+const addNewTeamButton =
+    document.getElementById(
+        "addNewTeamButton"
+    );
+
+const qrButton =
+    document.getElementById(
+        "qrButton"
+    );
+
+const qrArea =
+    document.getElementById(
+        "qrArea"
+    );
+
+const cameraButton =
+    document.getElementById(
+        "cameraButton"
+    );
+
+const qrVideo =
+    document.getElementById(
+        "qrVideo"
+    );
+
+
+/* =========================================
+   EVENT ID CHECK
+========================================= */
+
+if(!eventId){
+
+    alert(
+        "Event ID is missing. Please go back and create/select the event again."
+    );
+
+    window.location.href =
+        "create-event.html";
+
+}
+else{
+
+    eventIdDisplay.textContent =
+        eventId;
+
+}
+
+
+/* =========================================
+   BACK
+========================================= */
+
+document
+.getElementById("backButton")
+.addEventListener(
+    "click",
+    function(){
+
+        window.history.back();
+
+    }
+);
+
+
+/* =========================================
+   INVITE LINK
+========================================= */
+
+function getInviteLink(){
+
+    return (
+        window.location.origin +
+        "/join-team.html?eventId=" +
+        encodeURIComponent(
+            eventId
+        )
+    );
+
+}
+
+
+/* =========================================
+   INVITE MENU
+========================================= */
+
+inviteButton.addEventListener(
+    "click",
+    function(){
+
+        inviteSub.classList.toggle(
+            "show"
+        );
+
+    }
+);
+
+
+/* =========================================
+   SHARE
+========================================= */
+
+shareButton.addEventListener(
+    "click",
+    async function(){
+
+        const inviteLink =
+            getInviteLink();
+
+        const message =
+            "You are invited to add your team to " +
+            eventName +
+            ".\n\n" +
+            "Tournament Invite Link:\n" +
+            inviteLink;
+
+        if(
+            navigator.share
+        ){
+
+            try{
+
+                await navigator.share({
+
+                    title:
+                        eventName,
+
+                    text:
+                        message,
+
+                    url:
+                        inviteLink
+
+                });
+
+            }
+            catch(error){
+
+                console.log(
+                    "Share cancelled."
+                );
+
+            }
+
+            return;
+
+        }
+
+
+        try{
+
+            await navigator.clipboard.writeText(
+                inviteLink
+            );
+
+            alert(
+                "Invite link copied."
+            );
+
+        }
+        catch(error){
+
+            alert(
+                inviteLink
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   WHATSAPP
+========================================= */
+
+whatsappButton.addEventListener(
+    "click",
+    function(){
+
+        const inviteLink =
+            getInviteLink();
+
+        const message =
+            "You are invited to add your team to " +
+            eventName +
+            ".\n\n" +
+            "Tournament Invite Link:\n" +
+            inviteLink;
+
+        const whatsappUrl =
+            "https://wa.me/?text=" +
+            encodeURIComponent(
+                message
+            );
+
+        window.open(
+            whatsappUrl,
+            "_blank"
+        );
+
+    }
+);
+
+
+/* =========================================
+   YOUR TEAMS
+========================================= */
+
+yourTeamsButton.addEventListener(
+    "click",
+    function(){
+
+        window.location.href =
+            "your-teams.html?eventId=" +
+            encodeURIComponent(
+                eventId
+            );
+
+    }
+);
+
+
+/* =========================================
+   ADD NEW TEAM
+========================================= */
+
+addNewTeamButton.addEventListener(
+    "click",
+    function(){
+
+        window.location.href =
+            "add-new-team.html?eventId=" +
+            encodeURIComponent(
+                eventId
+            );
+
+    }
+);
+
+
+/* =========================================
+   QR AREA
+========================================= */
+
+qrButton.addEventListener(
+    "click",
+    function(){
+
+        qrArea.classList.toggle(
+            "show"
+        );
+
+    }
+);
+
+
+/* =========================================
+   CAMERA
+========================================= */
+
+let cameraStream =
+    null;
+
+cameraButton.addEventListener(
+    "click",
+    async function(){
+
+        if(
+            !navigator.mediaDevices ||
+            !navigator.mediaDevices.getUserMedia
+        ){
+
+            alert(
+                "Camera is not supported by this browser."
+            );
+
+            return;
+
+        }
+
+
+        try{
+
+            cameraStream =
+                await navigator.mediaDevices.getUserMedia({
+
+                    video:{
+                        facingMode:{
+                            ideal:
+                                "environment"
+                        }
+                    },
+
+                    audio:false
+
+                });
+
+
+            qrVideo.srcObject =
+                cameraStream;
+
+            qrVideo.style.display =
+                "block";
+
+            cameraButton.textContent =
+                "Camera Opened";
+
+        }
+        catch(error){
+
+            console.error(
+                error
+            );
+
+            alert(
+                "Camera permission was not granted."
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   PAGE LOAD
+========================================= */
+
+console.log(
+    "CRICKPULSE Add Teams loaded.",
+    {
+        eventId:
+            eventId,
+
+        eventName:
+            eventName,
+
+        eventType:
+            eventType
+    }
+);
+
+</script>
+
+</body>
+
+</html>
