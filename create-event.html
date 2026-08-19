@@ -19,6 +19,10 @@
 
 <style>
 
+/* =================================================
+   RESET
+================================================= */
+
 *{
     margin:0;
     padding:0;
@@ -32,11 +36,13 @@ body{
     min-height:100vh;
 }
 
-/* HEADER */
+/* =================================================
+   HEADER
+================================================= */
 
 .top-header{
     height:82px;
-    background:#fff;
+    background:#ffffff;
     border-bottom:1px solid #e4ddf2;
 
     display:flex;
@@ -57,7 +63,7 @@ body{
     border:1.5px solid #ff3b30;
     border-radius:8px;
 
-    background:#fff;
+    background:#ffffff;
     color:#6328c7;
 
     font-size:42px;
@@ -80,39 +86,41 @@ body{
     width:58px;
 }
 
-/* PAGE */
+/* =================================================
+   MAIN
+================================================= */
 
 .page{
     width:100%;
     max-width:760px;
-
     margin:auto;
 
     padding:30px 16px 60px;
 }
 
-/* EVENT TYPE */
+/* =================================================
+   EVENT TYPE
+================================================= */
 
 .event-type{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:12px;
 
-    margin-bottom:24px;
+    margin-bottom:25px;
 }
 
 .event-type-button{
-    height:58px;
+    height:62px;
 
     border:1.5px solid #ff3b30;
     border-radius:8px;
 
-    background:#fff;
+    background:#ffffff;
     color:#5f4a7f;
 
     font-family:Verdana,Geneva,sans-serif;
-
-    font-size:22px;
+    font-size:24px;
     font-weight:900;
 
     cursor:pointer;
@@ -121,19 +129,21 @@ body{
 .event-type-button.active{
     background:#6c35d9;
     border-color:#ff3b30;
-    color:#fff;
+    color:#ffffff;
 }
 
-/* BANNER */
+/* =================================================
+   BANNER
+================================================= */
 
 .banner-box{
     width:100%;
     height:220px;
 
     border:1.5px solid #ff3b30;
-    border-radius:10px;
+    border-radius:8px;
 
-    background:#fff;
+    background:#ffffff;
 
     display:flex;
     align-items:center;
@@ -144,13 +154,13 @@ body{
 
     cursor:pointer;
 
-    margin-bottom:24px;
+    margin-bottom:25px;
 }
 
 .banner-placeholder{
-    color:#a9a0b5;
-    font-size:24px;
-    font-weight:700;
+    color:#8d8498;
+    font-size:25px;
+    font-weight:800;
 }
 
 .banner-preview{
@@ -165,7 +175,9 @@ body{
     inset:0;
 }
 
-/* LOGO */
+/* =================================================
+   LOGO
+================================================= */
 
 .logo-area{
     margin-bottom:28px;
@@ -178,7 +190,7 @@ body{
     border:1.5px solid #ff3b30;
     border-radius:50%;
 
-    background:#fff;
+    background:#ffffff;
 
     display:flex;
     align-items:center;
@@ -191,9 +203,10 @@ body{
 }
 
 .logo-placeholder{
-    color:#aaa1b5;
-    font-size:18px;
-    font-weight:700;
+    color:#8d8498;
+    font-size:20px;
+    font-weight:800;
+
     text-align:center;
     padding:10px;
 }
@@ -214,29 +227,31 @@ input[type="file"]{
     display:none;
 }
 
-/* FIELD */
+/* =================================================
+   NORMAL FIELDS
+================================================= */
 
 .field{
-    margin-bottom:25px;
+    margin-bottom:27px;
 }
 
 .field-label{
     display:block;
 
-    font-size:24px;
+    font-size:25px;
     font-weight:900;
 
-    margin-bottom:9px;
+    margin-bottom:10px;
 }
 
 .line-input{
     width:100%;
-    height:58px;
+    height:62px;
 
     border:1.5px solid #ff3b30;
     border-radius:8px;
 
-    background:#fff;
+    background:#ffffff;
 
     outline:none;
 
@@ -244,42 +259,49 @@ input[type="file"]{
 
     font-family:Verdana,Geneva,sans-serif;
 
-    font-size:22px;
+    font-size:23px;
     font-weight:700;
 
-    padding:5px 14px;
+    padding:0 15px;
+}
+
+.line-input:focus{
+    border-color:#ff3b30;
+    box-shadow:0 0 0 3px rgba(255,59,48,.10);
 }
 
 .line-input::placeholder{
-    color:#aaa2ae;
-    font-weight:500;
+    color:#aaa1b5;
+    font-weight:600;
 }
 
-/* ORGANIZER */
+/* =================================================
+   ORGANIZER
+================================================= */
 
 .organizer-section{
-    margin-top:10px;
+    margin-top:8px;
     margin-bottom:32px;
 
-    background:#fff;
+    background:#ffffff;
 
     border:1.5px solid #ff3b30;
-    border-radius:10px;
+    border-radius:8px;
 
-    padding:22px;
+    padding:23px;
 
     box-shadow:0 5px 18px rgba(76,45,130,.06);
 }
 
 .organizer-title{
-    font-size:25px;
+    font-size:27px;
     font-weight:900;
 
-    margin-bottom:20px;
+    margin-bottom:22px;
 }
 
 .organizer-field{
-    margin-bottom:19px;
+    margin-bottom:20px;
 }
 
 .organizer-field:last-child{
@@ -291,106 +313,121 @@ input[type="file"]{
 
     color:#81768e;
 
-    font-size:17px;
-    font-weight:700;
+    font-size:18px;
+    font-weight:800;
 
-    margin-bottom:6px;
+    margin-bottom:7px;
 }
 
 .organizer-value{
-    min-height:44px;
+    min-height:48px;
 
-    border-bottom:1.5px solid #ff3b30;
+    border:1.5px solid #ff3b30;
+    border-radius:7px;
 
     display:flex;
     align-items:center;
 
+    padding:0 12px;
+
     color:#2d2538;
+
+    background:#ffffff;
 
     font-size:21px;
     font-weight:800;
+
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
-/* DETAILS */
+/* =================================================
+   DETAILS
+================================================= */
 
 .details-title{
-    font-size:26px;
+    font-size:27px;
     font-weight:900;
 
-    margin-bottom:18px;
+    margin-bottom:20px;
 }
 
-/* DATE */
+/* =================================================
+   DATE
+================================================= */
 
 .date-row{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:14px;
 
-    margin-bottom:30px;
+    gap:15px;
+
+    margin-bottom:32px;
 }
 
 .date-field label{
     display:block;
 
-    font-size:20px;
+    font-size:22px;
     font-weight:900;
 
-    margin-bottom:8px;
+    margin-bottom:9px;
 }
 
 .date-input{
     width:100%;
-    height:56px;
+    height:60px;
 
     border:1.5px solid #ff3b30;
     border-radius:8px;
 
-    background:#fff;
+    background:#ffffff;
 
-    padding:0 10px;
+    padding:0 12px;
 
     color:#171225;
 
     font-family:Verdana,Geneva,sans-serif;
 
-    font-size:18px;
+    font-size:19px;
     font-weight:700;
 }
 
-/* CHOICES */
+/* =================================================
+   CHOICE SECTIONS
+================================================= */
 
 .choice-section{
-    margin-bottom:30px;
+    margin-bottom:32px;
 }
 
 .choice-title{
-    font-size:23px;
+    font-size:24px;
     font-weight:900;
 
-    margin-bottom:13px;
+    margin-bottom:14px;
 }
 
 .choice-grid{
     display:flex;
     flex-wrap:wrap;
-    gap:10px;
+    gap:12px;
 }
 
 .choice-button{
-    min-height:52px;
+    min-height:58px;
 
-    padding:8px 17px;
+    padding:9px 18px;
 
     border:1.5px solid #ff3b30;
     border-radius:8px;
 
-    background:#fff;
+    background:#ffffff;
     color:#3d334b;
 
     font-family:Verdana,Geneva,sans-serif;
 
-    font-size:18px;
+    font-size:20px;
     font-weight:800;
 
     cursor:pointer;
@@ -399,24 +436,28 @@ input[type="file"]{
 .choice-button.active{
     background:#6c35d9;
     border-color:#ff3b30;
-    color:#fff;
+    color:#ffffff;
+
+    box-shadow:0 4px 10px rgba(108,53,217,.20);
 }
 
-/* CREATE */
+/* =================================================
+   CREATE BUTTON
+================================================= */
 
 .create-button{
     width:100%;
-    height:64px;
+    height:68px;
 
     border:1.5px solid #ff3b30;
     border-radius:8px;
 
     background:#6c35d9;
-    color:#fff;
+    color:#ffffff;
 
     font-family:Verdana,Geneva,sans-serif;
 
-    font-size:23px;
+    font-size:25px;
     font-weight:900;
 
     cursor:pointer;
@@ -429,7 +470,13 @@ input[type="file"]{
     cursor:not-allowed;
 }
 
-/* MOBILE */
+.create-button:active{
+    transform:scale(.98);
+}
+
+/* =================================================
+   MOBILE
+================================================= */
 
 @media(max-width:480px){
 
@@ -446,6 +493,7 @@ input[type="file"]{
 
     .page-header-title{
         font-size:22px;
+        margin-left:5px;
     }
 
     .header-space{
@@ -457,16 +505,16 @@ input[type="file"]{
     }
 
     .event-type-button{
-        height:55px;
-        font-size:20px;
+        height:58px;
+        font-size:21px;
     }
 
     .banner-box{
-        height:185px;
+        height:190px;
     }
 
     .banner-placeholder{
-        font-size:21px;
+        font-size:22px;
     }
 
     .logo-box{
@@ -475,16 +523,20 @@ input[type="file"]{
     }
 
     .field-label{
-        font-size:21px;
+        font-size:22px;
     }
 
     .line-input{
-        height:55px;
+        height:58px;
         font-size:20px;
     }
 
     .organizer-title{
-        font-size:23px;
+        font-size:24px;
+    }
+
+    .organizer-label{
+        font-size:16px;
     }
 
     .organizer-value{
@@ -492,19 +544,30 @@ input[type="file"]{
     }
 
     .details-title{
-        font-size:23px;
+        font-size:24px;
+    }
+
+    .date-field label{
+        font-size:19px;
+    }
+
+    .date-input{
+        height:56px;
+        font-size:16px;
     }
 
     .choice-title{
-        font-size:21px;
+        font-size:22px;
     }
 
     .choice-button{
         font-size:17px;
+        min-height:52px;
+        padding:8px 14px;
     }
 
     .create-button{
-        height:60px;
+        height:62px;
         font-size:21px;
     }
 }
@@ -517,65 +580,73 @@ input[type="file"]{
 
 <header class="top-header">
 
-<button
-    class="back-button"
-    id="backButton"
-    type="button"
->
-‹
-</button>
+    <button
+        class="back-button"
+        id="backButton"
+        type="button"
+        aria-label="Go Back"
+    >
+        ‹
+    </button>
 
-<div class="page-header-title">
-Create Tournament / Series
-</div>
+    <div class="page-header-title">
+        Create Tournament / Series
+    </div>
 
-<div class="header-space"></div>
+    <div class="header-space"></div>
 
 </header>
 
 
 <main class="page">
 
+<!-- =================================================
+     EVENT TYPE
+================================================= -->
 
 <div class="event-type">
 
-<button
-    class="event-type-button active"
-    id="tournamentButton"
-    type="button"
->
-Tournament
-</button>
+    <button
+        class="event-type-button active"
+        id="tournamentButton"
+        type="button"
+    >
+        Tournament
+    </button>
 
-<button
-    class="event-type-button"
-    id="seriesButton"
-    type="button"
->
-Series
-</button>
+    <button
+        class="event-type-button"
+        id="seriesButton"
+        type="button"
+    >
+        Series
+    </button>
 
 </div>
 
+
+<!-- =================================================
+     BANNER
+================================================= -->
 
 <label
     class="banner-box"
     for="bannerInput"
 >
 
-<span
-    class="banner-placeholder"
-    id="bannerPlaceholder"
->
-Add Banner
-</span>
+    <span
+        class="banner-placeholder"
+        id="bannerPlaceholder"
+    >
+        Add Banner
+    </span>
 
-<img
-    class="banner-preview"
-    id="bannerPreview"
-    src=""
-    alt="Banner Preview"
->
+    <img
+        class="banner-preview"
+        id="bannerPreview"
+        src=""
+        alt="Banner Preview"
+    >
 
 </label>
 
@@ -586,273 +657,961 @@ Add Banner
 >
 
 
+<!-- =================================================
+     LOGO
+================================================= -->
+
 <div class="logo-area">
 
-<label
-    class="logo-box"
-    for="logoInput"
->
+    <label
+        class="logo-box"
+        for="logoInput"
+    >
 
-<span
-    class="logo-placeholder"
-    id="logoPlaceholder"
->
-Add Logo
-</span>
+        <span
+            class="logo-placeholder"
+            id="logoPlaceholder"
+        >
+            Add Logo
+        </span>
 
-<img
-    class="logo-preview"
-    id="logoPreview"
-    src=""
-    alt="Logo Preview"
->
+        <img
+            class="logo-preview"
+            id="logoPreview"
+            src=""
+            alt="Logo Preview"
+        >
 
-</label>
+    </label>
 
-<input
-    type="file"
-    id="logoInput"
-    accept="image/*"
+    <input
+        type="file"
+        id="logoInput"
+        accept="image/*"
 >
 
 </div>
 
+
+<!-- =================================================
+     NAME
+================================================= -->
 
 <div class="field">
 
-<label
-    class="field-label"
-    id="eventNameLabel"
-    for="eventName"
->
-Tournament Name
-</label>
+    <label
+        class="field-label"
+        id="eventNameLabel"
+        for="eventName"
+    >
+        Tournament Name
+    </label>
 
-<input
-    class="line-input"
-    id="eventName"
-    type="text"
-    placeholder="Tournament Name"
-    autocomplete="off"
->
+    <input
+        class="line-input"
+        id="eventName"
+        type="text"
+        placeholder="Tournament Name"
+        autocomplete="off"
+    >
 
 </div>
 
+
+<!-- =================================================
+     CITY
+================================================= -->
 
 <div class="field">
 
-<label
-    class="field-label"
-    for="city"
->
-City
-</label>
+    <label
+        class="field-label"
+        for="city"
+    >
+        City
+    </label>
 
-<input
-    class="line-input"
-    id="city"
-    type="text"
-    placeholder="Enter City"
->
+    <input
+        class="line-input"
+        id="city"
+        type="text"
+        placeholder="Enter City"
+        autocomplete="address-level2"
+    >
 
 </div>
 
+
+<!-- =================================================
+     GROUND
+================================================= -->
 
 <div class="field">
 
-<label
-    class="field-label"
-    for="ground"
->
-Ground
-</label>
+    <label
+        class="field-label"
+        for="ground"
+    >
+        Ground
+    </label>
 
-<input
-    class="line-input"
-    id="ground"
-    type="text"
-    placeholder="Enter Ground"
->
+    <input
+        class="line-input"
+        id="ground"
+        type="text"
+        placeholder="Enter Ground"
+        autocomplete="off"
+    >
 
 </div>
 
+
+<!-- =================================================
+     ORGANIZER
+================================================= -->
 
 <section class="organizer-section">
 
-<div class="organizer-title">
-Organizer
-</div>
+    <div class="organizer-title">
+        Organizer
+    </div>
 
-<div class="organizer-field">
+    <div class="organizer-field">
 
-<span class="organizer-label">
-Organizer Name
-</span>
+        <span class="organizer-label">
+            Organizer Name
+        </span>
 
-<div
-    class="organizer-value"
-    id="organizerName"
->
-Loading...
-</div>
+        <div
+            class="organizer-value"
+            id="organizerName"
+        >
+            -
+        </div>
 
-</div>
+    </div>
 
+    <div class="organizer-field">
 
-<div class="organizer-field">
+        <span class="organizer-label">
+            Organizer Mobile Number
+        </span>
 
-<span class="organizer-label">
-Organizer Number
-</span>
+        <div
+            class="organizer-value"
+            id="organizerNumber"
+        >
+            -
+        </div>
 
-<div
-    class="organizer-value"
-    id="organizerNumber"
->
-Loading...
-</div>
+    </div>
 
-</div>
+    <div class="organizer-field">
 
+        <span class="organizer-label">
+            Organizer Gmail
+        </span>
 
-<div class="organizer-field">
+        <div
+            class="organizer-value"
+            id="organizerEmail"
+        >
+            -
+        </div>
 
-<span class="organizer-label">
-Organizer Email
-</span>
-
-<div
-    class="organizer-value"
-    id="organizerEmail"
->
-Loading...
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
+<!-- =================================================
+     DETAILS
+================================================= -->
+
 <div class="details-title">
-Tournament / Series Details
+    Tournament / Series Details
 </div>
 
+
+<!-- =================================================
+     DATES
+================================================= -->
 
 <div class="date-row">
 
-<div class="date-field">
+    <div class="date-field">
 
-<label for="startDate">
-Start Date
-</label>
+        <label for="startDate">
+            Start Date
+        </label>
 
-<input
-    class="date-input"
-    id="startDate"
-    type="date"
->
+        <input
+            class="date-input"
+            id="startDate"
+            type="date"
+        >
+
+    </div>
+
+    <div class="date-field">
+
+        <label for="endDate">
+            End Date
+        </label>
+
+        <input
+            class="date-input"
+            id="endDate"
+            type="date"
+        >
+
+    </div>
 
 </div>
 
 
-<div class="date-field">
-
-<label for="endDate">
-End Date
-</label>
-
-<input
-    class="date-input"
-    id="endDate"
-    type="date"
->
-
-</div>
-
-</div>
-
+<!-- =================================================
+     CATEGORY
+================================================= -->
 
 <section class="choice-section">
 
-<div class="choice-title">
-Tournament Category
-</div>
+    <div class="choice-title">
+        Tournament Category
+    </div>
 
-<div
-    class="choice-grid"
-    id="categoryGrid"
->
+    <div
+        class="choice-grid"
+        id="categoryGrid"
+    >
 
-<button class="choice-button" data-value="Open" type="button">
-Open
-</button>
+        <button class="choice-button" type="button" data-value="Open">
+            Open
+        </button>
 
-<button class="choice-button" data-value="Corporate" type="button">
-Corporate
-</button>
+        <button class="choice-button" type="button" data-value="Corporate">
+            Corporate
+        </button>
 
-<button class="choice-button" data-value="School" type="button">
-School
-</button>
+        <button class="choice-button" type="button" data-value="School">
+            School
+        </button>
 
-<button class="choice-button" data-value="College" type="button">
-College
-</button>
+        <button class="choice-button" type="button" data-value="College">
+            College
+        </button>
 
-<button class="choice-button" data-value="University" type="button">
-University
-</button>
+        <button class="choice-button" type="button" data-value="University">
+            University
+        </button>
 
-<button class="choice-button" data-value="Club" type="button">
-Club
-</button>
+        <button class="choice-button" type="button" data-value="Club">
+            Club
+        </button>
 
-</div>
+    </div>
 
 </section>
 
 
+<!-- =================================================
+     BALL
+================================================= -->
+
 <section class="choice-section">
 
-<div class="choice-title">
-Select Ball Type
-</div>
+    <div class="choice-title">
+        Select Ball Type
+    </div>
 
-<div
-    class="choice-grid"
-    id="ballGrid"
->
+    <div
+        class="choice-grid"
+        id="ballGrid"
+    >
 
-<button class="choice-button" data-value="Tennis" type="button">
-Tennis
-</button>
+        <button class="choice-button" type="button" data-value="Tennis">
+            Tennis
+        </button>
 
-<button class="choice-button" data-value="Leather" type="button">
-Leather
-</button>
+        <button class="choice-button" type="button" data-value="Leather">
+            Leather
+        </button>
 
-<button class="choice-button" data-value="Other" type="button">
-Other
-</button>
+        <button class="choice-button" type="button" data-value="Other">
+            Other
+        </button>
 
-</div>
+    </div>
 
 </section>
 
 
+<!-- =================================================
+     PITCH
+================================================= -->
+
 <section class="choice-section">
 
-<div class="choice-title">
-Pitch Type
-</div>
+    <div class="choice-title">
+        Pitch Type
+    </div>
 
-<div
-    class="choice-grid"
-    id="pitchGrid"
+    <div
+        class="choice-grid"
+        id="pitchGrid"
+    >
+
+        <button class="choice-button" type="button" data-value="Rough">
+            Rough
+        </button>
+
+        <button class="choice-button" type="button" data-value="Cement">
+            Cement
+        </button>
+
+        <button class="choice-button" type="button" data-value="Turf">
+            Turf
+        </button>
+
+        <button class="choice-button" type="button" data-value="Astro Turf">
+            Astro Turf
+        </button>
+
+        <button class="choice-button" type="button" data-value="Matting">
+            Matting
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     MATCH
+================================================= -->
+
+<section class="choice-section">
+
+    <div class="choice-title">
+        Match Type
+    </div>
+
+    <div
+        class="choice-grid"
+        id="matchGrid"
+    >
+
+        <button class="choice-button" type="button" data-value="Limited Over">
+            Limited Over
+        </button>
+
+        <button class="choice-button" type="button" data-value="Box Cricket">
+            Box Cricket
+        </button>
+
+        <button class="choice-button" type="button" data-value="Test">
+            Test
+        </button>
+
+        <button class="choice-button" type="button" data-value="The Hundred">
+            The Hundred
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     CREATE
+================================================= -->
+
+<button
+    class="create-button"
+    id="createButton"
+    type="button"
 >
-
-<button class="choice-button" data-value="Rough" type="button">
-Rough
+    CREATE TOURNAMENT
 </button>
 
-<button class="choice-button" data-value="C
+</main>
+
+
+<!-- =================================================
+     FIREBASE
+================================================= -->
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+    collection,
+    addDoc,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+/* =================================================
+   LOGIN
+================================================= */
+
+const loggedIn =
+    sessionStorage.getItem("crickpulseLoggedIn");
+
+if(loggedIn !== "true"){
+
+    window.location.href = "auth.html";
+
+}
+
+
+/* =================================================
+   BACK
+================================================= */
+
+document
+.getElementById("backButton")
+.addEventListener("click",function(){
+
+    window.location.href =
+        "dashboard.html";
+
+});
+
+
+/* =================================================
+   EVENT TYPE
+================================================= */
+
+let eventType = "Tournament";
+
+const tournamentButton =
+    document.getElementById("tournamentButton");
+
+const seriesButton =
+    document.getElementById("seriesButton");
+
+const eventNameLabel =
+    document.getElementById("eventNameLabel");
+
+const eventName =
+    document.getElementById("eventName");
+
+const createButton =
+    document.getElementById("createButton");
+
+
+tournamentButton.addEventListener(
+    "click",
+    function(){
+
+        eventType = "Tournament";
+
+        tournamentButton.classList.add("active");
+        seriesButton.classList.remove("active");
+
+        eventNameLabel.textContent =
+            "Tournament Name";
+
+        eventName.placeholder =
+            "Tournament Name";
+
+        createButton.textContent =
+            "CREATE TOURNAMENT";
+
+    }
+);
+
+
+seriesButton.addEventListener(
+    "click",
+    function(){
+
+        eventType = "Series";
+
+        seriesButton.classList.add("active");
+        tournamentButton.classList.remove("active");
+
+        eventNameLabel.textContent =
+            "Series Name";
+
+        eventName.placeholder =
+            "Series Name";
+
+        createButton.textContent =
+            "CREATE SERIES";
+
+    }
+);
+
+
+/* =================================================
+   BANNER PREVIEW
+================================================= */
+
+const bannerInput =
+    document.getElementById("bannerInput");
+
+const bannerPreview =
+    document.getElementById("bannerPreview");
+
+const bannerPlaceholder =
+    document.getElementById("bannerPlaceholder");
+
+
+bannerInput.addEventListener(
+    "change",
+    function(){
+
+        const file = this.files[0];
+
+        if(!file) return;
+
+        const reader = new FileReader();
+
+        reader.onload = function(event){
+
+            bannerPreview.src =
+                event.target.result;
+
+            bannerPreview.style.display =
+                "block";
+
+            bannerPlaceholder.style.display =
+                "none";
+
+        };
+
+        reader.readAsDataURL(file);
+
+    }
+);
+
+
+/* =================================================
+   LOGO PREVIEW
+================================================= */
+
+const logoInput =
+    document.getElementById("logoInput");
+
+const logoPreview =
+    document.getElementById("logoPreview");
+
+const logoPlaceholder =
+    document.getElementById("logoPlaceholder");
+
+
+logoInput.addEventListener(
+    "change",
+    function(){
+
+        const file = this.files[0];
+
+        if(!file) return;
+
+        const reader = new FileReader();
+
+        reader.onload = function(event){
+
+            logoPreview.src =
+                event.target.result;
+
+            logoPreview.style.display =
+                "block";
+
+            logoPlaceholder.style.display =
+                "none";
+
+        };
+
+        reader.readAsDataURL(file);
+
+    }
+);
+
+
+/* =================================================
+   SINGLE SELECT
+================================================= */
+
+function setupSingleSelect(gridId){
+
+    const grid =
+        document.getElementById(gridId);
+
+    const buttons =
+        grid.querySelectorAll(".choice-button");
+
+    buttons.forEach(function(button){
+
+        button.addEventListener(
+            "click",
+            function(){
+
+                buttons.forEach(function(item){
+
+                    item.classList.remove("active");
+
+                });
+
+                button.classList.add("active");
+
+            }
+        );
+
+    });
+
+}
+
+
+setupSingleSelect("categoryGrid");
+setupSingleSelect("ballGrid");
+setupSingleSelect("pitchGrid");
+setupSingleSelect("matchGrid");
+
+
+/* =================================================
+   ORGANIZER DATA
+================================================= */
+
+const savedName =
+    sessionStorage.getItem("crickpulseUserName");
+
+const savedMobile =
+    sessionStorage.getItem("crickpulseMobile");
+
+const savedEmail =
+    sessionStorage.getItem("crickpulseUserEmail");
+
+
+document
+.getElementById("organizerName")
+.textContent =
+    savedName || "Registered Player";
+
+
+document
+.getElementById("organizerNumber")
+.textContent =
+    savedMobile || "Registered Mobile";
+
+
+document
+.getElementById("organizerEmail")
+.textContent =
+    savedEmail || "Registered Email";
+
+
+/* =================================================
+   CREATE / SAVE EVENT
+================================================= */
+
+createButton.addEventListener(
+    "click",
+    async function(){
+
+        const name =
+            eventName.value.trim();
+
+        const city =
+            document.getElementById("city")
+            .value.trim();
+
+        const ground =
+            document.getElementById("ground")
+            .value.trim();
+
+        const startDate =
+            document.getElementById("startDate")
+            .value;
+
+        const endDate =
+            document.getElementById("endDate")
+            .value;
+
+
+        /* ==============================
+           VALIDATION
+        ============================== */
+
+        if(!name){
+
+            alert(
+                eventType === "Tournament"
+                ? "Please enter Tournament Name"
+                : "Please enter Series Name"
+            );
+
+            return;
+        }
+
+
+        if(!city){
+
+            alert("Please enter City");
+
+            return;
+        }
+
+
+        if(!ground){
+
+            alert("Please enter Ground");
+
+            return;
+        }
+
+
+        if(!startDate){
+
+            alert("Please select Start Date");
+
+            return;
+        }
+
+
+        if(!endDate){
+
+            alert("Please select End Date");
+
+            return;
+        }
+
+
+        if(
+            new Date(endDate) <
+            new Date(startDate)
+        ){
+
+            alert(
+                "End Date cannot be before Start Date."
+            );
+
+            return;
+        }
+
+
+        const category =
+            document.querySelector(
+                "#categoryGrid .choice-button.active"
+            );
+
+        const ballType =
+            document.querySelector(
+                "#ballGrid .choice-button.active"
+            );
+
+        const pitchType =
+            document.querySelector(
+                "#pitchGrid .choice-button.active"
+            );
+
+        const matchType =
+            document.querySelector(
+                "#matchGrid .choice-button.active"
+            );
+
+
+        if(!category){
+
+            alert(
+                "Please select Tournament Category"
+            );
+
+            return;
+        }
+
+
+        if(!ballType){
+
+            alert(
+                "Please select Ball Type"
+            );
+
+            return;
+        }
+
+
+        if(!pitchType){
+
+            alert(
+                "Please select Pitch Type"
+            );
+
+            return;
+        }
+
+
+        if(!matchType){
+
+            alert(
+                "Please select Match Type"
+            );
+
+            return;
+        }
+
+
+        /* ==============================
+           BUTTON STATE
+        ============================== */
+
+        createButton.disabled = true;
+
+        createButton.textContent =
+            "SAVING...";
+
+
+        try{
+
+            /* ==============================
+               EVENT DATA
+            ============================== */
+
+            const eventData = {
+
+                eventType:
+                    eventType,
+
+                eventName:
+                    name,
+
+                city:
+                    city,
+
+                ground:
+                    ground,
+
+                organizerName:
+                    savedName || "",
+
+                organizerNumber:
+                    savedMobile || "",
+
+                organizerEmail:
+                    savedEmail || "",
+
+                startDate:
+                    startDate,
+
+                endDate:
+                    endDate,
+
+                category:
+                    category.dataset.value,
+
+                ballType:
+                    ballType.dataset.value,
+
+                pitchType:
+                    pitchType.dataset.value,
+
+                matchType:
+                    matchType.dataset.value,
+
+                status:
+                    "UPCOMING",
+
+                createdAt:
+                    serverTimestamp()
+
+            };
+
+
+            /* ==============================
+               SAVE TO FIRESTORE
+            ============================== */
+
+            const docRef =
+                await addDoc(
+                    collection(db,"events"),
+                    eventData
+                );
+
+
+            console.log(
+                "EVENT CREATED:",
+                docRef.id
+            );
+
+
+            /* ==============================
+               VERY IMPORTANT
+               SAVE EVENT ID
+            ============================== */
+
+            sessionStorage.setItem(
+                "crickpulseEventId",
+                docRef.id
+            );
+
+            sessionStorage.setItem(
+                "crickpulseEventName",
+                name
+            );
+
+            sessionStorage.setItem(
+                "crickpulseEventType",
+                eventType
+            );
+
+
+            /*
+               Also keep the complete event
+               reference for next screens.
+            */
+
+            sessionStorage.setItem(
+                "crickpulseEventCreated",
+                "true"
+            );
+
+
+            /* ==============================
+               NEXT SCREEN
+            ============================== */
+
+            window.location.href =
+                "number-of-teams.html";
+
+
+        }
+        catch(error){
+
+            console.error(
+                "Firestore Error:",
+                error
+            );
+
+
+            alert(
+                "Event save failed.\n\n" +
+                error.message
+            );
+
+
+            createButton.disabled =
+                false;
+
+            createButton.textContent =
+                eventType === "Tournament"
+                ? "CREATE TOURNAMENT"
+                : "CREATE SERIES";
+
+        }
+
+    }
+);
+
+
+console.log(
+    "CRICKPULSE Create Event loaded successfully."
+);
+
+</script>
+
+</body>
+
+</html>
