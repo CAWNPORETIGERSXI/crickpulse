@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>CRICKPULSE | Add New Teams</title>
 
@@ -15,22 +20,27 @@
 }
 
 body{
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
     background:#ffffff;
     color:#111111;
     min-height:100vh;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 .header{
     height:70px;
     background:#ffffff;
     border-bottom:1px solid #e00000;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     padding:0 20px;
+
     position:sticky;
     top:0;
     z-index:10;
@@ -51,131 +61,237 @@ body{
     border:1px solid #e00000;
     background:#ffffff;
     color:#e00000;
+
     border-radius:10px;
+
     padding:10px 16px;
+
     font-size:17px;
     font-weight:700;
+
     cursor:pointer;
 }
 
-/* PAGE */
+/* =========================
+   MAIN
+========================= */
 
 .container{
     width:100%;
     max-width:600px;
+
     margin:auto;
+
     padding:24px 18px 40px;
 }
 
 .title{
     text-align:center;
+
     font-size:28px;
     font-weight:800;
+
     margin-bottom:8px;
 }
 
 .subtitle{
     text-align:center;
+
     font-size:17px;
-    color:#666;
+
+    color:#666666;
+
     margin-bottom:25px;
 }
 
-/* SAVED TEAMS */
+/* =========================
+   TOURNAMENT STATUS
+========================= */
+
+.event-info{
+    border:1px solid #e00000;
+
+    border-radius:12px;
+
+    padding:12px 14px;
+
+    margin-bottom:20px;
+
+    background:#ffffff;
+}
+
+.event-info-title{
+    font-size:15px;
+    color:#777777;
+
+    margin-bottom:4px;
+}
+
+.event-info-id{
+    font-size:14px;
+    font-weight:700;
+
+    word-break:break-all;
+}
+
+/* =========================
+   SAVED TEAMS
+========================= */
 
 .saved-team{
     border:1px solid #e00000;
+
     border-radius:14px;
+
     padding:13px;
+
     display:flex;
     align-items:center;
+
     gap:14px;
+
     margin-bottom:16px;
-    background:#fff;
+
+    background:#ffffff;
 }
 
 .saved-logo{
     width:62px;
     height:62px;
+
+    min-width:62px;
+
     border-radius:50%;
+
     border:1px solid #e00000;
+
     object-fit:cover;
+
     background:#f5f5f5;
+}
+
+.no-logo{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:11px;
+
+    color:#888888;
+
+    text-align:center;
 }
 
 .saved-info{
     flex:1;
+    min-width:0;
 }
 
 .saved-info h3{
     font-size:21px;
+
     margin-bottom:5px;
+
+    word-break:break-word;
 }
 
 .saved-info p{
     font-size:16px;
-    color:#666;
+
+    color:#666666;
+
+    margin-top:3px;
+
+    word-break:break-word;
 }
 
 .remove-btn{
     border:1px solid #e00000;
-    background:#fff;
+
+    background:#ffffff;
+
     color:#e00000;
+
     border-radius:8px;
+
     padding:8px 10px;
+
     font-size:14px;
+
     cursor:pointer;
 }
 
-/* FORM CARD */
+/* =========================
+   FORM CARD
+========================= */
 
 .team-card{
     border:1px solid #e00000;
+
     border-radius:16px;
+
     padding:20px 17px;
-    background:#fff;
+
+    background:#ffffff;
 }
 
 .logo-section{
     text-align:center;
+
     margin-bottom:23px;
 }
 
 .logo-circle{
     width:125px;
     height:125px;
+
     border-radius:50%;
+
     border:2px solid #e00000;
+
     margin:0 auto 10px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     overflow:hidden;
+
     background:#fafafa;
+
     cursor:pointer;
 }
 
 .logo-circle img{
     width:100%;
     height:100%;
+
     object-fit:cover;
+
     display:none;
 }
 
 .logo-placeholder{
-    color:#888;
+    color:#888888;
+
     text-align:center;
+
     font-size:16px;
+
     padding:10px;
 }
 
 .logo-label{
     color:#e00000;
+
     font-size:16px;
+
     font-weight:700;
 }
 
-/* INPUTS */
+/* =========================
+   INPUTS
+========================= */
 
 .field{
     margin-bottom:19px;
@@ -183,35 +299,51 @@ body{
 
 .field label{
     display:block;
+
     font-size:18px;
+
     font-weight:700;
+
     margin-bottom:8px;
 }
 
 .field input{
     width:100%;
+
     height:53px;
+
     border:1px solid #e00000;
+
     border-radius:10px;
+
     padding:0 14px;
+
     font-size:18px;
+
     outline:none;
-    background:#fff;
+
+    background:#ffffff;
 }
 
 .field input:focus{
-    box-shadow:0 0 0 2px rgba(224,0,0,.10);
+    box-shadow:
+        0 0 0 2px
+        rgba(224,0,0,.10);
 }
 
 .mobile-wrap{
     display:flex;
+
     gap:8px;
 }
 
 .country-code{
     width:72px !important;
+
     text-align:center;
+
     background:#f7f7f7 !important;
+
     font-weight:700;
 }
 
@@ -219,11 +351,15 @@ body{
     flex:1;
 }
 
-/* CAPTAIN STATUS */
+/* =========================
+   CAPTAIN STATUS
+========================= */
 
 .captain-status{
     font-size:15px;
+
     margin-top:7px;
+
     min-height:20px;
 }
 
@@ -232,30 +368,45 @@ body{
 }
 
 .status-manual{
-    color:#777;
+    color:#777777;
 }
 
-/* ADD BUTTON */
+/* =========================
+   ADD BUTTON
+========================= */
 
 .add-team-btn{
     width:100%;
+
     height:57px;
+
     margin-top:8px;
+
     border:1px solid #e00000;
+
     border-radius:11px;
+
     background:#ffffff;
+
     color:#e00000;
+
     font-size:19px;
+
     font-weight:800;
+
     cursor:pointer;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     gap:10px;
 }
 
 .plus{
     font-size:28px;
+
     line-height:1;
 }
 
@@ -263,18 +414,29 @@ body{
     transform:scale(.98);
 }
 
-/* DONE */
+/* =========================
+   DONE BUTTON
+========================= */
 
 .done-btn{
     width:100%;
+
     height:58px;
+
     margin-top:20px;
+
     border:none;
+
     border-radius:11px;
+
     background:#e00000;
+
     color:#ffffff;
+
     font-size:20px;
+
     font-weight:800;
+
     cursor:pointer;
 }
 
@@ -282,13 +444,29 @@ body{
     transform:scale(.98);
 }
 
-/* HIDDEN */
+.done-btn:disabled{
+    opacity:.6;
 
-.hidden{
-    display:none;
+    cursor:not-allowed;
 }
 
-/* MOBILE */
+/* =========================
+   EMPTY
+========================= */
+
+.empty-message{
+    text-align:center;
+
+    color:#777777;
+
+    font-size:16px;
+
+    margin-bottom:18px;
+}
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:420px){
 
@@ -308,12 +486,23 @@ body{
         font-size:17px;
     }
 
+    .saved-team{
+        gap:10px;
+    }
+
+    .saved-info h3{
+        font-size:19px;
+    }
+
 }
 
 </style>
+
 </head>
 
+
 <body>
+
 
 <header class="header">
 
@@ -321,7 +510,10 @@ body{
         CRICK<span>PULSE</span>
     </div>
 
-    <button class="back-btn" onclick="goBack()">
+    <button
+        class="back-btn"
+        onclick="goBack()"
+    >
         ← Back
     </button>
 
@@ -330,23 +522,52 @@ body{
 
 <main class="container">
 
-    <h1 class="title">Add New Teams</h1>
+
+    <h1 class="title">
+        Add New Teams
+    </h1>
+
 
     <p class="subtitle">
         Add all the teams participating in this tournament
     </p>
 
 
-    <!-- SAVED TEAMS WILL APPEAR HERE -->
+    <!-- =========================
+         EVENT INFORMATION
+    ========================== -->
+
+    <div class="event-info">
+
+        <div class="event-info-title">
+            Tournament
+        </div>
+
+        <div
+            id="eventIdDisplay"
+            class="event-info-id"
+        >
+            Loading...
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         SAVED / ADDED TEAMS
+    ========================== -->
 
     <div id="savedTeams"></div>
 
 
-    <!-- NEW TEAM FORM -->
+    <!-- =========================
+         NEW TEAM FORM
+    ========================== -->
 
     <div class="team-card">
 
-        <!-- LOGO -->
+
+        <!-- TEAM LOGO -->
 
         <div class="logo-section">
 
@@ -354,9 +575,15 @@ body{
 
                 <div class="logo-circle">
 
-                    <img id="logoPreview">
+                    <img
+                        id="logoPreview"
+                        alt="Team Logo"
+                    >
 
-                    <div id="logoPlaceholder" class="logo-placeholder">
+                    <div
+                        id="logoPlaceholder"
+                        class="logo-placeholder"
+                    >
                         Team Logo
                     </div>
 
@@ -364,12 +591,14 @@ body{
 
             </label>
 
+
             <input
                 type="file"
                 id="logoInput"
                 accept="image/*"
                 hidden
             >
+
 
             <div class="logo-label">
                 Add Team Logo
@@ -382,12 +611,15 @@ body{
 
         <div class="field">
 
-            <label>Team Name</label>
+            <label>
+                Team Name
+            </label>
 
             <input
                 type="text"
                 id="teamName"
                 placeholder="Enter team name"
+                autocomplete="off"
             >
 
         </div>
@@ -397,12 +629,15 @@ body{
 
         <div class="field">
 
-            <label>City</label>
+            <label>
+                City
+            </label>
 
             <input
                 type="text"
                 id="city"
                 placeholder="Enter city"
+                autocomplete="address-level2"
             >
 
         </div>
@@ -412,7 +647,10 @@ body{
 
         <div class="field">
 
-            <label>Captain Mobile Number</label>
+            <label>
+                Captain Mobile Number
+            </label>
+
 
             <div class="mobile-wrap">
 
@@ -423,17 +661,24 @@ body{
                     readonly
                 >
 
+
                 <input
                     type="tel"
                     id="captainMobile"
                     class="mobile-input"
                     maxlength="10"
+                    inputmode="numeric"
                     placeholder="Enter mobile number"
+                    autocomplete="tel"
                 >
 
             </div>
 
-            <div id="captainStatus" class="captain-status"></div>
+
+            <div
+                id="captainStatus"
+                class="captain-status"
+            ></div>
 
         </div>
 
@@ -442,12 +687,16 @@ body{
 
         <div class="field">
 
-            <label>Captain Name</label>
+            <label>
+                Captain Name
+            </label>
+
 
             <input
                 type="text"
                 id="captainName"
                 placeholder="Enter captain name"
+                autocomplete="name"
             >
 
         </div>
@@ -457,378 +706,980 @@ body{
 
         <button
             class="add-team-btn"
+            id="addTeamButton"
             onclick="addNewTeam()"
         >
 
-            <span>Add New Team</span>
+            <span>
+                Add New Team
+            </span>
 
-            <span class="plus">＋</span>
+            <span class="plus">
+                ＋
+            </span>
 
         </button>
+
 
     </div>
 
 
-    <!-- DONE -->
+    <!-- =========================
+         DONE
+    ========================== -->
 
     <button
         class="done-btn"
+        id="doneButton"
         onclick="finishTeams()"
     >
         Done
     </button>
 
+
 </main>
 
 
-<script>
+<!-- =========================
+     FIREBASE + SCRIPT
+========================== -->
+
+<script type="module">
+
+import {
+    db
+} from "./firebase.js";
+
+
+import {
+    doc,
+    getDoc,
+    updateDoc,
+    arrayUnion
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+/* ==========================================
+   VARIABLES
+========================================== */
 
 let teams = [];
 
 let selectedLogo = "";
 
+let eventId = "";
 
-/* LOGO PREVIEW */
+let existingTeams = [];
+
+
+/* ==========================================
+   GET EVENT ID FROM URL
+========================================== */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+eventId =
+    params.get("eventId");
+
+
+/*
+   अगर URL में eventId नहीं है,
+   तो फिलहाल आपका testing event ID use होगा.
+*/
+
+if(!eventId){
+
+    eventId =
+        "1gvsfQ3I8BVTiDSXcJSr";
+
+}
+
+
+document
+.getElementById("eventIdDisplay")
+.textContent =
+    eventId;
+
+
+/* ==========================================
+   FIRESTORE EVENT REFERENCE
+========================================== */
+
+const eventRef =
+    doc(
+        db,
+        "events",
+        eventId
+    );
+
+
+/* ==========================================
+   LOAD EXISTING TEAMS
+========================================== */
+
+async function loadExistingTeams(){
+
+    try{
+
+        const snapshot =
+            await getDoc(eventRef);
+
+
+        if(!snapshot.exists()){
+
+            alert(
+                "Tournament not found."
+            );
+
+            return;
+
+        }
+
+
+        const data =
+            snapshot.data();
+
+
+        /*
+         * अगर पहले से teams field है,
+         * तो उसे load करेंगे.
+         */
+
+        existingTeams =
+            Array.isArray(data.teams)
+            ? data.teams
+            : [];
+
+
+        renderExistingTeams();
+
+    }
+    catch(error){
+
+        console.error(
+            "Error loading tournament:",
+            error
+        );
+
+        alert(
+            "Tournament data load नहीं हो पाया."
+        );
+
+    }
+
+}
+
+
+/* ==========================================
+   LOGO PREVIEW
+========================================== */
 
 document
 .getElementById("logoInput")
-.addEventListener("change", function(){
+.addEventListener(
+    "change",
+    function(){
 
-    const file = this.files[0];
+        const file =
+            this.files[0];
 
-    if(!file){
-        return;
+
+        if(!file){
+
+            return;
+
+        }
+
+
+        /*
+         * अभी logo को preview के लिए
+         * Data URL में रखा जा रहा है.
+         *
+         * Permanent image hosting
+         * अगले step में जोड़ेंगे.
+         */
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload =
+            function(e){
+
+                selectedLogo =
+                    e.target.result;
+
+
+                const preview =
+                    document
+                    .getElementById(
+                        "logoPreview"
+                    );
+
+
+                preview.src =
+                    selectedLogo;
+
+
+                preview.style.display =
+                    "block";
+
+
+                document
+                .getElementById(
+                    "logoPlaceholder"
+                )
+                .style.display =
+                    "none";
+
+            };
+
+
+        reader.readAsDataURL(file);
+
     }
-
-    const reader = new FileReader();
-
-    reader.onload = function(e){
-
-        selectedLogo = e.target.result;
-
-        const preview =
-            document.getElementById("logoPreview");
-
-        preview.src = selectedLogo;
-
-        preview.style.display = "block";
-
-        document
-        .getElementById("logoPlaceholder")
-        .style.display = "none";
-
-    };
-
-    reader.readAsDataURL(file);
-
-});
+);
 
 
-/* CAPTAIN MOBILE CHECK */
+/* ==========================================
+   CAPTAIN MOBILE INPUT
+========================================== */
 
 document
 .getElementById("captainMobile")
-.addEventListener("input", function(){
+.addEventListener(
+    "input",
+    function(){
 
-    this.value = this.value.replace(/\D/g,"");
-
-    const number = this.value;
-
-    const status =
-        document.getElementById("captainStatus");
-
-    const captainName =
-        document.getElementById("captainName");
+        this.value =
+            this.value
+            .replace(/\D/g,"");
 
 
-    if(number.length === 10){
+        const number =
+            this.value;
+
+
+        const status =
+            document
+            .getElementById(
+                "captainStatus"
+            );
+
+
+        const captainName =
+            document
+            .getElementById(
+                "captainName"
+            );
+
 
         /*
-         * फिलहाल demo lookup.
-         * बाद में Firebase से registered player
-         * का नाम यहाँ automatically आएगा.
+         * अभी Firebase player lookup नहीं लगाया गया है,
+         * क्योंकि player collection अभी identify नहीं हुई है.
          */
 
-        const registeredPlayers = {
-
-            "9876543210":"Rahul Sharma",
-            "9123456789":"Amit Kumar"
-
-        };
-
-
-        if(registeredPlayers[number]){
-
-            captainName.value =
-                registeredPlayers[number];
-
-            captainName.readOnly = true;
+        if(number.length === 10){
 
             status.innerHTML =
-                "✓ Registered player found";
+                "Captain profile lookup will be connected next.";
 
-            status.className =
-                "captain-status status-success";
-
-        }else{
-
-            captainName.value = "";
-
-            captainName.readOnly = false;
-
-            status.innerHTML =
-                "Captain not registered. Enter name manually.";
 
             status.className =
                 "captain-status status-manual";
 
+
+            captainName.readOnly =
+                false;
+
+        }
+        else{
+
+            status.innerHTML =
+                "";
+
+            captainName.readOnly =
+                false;
+
         }
 
-    }else{
-
-        captainName.value = "";
-
-        captainName.readOnly = false;
-
-        status.innerHTML = "";
-
     }
-
-});
-
-
-/* ADD NEW TEAM */
-
-function addNewTeam(){
-
-    const teamName =
-        document.getElementById("teamName")
-        .value.trim();
-
-    const city =
-        document.getElementById("city")
-        .value.trim();
-
-    const mobile =
-        document.getElementById("captainMobile")
-        .value.trim();
-
-    const captainName =
-        document.getElementById("captainName")
-        .value.trim();
+);
 
 
-    if(!teamName){
+/* ==========================================
+   ADD NEW TEAM
+========================================== */
 
-        alert("Please enter Team Name.");
+window.addNewTeam =
+    function(){
 
-        return;
-
-    }
-
-    if(!city){
-
-        alert("Please enter City.");
-
-        return;
-
-    }
-
-    if(mobile.length !== 10){
-
-        alert("Please enter a valid 10-digit mobile number.");
-
-        return;
-
-    }
-
-    if(!captainName){
-
-        alert("Please enter Captain Name.");
-
-        return;
-
-    }
+        const teamName =
+            document
+            .getElementById(
+                "teamName"
+            )
+            .value
+            .trim();
 
 
-    const team = {
+        const city =
+            document
+            .getElementById(
+                "city"
+            )
+            .value
+            .trim();
 
-        id:Date.now(),
 
-        teamName:teamName,
+        const mobile =
+            document
+            .getElementById(
+                "captainMobile"
+            )
+            .value
+            .trim();
 
-        city:city,
 
-        captainMobile:"+91 " + mobile,
+        const captainName =
+            document
+            .getElementById(
+                "captainName"
+            )
+            .value
+            .trim();
 
-        captainName:captainName,
 
-        logo:selectedLogo
+        /* VALIDATION */
+
+        if(!teamName){
+
+            alert(
+                "Please enter Team Name."
+            );
+
+            return;
+
+        }
+
+
+        if(!city){
+
+            alert(
+                "Please enter City."
+            );
+
+            return;
+
+        }
+
+
+        if(mobile.length !== 10){
+
+            alert(
+                "Please enter a valid 10-digit mobile number."
+            );
+
+            return;
+
+        }
+
+
+        if(!captainName){
+
+            alert(
+                "Please enter Captain Name."
+            );
+
+            return;
+
+        }
+
+
+        /* DUPLICATE CHECK */
+
+        const duplicateInCurrent =
+            teams.some(
+                function(team){
+
+                    return (
+                        team.teamName
+                        .toLowerCase()
+                        ===
+                        teamName.toLowerCase()
+                    );
+
+                }
+            );
+
+
+        const duplicateInExisting =
+            existingTeams.some(
+                function(team){
+
+                    return (
+                        team.teamName
+                        &&
+                        team.teamName
+                        .toLowerCase()
+                        ===
+                        teamName.toLowerCase()
+                    );
+
+                }
+            );
+
+
+        if(
+            duplicateInCurrent
+            ||
+            duplicateInExisting
+        ){
+
+            alert(
+                "This team is already added."
+            );
+
+            return;
+
+        }
+
+
+        /* CREATE TEAM OBJECT */
+
+        const team = {
+
+            teamId:
+                "TEAM_" +
+                Date.now(),
+
+            teamName:
+                teamName,
+
+            city:
+                city,
+
+            captainMobile:
+                "+91" + mobile,
+
+            captainName:
+                captainName,
+
+            logo:
+                selectedLogo || "",
+
+            createdAt:
+                new Date().toISOString()
+
+        };
+
+
+        teams.push(team);
+
+
+        renderCurrentTeams();
+
+
+        clearForm();
 
     };
 
 
-    teams.push(team);
+/* ==========================================
+   RENDER CURRENT TEAMS
+========================================== */
 
-    renderTeams();
-
-    clearForm();
-
-}
-
-
-/* SHOW SAVED TEAMS */
-
-function renderTeams(){
+function renderCurrentTeams(){
 
     const container =
-        document.getElementById("savedTeams");
+        document
+        .getElementById(
+            "savedTeams"
+        );
+
+
+    /*
+     * Existing + newly added teams
+     */
 
     container.innerHTML = "";
 
 
-    teams.forEach(function(team){
+    if(
+        existingTeams.length === 0
+        &&
+        teams.length === 0
+    ){
 
-        const card =
-            document.createElement("div");
-
-        card.className = "saved-team";
-
-
-        const logo =
-            team.logo
-            ? `<img class="saved-logo" src="${team.logo}">`
-            : `<div class="saved-logo"></div>`;
-
-
-        card.innerHTML = `
-
-            ${logo}
-
-            <div class="saved-info">
-
-                <h3>${escapeHTML(team.teamName)}</h3>
-
-                <p>${escapeHTML(team.city)}</p>
-
-                <p>
-                    Captain: ${escapeHTML(team.captainName)}
-                </p>
-
+        container.innerHTML =
+            `
+            <div class="empty-message">
+                No teams added yet.
             </div>
-
-            <button
-                class="remove-btn"
-                onclick="removeTeam(${team.id})"
-            >
-                Remove
-            </button>
-
-        `;
-
-
-        container.appendChild(card);
-
-    });
-
-}
-
-
-/* CLEAR FORM FOR NEXT TEAM */
-
-function clearForm(){
-
-    document.getElementById("teamName").value = "";
-
-    document.getElementById("city").value = "";
-
-    document.getElementById("captainMobile").value = "";
-
-    document.getElementById("captainName").value = "";
-
-    document.getElementById("captainName").readOnly = false;
-
-    document.getElementById("captainStatus").innerHTML = "";
-
-    selectedLogo = "";
-
-    document.getElementById("logoPreview").src = "";
-
-    document.getElementById("logoPreview").style.display = "none";
-
-    document.getElementById("logoPlaceholder").style.display = "block";
-
-    document.getElementById("logoInput").value = "";
-
-}
-
-
-/* REMOVE TEAM */
-
-function removeTeam(id){
-
-    teams =
-        teams.filter(function(team){
-
-            return team.id !== id;
-
-        });
-
-    renderTeams();
-
-}
-
-
-/* DONE */
-
-function finishTeams(){
-
-    if(teams.length === 0){
-
-        alert("Please add at least one team.");
+            `;
 
         return;
 
     }
 
 
-    /*
-     * अगला चरण:
-     * यहाँ Firebase Firestore में
-     * सभी teams tournament के साथ save होंगी.
-     */
+    /* EXISTING TEAMS */
 
-    console.log("Teams ready to save:", teams);
+    existingTeams.forEach(
+        function(team){
 
-    alert(
-        teams.length +
-        " team(s) ready to be saved to the tournament."
+            container
+            .appendChild(
+                createTeamCard(
+                    team,
+                    false
+                )
+            );
+
+        }
+    );
+
+
+    /* NEW TEAMS */
+
+    teams.forEach(
+        function(team){
+
+            container
+            .appendChild(
+                createTeamCard(
+                    team,
+                    true
+                )
+            );
+
+        }
     );
 
 }
 
 
-/* BACK */
+/* ==========================================
+   RENDER EXISTING ONLY
+========================================== */
 
-function goBack(){
+function renderExistingTeams(){
 
-    history.back();
+    renderCurrentTeams();
 
 }
 
 
-/* SECURITY */
+/* ==========================================
+   CREATE TEAM CARD
+========================================== */
+
+function createTeamCard(
+    team,
+    removable
+){
+
+    const card =
+        document
+        .createElement(
+            "div"
+        );
+
+
+    card.className =
+        "saved-team";
+
+
+    let logoHTML = "";
+
+
+    if(team.logo){
+
+        logoHTML =
+            `
+            <img
+                class="saved-logo"
+                src="${team.logo}"
+                alt="Team Logo"
+            >
+            `;
+
+    }
+    else{
+
+        logoHTML =
+            `
+            <div
+                class="saved-logo no-logo"
+            >
+                TEAM
+            </div>
+            `;
+
+    }
+
+
+    const removeHTML =
+        removable
+        ?
+        `
+        <button
+            class="remove-btn"
+            data-team-id="${team.teamId}"
+        >
+            Remove
+        </button>
+        `
+        :
+        "";
+
+
+    card.innerHTML =
+
+        `
+        ${logoHTML}
+
+        <div class="saved-info">
+
+            <h3>
+                ${escapeHTML(
+                    team.teamName || ""
+                )}
+            </h3>
+
+            <p>
+                ${escapeHTML(
+                    team.city || ""
+                )}
+            </p>
+
+            <p>
+                Captain:
+                ${escapeHTML(
+                    team.captainName || ""
+                )}
+            </p>
+
+        </div>
+
+        ${removeHTML}
+        `;
+
+
+    if(removable){
+
+        const removeButton =
+            card.querySelector(
+                ".remove-btn"
+            );
+
+
+        removeButton
+        .addEventListener(
+            "click",
+            function(){
+
+                removeTeam(
+                    team.teamId
+                );
+
+            }
+        );
+
+    }
+
+
+    return card;
+
+}
+
+
+/* ==========================================
+   CLEAR FORM
+========================================== */
+
+function clearForm(){
+
+    document
+    .getElementById(
+        "teamName"
+    )
+    .value =
+        "";
+
+
+    document
+    .getElementById(
+        "city"
+    )
+    .value =
+        "";
+
+
+    document
+    .getElementById(
+        "captainMobile"
+    )
+    .value =
+        "";
+
+
+    document
+    .getElementById(
+        "captainName"
+    )
+    .value =
+        "";
+
+
+    document
+    .getElementById(
+        "captainName"
+    )
+    .readOnly =
+        false;
+
+
+    document
+    .getElementById(
+        "captainStatus"
+    )
+    .innerHTML =
+        "";
+
+
+    selectedLogo =
+        "";
+
+
+    document
+    .getElementById(
+        "logoPreview"
+    )
+    .src =
+        "";
+
+
+    document
+    .getElementById(
+        "logoPreview"
+    )
+    .style.display =
+        "none";
+
+
+    document
+    .getElementById(
+        "logoPlaceholder"
+    )
+    .style.display =
+        "block";
+
+
+    document
+    .getElementById(
+        "logoInput"
+    )
+    .value =
+        "";
+
+}
+
+
+/* ==========================================
+   REMOVE CURRENT TEAM
+========================================== */
+
+function removeTeam(teamId){
+
+    teams =
+        teams.filter(
+            function(team){
+
+                return (
+                    team.teamId
+                    !==
+                    teamId
+                );
+
+            }
+        );
+
+
+    renderCurrentTeams();
+
+}
+
+
+/* ==========================================
+   DONE
+========================================== */
+
+window.finishTeams =
+    async function(){
+
+        if(teams.length === 0){
+
+            alert(
+                "Please add at least one new team."
+            );
+
+            return;
+
+        }
+
+
+        const doneButton =
+            document
+            .getElementById(
+                "doneButton"
+            );
+
+
+        doneButton.disabled =
+            true;
+
+
+        doneButton.textContent =
+            "Saving...";
+
+
+        try{
+
+            /*
+             * सभी newly added teams
+             * existing Firestore teams
+             * array में add होंगी.
+             */
+
+            for(
+                const team
+                of teams
+            ){
+
+                await updateDoc(
+                    eventRef,
+                    {
+
+                        teams:
+                            arrayUnion(team)
+
+                    }
+                );
+
+            }
+
+
+            alert(
+                teams.length +
+                " team(s) saved successfully."
+            );
+
+
+            /*
+             * Save complete होने के बाद
+             * current list को existing list में डाल दें.
+             */
+
+            existingTeams =
+                [
+                    ...existingTeams,
+                    ...teams
+                ];
+
+
+            teams = [];
+
+
+            renderCurrentTeams();
+
+
+        }
+        catch(error){
+
+            console.error(
+                "Team save error:",
+                error
+            );
+
+
+            alert(
+                "Teams save नहीं हो पाईं.\n\n" +
+                error.message
+            );
+
+        }
+        finally{
+
+            doneButton.disabled =
+                false;
+
+
+            doneButton.textContent =
+                "Done";
+
+        }
+
+    };
+
+
+/* ==========================================
+   BACK
+========================================== */
+
+window.goBack =
+    function(){
+
+        history.back();
+
+    };
+
+
+/* ==========================================
+   ESCAPE HTML
+========================================== */
 
 function escapeHTML(value){
 
-    return value
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
+
+
+/* ==========================================
+   START
+========================================== */
+
+loadExistingTeams();
 
 </script>
 
