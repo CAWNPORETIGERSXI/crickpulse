@@ -547,7 +547,6 @@ body {
 
 /* =================================================
    EVERY MENU ITEM
-   RED OUTLINE ONLY
 ================================================= */
 
 .menu-item {
@@ -565,8 +564,6 @@ body {
         4px solid #ff3b30;
 
     border-radius: 5px;
-
-    /* NO RED BACKGROUND */
 
     background:
         rgba(255,255,255,.04);
@@ -858,8 +855,6 @@ body {
 <header class="top-header">
 
 
-    <!-- LEFT HAMBURGER -->
-
     <button
         class="menu-button"
         id="openMenu"
@@ -874,8 +869,6 @@ body {
 
     </button>
 
-
-    <!-- BRAND -->
 
     <div class="brand">
 
@@ -937,8 +930,6 @@ body {
     <aside class="side-menu">
 
 
-        <!-- MENU HEADER -->
-
         <div class="menu-top">
 
             <div class="menu-title">
@@ -957,8 +948,6 @@ body {
         </div>
 
 
-
-        <!-- PROFILE -->
 
         <section class="profile-section">
 
@@ -1014,8 +1003,6 @@ body {
 
 
 
-        <!-- MENU -->
-
         <section class="menu-section">
 
 
@@ -1025,7 +1012,7 @@ body {
 
 
 
-            <!-- 1 -->
+            <!-- ADD TOURNAMENT / SERIES -->
 
             <button
                 class="menu-item"
@@ -1051,7 +1038,7 @@ body {
 
 
 
-            <!-- 2 -->
+            <!-- START NEW MATCH -->
 
             <button
                 class="menu-item"
@@ -1077,7 +1064,7 @@ body {
 
 
 
-            <!-- 3 -->
+            <!-- MY CRICKET -->
 
             <button
                 class="menu-item"
@@ -1103,7 +1090,7 @@ body {
 
 
 
-            <!-- 4 -->
+            <!-- CONTACT -->
 
             <button
                 class="menu-item"
@@ -1129,7 +1116,7 @@ body {
 
 
 
-            <!-- 5 -->
+            <!-- SHARE -->
 
             <button
                 class="menu-item"
@@ -1249,6 +1236,7 @@ closeMenu.addEventListener(
 );
 
 
+
 /* =================================================
    CLOSE OUTSIDE MENU
 ================================================= */
@@ -1273,7 +1261,7 @@ menuOverlay.addEventListener(
 
 
 /* =================================================
-   MENU BUTTONS
+   ADD TOURNAMENT / SERIES
 ================================================= */
 
 document
@@ -1282,13 +1270,17 @@ document
         "click",
         function () {
 
-            console.log(
-                "Add Tournament / Series"
-            );
+            window.location.href =
+                "create-event.html";
 
         }
     );
 
+
+
+/* =================================================
+   OTHER MENU BUTTONS
+================================================= */
 
 document
     .getElementById("newMatchBtn")
