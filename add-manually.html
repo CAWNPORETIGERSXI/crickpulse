@@ -27,9 +27,9 @@ body{
     min-height:100vh;
 }
 
-/* ================================
+/* =========================
    HEADER
-================================ */
+========================= */
 
 .top-header{
     height:82px;
@@ -60,7 +60,6 @@ body{
 
 .page-title{
     flex:1;
-
     text-align:center;
 
     font-size:27px;
@@ -69,9 +68,9 @@ body{
     margin-right:58px;
 }
 
-/* ================================
+/* =========================
    PAGE
-================================ */
+========================= */
 
 .page{
     width:100%;
@@ -79,12 +78,12 @@ body{
 
     margin:auto;
 
-    padding:30px 16px 60px;
+    padding:35px 16px 60px;
 }
 
-/* ================================
+/* =========================
    CARD
-================================ */
+========================= */
 
 .card{
     background:#fff;
@@ -92,21 +91,22 @@ body{
     border:1.5px solid #ff3b30;
     border-radius:10px;
 
-    padding:28px 22px;
+    padding:30px 24px;
 
     box-shadow:
         0 6px 20px rgba(0,0,0,.06);
 }
 
 .title{
-    font-size:32px;
+    font-size:34px;
     font-weight:900;
 
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 
 .subtitle{
-    font-size:20px;
+    font-size:21px;
+
     color:#6d667c;
 
     line-height:1.5;
@@ -114,65 +114,53 @@ body{
     margin-bottom:28px;
 }
 
-/* ================================
+/* =========================
    OPTIONS
-================================ */
+========================= */
 
 .option{
     width:100%;
 
-    background:#fff;
+    min-height:76px;
 
     border:1.5px solid #ff3b30;
     border-radius:9px;
 
+    background:#fff;
+
     margin-bottom:16px;
-
-    overflow:hidden;
-}
-
-.option-main{
-    width:100%;
-
-    min-height:70px;
 
     padding:14px 16px;
 
-    background:#fff;
-
-    border:0;
-
     display:flex;
-
     align-items:center;
 
     gap:14px;
 
-    font-family:Verdana,Geneva,sans-serif;
-
     cursor:pointer;
+}
 
-    text-align:left;
+.option:active{
+    transform:scale(.98);
 }
 
 .option-icon{
-    width:45px;
-    height:45px;
+    width:48px;
+    height:48px;
 
-    border-radius:8px;
+    min-width:48px;
 
     border:1.5px solid #ff3b30;
+    border-radius:8px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
-    font-size:23px;
-
-    flex-shrink:0;
-
     color:#6c35d9;
+
+    font-size:25px;
+    font-weight:900;
 }
 
 .option-content{
@@ -182,35 +170,34 @@ body{
 .option-title{
     font-size:21px;
     font-weight:900;
-
-    color:#171225;
 }
 
 .option-description{
-    margin-top:4px;
+    margin-top:5px;
 
     font-size:16px;
 
     color:#6d667c;
 
-    line-height:1.35;
+    line-height:1.4;
 }
 
-.arrow{
-    font-size:30px;
-    font-weight:900;
+.option-arrow{
+    font-size:31px;
 
     color:#6c35d9;
+
+    font-weight:900;
 }
 
-/* ================================
-   EVENT INFO
-================================ */
+/* =========================
+   EVENT ID
+========================= */
 
-.event-box{
+.event-id-box{
     margin-top:25px;
 
-    padding:15px;
+    padding:14px;
 
     border:1.5px solid #ff3b30;
     border-radius:8px;
@@ -218,7 +205,7 @@ body{
     background:#fff;
 }
 
-.event-label{
+.event-id-label{
     font-size:16px;
 
     font-weight:700;
@@ -228,7 +215,7 @@ body{
     margin-bottom:6px;
 }
 
-.event-value{
+.event-id-value{
     font-size:15px;
 
     font-weight:800;
@@ -236,9 +223,9 @@ body{
     word-break:break-all;
 }
 
-/* ================================
+/* =========================
    MOBILE
-================================ */
+========================= */
 
 @media(max-width:480px){
 
@@ -263,15 +250,15 @@ body{
     }
 
     .card{
-        padding:26px 17px;
+        padding:27px 18px;
     }
 
     .title{
-        font-size:29px;
+        font-size:31px;
     }
 
     .subtitle{
-        font-size:19px;
+        font-size:20px;
     }
 
     .option-title{
@@ -303,7 +290,7 @@ body{
 </button>
 
 <div class="page-title">
-Add Manually
+    Add Manually
 </div>
 
 </header>
@@ -313,181 +300,164 @@ Add Manually
 
 <section class="card">
 
+
 <div class="title">
-Add Teams
+    Add Teams
 </div>
+
 
 <div class="subtitle">
-Choose how you want to add teams to this tournament or series.
+    Choose how you want to add teams to this tournament.
 </div>
 
 
-<!-- =================================
+<!-- =========================
      OPTION 1
-================================= -->
+========================= -->
 
-<div class="option">
-
-<button
-    class="option-main"
-    id="inviteButton"
-    type="button"
+<div
+    class="option"
+    id="inviteLinkOption"
 >
 
 <div class="option-icon">
-↗
+    🔗
 </div>
 
 <div class="option-content">
 
 <div class="option-title">
-Invite Link
+    Invite Link
 </div>
 
 <div class="option-description">
-Share a link that brings the captain back to these team options.
+    Share an invite link with team captains.
 </div>
 
 </div>
 
-<div class="arrow">
-›
+<div class="option-arrow">
+    ›
 </div>
 
-</button>
-
 </div>
 
 
-<!-- =================================
+<!-- =========================
      OPTION 2
-================================= -->
+========================= -->
 
-<div class="option">
-
-<button
-    class="option-main"
-    id="yourTeamsButton"
-    type="button"
+<div
+    class="option"
+    id="yourTeamsOption"
 >
 
 <div class="option-icon">
-✓
+    👥
 </div>
 
 <div class="option-content">
 
 <div class="option-title">
-Your Teams
+    Your Teams
 </div>
 
 <div class="option-description">
-Select a team already available in CRICKPULSE.
+    Select a team already available in CRICKPULSE.
 </div>
 
 </div>
 
-<div class="arrow">
-›
+<div class="option-arrow">
+    ›
 </div>
 
-</button>
-
 </div>
 
 
-<!-- =================================
+<!-- =========================
      OPTION 3
-================================= -->
+========================= -->
 
-<div class="option">
-
-<button
-    class="option-main"
-    id="addNewTeamButton"
-    type="button"
+<div
+    class="option"
+    id="addNewTeamsOption"
 >
 
 <div class="option-icon">
-+
+    +
 </div>
 
 <div class="option-content">
 
 <div class="option-title">
-Add New Teams
+    Add New Teams
 </div>
 
 <div class="option-description">
-Create and add a new team manually.
+    Create and add a new team manually.
 </div>
 
 </div>
 
-<div class="arrow">
-›
+<div class="option-arrow">
+    ›
 </div>
 
-</button>
-
 </div>
 
 
-<!-- =================================
+<!-- =========================
      OPTION 4
-================================= -->
+========================= -->
 
-<div class="option">
-
-<button
-    class="option-main"
-    id="qrButton"
-    type="button"
+<div
+    class="option"
+    id="qrOption"
 >
 
 <div class="option-icon">
-▣
+    ▣
 </div>
 
 <div class="option-content">
 
 <div class="option-title">
-Share with QR
+    Share with QR
 </div>
 
 <div class="option-description">
-Share this tournament using a QR code.
+    Share the tournament using a QR code.
 </div>
 
 </div>
 
-<div class="arrow">
-›
+<div class="option-arrow">
+    ›
 </div>
 
-</button>
-
 </div>
 
 
-<!-- =================================
-     EVENT INFORMATION
-================================= -->
+<!-- =========================
+     EVENT ID
+========================= -->
 
-<div class="event-box">
+<div class="event-id-box">
 
-<div class="event-label">
-Event ID
+<div class="event-id-label">
+    Tournament ID
 </div>
 
 <div
-    class="event-value"
+    class="event-id-value"
     id="eventIdDisplay"
 >
-Loading...
+    Loading...
 </div>
 
 </div>
+
 
 </section>
 
@@ -497,7 +467,7 @@ Loading...
 <script>
 
 /* =========================================
-   GET EVENT DATA
+   EVENT DATA
 ========================================= */
 
 const params =
@@ -520,13 +490,6 @@ const eventName =
     "CRICKPULSE Tournament";
 
 
-const eventType =
-    sessionStorage.getItem(
-        "crickpulseEventType"
-    ) ||
-    "TOURNAMENT";
-
-
 /* =========================================
    ELEMENTS
 ========================================= */
@@ -536,28 +499,24 @@ const eventIdDisplay =
         "eventIdDisplay"
     );
 
-
-const inviteButton =
+const inviteLinkOption =
     document.getElementById(
-        "inviteButton"
+        "inviteLinkOption"
     );
 
-
-const yourTeamsButton =
+const yourTeamsOption =
     document.getElementById(
-        "yourTeamsButton"
+        "yourTeamsOption"
     );
 
-
-const addNewTeamButton =
+const addNewTeamsOption =
     document.getElementById(
-        "addNewTeamButton"
+        "addNewTeamsOption"
     );
 
-
-const qrButton =
+const qrOption =
     document.getElementById(
-        "qrButton"
+        "qrOption"
     );
 
 
@@ -568,7 +527,7 @@ const qrButton =
 if(!eventId){
 
     alert(
-        "Event ID is missing. Please go back and create/select the event again."
+        "Tournament ID is missing. Please create the tournament again."
     );
 
     window.location.href =
@@ -584,21 +543,7 @@ else{
 
 
 /* =========================================
-   SAVE EVENT ID
-========================================= */
-
-if(eventId){
-
-    sessionStorage.setItem(
-        "crickpulseEventId",
-        eventId
-    );
-
-}
-
-
-/* =========================================
-   BACK
+   BACK BUTTON
 ========================================= */
 
 document
@@ -617,16 +562,16 @@ document
    INVITE LINK
 ========================================= */
 
-/*
-    IMPORTANT:
-
-    Invite Link अब इसी चार-option वाले
-    page पर वापस आएगा:
-
-    add-manually.html?eventId=XXXX
-*/
-
 function getInviteLink(){
+
+    /*
+     * IMPORTANT:
+     *
+     * Link अब join-team.html पर नहीं जाएगा.
+     *
+     * यह सीधे चार-option वाले
+     * add-manually.html page पर जाएगा.
+     */
 
     return (
         window.location.origin +
@@ -640,17 +585,18 @@ function getInviteLink(){
 
 
 /* =========================================
-   INVITE LINK SHARE
+   OPTION 1
+   INVITE LINK
 ========================================= */
 
-inviteButton.addEventListener(
+inviteLinkOption.addEventListener(
     "click",
     async function(){
 
         if(!eventId){
 
             alert(
-                "Event ID is missing."
+                "Tournament ID is missing."
             );
 
             return;
@@ -666,11 +612,13 @@ inviteButton.addEventListener(
             "You are invited to add your team to " +
             eventName +
             ".\n\n" +
-            "Open this link to select how you want to add your team:\n" +
+            "Open this link:\n" +
             inviteLink;
 
 
-        /* ANDROID / MOBILE SHARE */
+        /*
+         * MOBILE SHARE
+         */
 
         if(
             navigator.share
@@ -681,7 +629,7 @@ inviteButton.addEventListener(
                 await navigator.share({
 
                     title:
-                        "CRICKPULSE - Add Team",
+                        eventName,
 
                     text:
                         message,
@@ -705,7 +653,9 @@ inviteButton.addEventListener(
         }
 
 
-        /* FALLBACK */
+        /*
+         * COPY FALLBACK
+         */
 
         try{
 
@@ -715,9 +665,8 @@ inviteButton.addEventListener(
                 inviteLink
             );
 
-
             alert(
-                "Invite link copied successfully."
+                "Invite link copied."
             );
 
         }
@@ -735,12 +684,20 @@ inviteButton.addEventListener(
 
 
 /* =========================================
+   OPTION 2
    YOUR TEAMS
 ========================================= */
 
-yourTeamsButton.addEventListener(
+yourTeamsOption.addEventListener(
     "click",
     function(){
+
+        if(!eventId){
+
+            return;
+
+        }
+
 
         window.location.href =
             "your-teams.html?eventId=" +
@@ -753,12 +710,25 @@ yourTeamsButton.addEventListener(
 
 
 /* =========================================
+   OPTION 3
    ADD NEW TEAMS
 ========================================= */
 
-addNewTeamButton.addEventListener(
+addNewTeamsOption.addEventListener(
     "click",
     function(){
+
+        if(!eventId){
+
+            return;
+
+        }
+
+
+        /*
+         * केवल यही option
+         * add-new-teams.html खोलेगा.
+         */
 
         window.location.href =
             "add-new-teams.html?eventId=" +
@@ -771,74 +741,94 @@ addNewTeamButton.addEventListener(
 
 
 /* =========================================
+   OPTION 4
    SHARE WITH QR
 ========================================= */
 
-qrButton.addEventListener(
+qrOption.addEventListener(
     "click",
-    function(){
+    async function(){
+
+        if(!eventId){
+
+            alert(
+                "Tournament ID is missing."
+            );
+
+            return;
+
+        }
+
 
         const inviteLink =
             getInviteLink();
 
 
+        const message =
+            "Join this CRICKPULSE tournament:\n\n" +
+            inviteLink;
+
+
         /*
-         * QR screen अगला module होगा.
-         * फिलहाल link को copy/share कर सकते हैं.
+         * अभी QR option
+         * इसी valid tournament link को
+         * share/copy करेगा.
+         *
+         * Actual QR generator बाद में
+         * जोड़ सकते हैं.
          */
 
         if(
             navigator.share
         ){
 
-            navigator.share({
+            try{
 
-                title:
-                    "CRICKPULSE Tournament",
+                await navigator.share({
 
-                text:
-                    "Join this tournament on CRICKPULSE:\n" +
-                    inviteLink,
+                    title:
+                        "CRICKPULSE Tournament",
 
-                url:
-                    inviteLink
+                    text:
+                        message,
 
-            })
-            .catch(
-                function(){
+                    url:
+                        inviteLink
 
-                    console.log(
-                        "QR share cancelled."
-                    );
+                });
 
-                }
-            );
+            }
+            catch(error){
+
+                console.log(
+                    "QR sharing cancelled."
+                );
+
+            }
+
+            return;
 
         }
-        else{
 
-            navigator
+
+        try{
+
+            await navigator
             .clipboard
             .writeText(
                 inviteLink
-            )
-            .then(
-                function(){
+            );
 
-                    alert(
-                        "Tournament link copied."
-                    );
+            alert(
+                "Tournament link copied."
+            );
 
-                }
-            )
-            .catch(
-                function(){
+        }
+        catch(error){
 
-                    alert(
-                        inviteLink
-                    );
-
-                }
+            alert(
+                "Tournament Link:\n\n" +
+                inviteLink
             );
 
         }
@@ -861,16 +851,18 @@ console.log(
         eventName:
             eventName,
 
-        eventType:
-            eventType,
-
         inviteLink:
+            eventId
+            ?
             getInviteLink()
+            :
+            null
 
     }
 );
 
 </script>
+
 
 </body>
 
