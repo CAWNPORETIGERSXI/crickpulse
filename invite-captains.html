@@ -5,12 +5,9 @@
 
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CRICKPULSE | Invite Captains</title>
+<title>CRICKPULSE | Add Manually</title>
 
 <style>
 
@@ -22,27 +19,19 @@
 
 body{
     font-family:Verdana,Geneva,sans-serif;
-
     background:#f7f5ff;
-
     color:#171225;
-
     min-height:100vh;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 .top-header{
     height:82px;
-
     background:#fff;
-
     border-bottom:1px solid #e4ddf2;
 
     display:flex;
-
     align-items:center;
 
     padding:0 15px;
@@ -53,15 +42,12 @@ body{
     height:58px;
 
     border:1.5px solid #ff3b30;
-
     border-radius:8px;
 
     background:#fff;
-
     color:#6328c7;
 
     font-size:42px;
-
     font-weight:900;
 
     cursor:pointer;
@@ -69,24 +55,18 @@ body{
 
 .page-title{
     flex:1;
-
     text-align:center;
 
     font-size:27px;
-
     font-weight:900;
 
     margin-right:58px;
 }
 
-
-/* =========================
-   PAGE
-========================= */
+/* PAGE */
 
 .page{
     width:100%;
-
     max-width:760px;
 
     margin:auto;
@@ -94,27 +74,21 @@ body{
     padding:35px 16px 60px;
 }
 
-
-/* =========================
-   CARD
-========================= */
+/* CARD */
 
 .card{
     background:#fff;
 
     border:1.5px solid #ff3b30;
-
     border-radius:10px;
 
     padding:30px 24px;
 
-    box-shadow:
-        0 6px 20px rgba(0,0,0,.06);
+    box-shadow:0 6px 20px rgba(0,0,0,.06);
 }
 
 .title{
     font-size:34px;
-
     font-weight:900;
 
     margin-bottom:12px;
@@ -122,7 +96,6 @@ body{
 
 .subtitle{
     font-size:21px;
-
     color:#6d667c;
 
     line-height:1.5;
@@ -130,106 +103,81 @@ body{
     margin-bottom:28px;
 }
 
+/* OPTIONS */
 
-/* =========================
-   TEAM COUNT
-========================= */
-
-.team-count-box{
-    border:1.5px solid #ff3b30;
-
-    border-radius:8px;
-
-    padding:17px;
-
-    margin-bottom:28px;
-
-    background:#fff;
-}
-
-.team-count-label{
-    font-size:19px;
-
-    font-weight:700;
-
-    color:#6d667c;
-}
-
-.team-count-number{
-    margin-top:6px;
-
-    font-size:32px;
-
-    font-weight:900;
-
-    color:#6c35d9;
-}
-
-
-/* =========================
-   BUTTONS
-========================= */
-
-.share-button,
-.manual-button{
-
+.option{
     width:100%;
 
-    min-height:64px;
+    min-height:76px;
 
     border:1.5px solid #ff3b30;
+    border-radius:9px;
 
-    border-radius:8px;
-
-    font-family:Verdana,Geneva,sans-serif;
-
-    font-size:23px;
-
-    font-weight:900;
-
-    cursor:pointer;
-
-    padding:10px 15px;
-}
-
-.share-button{
-    background:#6c35d9;
-
-    color:#fff;
-}
-
-.manual-button{
     background:#fff;
 
-    color:#6c35d9;
+    margin-bottom:16px;
+
+    padding:14px 16px;
+
+    display:flex;
+    align-items:center;
+
+    gap:14px;
+
+    cursor:pointer;
 }
 
-.share-button:active,
-.manual-button:active{
+.option:active{
     transform:scale(.98);
 }
 
+.option-icon{
+    width:48px;
+    height:48px;
 
-/* =========================
-   OR
-========================= */
+    min-width:48px;
 
-.or-text{
-    text-align:center;
+    border:1.5px solid #ff3b30;
+    border-radius:8px;
 
-    margin:22px 0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    font-size:21px;
+    color:#6c35d9;
 
+    font-size:25px;
     font-weight:900;
-
-    color:#6d667c;
 }
 
+.option-content{
+    flex:1;
+}
 
-/* =========================
-   EVENT ID
-========================= */
+.option-title{
+    font-size:21px;
+    font-weight:900;
+}
+
+.option-description{
+    margin-top:5px;
+
+    font-size:16px;
+
+    color:#6d667c;
+
+    line-height:1.4;
+}
+
+.option-arrow{
+    font-size:31px;
+
+    color:#6c35d9;
+
+    font-weight:900;
+}
+
+/* EVENT ID */
 
 .event-id-box{
     margin-top:25px;
@@ -237,7 +185,6 @@ body{
     padding:14px;
 
     border:1.5px solid #ff3b30;
-
     border-radius:8px;
 
     background:#fff;
@@ -258,34 +205,26 @@ body{
 
     font-weight:800;
 
-    color:#171225;
-
     word-break:break-all;
 }
 
-
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:480px){
 
     .top-header{
         height:76px;
-
         padding:0 11px;
     }
 
     .back-button{
         width:52px;
         height:52px;
-
         font-size:38px;
     }
 
     .page-title{
         font-size:23px;
-
         margin-right:52px;
     }
 
@@ -305,21 +244,12 @@ body{
         font-size:20px;
     }
 
-    .team-count-label{
-        font-size:18px;
-    }
-
-    .team-count-number{
-        font-size:30px;
-    }
-
-    .share-button,
-    .manual-button{
-        font-size:21px;
-    }
-
-    .or-text{
+    .option-title{
         font-size:20px;
+    }
+
+    .option-description{
+        font-size:15px;
     }
 
 }
@@ -332,10 +262,6 @@ body{
 <body>
 
 
-<!-- =========================
-     HEADER
-========================= -->
-
 <header class="top-header">
 
 <button
@@ -346,102 +272,153 @@ body{
 ‹
 </button>
 
-
 <div class="page-title">
-    Tournament Setup
+    Add Manually
 </div>
 
 </header>
 
 
-
-<!-- =========================
-     PAGE
-========================= -->
-
 <main class="page">
 
 <section class="card">
 
-
 <div class="title">
-    Invite Captains to Add Teams
+    Add Teams
 </div>
-
 
 <div class="subtitle">
-    Invite team captains to add their teams
-    to this tournament.
+    Choose how you want to add teams to this tournament.
 </div>
 
 
-
-<!-- =========================
-     TEAM COUNT
-========================= -->
-
-<div class="team-count-box">
-
-<div class="team-count-label">
-    Total number of teams
-</div>
-
+<!-- OPTION 1 -->
 
 <div
-    class="team-count-number"
-    id="teamCountDisplay"
+    class="option"
+    id="inviteLinkOption"
 >
-    0
+
+<div class="option-icon">
+    🔗
+</div>
+
+<div class="option-content">
+
+<div class="option-title">
+    Invite Link
+</div>
+
+<div class="option-description">
+    Share an invite link with team captains.
+</div>
+
+</div>
+
+<div class="option-arrow">
+    ›
 </div>
 
 </div>
 
 
+<!-- OPTION 2 -->
 
-<!-- =========================
-     SHARE
-========================= -->
-
-<button
-    class="share-button"
-    id="shareButton"
-    type="button"
+<div
+    class="option"
+    id="yourTeamsOption"
 >
-    Share with Captains
-</button>
 
+<div class="option-icon">
+    👥
+</div>
 
+<div class="option-content">
 
-<div class="or-text">
-    OR
+<div class="option-title">
+    Your Teams
+</div>
+
+<div class="option-description">
+    Select a team already available in CRICKPULSE.
+</div>
+
+</div>
+
+<div class="option-arrow">
+    ›
+</div>
+
 </div>
 
 
+<!-- OPTION 3 -->
 
-<!-- =========================
-     ADD MANUALLY
-========================= -->
-
-<button
-    class="manual-button"
-    id="manualButton"
-    type="button"
+<div
+    class="option"
+    id="addNewTeamsOption"
 >
-    Add Manually
-</button>
+
+<div class="option-icon">
+    +
+</div>
+
+<div class="option-content">
+
+<div class="option-title">
+    Add New Teams
+</div>
+
+<div class="option-description">
+    Create and add a new team manually.
+</div>
+
+</div>
+
+<div class="option-arrow">
+    ›
+</div>
+
+</div>
 
 
+<!-- OPTION 4 -->
 
-<!-- =========================
-     EVENT ID
-========================= -->
+<div
+    class="option"
+    id="qrOption"
+>
+
+<div class="option-icon">
+    ▣
+</div>
+
+<div class="option-content">
+
+<div class="option-title">
+    Share with QR
+</div>
+
+<div class="option-description">
+    Share the tournament using a QR code.
+</div>
+
+</div>
+
+<div class="option-arrow">
+    ›
+</div>
+
+</div>
+
+
+<!-- EVENT ID -->
 
 <div class="event-id-box">
 
 <div class="event-id-label">
     Tournament ID
 </div>
-
 
 <div
     class="event-id-value"
@@ -458,20 +435,20 @@ body{
 </main>
 
 
-
 <script>
 
 /* =========================================
-   GET TOURNAMENT DATA
+   EVENT DATA
 ========================================= */
 
-const teamCount =
-    sessionStorage.getItem(
-        "crickpulseTeamCount"
+const params =
+    new URLSearchParams(
+        window.location.search
     );
 
 
 const eventId =
+    params.get("eventId") ||
     sessionStorage.getItem(
         "crickpulseEventId"
     );
@@ -480,24 +457,13 @@ const eventId =
 const eventName =
     sessionStorage.getItem(
         "crickpulseEventName"
-    );
-
-
-const eventType =
-    sessionStorage.getItem(
-        "crickpulseEventType"
-    );
+    ) ||
+    "CRICKPULSE Tournament";
 
 
 /* =========================================
-   ELEMENTS
+   SHOW EVENT ID
 ========================================= */
-
-const teamCountDisplay =
-    document.getElementById(
-        "teamCountDisplay"
-    );
-
 
 const eventIdDisplay =
     document.getElementById(
@@ -505,65 +471,17 @@ const eventIdDisplay =
     );
 
 
-const shareButton =
-    document.getElementById(
-        "shareButton"
-    );
-
-
-const manualButton =
-    document.getElementById(
-        "manualButton"
-    );
-
-
-/* =========================================
-   CHECK EVENT ID
-========================================= */
-
 if(!eventId){
 
     alert(
         "Tournament ID is missing. Please create the tournament again."
     );
 
-
     window.location.href =
         "create-event.html";
 
 }
-
-
-/* =========================================
-   CHECK TEAM COUNT
-========================================= */
-
-if(!teamCount){
-
-    alert(
-        "Team count not found."
-    );
-
-
-    window.location.href =
-        "number-of-teams.html";
-
-}
-
-
-/* =========================================
-   SHOW TOURNAMENT DATA
-========================================= */
-
-if(teamCount){
-
-    teamCountDisplay.textContent =
-        teamCount;
-
-}
-
-
-if(eventId){
+else{
 
     eventIdDisplay.textContent =
         eventId;
@@ -576,9 +494,7 @@ if(eventId){
 ========================================= */
 
 document
-.getElementById(
-    "backButton"
-)
+.getElementById("backButton")
 .addEventListener(
     "click",
     function(){
@@ -590,145 +506,13 @@ document
 
 
 /* =========================================
-   CREATE UNIQUE INVITE LINK
+   OPTION 1
+   INVITE LINK
 ========================================= */
 
-function getInviteLink(){
-
-    return (
-        window.location.origin +
-        "/join-team.html?eventId=" +
-        encodeURIComponent(
-            eventId
-        )
-    );
-
-}
-
-
-/* =========================================
-   SHARE WITH CAPTAINS
-========================================= */
-
-shareButton.addEventListener(
-    "click",
-    async function(){
-
-        if(!eventId){
-
-            alert(
-                "Tournament ID is missing."
-            );
-
-            return;
-
-        }
-
-
-        const inviteLink =
-            getInviteLink();
-
-
-        const title =
-            eventName ||
-            eventType ||
-            "CRICKPULSE Tournament";
-
-
-        const message =
-            "You are invited to add your team to " +
-            title +
-            ".\n\n" +
-            "Tournament Invite Link:\n" +
-            inviteLink;
-
-
-        /*
-        ========================================
-        MOBILE SHARE
-        ========================================
-
-        Android का system share sheet खुलेगा.
-        वहाँ WhatsApp सहित available
-        sharing apps दिखाई देंगी.
-        */
-
-        if(
-            navigator.share
-        ){
-
-            try{
-
-                await navigator.share({
-
-                    title:
-                        title,
-
-                    text:
-                        message,
-
-                    url:
-                        inviteLink
-
-                });
-
-
-                console.log(
-                    "Tournament invite shared."
-                );
-
-            }
-            catch(error){
-
-                console.log(
-                    "Share cancelled."
-                );
-
-            }
-
-            return;
-
-        }
-
-
-        /*
-        ========================================
-        FALLBACK
-        ========================================
-        */
-
-        try{
-
-            await navigator
-            .clipboard
-            .writeText(
-                inviteLink
-            );
-
-
-            alert(
-                "Tournament invite link copied."
-            );
-
-        }
-        catch(error){
-
-            alert(
-                "Tournament Invite Link:\n\n" +
-                inviteLink
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================
-   ADD MANUALLY
-========================================= */
-
-manualButton.addEventListener(
+document
+.getElementById("inviteLinkOption")
+.addEventListener(
     "click",
     function(){
 
@@ -742,23 +526,109 @@ manualButton.addEventListener(
 
         }
 
+        const inviteLink =
+            window.location.origin +
+            "/join-team.html?eventId=" +
+            encodeURIComponent(
+                eventId
+            );
 
-        /*
-        ========================================
-        IMPORTANT
 
-        पहले यहाँ:
+        if(
+            navigator.share
+        ){
 
-        add-teams.html
+            navigator.share({
 
-        था।
+                title:
+                    eventName,
 
-        अब सही page:
+                text:
+                    "You are invited to add your team to " +
+                    eventName +
+                    ".\n\n" +
+                    inviteLink,
 
-        add-new-teams.html
+                url:
+                    inviteLink
 
-        ========================================
-        */
+            })
+            .catch(
+                function(){
+                    console.log(
+                        "Share cancelled."
+                    );
+                }
+            );
+
+        }
+        else{
+
+            navigator
+            .clipboard
+            .writeText(
+                inviteLink
+            )
+            .then(
+                function(){
+
+                    alert(
+                        "Invite link copied."
+                    );
+
+                }
+            )
+            .catch(
+                function(){
+
+                    alert(
+                        inviteLink
+                    );
+
+                }
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   OPTION 2
+   YOUR TEAMS
+========================================= */
+
+document
+.getElementById("yourTeamsOption")
+.addEventListener(
+    "click",
+    function(){
+
+        window.location.href =
+            "your-teams.html?eventId=" +
+            encodeURIComponent(
+                eventId
+            );
+
+    }
+);
+
+
+/* =========================================
+   OPTION 3
+   ADD NEW TEAMS
+
+   IMPORTANT:
+   यही एक जगह है जहाँ
+   add-new-teams.html खुलेगा.
+========================================= */
+
+document
+.getElementById("addNewTeamsOption")
+.addEventListener(
+    "click",
+    function(){
 
         window.location.href =
             "add-new-teams.html?eventId=" +
@@ -771,25 +641,100 @@ manualButton.addEventListener(
 
 
 /* =========================================
+   OPTION 4
+   SHARE WITH QR
+========================================= */
+
+document
+.getElementById("qrOption")
+.addEventListener(
+    "click",
+    function(){
+
+        const inviteLink =
+            window.location.origin +
+            "/join-team.html?eventId=" +
+            encodeURIComponent(
+                eventId
+            );
+
+
+        /*
+         * फिलहाल QR option को
+         * QR sharing के लिए तैयार रखा गया है.
+         */
+
+        if(
+            navigator.share
+        ){
+
+            navigator.share({
+
+                title:
+                    eventName,
+
+                text:
+                    "Scan/share this tournament invite link:\n\n" +
+                    inviteLink,
+
+                url:
+                    inviteLink
+
+            })
+            .catch(
+                function(){
+                    console.log(
+                        "QR sharing cancelled."
+                    );
+                }
+            );
+
+        }
+        else{
+
+            navigator
+            .clipboard
+            .writeText(
+                inviteLink
+            )
+            .then(
+                function(){
+
+                    alert(
+                        "Tournament invite link copied. QR sharing will be connected next."
+                    );
+
+                }
+            )
+            .catch(
+                function(){
+
+                    alert(
+                        "Tournament Invite Link:\n\n" +
+                        inviteLink
+                    );
+
+                }
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================
    DEBUG
 ========================================= */
 
 console.log(
-    "CRICKPULSE Invite Captains loaded.",
+    "CRICKPULSE Add Manually loaded.",
     {
-
         eventId:
             eventId,
 
         eventName:
-            eventName,
-
-        eventType:
-            eventType,
-
-        teamCount:
-            teamCount
-
+            eventName
     }
 );
 
