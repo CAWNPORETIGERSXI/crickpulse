@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>CRICKPULSE | Teams</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Verdana,Geneva,sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f4efff 0%,
+            #faf9ff 45%,
+            #ffffff 100%
+        );
+
+    color:#171225;
+
+    min-height:100vh;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header{
+
+    height:78px;
+
+    background:#ffffff;
+
+    border-bottom:1px solid #e5ddf5;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 12px;
+
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+}
+
+.back-btn{
+
+    width:52px;
+    height:52px;
+
+    border:1.5px solid #ff3b30;
+    border-radius:10px;
+
+    background:#ffffff;
+
+    color:#6c35d9;
+
+    font-size:38px;
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.header-title{
+
+    flex:1;
+
+    text-align:center;
+
+    font-size:24px;
+    font-weight:900;
+
+    color:#28134e;
+
+    margin-right:52px;
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page{
+
+    width:100%;
+
+    max-width:760px;
+
+    margin:auto;
+
+    padding:22px 14px 60px;
+}
+
+
+/* =========================================
+   EVENT HEADER
+========================================= */
+
+.event-card{
+
+    background:
+        linear-gradient(
+            135deg,
+            #5d25c9,
+            #7b42e8,
+            #9b6cff
+        );
+
+    color:#ffffff;
+
+    border-radius:18px;
+
+    padding:22px 18px;
+
+    margin-bottom:20px;
+
+    box-shadow:
+        0 14px 35px
+        rgba(108,53,217,.22);
+
+    text-align:center;
+}
+
+.event-label{
+
+    font-size:14px;
+
+    font-weight:700;
+
+    color:
+        rgba(255,255,255,.78);
+
+    margin-bottom:7px;
+}
+
+.event-name{
+
+    font-size:25px;
+
+    font-weight:900;
+
+    line-height:1.35;
+}
+
+.team-count{
+
+    margin-top:10px;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    color:
+        rgba(255,255,255,.90);
+}
+
+
+/* =========================================
+   SECTION TITLE
+========================================= */
+
+.section-head{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:14px;
+}
+
+.section-title{
+
+    font-size:23px;
+
+    font-weight:900;
+
+    color:#28134e;
+}
+
+.count-badge{
+
+    min-width:42px;
+    height:34px;
+
+    padding:0 10px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:18px;
+
+    background:#6c35d9;
+
+    color:#ffffff;
+
+    font-size:15px;
+
+    font-weight:900;
+}
+
+
+/* =========================================
+   TEAM LIST
+========================================= */
+
+.team-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+}
+
+
+/* =========================================
+   TEAM CARD
+========================================= */
+
+.team-card{
+
+    width:100%;
+
+    min-height:92px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:14px;
+
+    background:#ffffff;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:14px;
+
+    box-shadow:
+        0 8px 24px
+        rgba(72,45,120,.07);
+}
+
+
+/* =========================================
+   TEAM LOGO
+========================================= */
+
+.team-logo{
+
+    width:64px;
+    height:64px;
+
+    min-width:64px;
+
+    border-radius:50%;
+
+    border:2px solid #6c35d9;
+
+    background:#f4efff;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    color:#6c35d9;
+
+    font-size:19px;
+
+    font-weight:900;
+}
+
+.team-logo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+
+/* =========================================
+   TEAM INFORMATION
+========================================= */
+
+.team-info{
+
+    flex:1;
+
+    min-width:0;
+}
+
+.team-name{
+
+    color:#241536;
+
+    font-size:19px;
+
+    font-weight:900;
+
+    line-height:1.3;
+
+    word-break:break-word;
+}
+
+.team-city{
+
+    margin-top:5px;
+
+    color:#777080;
+
+    font-size:14px;
+
+    font-weight:700;
+}
+
+
+/* =========================================
+   MEMBERS BUTTON
+========================================= */
+
+.members-btn{
+
+    flex-shrink:0;
+
+    min-width:82px;
+
+    height:38px;
+
+    padding:0 10px;
+
+    border:1.5px solid #6c35d9;
+
+    border-radius:8px;
+
+    background:#6c35d9;
+
+    color:#ffffff;
+
+    font-family:Verdana,Geneva,sans-serif;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.members-btn:active{
+
+    transform:scale(.96);
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty-card{
+
+    background:#ffffff;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:16px;
+
+    padding:30px 20px;
+
+    text-align:center;
+
+    box-shadow:
+        0 8px 24px
+        rgba(72,45,120,.07);
+}
+
+.empty-icon{
+
+    width:70px;
+    height:70px;
+
+    margin:0 auto 15px;
+
+    border-radius:50%;
+
+    background:#f4efff;
+
+    border:1.5px solid #6c35d9;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    color:#6c35d9;
+
+    font-size:30px;
+
+    font-weight:900;
+}
+
+.empty-title{
+
+    color:#28134e;
+
+    font-size:22px;
+
+    font-weight:900;
+
+    margin-bottom:8px;
+}
+
+.empty-text{
+
+    color:#777080;
+
+    font-size:15px;
+
+    line-height:1.5;
+
+    margin-bottom:22px;
+}
+
+
+/* =========================================
+   EMPTY OPTIONS
+========================================= */
+
+.empty-options{
+
+    display:flex;
+
+    gap:12px;
+}
+
+.empty-option{
+
+    flex:1;
+
+    min-height:52px;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:9px;
+
+    background:#ffffff;
+
+    color:#6c35d9;
+
+    font-family:Verdana,Geneva,sans-serif;
+
+    font-size:15px;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.empty-option.primary{
+
+    background:#6c35d9;
+
+    color:#ffffff;
+
+    border-color:#6c35d9;
+}
+
+
+/* =========================================
+   MEMBERS MESSAGE
+========================================= */
+
+.member-message{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:5000;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:18px;
+
+    background:
+        rgba(28,15,50,.58);
+
+    backdrop-filter:blur(4px);
+}
+
+.member-message.show{
+
+    display:flex;
+}
+
+.member-box{
+
+    width:100%;
+
+    max-width:420px;
+
+    background:#ffffff;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:16px;
+
+    padding:25px 20px;
+
+    text-align:center;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.22);
+}
+
+.member-box-icon{
+
+    font-size:42px;
+
+    margin-bottom:10px;
+}
+
+.member-box h2{
+
+    color:#6c35d9;
+
+    font-size:22px;
+
+    font-weight:900;
+
+    margin-bottom:8px;
+}
+
+.member-box p{
+
+    color:#777080;
+
+    font-size:15px;
+
+    line-height:1.5;
+
+    margin-bottom:18px;
+}
+
+.member-close{
+
+    width:100%;
+
+    height:50px;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:8px;
+
+    background:#6c35d9;
+
+    color:#ffffff;
+
+    font-family:Verdana,Geneva,sans-serif;
+
+    font-size:17px;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.loading{
+
+    padding:35px 15px;
+
+    text-align:center;
+
+    color:#6c35d9;
+
+    font-size:17px;
+
+    font-weight:900;
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.error-box{
+
+    background:#ffffff;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:14px;
+
+    padding:25px 18px;
+
+    text-align:center;
+
+    color:#777080;
+
+    font-size:15px;
+
+    line-height:1.5;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:480px){
+
+    .header{
+
+        height:74px;
+    }
+
+    .back-btn{
+
+        width:50px;
+        height:50px;
+
+        font-size:35px;
+    }
+
+    .header-title{
+
+        font-size:22px;
+
+        margin-right:50px;
+    }
+
+    .page{
+
+        padding:20px 12px 45px;
+    }
+
+    .event-card{
+
+        padding:20px 15px;
+    }
+
+    .event-name{
+
+        font-size:22px;
+    }
+
+    .section-title{
+
+        font-size:21px;
+    }
+
+    .team-card{
+
+        padding:12px;
+
+        gap:10px;
+    }
+
+    .team-logo{
+
+        width:56px;
+        height:56px;
+
+        min-width:56px;
+
+        font-size:17px;
+    }
+
+    .team-name{
+
+        font-size:17px;
+    }
+
+    .team-city{
+
+        font-size:13px;
+    }
+
+    .members-btn{
+
+        min-width:75px;
+
+        height:36px;
+
+        font-size:12px;
+
+        padding:0 8px;
+    }
+
+    .empty-options{
+
+        flex-direction:column;
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media(max-width:360px){
+
+    .team-logo{
+
+        width:52px;
+        height:52px;
+
+        min-width:52px;
+    }
+
+    .team-name{
+
+        font-size:15px;
+    }
+
+    .members-btn{
+
+        min-width:68px;
+
+        font-size:11px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="header">
+
+<button
+    class="back-btn"
+    id="backButton"
+    type="button"
+    aria-label="Back"
+>
+    ‹
+</button>
+
+<div class="header-title">
+    Teams
+</div>
+
+</header>
+
+
+<main class="page">
+
+
+<!-- =========================================
+     EVENT HEADER
+========================================= -->
+
+<section class="event-card">
+
+<div class="event-label">
+    Tournament / Series
+</div>
+
+<div
+    class="event-name"
+    id="eventName"
+>
+    Loading...
+</div>
+
+<div
+    class="team-count"
+    id="teamCount"
+>
+    Loading teams...
+</div>
+
+</section>
+
+
+<!-- =========================================
+     TEAM SECTION
+========================================= -->
+
+<section>
+
+<div class="section-head">
+
+<div class="section-title">
+    Participating Teams
+</div>
+
+<div
+    class="count-badge"
+    id="countBadge"
+>
+    0
+</div>
+
+</div>
+
+
+<div
+    class="team-list"
+    id="teamList"
+>
+
+<div class="loading">
+    Loading Teams...
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================
+     MEMBERS MESSAGE
+========================================= -->
+
+<div
+    class="member-message"
+    id="memberMessage"
+>
+
+<div class="member-box">
+
+<div class="member-box-icon">
+    👥
+</div>
+
+<h2 id="memberTeamName">
+    Team Members
+</h2>
+
+<p>
+    Members will be added and displayed here in the next step.
+</p>
+
+<button
+    class="member-close"
+    id="memberClose"
+    type="button"
+>
+    CLOSE
+</button>
+
+</div>
+
+</div>
+
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+    doc,
+    getDoc
+}
+from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+/* =========================================
+   EVENT ID
+========================================= */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const eventId =
+    params.get("eventId") ||
+    sessionStorage.getItem(
+        "crickpulseEventId"
+    );
+
+
+/* =========================================
+   CHECK EVENT ID
+========================================= */
+
+if(!eventId){
+
+    alert(
+        "Tournament ID is missing."
+    );
+
+    window.location.href =
+        "create-event.html";
+
+}
+
+
+/* =========================================
+   SAVE EVENT ID
+========================================= */
+
+sessionStorage.setItem(
+    "crickpulseEventId",
+    eventId
+);
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const eventNameElement =
+    document.getElementById(
+        "eventName"
+    );
+
+const teamCountElement =
+    document.getElementById(
+        "teamCount"
+    );
+
+const countBadge =
+    document.getElementById(
+        "countBadge"
+    );
+
+const teamList =
+    document.getElementById(
+        "teamList"
+    );
+
+const memberMessage =
+    document.getElementById(
+        "memberMessage"
+    );
+
+const memberTeamName =
+    document.getElementById(
+        "memberTeamName"
+    );
+
+
+/* =========================================
+   EVENT REFERENCE
+========================================= */
+
+const eventRef =
+    doc(
+        db,
+        "events",
+        eventId
+    );
+
+
+/* =========================================
+   GET TEAM LOGO
+========================================= */
+
+function getTeamLogo(team){
+
+    return (
+        team.logo ||
+        team.teamLogo ||
+        team.logoUrl ||
+        team.image ||
+        team.imageUrl ||
+        ""
+    );
+
+}
+
+
+/* =========================================
+   GET TEAM NAME
+========================================= */
+
+function getTeamName(team){
+
+    return (
+        team.teamName ||
+        team.name ||
+        "Unnamed Team"
+    );
+
+}
+
+
+/* =========================================
+   GET TEAM CITY
+========================================= */
+
+function getTeamCity(team){
+
+    return (
+        team.city ||
+        team.location ||
+        ""
+    );
+
+}
+
+
+/* =========================================
+   CREATE TEAM CARD
+========================================= */
+
+function createTeamCard(team){
+
+    const card =
+        document.createElement(
+            "div"
+        );
+
+    card.className =
+        "team-card";
+
+
+    /* =========================
+       LOGO
+    ========================= */
+
+    const logoBox =
+        document.createElement(
+            "div"
+        );
+
+    logoBox.className =
+        "team-logo";
+
+
+    const logo =
+        getTeamLogo(
+            team
+        );
+
+
+    if(logo){
+
+        const img =
+            document.createElement(
+                "img"
+            );
+
+        img.src =
+            logo;
+
+        img.alt =
+            getTeamName(
+                team
+            );
+
+        img.onerror =
+            function(){
+
+                img.style.display =
+                    "none";
+
+                logoBox.textContent =
+                    "CP";
+
+            };
+
+        logoBox.appendChild(
+            img
+        );
+
+    }
+    else{
+
+        logoBox.textContent =
+            "CP";
+
+    }
+
+
+    /* =========================
+       TEAM INFO
+    ========================= */
+
+    const info =
+        document.createElement(
+            "div"
+        );
+
+    info.className =
+        "team-info";
+
+
+    const name =
+        document.createElement(
+            "div"
+        );
+
+    name.className =
+        "team-name";
+
+    name.textContent =
+        getTeamName(
+            team
+        );
+
+
+    const city =
+        document.createElement(
+            "div"
+        );
+
+    city.className =
+        "team-city";
+
+    const cityValue =
+        getTeamCity(
+            team
+        );
+
+
+    if(cityValue){
+
+        city.textContent =
+            cityValue;
+
+    }
+    else{
+
+        city.textContent =
+            "Team";
+
+    }
+
+
+    info.appendChild(
+        name
+    );
+
+    info.appendChild(
+        city
+    );
+
+
+    /* =========================
+       MEMBERS BUTTON
+    ========================= */
+
+    const membersButton =
+        document.createElement(
+            "button"
+        );
+
+    membersButton.type =
+        "button";
+
+    membersButton.className =
+        "members-btn";
+
+    membersButton.textContent =
+        "Members";
+
+
+    membersButton.addEventListener(
+        "click",
+        function(){
+
+            memberTeamName.textContent =
+                getTeamName(
+                    team
+                ) +
+                " — Members";
+
+            memberMessage.classList.add(
+                "show"
+            );
+
+        }
+    );
+
+
+    /* =========================
+       CARD
+    ========================= */
+
+    card.appendChild(
+        logoBox
+    );
+
+    card.appendChild(
+        info
+    );
+
+    card.appendChild(
+        membersButton
+    );
+
+
+    return card;
+
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+function showEmptyState(){
+
+    teamList.innerHTML =
+        "";
+
+
+    const empty =
+        document.createElement(
+            "div"
+        );
+
+    empty.className =
+        "empty-card";
+
+
+    empty.innerHTML = `
+
+        <div class="empty-icon">
+            👥
+        </div>
+
+        <div class="empty-title">
+            No Teams Added Yet
+        </div>
+
+        <div class="empty-text">
+            No team has been added to this
+            tournament yet.
+            Invite a captain or add a team
+            manually.
+        </div>
+
+        <div class="empty-options">
+
+            <button
+                class="empty-option primary"
+                id="inviteCaptainButton"
+                type="button"
+            >
+                Invite Captain
+            </button>
+
+            <button
+                class="empty-option"
+                id="addManualButton"
+                type="button"
+            >
+                Add Manually
+            </button>
+
+        </div>
+
+    `;
+
+
+    teamList.appendChild(
+        empty
+    );
+
+
+    /* =========================
+       INVITE CAPTAIN
+    ========================= */
+
+    document
+    .getElementById(
+        "inviteCaptainButton"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            window.location.href =
+                "invite-captains.html?eventId=" +
+                encodeURIComponent(
+                    eventId
+                );
+
+        }
+    );
+
+
+    /* =========================
+       ADD MANUALLY
+    ========================= */
+
+    document
+    .getElementById(
+        "addManualButton"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            window.location.href =
+                "add-manually.html?eventId=" +
+                encodeURIComponent(
+                    eventId
+                );
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   LOAD TEAMS
+========================================= */
+
+async function loadTeams(){
+
+    try{
+
+        teamList.innerHTML = `
+
+            <div class="loading">
+                Loading Teams...
+            </div>
+
+        `;
+
+
+        const snapshot =
+            await getDoc(
+                eventRef
+            );
+
+
+        if(!snapshot.exists()){
+
+            teamList.innerHTML = `
+
+                <div class="error-box">
+                    Tournament document not found.
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        const data =
+            snapshot.data();
+
+
+        /* =========================
+           EVENT NAME
+        ========================= */
+
+        const name =
+            data.eventName ||
+            data.name ||
+            "CRICKPULSE Tournament";
+
+
+        eventNameElement.textContent =
+            name;
+
+
+        /* =========================
+           TEAMS
+        ========================= */
+
+        let teams =
+            Array.isArray(
+                data.teams
+            )
+            ?
+                data.teams
+            :
+                [];
+
+
+        /*
+         * Remove invalid values.
+         */
+
+        teams =
+            teams.filter(
+                function(team){
+
+                    return (
+                        team &&
+                        typeof team === "object"
+                    );
+
+                }
+            );
+
+
+        /* =========================
+           COUNT
+        ========================= */
+
+        const count =
+            teams.length;
+
+
+        countBadge.textContent =
+            String(
+                count
+            );
+
+
+        teamCountElement.textContent =
+            count === 0
+            ?
+            "No teams added yet"
+            :
+            count +
+            (
+                count === 1
+                ?
+                " Team participating"
+                :
+                " Teams participating"
+            );
+
+
+        /* =========================
+           EMPTY
+        ========================= */
+
+        if(count === 0){
+
+            showEmptyState();
+
+            return;
+
+        }
+
+
+        /* =========================
+           SHOW TEAMS
+        ========================= */
+
+        teamList.innerHTML =
+            "";
+
+
+        teams.forEach(
+            function(team){
+
+                teamList.appendChild(
+                    createTeamCard(
+                        team
+                    )
+                );
+
+            }
+        );
+
+    }
+    catch(error){
+
+        console.error(
+            "TEAMS LOAD ERROR:",
+            error
+        );
+
+
+        teamList.innerHTML = `
+
+            <div class="error-box">
+
+                Teams load नहीं हो पाईं.
+
+                <br><br>
+
+                ${error.message || ""}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================
+   MEMBER CLOSE
+========================================= */
+
+document
+.getElementById(
+    "memberClose"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        memberMessage.classList.remove(
+            "show"
+        );
+
+    }
+);
+
+
+memberMessage.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target ===
+            memberMessage
+        ){
+
+            memberMessage.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   BACK
+========================================= */
+
+document
+.getElementById(
+    "backButton"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        window.location.href =
+            "add-manually.html?eventId=" +
+            encodeURIComponent(
+                eventId
+            );
+
+    }
+);
+
+
+/* =========================================
+   START
+========================================= */
+
+loadTeams();
+
+
+/* =========================================
+   DEBUG
+========================================= */
+
+console.log(
+    "CRICKPULSE Teams loaded.",
+    {
+        eventId:
+            eventId
+    }
+);
+
+</script>
+
+</body>
+
+</html>
