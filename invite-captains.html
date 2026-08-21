@@ -25,92 +25,160 @@
     box-sizing:border-box;
 }
 
+html,
+body{
+    width:100%;
+    min-height:100%;
+}
+
 body{
     font-family:Verdana,Geneva,sans-serif;
+
     background:#f7f5ff;
+
     color:#171225;
+
     min-height:100vh;
+
+    overflow:hidden;
 }
+
 
 /* =========================================
    HEADER
 ========================================= */
 
 .top-header{
+
     height:82px;
+
     background:#fff;
+
     border-bottom:1px solid #e4ddf2;
 
     display:flex;
+
     align-items:center;
 
     padding:0 15px;
+
+    flex-shrink:0;
 }
 
 .back-button{
+
     width:58px;
     height:58px;
 
     border:1.5px solid #ff3b30;
+
     border-radius:8px;
 
     background:#fff;
+
     color:#6328c7;
 
     font-size:42px;
+
     font-weight:900;
 
     cursor:pointer;
+
+    flex-shrink:0;
 }
 
 .page-title{
+
     flex:1;
+
     text-align:center;
 
     font-size:27px;
+
     font-weight:900;
 
     margin-right:58px;
 }
+
 
 /* =========================================
    PAGE
 ========================================= */
 
 .page{
+
     width:100%;
+
     max-width:760px;
+
+    height:calc(100vh - 82px);
 
     margin:auto;
 
-    padding:22px 16px 60px;
+    padding:18px 16px 25px;
+
+    overflow:hidden;
 }
+
 
 /* =========================================
    TOP NAVIGATION
+   ONLY THIS AREA SCROLLS
 ========================================= */
 
 .top-navigation{
+
     width:100%;
 
-    display:grid;
+    display:flex;
 
-    grid-template-columns:
-        repeat(4,1fr);
+    flex-wrap:nowrap;
 
-    gap:10px;
+    gap:12px;
 
-    margin-bottom:20px;
+    overflow-x:auto;
+
+    overflow-y:hidden;
+
+    -webkit-overflow-scrolling:touch;
+
+    scrollbar-width:none;
+
+    padding:3px 2px 10px;
+
+    margin-bottom:10px;
+
+    touch-action:pan-x;
+
+    overscroll-behavior-x:contain;
+
+    flex-shrink:0;
 }
 
+.top-navigation::-webkit-scrollbar{
+    display:none;
+}
+
+
+/* =========================================
+   NAV BOXES
+========================================= */
+
 .nav-box{
-    min-height:62px;
+
+    flex:0 0 auto;
+
+    min-width:145px;
+
+    min-height:68px;
+
+    padding:10px 18px;
 
     background:#6c35d9;
 
     border:1.5px solid #ff3b30;
 
-    border-radius:9px;
+    border-radius:10px;
 
     color:#fff;
 
@@ -122,16 +190,20 @@ body{
 
     text-align:center;
 
-    padding:8px 5px;
-
-    font-size:15px;
+    font-size:19px;
 
     font-weight:900;
+
+    white-space:nowrap;
 
     cursor:pointer;
 
     box-shadow:
         0 4px 10px rgba(108,53,217,.15);
+
+    user-select:none;
+
+    -webkit-user-select:none;
 
     transition:
         transform .15s ease,
@@ -146,48 +218,57 @@ body{
     background:#5f2fc4;
 }
 
+
 /* =========================================
    MAIN CARD
 ========================================= */
 
 .card{
+
     background:#fff;
 
     border:1.5px solid #ff3b30;
 
     border-radius:10px;
 
-    padding:30px 24px;
+    padding:22px 20px;
 
     box-shadow:
         0 6px 20px rgba(0,0,0,.06);
+
+    overflow:hidden;
 }
 
 .title{
-    font-size:34px;
+
+    font-size:31px;
+
     font-weight:900;
 
-    margin-bottom:12px;
+    margin-bottom:8px;
 }
 
 .subtitle{
-    font-size:21px;
+
+    font-size:19px;
 
     color:#6d667c;
 
-    line-height:1.5;
+    line-height:1.4;
 
-    margin-bottom:28px;
+    margin-bottom:18px;
 }
+
 
 /* =========================================
    OPTIONS
 ========================================= */
 
 .option{
+
     width:100%;
 
-    min-height:76px;
+    min-height:67px;
 
     border:1.5px solid #ff3b30;
 
@@ -195,17 +276,21 @@ body{
 
     background:#fff;
 
-    margin-bottom:16px;
+    margin-bottom:10px;
 
-    padding:14px 16px;
+    padding:10px 13px;
 
     display:flex;
 
     align-items:center;
 
-    gap:14px;
+    gap:12px;
 
     cursor:pointer;
+
+    user-select:none;
+
+    -webkit-user-select:none;
 
     transition:
         transform .15s ease,
@@ -221,10 +306,11 @@ body{
 }
 
 .option-icon{
-    width:48px;
-    height:48px;
 
-    min-width:48px;
+    width:44px;
+    height:44px;
+
+    min-width:44px;
 
     border:1.5px solid #ff3b30;
 
@@ -238,7 +324,7 @@ body{
 
     color:#6c35d9;
 
-    font-size:25px;
+    font-size:23px;
 
     font-weight:900;
 }
@@ -248,36 +334,42 @@ body{
 }
 
 .option-title{
-    font-size:21px;
+
+    font-size:19px;
+
     font-weight:900;
 }
 
 .option-description{
-    margin-top:5px;
 
-    font-size:16px;
+    margin-top:3px;
+
+    font-size:14px;
 
     color:#6d667c;
 
-    line-height:1.4;
+    line-height:1.3;
 }
 
 .option-arrow{
-    font-size:31px;
+
+    font-size:29px;
 
     color:#6c35d9;
 
     font-weight:900;
 }
 
+
 /* =========================================
    EVENT ID
 ========================================= */
 
 .event-id-box{
-    margin-top:25px;
 
-    padding:14px;
+    margin-top:12px;
+
+    padding:10px 13px;
 
     border:1.5px solid #ff3b30;
 
@@ -287,28 +379,32 @@ body{
 }
 
 .event-id-label{
-    font-size:16px;
+
+    font-size:14px;
 
     font-weight:700;
 
     color:#6d667c;
 
-    margin-bottom:6px;
+    margin-bottom:4px;
 }
 
 .event-id-value{
-    font-size:15px;
+
+    font-size:13px;
 
     font-weight:800;
 
     word-break:break-all;
 }
 
+
 /* =========================================
    QR MODAL
 ========================================= */
 
 .qr-modal{
+
     position:fixed;
 
     inset:0;
@@ -331,6 +427,7 @@ body{
 }
 
 .qr-box{
+
     width:100%;
 
     max-width:430px;
@@ -350,6 +447,7 @@ body{
 }
 
 .qr-title{
+
     font-size:28px;
 
     font-weight:900;
@@ -358,6 +456,7 @@ body{
 }
 
 .qr-event-name{
+
     font-size:18px;
 
     font-weight:800;
@@ -368,6 +467,7 @@ body{
 }
 
 .qr-instruction{
+
     font-size:16px;
 
     line-height:1.5;
@@ -378,6 +478,7 @@ body{
 }
 
 .qr-code-wrapper{
+
     width:270px;
     height:270px;
 
@@ -399,6 +500,7 @@ body{
 }
 
 #qrCode{
+
     width:250px;
     height:250px;
 
@@ -410,11 +512,13 @@ body{
 }
 
 #qrCode img{
+
     max-width:250px;
     max-height:250px;
 }
 
 .qr-link{
+
     background:#f7f5ff;
 
     border:1px solid #ddd4ed;
@@ -433,6 +537,7 @@ body{
 }
 
 .qr-close{
+
     width:100%;
 
     min-height:54px;
@@ -452,6 +557,7 @@ body{
     cursor:pointer;
 }
 
+
 /* =========================================
    MOBILE
 ========================================= */
@@ -459,85 +565,253 @@ body{
 @media(max-width:600px){
 
     .top-header{
-        height:76px;
-        padding:0 11px;
+
+        height:70px;
+
+        padding:0 10px;
     }
 
     .back-button{
-        width:52px;
-        height:52px;
-        font-size:38px;
+
+        width:50px;
+        height:50px;
+
+        font-size:37px;
     }
 
     .page-title{
-        font-size:23px;
-        margin-right:52px;
+
+        font-size:22px;
+
+        margin-right:50px;
     }
 
     .page{
-        padding:18px 12px 50px;
+
+        height:calc(100vh - 70px);
+
+        padding:12px 11px 15px;
     }
 
-    /* HORIZONTAL NAVIGATION */
+
+    /* ONLY THIS STRIP SCROLLS */
 
     .top-navigation{
-        gap:7px;
-        margin-bottom:18px;
+
+        gap:10px;
+
+        padding:
+            2px 2px 9px;
+
+        margin-bottom:8px;
+
+        overflow-x:auto;
+
+        overflow-y:hidden;
+
+        touch-action:pan-x;
     }
+
 
     .nav-box{
-        min-height:58px;
 
-        font-size:13px;
+        min-width:145px;
 
-        padding:7px 3px;
+        min-height:64px;
 
-        border-radius:8px;
+        padding:9px 17px;
+
+        font-size:18px;
+
+        border-radius:9px;
     }
 
+
     .card{
-        padding:27px 18px;
+
+        padding:18px 15px;
+
+        border-radius:10px;
     }
 
     .title{
-        font-size:31px;
+
+        font-size:28px;
+
+        margin-bottom:6px;
     }
 
     .subtitle{
-        font-size:20px;
+
+        font-size:17px;
+
+        margin-bottom:14px;
+    }
+
+    .option{
+
+        min-height:61px;
+
+        padding:8px 10px;
+
+        margin-bottom:8px;
+
+        gap:10px;
+    }
+
+    .option-icon{
+
+        width:40px;
+        height:40px;
+
+        min-width:40px;
+
+        font-size:21px;
     }
 
     .option-title{
-        font-size:20px;
+
+        font-size:18px;
     }
 
     .option-description{
-        font-size:15px;
+
+        font-size:13px;
+
+        margin-top:2px;
     }
 
+    .option-arrow{
+
+        font-size:27px;
+    }
+
+    .event-id-box{
+
+        margin-top:9px;
+
+        padding:8px 10px;
+    }
+
+    .event-id-label{
+
+        font-size:12px;
+
+        margin-bottom:3px;
+    }
+
+    .event-id-value{
+
+        font-size:11px;
+    }
+
+
     .qr-box{
+
         padding:22px 15px 18px;
     }
 
     .qr-title{
+
         font-size:25px;
     }
 
     .qr-code-wrapper{
+
         width:250px;
         height:250px;
     }
 
     #qrCode{
+
         width:230px;
         height:230px;
     }
 
     #qrCode img{
+
         max-width:230px;
         max-height:230px;
     }
 
+}
+
+
+/* =========================================
+   SMALL HEIGHT DEVICES
+========================================= */
+
+@media(max-width:480px) and (max-height:700px){
+
+    .nav-box{
+
+        min-height:58px;
+
+        font-size:17px;
+    }
+
+    .card{
+
+        padding:14px 13px;
+    }
+
+    .title{
+
+        font-size:25px;
+    }
+
+    .subtitle{
+
+        font-size:15px;
+
+        margin-bottom:10px;
+    }
+
+    .option{
+
+        min-height:53px;
+
+        margin-bottom:6px;
+
+        padding:6px 8px;
+    }
+
+    .option-icon{
+
+        width:36px;
+        height:36px;
+
+        min-width:36px;
+
+        font-size:19px;
+    }
+
+    .option-title{
+
+        font-size:16px;
+    }
+
+    .option-description{
+
+        font-size:12px;
+    }
+
+}
+
+
+/* =========================================
+   QR ERROR
+========================================= */
+
+.qr-error{
+
+    font-size:16px;
+
+    color:#d32f2f;
+
+    line-height:1.5;
+
+    padding:20px;
 }
 
 </style>
@@ -573,10 +847,14 @@ body{
 
 
 <!-- =========================================
-     TOP NAVIGATION
+     HORIZONTAL NAVIGATION
+     ONLY THIS AREA CAN SCROLL
 ========================================= -->
 
-<nav class="top-navigation">
+<nav
+    class="top-navigation"
+    id="topNavigation"
+>
 
     <div
         class="nav-box"
@@ -626,7 +904,9 @@ body{
 </div>
 
 
-<!-- OPTION 1 -->
+<!-- =========================================
+     OPTION 1
+========================================= -->
 
 <div
     class="option"
@@ -656,7 +936,9 @@ body{
 </div>
 
 
-<!-- OPTION 2 -->
+<!-- =========================================
+     OPTION 2
+========================================= -->
 
 <div
     class="option"
@@ -686,7 +968,9 @@ body{
 </div>
 
 
-<!-- OPTION 3 -->
+<!-- =========================================
+     OPTION 3
+========================================= -->
 
 <div
     class="option"
@@ -716,7 +1000,9 @@ body{
 </div>
 
 
-<!-- OPTION 4 -->
+<!-- =========================================
+     OPTION 4
+========================================= -->
 
 <div
     class="option"
@@ -746,7 +1032,9 @@ body{
 </div>
 
 
-<!-- EVENT ID -->
+<!-- =========================================
+     EVENT ID
+========================================= -->
 
 <div class="event-id-box">
 
@@ -841,11 +1129,13 @@ const params =
         window.location.search
     );
 
+
 const eventId =
     params.get("eventId") ||
     sessionStorage.getItem(
         "crickpulseEventId"
     );
+
 
 const eventName =
     sessionStorage.getItem(
@@ -907,7 +1197,7 @@ else{
 
 
 /* =========================================
-   INVITE LINK
+   CREATE INVITE LINK
 ========================================= */
 
 function createInviteLink(){
@@ -928,7 +1218,7 @@ function createInviteLink(){
 
 
 /* =========================================
-   BACK
+   BACK BUTTON
 ========================================= */
 
 document
@@ -946,9 +1236,6 @@ document
 /* =========================================
    TOP NAVIGATION
    TEMPORARY
-
-   Actual pages/content will be connected
-   later according to user's instructions.
 ========================================= */
 
 document
@@ -1030,6 +1317,7 @@ document
         const inviteLink =
             createInviteLink();
 
+
         if(
             navigator.share
         ){
@@ -1064,6 +1352,7 @@ document
             return;
 
         }
+
 
         if(
             navigator.clipboard
@@ -1185,20 +1474,26 @@ document
 
         }
 
+
         const inviteLink =
             createInviteLink();
+
 
         qrModal.classList.add(
             "show"
         );
 
+
         qrEventName.textContent =
             eventName;
+
 
         qrLink.textContent =
             inviteLink;
 
+
         qrCode.innerHTML = "";
+
 
         if(
             typeof QRCode ===
@@ -1218,6 +1513,7 @@ document
             return;
 
         }
+
 
         new QRCode(
             qrCode,
