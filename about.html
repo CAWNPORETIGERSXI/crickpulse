@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>CRICKPULSE | About</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Verdana,Geneva,sans-serif;
+    background:#f7f5ff;
+    color:#171225;
+    min-height:100vh;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    height:82px;
+
+    background:#fff;
+
+    border-bottom:1px solid #e4ddf2;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 15px;
+
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.back-button{
+    width:58px;
+    height:58px;
+
+    border:1.5px solid #ff3b30;
+    border-radius:8px;
+
+    background:#fff;
+
+    color:#6328c7;
+
+    font-size:42px;
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.page-title{
+    flex:1;
+
+    text-align:center;
+
+    font-size:27px;
+    font-weight:900;
+
+    margin-right:58px;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+    width:100%;
+    max-width:760px;
+
+    margin:auto;
+
+    padding:28px 16px 60px;
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.card{
+    background:#fff;
+
+    border:1.5px solid #ff3b30;
+    border-radius:10px;
+
+    padding:26px 20px;
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.06);
+
+    margin-bottom:20px;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo-section{
+    text-align:center;
+
+    margin-bottom:20px;
+}
+
+.event-logo{
+    width:145px;
+    height:145px;
+
+    margin:0 auto 14px;
+
+    border-radius:50%;
+
+    border:2px solid #ff3b30;
+
+    background:#f7f5ff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    color:#6c35d9;
+
+    font-size:22px;
+    font-weight:900;
+}
+
+.event-logo img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:none;
+}
+
+.logo-placeholder{
+    text-align:center;
+}
+
+
+/* =========================
+   EVENT NAME
+========================= */
+
+.event-name{
+    font-size:28px;
+
+    font-weight:900;
+
+    color:#171225;
+
+    line-height:1.3;
+
+    margin-bottom:6px;
+}
+
+.event-type{
+    font-size:17px;
+
+    color:#6d667c;
+
+    font-weight:800;
+}
+
+
+/* =========================
+   GO LIVE
+========================= */
+
+.go-live-button{
+    width:100%;
+
+    height:58px;
+
+    margin-top:20px;
+
+    border:1.5px solid #ff3b30;
+    border-radius:8px;
+
+    background:#fff;
+
+    color:#d62828;
+
+    font-family:Verdana,Geneva,sans-serif;
+
+    font-size:20px;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.go-live-button:active{
+    transform:scale(.98);
+}
+
+
+/* =========================
+   SECTION HEADER
+========================= */
+
+.section-header{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    margin-bottom:18px;
+}
+
+.section-title{
+    font-size:25px;
+
+    font-weight:900;
+}
+
+.edit-button{
+    border:1.5px solid #ff3b30;
+
+    border-radius:7px;
+
+    background:#fff;
+
+    color:#6c35d9;
+
+    padding:9px 15px;
+
+    font-family:Verdana,Geneva,sans-serif;
+
+    font-size:16px;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   DETAILS
+========================= */
+
+.detail-box{
+    border:1.5px solid #ff3b30;
+
+    border-radius:8px;
+
+    padding:14px;
+
+    margin-bottom:12px;
+
+    background:#fff;
+}
+
+.detail-label{
+    color:#6d667c;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    margin-bottom:6px;
+}
+
+.detail-value{
+    font-size:18px;
+
+    font-weight:900;
+
+    word-break:break-word;
+}
+
+
+/* =========================
+   SHARE QR
+========================= */
+
+.qr-button{
+    width:100%;
+
+    height:62px;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:8px;
+
+    background:#6c35d9;
+
+    color:#fff;
+
+    font-family:Verdana,Geneva,sans-serif;
+
+    font-size:20px;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    position:fixed;
+
+    inset:0;
+
+    z-index:1000;
+
+    background:rgba(0,0,0,.55);
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:16px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-card{
+    width:100%;
+    max-width:600px;
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    background:#fff;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:12px;
+
+    padding:24px 18px;
+}
+
+.modal-title{
+    font-size:26px;
+
+    font-weight:900;
+
+    margin-bottom:20px;
+}
+
+.modal-field{
+    margin-bottom:17px;
+}
+
+.modal-field label{
+    display:block;
+
+    font-size:17px;
+
+    font-weight:900;
+
+    margin-bottom:7px;
+}
+
+.modal-field input,
+.modal-field select{
+    width:100%;
+
+    height:54px;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:8px;
+
+    padding:0 12px;
+
+    font-family:Verdana,Geneva,sans-serif;
+
+    font-size:17px;
+
+    outline:none;
+
+    background:#fff;
+}
+
+.modal-buttons{
+    display:flex;
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.modal-buttons button{
+    flex:1;
+
+    height:56px;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:8px;
+
+    font-family:Verdana,Geneva,sans-serif;
+
+    font-size:17px;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.cancel-button{
+    background:#fff;
+
+    color:#6c35d9;
+}
+
+.save-button{
+    background:#6c35d9;
+
+    color:#fff;
+}
+
+
+/* =========================
+   QR MODAL
+========================= */
+
+.qr-modal-card{
+    width:100%;
+
+    max-width:400px;
+
+    background:#fff;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:12px;
+
+    padding:24px 18px;
+
+    text-align:center;
+}
+
+.qr-title{
+    font-size:25px;
+
+    font-weight:900;
+
+    margin-bottom:18px;
+}
+
+#qrCode{
+    width:230px;
+    height:230px;
+
+    margin:0 auto 18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.qr-link{
+    font-size:13px;
+
+    color:#6d667c;
+
+    word-break:break-all;
+
+    line-height:1.4;
+
+    margin-bottom:18px;
+}
+
+.qr-buttons{
+    display:flex;
+
+    gap:10px;
+}
+
+.qr-buttons button{
+    flex:1;
+
+    height:54px;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:8px;
+
+    font-family:Verdana,Geneva,sans-serif;
+
+    font-size:16px;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.share-button{
+    background:#6c35d9;
+
+    color:#fff;
+}
+
+.close-button{
+    background:#fff;
+
+    color:#6c35d9;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status{
+    text-align:center;
+
+    font-size:15px;
+
+    font-weight:800;
+
+    margin-top:12px;
+
+    color:#6c35d9;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:480px){
+
+    .header{
+        height:76px;
+
+        padding:0 11px;
+    }
+
+    .back-button{
+        width:52px;
+        height:52px;
+
+        font-size:38px;
+    }
+
+    .page-title{
+        font-size:23px;
+
+        margin-right:52px;
+    }
+
+    .page{
+        padding:24px 14px 50px;
+    }
+
+    .card{
+        padding:24px 16px;
+    }
+
+    .event-logo{
+        width:130px;
+        height:130px;
+    }
+
+    .event-name{
+        font-size:24px;
+    }
+
+    .section-title{
+        font-size:22px;
+    }
+
+    .detail-value{
+        font-size:17px;
+    }
+
+    .modal-title{
+        font-size:23px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+<button
+    class="back-button"
+    id="backButton"
+    type="button"
+>
+‹
+</button>
+
+<div class="page-title">
+    About
+</div>
+
+</header>
+
+
+<!-- =========================
+     PAGE
+========================= -->
+
+<main class="page">
+
+
+<!-- =========================
+     EVENT CARD
+========================= -->
+
+<section class="card">
+
+<div class="logo-section">
+
+<div class="event-logo">
+
+<img
+    id="eventLogo"
+    alt="Tournament Logo"
+>
+
+<div
+    id="logoPlaceholder"
+    class="logo-placeholder"
+>
+    CRICKPULSE
+</div>
+
+</div>
+
+
+<div
+    class="event-name"
+    id="eventName"
+>
+    Loading...
+</div>
+
+
+<div
+    class="event-type"
+    id="eventType"
+>
+    Loading...
+</div>
+
+
+<button
+    class="go-live-button"
+    id="goLiveButton"
+    type="button"
+>
+    🔴 GO LIVE
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ORGANIZER DETAILS
+========================= -->
+
+<section class="card">
+
+<div class="section-header">
+
+<div class="section-title">
+    Organizer Details
+</div>
+
+<button
+    class="edit-button"
+    id="editButton"
+    type="button"
+>
+    EDIT
+</button>
+
+</div>
+
+
+<div id="detailsContainer">
+
+<div class="detail-box">
+
+<div class="detail-label">
+    Name
+</div>
+
+<div
+    class="detail-value"
+    id="detailName"
+>
+    Loading...
+</div>
+
+</div>
+
+
+<div class="detail-box">
+
+<div class="detail-label">
+    Date
+</div>
+
+<div
+    class="detail-value"
+    id="detailDate"
+>
+    Loading...
+</div>
+
+</div>
+
+
+<div class="detail-box">
+
+<div class="detail-label">
+    Ground / Venue
+</div>
+
+<div
+    class="detail-value"
+    id="detailGround"
+>
+    Loading...
+</div>
+
+</div>
+
+
+<div class="detail-box">
+
+<div class="detail-label">
+    Ball Type
+</div>
+
+<div
+    class="detail-value"
+    id="detailBallType"
+>
+    Loading...
+</div>
+
+</div>
+
+
+<div class="detail-box">
+
+<div class="detail-label">
+    Category
+</div>
+
+<div
+    class="detail-value"
+    id="detailCategory"
+>
+    Loading...
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     SHARE QR
+========================= -->
+
+<section class="card">
+
+<div class="section-header">
+
+<div class="section-title">
+    Tournament QR
+</div>
+
+</div>
+
+<button
+    class="qr-button"
+    id="qrButton"
+    type="button"
+>
+    ▣ Share QR
+</button>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================
+     EDIT MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="editModal"
+>
+
+<div class="modal-card">
+
+<div class="modal-title">
+    Edit Tournament Details
+</div>
+
+
+<div class="modal-field">
+
+<label for="editName">
+    Name
+</label>
+
+<input
+    id="editName"
+    type="text"
+>
+
+</div>
+
+
+<div class="modal-field">
+
+<label for="editDate">
+    Date
+</label>
+
+<input
+    id="editDate"
+    type="date"
+>
+
+</div>
+
+
+<div class="modal-field">
+
+<label for="editGround">
+    Ground / Venue
+</label>
+
+<input
+    id="editGround"
+    type="text"
+>
+
+</div>
+
+
+<div class="modal-field">
+
+<label for="editBallType">
+    Ball Type
+</label>
+
+<input
+    id="editBallType"
+    type="text"
+>
+
+</div>
+
+
+<div class="modal-field">
+
+<label for="editCategory">
+    Category
+</label>
+
+<input
+    id="editCategory"
+    type="text"
+>
+
+</div>
+
+
+<div
+    class="status"
+    id="editStatus"
+></div>
+
+
+<div class="modal-buttons">
+
+<button
+    class="cancel-button"
+    id="cancelEdit"
+    type="button"
+>
+CANCEL
+</button>
+
+<button
+    class="save-button"
+    id="saveEdit"
+    type="button"
+>
+SAVE
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     QR MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="qrModal"
+>
+
+<div class="qr-modal-card">
+
+<div class="qr-title">
+    Tournament QR
+</div>
+
+
+<div id="qrCode"></div>
+
+
+<div
+    class="qr-link"
+    id="qrLink"
+>
+    Loading...
+</div>
+
+
+<div class="qr-buttons">
+
+<button
+    class="close-button"
+    id="closeQr"
+    type="button"
+>
+CLOSE
+</button>
+
+<button
+    class="share-button"
+    id="shareQr"
+    type="button"
+>
+SHARE
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     FIREBASE
+========================= -->
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+    doc,
+    getDoc,
+    updateDoc
+}
+from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+/* =========================================
+   EVENT ID
+========================================= */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const eventId =
+    params.get("eventId") ||
+    sessionStorage.getItem(
+        "crickpulseEventId"
+    );
+
+
+if(!eventId){
+
+    alert(
+        "Tournament ID is missing."
+    );
+
+    window.location.href =
+        "create-event.html";
+
+}
+
+
+sessionStorage.setItem(
+    "crickpulseEventId",
+    eventId
+);
+
+
+/* =========================================
+   FIREBASE REFERENCE
+========================================= */
+
+const eventRef =
+    doc(
+        db,
+        "events",
+        eventId
+    );
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const eventName =
+    document.getElementById(
+        "eventName"
+    );
+
+const eventType =
+    document.getElementById(
+        "eventType"
+    );
+
+const eventLogo =
+    document.getElementById(
+        "eventLogo"
+    );
+
+const logoPlaceholder =
+    document.getElementById(
+        "logoPlaceholder"
+    );
+
+
+const detailName =
+    document.getElementById(
+        "detailName"
+    );
+
+const detailDate =
+    document.getElementById(
+        "detailDate"
+    );
+
+const detailGround =
+    document.getElementById(
+        "detailGround"
+    );
+
+const detailBallType =
+    document.getElementById(
+        "detailBallType"
+    );
+
+const detailCategory =
+    document.getElementById(
+        "detailCategory"
+    );
+
+
+/* =========================================
+   EDIT ELEMENTS
+========================================= */
+
+const editModal =
+    document.getElementById(
+        "editModal"
+    );
+
+const editName =
+    document.getElementById(
+        "editName"
+    );
+
+const editDate =
+    document.getElementById(
+        "editDate"
+    );
+
+const editGround =
+    document.getElementById(
+        "editGround"
+    );
+
+const editBallType =
+    document.getElementById(
+        "editBallType"
+    );
+
+const editCategory =
+    document.getElementById(
+        "editCategory"
+    );
+
+const editStatus =
+    document.getElementById(
+        "editStatus"
+    );
+
+
+/* =========================================
+   CURRENT EVENT DATA
+========================================= */
+
+let currentEventData = {};
+
+
+/* =========================================
+   FORMAT DATE
+========================================= */
+
+function formatDate(value){
+
+    if(!value){
+
+        return "Not set";
+
+    }
+
+
+    /*
+     * Firebase may contain
+     * different date formats.
+     */
+
+    if(
+        typeof value === "string" &&
+        /^\d{4}-\d{2}-\d{2}$/.test(
+            value
+        )
+    ){
+
+        const parts =
+            value.split("-");
+
+
+        return (
+            parts[2] +
+            "-" +
+            parts[1] +
+            "-" +
+            parts[0]
+        );
+
+    }
+
+
+    return String(value);
+
+}
+
+
+/* =========================================
+   LOAD EVENT
+========================================= */
+
+async function loadEvent(){
+
+    try{
+
+        const snapshot =
+            await getDoc(
+                eventRef
+            );
+
+
+        if(
+            !snapshot.exists()
+        ){
+
+            alert(
+                "Tournament document not found in Firebase."
+            );
+
+            return;
+
+        }
+
+
+        currentEventData =
+            snapshot.data();
+
+
+        renderEvent();
+
+    }
+    catch(error){
+
+        console.error(
+            "ABOUT LOAD ERROR:",
+            error
+        );
+
+        alert(
+            "Tournament details load नहीं हो पाईं."
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   RENDER EVENT
+========================================= */
+
+function renderEvent(){
+
+    const data =
+        currentEventData;
+
+
+    /*
+     * EVENT NAME
+     */
+
+    const name =
+        data.eventName ||
+        data.name ||
+        "CRICKPULSE Tournament";
+
+
+    eventName.textContent =
+        name;
+
+
+    /*
+     * EVENT TYPE
+     */
+
+    eventType.textContent =
+        data.eventType ||
+        "Tournament";
+
+
+    /*
+     * LOGO
+     */
+
+    const logo =
+        data.logo ||
+        data.eventLogo ||
+        data.tournamentLogo ||
+        "";
+
+
+    if(logo){
+
+        eventLogo.src =
+            logo;
+
+        eventLogo.style.display =
+            "block";
+
+        logoPlaceholder.style.display =
+            "none";
+
+    }
+    else{
+
+        eventLogo.style.display =
+            "none";
+
+        logoPlaceholder.style.display =
+            "block";
+
+    }
+
+
+    /*
+     * DETAILS
+     */
+
+    detailName.textContent =
+        data.eventName ||
+        data.name ||
+        "Not set";
+
+
+    detailDate.textContent =
+        formatDate(
+            data.date ||
+            data.eventDate ||
+            data.startDate
+        );
+
+
+    detailGround.textContent =
+        data.ground ||
+        data.venue ||
+        "Not set";
+
+
+    detailBallType.textContent =
+        data.ballType ||
+        "Not set";
+
+
+    detailCategory.textContent =
+        data.category ||
+        "Not set";
+
+}
+
+
+/* =========================================
+   EDIT BUTTON
+========================================= */
+
+document
+.getElementById(
+    "editButton"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        const data =
+            currentEventData;
+
+
+        editName.value =
+            data.eventName ||
+            data.name ||
+            "";
+
+
+        editDate.value =
+            data.date ||
+            data.eventDate ||
+            data.startDate ||
+            "";
+
+
+        editGround.value =
+            data.ground ||
+            data.venue ||
+            "";
+
+
+        editBallType.value =
+            data.ballType ||
+            "";
+
+
+        editCategory.value =
+            data.category ||
+            "";
+
+
+        editStatus.textContent =
+            "";
+
+
+        editModal.classList.add(
+            "active"
+        );
+
+    }
+);
+
+
+/* =========================================
+   CANCEL EDIT
+========================================= */
+
+document
+.getElementById(
+    "cancelEdit"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        editModal.classList.remove(
+            "active"
+        );
+
+    }
+);
+
+
+/* =========================================
+   SAVE EDIT
+========================================= */
+
+document
+.getElementById(
+    "saveEdit"
+)
+.addEventListener(
+    "click",
+    async function(){
+
+        const newName =
+            editName.value.trim();
+
+
+        const newDate =
+            editDate.value;
+
+
+        const newGround =
+            editGround.value.trim();
+
+
+        const newBallType =
+            editBallType.value.trim();
+
+
+        const newCategory =
+            editCategory.value.trim();
+
+
+        if(!newName){
+
+            alert(
+                "Please enter Name."
+            );
+
+            return;
+
+        }
+
+
+        this.disabled =
+            true;
+
+        this.textContent =
+            "SAVING...";
+
+
+        try{
+
+            await updateDoc(
+                eventRef,
+                {
+
+                    eventName:
+                        newName,
+
+                    date:
+                        newDate,
+
+                    ground:
+                        newGround,
+
+                    ballType:
+                        newBallType,
+
+                    category:
+                        newCategory
+
+                }
+            );
+
+
+            /*
+             * Update local data
+             */
+
+            currentEventData =
+                {
+
+                    ...currentEventData,
+
+                    eventName:
+                        newName,
+
+                    date:
+                        newDate,
+
+                    ground:
+                        newGround,
+
+                    ballType:
+                        newBallType,
+
+                    category:
+                        newCategory
+
+                };
+
+
+            renderEvent();
+
+
+            editStatus.textContent =
+                "Details updated successfully.";
+
+
+            setTimeout(
+                function(){
+
+                    editModal.classList.remove(
+                        "active"
+                    );
+
+                },
+                700
+            );
+
+        }
+        catch(error){
+
+            console.error(
+                "EDIT SAVE ERROR:",
+                error
+            );
+
+
+            editStatus.textContent =
+                "Update failed: " +
+                error.message;
+
+        }
+        finally{
+
+            this.disabled =
+                false;
+
+            this.textContent =
+                "SAVE";
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   CLOSE MODAL BY BACKGROUND
+========================================= */
+
+editModal.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target ===
+            editModal
+        ){
+
+            editModal.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   GO LIVE
+========================================= */
+
+document
+.getElementById(
+    "goLiveButton"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        alert(
+            "GO LIVE feature will be connected with YouTube later."
+        );
+
+    }
+);
+
+
+/* =========================================
+   QR CODE
+========================================= */
+
+const qrModal =
+    document.getElementById(
+        "qrModal"
+    );
+
+const qrCode =
+    document.getElementById(
+        "qrCode"
+    );
+
+const qrLink =
+    document.getElementById(
+        "qrLink"
+    );
+
+
+function openQr(){
+
+    const link =
+        window.location.origin +
+        "/add-manually.html?eventId=" +
+        encodeURIComponent(
+            eventId
+        );
+
+
+    qrCode.innerHTML =
+        "";
+
+
+    const qrImage =
+        document.createElement(
+            "img"
+        );
+
+
+    qrImage.width =
+        230;
+
+    qrImage.height =
+        230;
+
+
+    qrImage.alt =
+        "Tournament QR Code";
+
+
+    qrImage.src =
+        "https://api.qrserver.com/v1/create-qr-code/?size=230x230&data=" +
+        encodeURIComponent(
+            link
+        );
+
+
+    qrCode.appendChild(
+        qrImage
+    );
+
+
+    qrLink.textContent =
+        link;
+
+
+    qrModal.classList.add(
+        "active"
+    );
+
+}
+
+
+/* =========================================
+   QR BUTTON
+========================================= */
+
+document
+.getElementById(
+    "qrButton"
+)
+.addEventListener(
+    "click",
+    openQr
+);
+
+
+/* =========================================
+   CLOSE QR
+========================================= */
+
+document
+.getElementById(
+    "closeQr"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        qrModal.classList.remove(
+            "active"
+        );
+
+    }
+);
+
+
+/* =========================================
+   SHARE QR
+========================================= */
+
+document
+.getElementById(
+    "shareQr"
+)
+.addEventListener(
+    "click",
+    async function(){
+
+        const link =
+            qrLink.textContent;
+
+
+        if(
+            navigator.share
+        ){
+
+            try{
+
+                await navigator.share({
+
+                    title:
+                        currentEventData.eventName ||
+                        "CRICKPULSE Tournament",
+
+                    text:
+                        "Join this CRICKPULSE tournament.",
+
+                    url:
+                        link
+
+                });
+
+            }
+            catch(error){
+
+                console.log(
+                    "Share cancelled."
+                );
+
+            }
+
+            return;
+
+        }
+
+
+        try{
+
+            await navigator
+            .clipboard
+            .writeText(
+                link
+            );
+
+
+            alert(
+                "Tournament link copied."
+            );
+
+        }
+        catch(error){
+
+            alert(
+                link
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   QR BACKGROUND
+========================================= */
+
+qrModal.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target ===
+            qrModal
+        ){
+
+            qrModal.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   BACK
+========================================= */
+
+document
+.getElementById(
+    "backButton"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        window.location.href =
+            "add-manually.html?eventId=" +
+            encodeURIComponent(
+                eventId
+            );
+
+    }
+);
+
+
+/* =========================================
+   START
+========================================= */
+
+loadEvent();
+
+</script>
+
+</body>
+
+</html>
