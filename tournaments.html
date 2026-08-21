@@ -5,11 +5,18 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-<title>CRICKPULSE | Tournaments</title>
+<title>CRICKPULSE | Tournament List</title>
 
 <style>
+
+/* =================================================
+   RESET
+================================================= */
 
 *{
     margin:0;
@@ -23,20 +30,10 @@ body{
     color:#171225;
 }
 
-button,
-a{
-    font-family:inherit;
-}
 
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-
-/* ================================
+/* =================================================
    HEADER
-================================ */
+================================================= */
 
 .top-header{
 
@@ -47,15 +44,12 @@ a{
     border-bottom:1px solid #e4ddf2;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     padding:10px 15px;
 
     position:sticky;
-
     top:0;
 
     z-index:1000;
@@ -65,11 +59,9 @@ a{
 .back-button{
 
     width:52px;
-
     height:52px;
 
     border:1.5px solid #ff3b30;
-
     border-radius:8px;
 
     background:#ffffff;
@@ -77,7 +69,6 @@ a{
     color:#6328c7;
 
     font-size:38px;
-
     font-weight:900;
 
     cursor:pointer;
@@ -90,22 +81,20 @@ a{
 
     text-align:center;
 
-    font-size:24px;
+    font-size:22px;
 
     font-weight:900;
-
 }
 
 
 .header-space{
-
     width:52px;
 }
 
 
-/* ================================
+/* =================================================
    PAGE
-================================ */
+================================================= */
 
 .page{
 
@@ -119,13 +108,12 @@ a{
 }
 
 
-/* ================================
+/* =================================================
    HEADING
-================================ */
+================================================= */
 
 .page-heading{
-
-    margin-bottom:25px;
+    margin-bottom:22px;
 }
 
 
@@ -135,12 +123,11 @@ a{
 
     color:#6c35d9;
 
-    font-size:13px;
+    font-size:12px;
 
     font-weight:900;
 
     letter-spacing:1px;
-
 }
 
 
@@ -148,7 +135,7 @@ a{
 
     margin-top:7px;
 
-    font-size:30px;
+    font-size:28px;
 
     font-weight:900;
 }
@@ -166,15 +153,35 @@ a{
 }
 
 
-/* ================================
-   COUNT
-================================ */
+/* =================================================
+   CONTROL BAR
+================================================= */
+
+.control-bar{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-bottom:18px;
+}
+
 
 .count-box{
 
-    margin-bottom:20px;
+    flex:1;
 
-    padding:15px;
+    min-height:52px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 14px;
 
     background:#ffffff;
 
@@ -184,15 +191,42 @@ a{
 
     color:#6c35d9;
 
-    font-size:17px;
+    font-size:16px;
 
     font-weight:900;
 }
 
 
-/* ================================
+.refresh-button{
+
+    min-height:52px;
+
+    padding:0 18px;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:8px;
+
+    background:#6c35d9;
+
+    color:#ffffff;
+
+    font-size:15px;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+
+.refresh-button:active{
+    transform:scale(.97);
+}
+
+
+/* =================================================
    LOADING
-================================ */
+================================================= */
 
 .loading{
 
@@ -208,19 +242,19 @@ a{
 
     color:#6c35d9;
 
-    font-size:18px;
+    font-size:17px;
 
     font-weight:900;
 }
 
 
-/* ================================
-   EMPTY
-================================ */
+/* =================================================
+   EMPTY / ERROR
+================================================= */
 
-.empty{
+.message-box{
 
-    padding:40px 20px;
+    padding:35px 20px;
 
     text-align:center;
 
@@ -232,15 +266,15 @@ a{
 }
 
 
-.empty h2{
+.message-box h2{
 
-    font-size:23px;
+    font-size:22px;
 
     margin-bottom:10px;
 }
 
 
-.empty p{
+.message-box p{
 
     color:#81768e;
 
@@ -250,9 +284,9 @@ a{
 }
 
 
-/* ================================
+/* =================================================
    TOURNAMENT LIST
-================================ */
+================================================= */
 
 .tournament-list{
 
@@ -262,15 +296,11 @@ a{
 }
 
 
-/* ================================
+/* =================================================
    TOURNAMENT CARD
-================================ */
+================================================= */
 
 .tournament-card{
-
-    display:block;
-
-    padding:18px;
 
     background:#ffffff;
 
@@ -278,24 +308,17 @@ a{
 
     border-radius:10px;
 
+    padding:18px;
+
     box-shadow:
-        0 6px 20px rgba(76,45,130,.07);
-
-    cursor:pointer;
-
-    transition:.2s ease;
+        0 6px 20px
+        rgba(76,45,130,.07);
 }
 
 
-.tournament-card:active{
-
-    transform:scale(.98);
-}
-
-
-/* ================================
-   TOP
-================================ */
+/* =================================================
+   CARD TOP
+================================================= */
 
 .card-top{
 
@@ -309,9 +332,8 @@ a{
 
 .logo{
 
-    width:68px;
-
-    height:68px;
+    width:65px;
+    height:65px;
 
     flex-shrink:0;
 
@@ -324,23 +346,21 @@ a{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
-
-    overflow:hidden;
 
     color:#6c35d9;
 
-    font-size:25px;
+    font-size:22px;
 
     font-weight:900;
+
+    overflow:hidden;
 }
 
 
 .logo img{
 
     width:100%;
-
     height:100%;
 
     object-fit:cover;
@@ -357,7 +377,7 @@ a{
 
 .tournament-name{
 
-    font-size:21px;
+    font-size:20px;
 
     font-weight:900;
 
@@ -379,13 +399,9 @@ a{
 }
 
 
-/* ================================
-   STATUS
-================================ */
-
 .status{
 
-    padding:6px 10px;
+    padding:6px 9px;
 
     border-radius:20px;
 
@@ -393,7 +409,7 @@ a{
 
     color:#6c35d9;
 
-    font-size:10px;
+    font-size:9px;
 
     font-weight:900;
 
@@ -401,9 +417,9 @@ a{
 }
 
 
-/* ================================
+/* =================================================
    DETAILS
-================================ */
+================================================= */
 
 .card-details{
 
@@ -415,7 +431,7 @@ a{
 
     display:grid;
 
-    gap:8px;
+    gap:9px;
 }
 
 
@@ -425,10 +441,11 @@ a{
 
     justify-content:space-between;
 
+    align-items:flex-start;
+
     gap:15px;
 
     font-size:12px;
-
 }
 
 
@@ -448,19 +465,19 @@ a{
 
     text-align:right;
 
-    word-break:break-all;
+    word-break:break-word;
 }
 
 
-/* ================================
+/* =================================================
    EVENT ID
-================================ */
+================================================= */
 
 .event-id-box{
 
-    margin-top:14px;
+    margin-top:15px;
 
-    padding:10px;
+    padding:12px;
 
     background:#faf8ff;
 
@@ -480,7 +497,7 @@ a{
 
     font-weight:900;
 
-    margin-bottom:4px;
+    margin-bottom:5px;
 }
 
 
@@ -500,45 +517,82 @@ a{
 }
 
 
-/* ================================
+/* =================================================
+   FIREBASE STATUS
+================================================= */
+
+.firebase-status{
+
+    margin-top:20px;
+
+    padding:13px;
+
+    background:#ffffff;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:8px;
+
+    color:#35a85b;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    text-align:center;
+}
+
+
+/* =================================================
    MOBILE
-================================ */
+================================================= */
 
 @media(max-width:480px){
 
     .header-title{
-
-        font-size:20px;
+        font-size:19px;
     }
+
 
     .page{
-
-        padding:
-            24px 14px 100px;
+        padding:24px 14px 100px;
     }
+
 
     .page-heading h1{
-
-        font-size:28px;
+        font-size:26px;
     }
 
-    .tournament-name{
 
+    .control-bar{
+        align-items:stretch;
+    }
+
+
+    .count-box{
+        font-size:14px;
+    }
+
+
+    .refresh-button{
+        padding:0 14px;
+        font-size:13px;
+    }
+
+
+    .tournament-name{
         font-size:18px;
     }
 
+
     .logo{
-
-        width:60px;
-
-        height:60px;
+        width:58px;
+        height:58px;
     }
 
+
     .status{
-
-        font-size:9px;
-
-        padding:5px 8px;
+        font-size:8px;
     }
 
 }
@@ -550,6 +604,10 @@ a{
 
 <body>
 
+
+<!-- =================================================
+     HEADER
+================================================= -->
 
 <header class="top-header">
 
@@ -563,7 +621,7 @@ a{
 
 
     <div class="header-title">
-        Tournaments
+        Tournament List
     </div>
 
 
@@ -572,41 +630,72 @@ a{
 </header>
 
 
+<!-- =================================================
+     MAIN
+================================================= -->
+
 <main class="page">
 
 
     <div class="page-heading">
 
         <span>
-            CRICKPULSE
+            FIREBASE VERIFICATION
         </span>
 
         <h1>
-            My Tournaments
+            All Tournaments
         </h1>
 
         <p>
-            All tournaments created in CRICKPULSE.
+            सभी Tournament जो Firebase में
+            <b>events</b> collection के अंदर
+            मौजूद हैं, यहाँ दिखाई देंगे।
         </p>
 
     </div>
 
 
-    <div
-        class="count-box"
-        id="countBox"
-    >
-        Loading tournaments...
+    <!-- =================================================
+         CONTROL
+    ================================================= -->
+
+    <div class="control-bar">
+
+        <div
+            class="count-box"
+            id="countBox"
+        >
+            Loading...
+        </div>
+
+
+        <button
+            class="refresh-button"
+            id="refreshButton"
+            type="button"
+        >
+            ↻ REFRESH
+        </button>
+
     </div>
 
+
+    <!-- =================================================
+         LOADING
+    ================================================= -->
 
     <div
         class="loading"
         id="loading"
     >
-        Loading from Firebase...
+        Connecting to Firebase...
     </div>
 
+
+    <!-- =================================================
+         LIST
+    ================================================= -->
 
     <div
         class="tournament-list"
@@ -615,113 +704,260 @@ a{
     ></div>
 
 
+    <!-- =================================================
+         FIREBASE STATUS
+    ================================================= -->
+
+    <div
+        class="firebase-status"
+        id="firebaseStatus"
+        style="display:none;"
+    >
+        ✓ Firebase connected successfully
+    </div>
+
+
 </main>
 
 
+<!-- =================================================
+     FIREBASE SCRIPT
+================================================= -->
+
 <script type="module">
 
+
+/* =================================================
+   FIREBASE
+================================================= */
+
 import { db } from "./firebase.js";
+
 
 import {
 
     collection,
     getDocs
 
-} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+} from
+"https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 
-/* ================================
-   BACK
-================================ */
-
-document
-.getElementById("backButton")
-.addEventListener("click",function(){
-
-    window.location.href =
-        "dashboard.html";
-
-});
-
-
-/* ================================
+/* =================================================
    ELEMENTS
-================================ */
+================================================= */
 
 const loading =
     document.getElementById("loading");
 
+
 const list =
     document.getElementById("tournamentList");
+
 
 const countBox =
     document.getElementById("countBox");
 
 
-/* ================================
+const refreshButton =
+    document.getElementById("refreshButton");
+
+
+const firebaseStatus =
+    document.getElementById("firebaseStatus");
+
+
+/* =================================================
+   BACK
+================================================= */
+
+document
+.getElementById("backButton")
+.addEventListener(
+    "click",
+    function(){
+
+        window.location.href =
+            "dashboard.html";
+
+    }
+);
+
+
+/* =================================================
+   SAFE HTML
+================================================= */
+
+function escapeHTML(value){
+
+    return String(value)
+
+        .replaceAll("&","&amp;")
+
+        .replaceAll("<","&lt;")
+
+        .replaceAll(">","&gt;")
+
+        .replaceAll('"',"&quot;")
+
+        .replaceAll("'","&#039;");
+
+}
+
+
+/* =================================================
+   DATE FORMAT
+================================================= */
+
+function formatDate(value){
+
+    if(!value){
+        return "-";
+    }
+
+
+    const parts =
+        String(value).split("-");
+
+
+    if(parts.length === 3){
+
+        return (
+            parts[2] +
+            "-" +
+            parts[1] +
+            "-" +
+            parts[0]
+        );
+
+    }
+
+
+    return value;
+
+}
+
+
+/* =================================================
    LOAD TOURNAMENTS
-================================ */
+================================================= */
 
 async function loadTournaments(){
 
+
+    loading.style.display =
+        "block";
+
+
+    list.style.display =
+        "none";
+
+
+    firebaseStatus.style.display =
+        "none";
+
+
+    list.innerHTML = "";
+
+
+    countBox.textContent =
+        "Loading...";
+
+
     try{
+
+
+        /* ==========================================
+           READ EVENTS COLLECTION
+        ========================================== */
 
         const snapshot =
             await getDocs(
-                collection(db,"events")
+                collection(
+                    db,
+                    "events"
+                )
             );
 
 
         const tournaments = [];
 
 
-        snapshot.forEach(function(doc){
+        /* ==========================================
+           FILTER TOURNAMENTS
+        ========================================== */
 
-            const data = doc.data();
+        snapshot.forEach(
+            function(doc){
+
+                const data =
+                    doc.data();
 
 
-            /*
-               ONLY TOURNAMENTS
-            */
+                if(
+                    String(
+                        data.eventType || ""
+                    ).toLowerCase()
+                    ===
+                    "tournament"
+                ){
 
-            if(
-                data.eventType ===
-                "Tournament"
-            ){
+                    tournaments.push({
 
-                tournaments.push({
+                        id:
+                            doc.id,
 
-                    id:doc.id,
+                        data:
+                            data
 
-                    data:data
+                    });
 
-                });
+                }
 
             }
+        );
 
-        });
 
-
-        /*
+        /* ==========================================
            NEWEST FIRST
-        */
+        ========================================== */
 
-        tournaments.sort(function(a,b){
+        tournaments.sort(
+            function(a,b){
 
-            const aTime =
-                a.data.createdAt?.toMillis
-                ? a.data.createdAt.toMillis()
-                : 0;
+                const aTime =
+                    a.data.createdAt &&
+                    typeof
+                    a.data.createdAt.toMillis
+                    ===
+                    "function"
 
-            const bTime =
-                b.data.createdAt?.toMillis
-                ? b.data.createdAt.toMillis()
-                : 0;
+                    ? a.data.createdAt.toMillis()
 
-            return bTime - aTime;
+                    : 0;
 
-        });
 
+                const bTime =
+                    b.data.createdAt &&
+                    typeof
+                    b.data.createdAt.toMillis
+                    ===
+                    "function"
+
+                    ? b.data.createdAt.toMillis()
+
+                    : 0;
+
+
+                return bTime - aTime;
+
+            }
+        );
+
+
+        /* ==========================================
+           COUNT
+        ========================================== */
 
         countBox.textContent =
             "Total Tournaments: " +
@@ -732,39 +968,54 @@ async function loadTournaments(){
             "none";
 
 
-        if(tournaments.length === 0){
+        firebaseStatus.style.display =
+            "block";
 
-            list.style.display =
-                "none";
 
-            countBox.textContent =
-                "Total Tournaments: 0";
+        /* ==========================================
+           EMPTY
+        ========================================== */
 
+        if(
+            tournaments.length === 0
+        ){
 
             const empty =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
+
 
             empty.className =
-                "empty";
+                "message-box";
+
 
             empty.innerHTML = `
 
                 <h2>
-                    No Tournaments Found
+                    No Tournament Found
                 </h2>
 
                 <p>
-                    No Tournament documents
-                    were found inside the
-                    Firebase events collection.
+                    Firebase के
+                    <b>events</b> collection में
+                    अभी कोई Tournament नहीं मिला।
+                    <br><br>
+                    अगर आपने Tournament बनाया है,
+                    तो हम अगला step में
+                    Create Event saving को check करेंगे।
                 </p>
 
             `;
 
 
-            document
-            .querySelector(".page")
-            .appendChild(empty);
+            list.appendChild(
+                empty
+            );
+
+
+            list.style.display =
+                "grid";
 
 
             return;
@@ -772,238 +1023,292 @@ async function loadTournaments(){
         }
 
 
-        list.style.display =
-            "grid";
+        /* ==========================================
+           CREATE CARDS
+        ========================================== */
+
+        tournaments.forEach(
+            function(item){
+
+                const data =
+                    item.data;
 
 
-        tournaments.forEach(function(item){
-
-            const data =
-                item.data;
-
-
-            const card =
-                document.createElement("div");
-
-            card.className =
-                "tournament-card";
+                const card =
+                    document.createElement(
+                        "div"
+                    );
 
 
-            /*
-               Logo
-
-               अभी create-event में
-               logo URL save नहीं हो रहा,
-               इसलिए default CP दिखेगा।
-            */
-
-            let logoHTML = "CP";
+                card.className =
+                    "tournament-card";
 
 
-            if(data.logoUrl){
+                /* ==============================
+                   LOGO
+                ============================== */
 
-                logoHTML = `
+                let logoHTML =
+                    "CP";
 
-                    <img
-                        src="${escapeHTML(data.logoUrl)}"
-                        alt="Tournament Logo"
-                    >
+
+                if(
+                    data.logoUrl
+                ){
+
+                    logoHTML = `
+
+                        <img
+                            src="${escapeHTML(
+                                data.logoUrl
+                            )}"
+                            alt="Tournament Logo"
+                        >
+
+                    `;
+
+                }
+
+
+                /* ==============================
+                   STATUS
+                ============================== */
+
+                const status =
+                    data.status ||
+                    "UPCOMING";
+
+
+                /* ==============================
+                   CARD
+                ============================== */
+
+                card.innerHTML = `
+
+                    <div class="card-top">
+
+
+                        <div class="logo">
+
+                            ${logoHTML}
+
+                        </div>
+
+
+                        <div
+                            class="tournament-info"
+                        >
+
+                            <div
+                                class="tournament-name"
+                            >
+
+                                ${escapeHTML(
+                                    data.eventName ||
+                                    "Unnamed Tournament"
+                                )}
+
+                            </div>
+
+
+                            <div
+                                class="tournament-city"
+                            >
+
+                                📍
+                                ${escapeHTML(
+                                    data.city ||
+                                    "-"
+                                )}
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="status">
+
+                            ${escapeHTML(
+                                status
+                            )}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-details">
+
+
+                        <div class="detail-row">
+
+                            <span
+                                class="detail-label"
+                            >
+                                Start Date
+                            </span>
+
+                            <span
+                                class="detail-value"
+                            >
+                                ${escapeHTML(
+                                    formatDate(
+                                        data.startDate
+                                    )
+                                )}
+                            </span>
+
+                        </div>
+
+
+                        <div class="detail-row">
+
+                            <span
+                                class="detail-label"
+                            >
+                                End Date
+                            </span>
+
+                            <span
+                                class="detail-value"
+                            >
+                                ${escapeHTML(
+                                    formatDate(
+                                        data.endDate
+                                    )
+                                )}
+                            </span>
+
+                        </div>
+
+
+                        <div class="detail-row">
+
+                            <span
+                                class="detail-label"
+                            >
+                                Ground
+                            </span>
+
+                            <span
+                                class="detail-value"
+                            >
+                                ${escapeHTML(
+                                    data.ground ||
+                                    "-"
+                                )}
+                            </span>
+
+                        </div>
+
+
+                        <div class="detail-row">
+
+                            <span
+                                class="detail-label"
+                            >
+                                Category
+                            </span>
+
+                            <span
+                                class="detail-value"
+                            >
+                                ${escapeHTML(
+                                    data.category ||
+                                    "-"
+                                )}
+                            </span>
+
+                        </div>
+
+
+                        <div class="detail-row">
+
+                            <span
+                                class="detail-label"
+                            >
+                                Organizer
+                            </span>
+
+                            <span
+                                class="detail-value"
+                            >
+                                ${escapeHTML(
+                                    data.organizerName ||
+                                    "-"
+                                )}
+                            </span>
+
+                        </div>
+
+
+                        <div class="detail-row">
+
+                            <span
+                                class="detail-label"
+                            >
+                                Ball
+                            </span>
+
+                            <span
+                                class="detail-value"
+                            >
+                                ${escapeHTML(
+                                    data.ballType ||
+                                    "-"
+                                )}
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="event-id-box">
+
+
+                        <span
+                            class="event-id-label"
+                        >
+                            FIREBASE EVENT ID
+                        </span>
+
+
+                        <span
+                            class="event-id"
+                        >
+
+                            ${escapeHTML(
+                                item.id
+                            )}
+
+                        </span>
+
+
+                    </div>
 
                 `;
 
+
+                list.appendChild(
+                    card
+                );
+
             }
+        );
 
 
-            const status =
-                data.status ||
-                "UPCOMING";
-
-
-            card.innerHTML = `
-
-                <div class="card-top">
-
-                    <div class="logo">
-
-                        ${logoHTML}
-
-                    </div>
-
-
-                    <div class="tournament-info">
-
-                        <div class="tournament-name">
-
-                            ${escapeHTML(
-                                data.eventName ||
-                                "Unnamed Tournament"
-                            )}
-
-                        </div>
-
-
-                        <div class="tournament-city">
-
-                            📍
-                            ${escapeHTML(
-                                data.city ||
-                                "City not available"
-                            )}
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="status">
-
-                        ${escapeHTML(status)}
-
-                    </div>
-
-                </div>
-
-
-                <div class="card-details">
-
-                    <div class="detail-row">
-
-                        <span class="detail-label">
-                            Start Date
-                        </span>
-
-                        <span class="detail-value">
-                            ${escapeHTML(
-                                data.startDate ||
-                                "-"
-                            )}
-                        </span>
-
-                    </div>
-
-
-                    <div class="detail-row">
-
-                        <span class="detail-label">
-                            End Date
-                        </span>
-
-                        <span class="detail-value">
-                            ${escapeHTML(
-                                data.endDate ||
-                                "-"
-                            )}
-                        </span>
-
-                    </div>
-
-
-                    <div class="detail-row">
-
-                        <span class="detail-label">
-                            Ground
-                        </span>
-
-                        <span class="detail-value">
-                            ${escapeHTML(
-                                data.ground ||
-                                "-"
-                            )}
-                        </span>
-
-                    </div>
-
-
-                    <div class="detail-row">
-
-                        <span class="detail-label">
-                            Category
-                        </span>
-
-                        <span class="detail-value">
-                            ${escapeHTML(
-                                data.category ||
-                                "-"
-                            )}
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="event-id-box">
-
-                    <span class="event-id-label">
-                        FIREBASE EVENT ID
-                    </span>
-
-                    <span class="event-id">
-                        ${escapeHTML(item.id)}
-                    </span>
-
-                </div>
-
-            `;
-
-
-            /*
-               CLICK CARD
-
-               आगे इसी जगह से हम
-               eventId लेकर Tournament
-               dashboard खोलेंगे।
-            */
-
-            card.addEventListener(
-                "click",
-                function(){
-
-                    sessionStorage.setItem(
-                        "crickpulseEventId",
-                        item.id
-                    );
-
-                    sessionStorage.setItem(
-                        "crickpulseEventName",
-                        data.eventName || ""
-                    );
-
-                    sessionStorage.setItem(
-                        "crickpulseEventType",
-                        data.eventType || "Tournament"
-                    );
-
-
-                    /*
-                       अभी केवल eventId
-                       save करेंगे।
-
-                       आगे इसी click को
-                       Tournament dashboard
-                       से connect करेंगे।
-                    */
-
-                    alert(
-                        "Tournament selected.\n\n" +
-                        "Event ID:\n" +
-                        item.id
-                    );
-
-                }
-            );
-
-
-            list.appendChild(card);
-
-        });
+        list.style.display =
+            "grid";
 
 
     }
     catch(error){
 
+
         console.error(
-            "Tournament Load Error:",
+            "TOURNAMENT LOAD ERROR:",
             error
         );
 
@@ -1013,14 +1318,17 @@ async function loadTournaments(){
 
 
         countBox.textContent =
-            "Unable to load tournaments";
+            "Firebase Error";
 
 
         const errorBox =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
+
 
         errorBox.className =
-            "empty";
+            "message-box";
 
 
         errorBox.innerHTML = `
@@ -1032,45 +1340,54 @@ async function loadTournaments(){
             <p>
                 ${escapeHTML(
                     error.message ||
-                    "Unable to read events."
+                    "Unable to read events collection."
                 )}
             </p>
 
         `;
 
 
-        document
-        .querySelector(".page")
-        .appendChild(errorBox);
+        list.appendChild(
+            errorBox
+        );
+
+
+        list.style.display =
+            "grid";
 
     }
 
 }
 
 
-/* ================================
-   SAFE HTML
-================================ */
+/* =================================================
+   REFRESH
+================================================= */
 
-function escapeHTML(value){
+refreshButton.addEventListener(
+    "click",
+    function(){
 
-    return String(value)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
+        loadTournaments();
 
-}
+    }
+);
 
 
-/* ================================
+/* =================================================
    START
-================================ */
+================================================= */
 
 loadTournaments();
 
+
+console.log(
+    "CRICKPULSE Tournament Verification List Loaded"
+);
+
+
 </script>
+
 
 </body>
 
