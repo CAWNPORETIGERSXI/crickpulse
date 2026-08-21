@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CRICKPULSE | Tournaments</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Verdana,Geneva,sans-serif;
+    background:#f7f5ff;
+    color:#171225;
+}
+
+button,
+a{
+    font-family:inherit;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.top-header{
+
+    min-height:78px;
+
+    background:#ffffff;
+
+    border-bottom:1px solid #e4ddf2;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:10px 15px;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+}
+
+
+.back-button{
+
+    width:52px;
+
+    height:52px;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:8px;
+
+    background:#ffffff;
+
+    color:#6328c7;
+
+    font-size:38px;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+
+.header-title{
+
+    flex:1;
+
+    text-align:center;
+
+    font-size:24px;
+
+    font-weight:900;
+
+}
+
+
+.header-space{
+
+    width:52px;
+}
+
+
+/* ================================
+   PAGE
+================================ */
+
+.page{
+
+    width:100%;
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:28px 16px 100px;
+}
+
+
+/* ================================
+   HEADING
+================================ */
+
+.page-heading{
+
+    margin-bottom:25px;
+}
+
+
+.page-heading span{
+
+    display:block;
+
+    color:#6c35d9;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+
+}
+
+
+.page-heading h1{
+
+    margin-top:7px;
+
+    font-size:30px;
+
+    font-weight:900;
+}
+
+
+.page-heading p{
+
+    margin-top:8px;
+
+    color:#81768e;
+
+    font-size:14px;
+
+    line-height:1.5;
+}
+
+
+/* ================================
+   COUNT
+================================ */
+
+.count-box{
+
+    margin-bottom:20px;
+
+    padding:15px;
+
+    background:#ffffff;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:8px;
+
+    color:#6c35d9;
+
+    font-size:17px;
+
+    font-weight:900;
+}
+
+
+/* ================================
+   LOADING
+================================ */
+
+.loading{
+
+    padding:35px 15px;
+
+    text-align:center;
+
+    background:#ffffff;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:8px;
+
+    color:#6c35d9;
+
+    font-size:18px;
+
+    font-weight:900;
+}
+
+
+/* ================================
+   EMPTY
+================================ */
+
+.empty{
+
+    padding:40px 20px;
+
+    text-align:center;
+
+    background:#ffffff;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:8px;
+}
+
+
+.empty h2{
+
+    font-size:23px;
+
+    margin-bottom:10px;
+}
+
+
+.empty p{
+
+    color:#81768e;
+
+    font-size:14px;
+
+    line-height:1.6;
+}
+
+
+/* ================================
+   TOURNAMENT LIST
+================================ */
+
+.tournament-list{
+
+    display:grid;
+
+    gap:16px;
+}
+
+
+/* ================================
+   TOURNAMENT CARD
+================================ */
+
+.tournament-card{
+
+    display:block;
+
+    padding:18px;
+
+    background:#ffffff;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:10px;
+
+    box-shadow:
+        0 6px 20px rgba(76,45,130,.07);
+
+    cursor:pointer;
+
+    transition:.2s ease;
+}
+
+
+.tournament-card:active{
+
+    transform:scale(.98);
+}
+
+
+/* ================================
+   TOP
+================================ */
+
+.card-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+}
+
+
+.logo{
+
+    width:68px;
+
+    height:68px;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    border:1.5px solid #ff3b30;
+
+    background:#f2edff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    color:#6c35d9;
+
+    font-size:25px;
+
+    font-weight:900;
+}
+
+
+.logo img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+}
+
+
+.tournament-info{
+
+    flex:1;
+
+    min-width:0;
+}
+
+
+.tournament-name{
+
+    font-size:21px;
+
+    font-weight:900;
+
+    line-height:1.3;
+
+    word-break:break-word;
+}
+
+
+.tournament-city{
+
+    margin-top:5px;
+
+    color:#81768e;
+
+    font-size:13px;
+
+    font-weight:700;
+}
+
+
+/* ================================
+   STATUS
+================================ */
+
+.status{
+
+    padding:6px 10px;
+
+    border-radius:20px;
+
+    background:#f2edff;
+
+    color:#6c35d9;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    white-space:nowrap;
+}
+
+
+/* ================================
+   DETAILS
+================================ */
+
+.card-details{
+
+    margin-top:17px;
+
+    padding-top:14px;
+
+    border-top:1px solid #eee9f5;
+
+    display:grid;
+
+    gap:8px;
+}
+
+
+.detail-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    font-size:12px;
+
+}
+
+
+.detail-label{
+
+    color:#8d8498;
+
+    font-weight:700;
+}
+
+
+.detail-value{
+
+    color:#30263e;
+
+    font-weight:900;
+
+    text-align:right;
+
+    word-break:break-all;
+}
+
+
+/* ================================
+   EVENT ID
+================================ */
+
+.event-id-box{
+
+    margin-top:14px;
+
+    padding:10px;
+
+    background:#faf8ff;
+
+    border:1px solid #e5def3;
+
+    border-radius:7px;
+}
+
+
+.event-id-label{
+
+    display:block;
+
+    color:#8d8498;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    margin-bottom:4px;
+}
+
+
+.event-id{
+
+    display:block;
+
+    color:#6c35d9;
+
+    font-family:monospace;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    word-break:break-all;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media(max-width:480px){
+
+    .header-title{
+
+        font-size:20px;
+    }
+
+    .page{
+
+        padding:
+            24px 14px 100px;
+    }
+
+    .page-heading h1{
+
+        font-size:28px;
+    }
+
+    .tournament-name{
+
+        font-size:18px;
+    }
+
+    .logo{
+
+        width:60px;
+
+        height:60px;
+    }
+
+    .status{
+
+        font-size:9px;
+
+        padding:5px 8px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="top-header">
+
+    <button
+        class="back-button"
+        id="backButton"
+        type="button"
+    >
+        ‹
+    </button>
+
+
+    <div class="header-title">
+        Tournaments
+    </div>
+
+
+    <div class="header-space"></div>
+
+</header>
+
+
+<main class="page">
+
+
+    <div class="page-heading">
+
+        <span>
+            CRICKPULSE
+        </span>
+
+        <h1>
+            My Tournaments
+        </h1>
+
+        <p>
+            All tournaments created in CRICKPULSE.
+        </p>
+
+    </div>
+
+
+    <div
+        class="count-box"
+        id="countBox"
+    >
+        Loading tournaments...
+    </div>
+
+
+    <div
+        class="loading"
+        id="loading"
+    >
+        Loading from Firebase...
+    </div>
+
+
+    <div
+        class="tournament-list"
+        id="tournamentList"
+        style="display:none;"
+    ></div>
+
+
+</main>
+
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+
+    collection,
+    getDocs
+
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+/* ================================
+   BACK
+================================ */
+
+document
+.getElementById("backButton")
+.addEventListener("click",function(){
+
+    window.location.href =
+        "dashboard.html";
+
+});
+
+
+/* ================================
+   ELEMENTS
+================================ */
+
+const loading =
+    document.getElementById("loading");
+
+const list =
+    document.getElementById("tournamentList");
+
+const countBox =
+    document.getElementById("countBox");
+
+
+/* ================================
+   LOAD TOURNAMENTS
+================================ */
+
+async function loadTournaments(){
+
+    try{
+
+        const snapshot =
+            await getDocs(
+                collection(db,"events")
+            );
+
+
+        const tournaments = [];
+
+
+        snapshot.forEach(function(doc){
+
+            const data = doc.data();
+
+
+            /*
+               ONLY TOURNAMENTS
+            */
+
+            if(
+                data.eventType ===
+                "Tournament"
+            ){
+
+                tournaments.push({
+
+                    id:doc.id,
+
+                    data:data
+
+                });
+
+            }
+
+        });
+
+
+        /*
+           NEWEST FIRST
+        */
+
+        tournaments.sort(function(a,b){
+
+            const aTime =
+                a.data.createdAt?.toMillis
+                ? a.data.createdAt.toMillis()
+                : 0;
+
+            const bTime =
+                b.data.createdAt?.toMillis
+                ? b.data.createdAt.toMillis()
+                : 0;
+
+            return bTime - aTime;
+
+        });
+
+
+        countBox.textContent =
+            "Total Tournaments: " +
+            tournaments.length;
+
+
+        loading.style.display =
+            "none";
+
+
+        if(tournaments.length === 0){
+
+            list.style.display =
+                "none";
+
+            countBox.textContent =
+                "Total Tournaments: 0";
+
+
+            const empty =
+                document.createElement("div");
+
+            empty.className =
+                "empty";
+
+            empty.innerHTML = `
+
+                <h2>
+                    No Tournaments Found
+                </h2>
+
+                <p>
+                    No Tournament documents
+                    were found inside the
+                    Firebase events collection.
+                </p>
+
+            `;
+
+
+            document
+            .querySelector(".page")
+            .appendChild(empty);
+
+
+            return;
+
+        }
+
+
+        list.style.display =
+            "grid";
+
+
+        tournaments.forEach(function(item){
+
+            const data =
+                item.data;
+
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "tournament-card";
+
+
+            /*
+               Logo
+
+               अभी create-event में
+               logo URL save नहीं हो रहा,
+               इसलिए default CP दिखेगा।
+            */
+
+            let logoHTML = "CP";
+
+
+            if(data.logoUrl){
+
+                logoHTML = `
+
+                    <img
+                        src="${escapeHTML(data.logoUrl)}"
+                        alt="Tournament Logo"
+                    >
+
+                `;
+
+            }
+
+
+            const status =
+                data.status ||
+                "UPCOMING";
+
+
+            card.innerHTML = `
+
+                <div class="card-top">
+
+                    <div class="logo">
+
+                        ${logoHTML}
+
+                    </div>
+
+
+                    <div class="tournament-info">
+
+                        <div class="tournament-name">
+
+                            ${escapeHTML(
+                                data.eventName ||
+                                "Unnamed Tournament"
+                            )}
+
+                        </div>
+
+
+                        <div class="tournament-city">
+
+                            📍
+                            ${escapeHTML(
+                                data.city ||
+                                "City not available"
+                            )}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="status">
+
+                        ${escapeHTML(status)}
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-details">
+
+                    <div class="detail-row">
+
+                        <span class="detail-label">
+                            Start Date
+                        </span>
+
+                        <span class="detail-value">
+                            ${escapeHTML(
+                                data.startDate ||
+                                "-"
+                            )}
+                        </span>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <span class="detail-label">
+                            End Date
+                        </span>
+
+                        <span class="detail-value">
+                            ${escapeHTML(
+                                data.endDate ||
+                                "-"
+                            )}
+                        </span>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <span class="detail-label">
+                            Ground
+                        </span>
+
+                        <span class="detail-value">
+                            ${escapeHTML(
+                                data.ground ||
+                                "-"
+                            )}
+                        </span>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <span class="detail-label">
+                            Category
+                        </span>
+
+                        <span class="detail-value">
+                            ${escapeHTML(
+                                data.category ||
+                                "-"
+                            )}
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="event-id-box">
+
+                    <span class="event-id-label">
+                        FIREBASE EVENT ID
+                    </span>
+
+                    <span class="event-id">
+                        ${escapeHTML(item.id)}
+                    </span>
+
+                </div>
+
+            `;
+
+
+            /*
+               CLICK CARD
+
+               आगे इसी जगह से हम
+               eventId लेकर Tournament
+               dashboard खोलेंगे।
+            */
+
+            card.addEventListener(
+                "click",
+                function(){
+
+                    sessionStorage.setItem(
+                        "crickpulseEventId",
+                        item.id
+                    );
+
+                    sessionStorage.setItem(
+                        "crickpulseEventName",
+                        data.eventName || ""
+                    );
+
+                    sessionStorage.setItem(
+                        "crickpulseEventType",
+                        data.eventType || "Tournament"
+                    );
+
+
+                    /*
+                       अभी केवल eventId
+                       save करेंगे।
+
+                       आगे इसी click को
+                       Tournament dashboard
+                       से connect करेंगे।
+                    */
+
+                    alert(
+                        "Tournament selected.\n\n" +
+                        "Event ID:\n" +
+                        item.id
+                    );
+
+                }
+            );
+
+
+            list.appendChild(card);
+
+        });
+
+
+    }
+    catch(error){
+
+        console.error(
+            "Tournament Load Error:",
+            error
+        );
+
+
+        loading.style.display =
+            "none";
+
+
+        countBox.textContent =
+            "Unable to load tournaments";
+
+
+        const errorBox =
+            document.createElement("div");
+
+        errorBox.className =
+            "empty";
+
+
+        errorBox.innerHTML = `
+
+            <h2>
+                Firebase Error
+            </h2>
+
+            <p>
+                ${escapeHTML(
+                    error.message ||
+                    "Unable to read events."
+                )}
+            </p>
+
+        `;
+
+
+        document
+        .querySelector(".page")
+        .appendChild(errorBox);
+
+    }
+
+}
+
+
+/* ================================
+   SAFE HTML
+================================ */
+
+function escapeHTML(value){
+
+    return String(value)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+
+}
+
+
+/* ================================
+   START
+================================ */
+
+loadTournaments();
+
+</script>
+
+</body>
+
+</html>
