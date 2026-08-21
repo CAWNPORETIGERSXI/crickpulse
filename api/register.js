@@ -5,7 +5,10 @@ const db = admin.firestore();
 
 module.exports = async (req, res) => {
 
-  // Only POST requests allowed
+  // ==========================================
+  // ONLY POST REQUESTS
+  // ==========================================
+
   if (req.method !== "POST") {
     return res.status(405).json({
       success: false,
@@ -16,14 +19,65 @@ module.exports = async (req, res) => {
   try {
 
     const {
+      name,
       mobile,
       email,
       pin,
     } = req.body || {};
 
-    // -----------------------------
-    // Validate mobile
-    // -----------------------------
+
+    // ==========================================
+    // NAME / USERNAME VALIDATION
+    // ==========================================
+
+    const cleanName =
+      String(name || "").trim();
+
+    if (!cleanName) {
+      return res.status(400).json({
+        success: false,
+        message: "Please enter your name / username.",
+      });
+    }
+
+    if (cleanName.length < 3) {
+      return res.status(400).json({
+        success: false,
+        message:
+          "Name / Username must contain at least 3 characters.",
+      });
+    }
+
+    if (cleanName.length > 30) {
+      return res.status(400).json({
+        success: false,
+        message:
+          "Name / Username cannot be longer than 30 characters.",
+      });
+    }
+
+    /*
+      Allow:
+      Letters
+      Numbers
+      Spaces
+      Underscore
+      Hyphen
+      Dot
+    */
+
+    if (!/^[a-zA-Z0-9._\- ]+$/.test(cleanName)) {
+      return res.status(400).json({
+        success: false,
+        message:
+          "Name / Username contains invalid characters.",
+      });
+    }
+
+
+    // ==========================================
+    // MOBILE VALIDATION
+    // ==========================================
 
     if (!/^[6-9]\d{9}$/.test(mobile || "")) {
       return res.status(400).json({
@@ -32,41 +86,57 @@ module.exports = async (req, res) => {
       });
     }
 
-    // -----------------------------
-    // Validate email
-    // -----------------------------
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email || "")) {
+    // ==========================================
+    // EMAIL VALIDATION
+    // ==========================================
+
+    const cleanEmail =
+      String(email || "")
+        .trim()
+        .toLowerCase();
+
+    if (
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+        cleanEmail
+      )
+    ) {
       return res.status(400).json({
         success: false,
         message: "Invalid email address.",
       });
     }
 
-    // -----------------------------
-    // Validate PIN
-    // -----------------------------
+
+    // ==========================================
+    // PIN VALIDATION
+    // ==========================================
 
     if (!/^\d{4}$/.test(pin || "")) {
       return res.status(400).json({
         success: false,
-        message: "PIN must contain exactly 4 digits.",
+        message:
+          "PIN must contain exactly 4 digits.",
       });
     }
 
-    // -----------------------------
-    // Find user by mobile
-    // -----------------------------
 
-    const userRef = db
-      .collection("users")
-      .doc(mobile);
+    // ==========================================
+    // USER DOCUMENT
+    // ==========================================
 
-    const existingUser = await userRef.get();
+    const userRef =
+      db
+        .collection("users")
+        .doc(mobile);
 
-    // -----------------------------
-    // Prevent duplicate account
-    // -----------------------------
+    const existingUser =
+      await userRef.get();
+
+
+    // ==========================================
+    // DUPLICATE MOBILE CHECK
+    // ==========================================
 
     if (existingUser.exists) {
       return res.status(409).json({
@@ -76,42 +146,75 @@ module.exports = async (req, res) => {
       });
     }
 
-    // -----------------------------
-    // Hash PIN
-    // -----------------------------
 
-    const pinHash = await bcrypt.hash(
-      pin,
-      12
-    );
+    // ==========================================
+    // HASH PIN
+    // ==========================================
 
-    // -----------------------------
-    // Create user
-    // -----------------------------
+    const pinHash =
+      await bcrypt.hash(
+        pin,
+        12
+      );
+
+
+    // ==========================================
+    // CREATE USER
+    // ==========================================
 
     await userRef.set({
 
-      mobile,
+      /*
+        Public profile name / username
+      */
+
+      name:
+        cleanName,
+
+      /*
+        Account identity
+      */
+
+      mobile:
+        mobile,
 
       email:
-        email.toLowerCase(),
+        cleanEmail,
 
-      pinHash,
+      /*
+        NEVER store plain PIN
+      */
+
+      pinHash:
+        pinHash,
+
+      /*
+        Security fields
+      */
+
+      failedLoginAttempts:
+        0,
+
+      lockedUntil:
+        null,
+
+      lastLoginAt:
+        null,
+
+      /*
+        Account creation
+      */
 
       createdAt:
-        admin.firestore.FieldValue.serverTimestamp(),
-
-      failedLoginAttempts: 0,
-
-      lockedUntil: null,
-
-      lastLoginAt: null,
+        admin.firestore.FieldValue
+          .serverTimestamp(),
 
     });
 
-    // -----------------------------
-    // Success
-    // -----------------------------
+
+    // ==========================================
+    // SUCCESS
+    // ==========================================
 
     return res.status(201).json({
 
@@ -121,6 +224,7 @@ module.exports = async (req, res) => {
         "Account created successfully.",
 
     });
+
 
   } catch (error) {
 
