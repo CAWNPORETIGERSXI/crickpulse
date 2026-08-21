@@ -10,7 +10,7 @@
     content="width=device-width, initial-scale=1.0"
 >
 
-<title>CRICKPULSE | Tournament</title>
+<title>CRICKPULSE | Invite Captains</title>
 
 <style>
 
@@ -20,28 +20,21 @@
     box-sizing:border-box;
 }
 
-html,
-body{
-    width:100%;
-    min-height:100%;
-}
-
 body{
     font-family:Verdana,Geneva,sans-serif;
     background:#f7f5ff;
     color:#171225;
     min-height:100vh;
-    overflow:hidden;
 }
 
 
-/* =========================================
+/* =========================
    HEADER
-========================================= */
+========================= */
 
 .top-header{
 
-    height:70px;
+    height:82px;
 
     background:#fff;
 
@@ -51,15 +44,13 @@ body{
 
     align-items:center;
 
-    padding:0 10px;
-
-    flex-shrink:0;
+    padding:0 15px;
 }
 
 .back-button{
 
-    width:50px;
-    height:50px;
+    width:58px;
+    height:58px;
 
     border:1.5px solid #ff3b30;
 
@@ -69,7 +60,7 @@ body{
 
     color:#6328c7;
 
-    font-size:37px;
+    font-size:42px;
 
     font-weight:900;
 
@@ -84,17 +75,17 @@ body{
 
     text-align:center;
 
-    font-size:22px;
+    font-size:27px;
 
     font-weight:900;
 
-    margin-right:50px;
+    margin-right:58px;
 }
 
 
-/* =========================================
+/* =========================
    PAGE
-========================================= */
+========================= */
 
 .page{
 
@@ -102,879 +93,298 @@ body{
 
     max-width:760px;
 
-    height:calc(100vh - 70px);
-
     margin:auto;
 
-    padding:12px 11px 15px;
-
-    overflow:hidden;
+    padding:35px 16px 60px;
 }
 
 
-/* =========================================
-   TOP NAVIGATION
-========================================= */
-
-.top-navigation{
-
-    width:100%;
-
-    display:flex;
-
-    flex-wrap:nowrap;
-
-    gap:10px;
-
-    overflow-x:auto;
-
-    overflow-y:hidden;
-
-    -webkit-overflow-scrolling:touch;
-
-    scrollbar-width:none;
-
-    padding:2px 2px 9px;
-
-    margin-bottom:8px;
-
-    touch-action:pan-x;
-
-    overscroll-behavior-x:contain;
-
-    flex-shrink:0;
-}
-
-.top-navigation::-webkit-scrollbar{
-    display:none;
-}
-
-
-/* =========================================
-   NAV BOX
-========================================= */
-
-.nav-box{
-
-    flex:0 0 auto;
-
-    min-width:145px;
-
-    min-height:64px;
-
-    padding:9px 17px;
-
-    background:#6c35d9;
-
-    border:1.5px solid #ff3b30;
-
-    border-radius:9px;
-
-    color:#fff;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    font-size:18px;
-
-    font-weight:900;
-
-    white-space:nowrap;
-
-    cursor:pointer;
-
-    user-select:none;
-
-    -webkit-user-select:none;
-
-    box-shadow:
-        0 4px 10px rgba(108,53,217,.15);
-}
-
-.nav-box.active{
-    background:#5124ad;
-}
-
-.nav-box:active{
-    transform:scale(.97);
-}
-
-
-/* =========================================
-   CONTENT AREA
-========================================= */
-
-.content-area{
-
-    height:calc(100% - 81px);
-
-    overflow:hidden;
-
-    position:relative;
-}
-
-
-/* =========================================
-   SCREEN
-========================================= */
-
-.screen{
-
-    width:100%;
-
-    height:100%;
-
-    overflow-y:auto;
-
-    overflow-x:hidden;
-
-    -webkit-overflow-scrolling:touch;
-
-    padding-bottom:30px;
-
-    scrollbar-width:none;
-}
-
-.screen::-webkit-scrollbar{
-    display:none;
-}
-
-
-/* =========================================
-   ABOUT HERO
-========================================= */
-
-.hero-card{
-
-    position:relative;
-
-    width:100%;
-
-    height:220px;
-
-    border:1.5px solid #ff3b30;
-
-    border-radius:12px;
-
-    overflow:hidden;
-
-    background:#6c35d9;
-
-    margin-bottom:15px;
-
-    box-shadow:
-        0 6px 20px rgba(0,0,0,.08);
-}
-
-.hero-image{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
-
-    background:#6c35d9;
-}
-
-.hero-overlay{
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(0,0,0,.05),
-            rgba(0,0,0,.65)
-        );
-
-    display:flex;
-
-    align-items:flex-end;
-
-    padding:18px;
-}
-
-.go-live-button{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    min-width:150px;
-
-    min-height:52px;
-
-    padding:10px 22px;
-
-    border:1.5px solid #ff3b30;
-
-    border-radius:9px;
-
-    background:#6c35d9;
-
-    color:#fff;
-
-    font-size:20px;
-
-    font-weight:900;
-
-    cursor:pointer;
-}
-
-.go-live-button:active{
-    transform:scale(.97);
-}
-
-
-/* =========================================
-   ORGANIZATIONAL DETAIL
-========================================= */
-
-.detail-card{
-
-    width:100%;
+/* =========================
+   MAIN CARD
+========================= */
+
+.card{
 
     background:#fff;
-
-    border:1.5px solid #ff3b30;
-
-    border-radius:11px;
-
-    padding:18px 16px;
-
-    margin-bottom:15px;
-
-    box-shadow:
-        0 5px 18px rgba(0,0,0,.05);
-}
-
-.detail-header{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:10px;
-
-    margin-bottom:15px;
-}
-
-.detail-title{
-
-    font-size:24px;
-
-    font-weight:900;
-}
-
-.edit-button{
-
-    min-width:78px;
-
-    min-height:43px;
-
-    padding:7px 14px;
-
-    border:1.5px solid #ff3b30;
-
-    border-radius:8px;
-
-    background:#6c35d9;
-
-    color:#fff;
-
-    font-size:17px;
-
-    font-weight:900;
-
-    cursor:pointer;
-}
-
-.edit-button:active{
-    transform:scale(.97);
-}
-
-
-/* =========================================
-   DETAIL ROW
-========================================= */
-
-.detail-row{
-
-    display:flex;
-
-    align-items:flex-start;
-
-    gap:12px;
-
-    padding:11px 0;
-
-    border-bottom:1px solid #eee8f6;
-}
-
-.detail-row:last-child{
-    border-bottom:none;
-}
-
-.detail-label{
-
-    width:42%;
-
-    flex-shrink:0;
-
-    font-size:16px;
-
-    font-weight:800;
-
-    color:#6d667c;
-}
-
-.detail-value{
-
-    flex:1;
-
-    font-size:17px;
-
-    font-weight:800;
-
-    color:#171225;
-
-    word-break:break-word;
-}
-
-
-/* =========================================
-   QR + SHARE
-========================================= */
-
-.qr-share-card{
-
-    width:100%;
-
-    background:#fff;
-
-    border:1.5px solid #ff3b30;
-
-    border-radius:11px;
-
-    padding:18px 16px;
-
-    margin-bottom:15px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:15px;
-}
-
-.qr-heading{
-
-    font-size:21px;
-
-    font-weight:900;
-
-    margin-bottom:5px;
-}
-
-.qr-subheading{
-
-    font-size:14px;
-
-    line-height:1.4;
-
-    color:#6d667c;
-}
-
-.qr-action-group{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    flex-shrink:0;
-}
-
-.qr-button{
-
-    width:58px;
-    height:58px;
-
-    border:1.5px solid #ff3b30;
-
-    border-radius:9px;
-
-    background:#fff;
-
-    color:#6c35d9;
-
-    font-size:30px;
-
-    font-weight:900;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    cursor:pointer;
-}
-
-.share-button{
-
-    width:58px;
-    height:58px;
-
-    border:1.5px solid #ff3b30;
-
-    border-radius:9px;
-
-    background:#6c35d9;
-
-    color:#fff;
-
-    font-size:28px;
-
-    font-weight:900;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    cursor:pointer;
-}
-
-.qr-button:active,
-.share-button:active{
-    transform:scale(.95);
-}
-
-
-/* =========================================
-   SOCIAL MEDIA
-========================================= */
-
-.social-card{
-
-    width:100%;
-
-    background:#fff;
-
-    border:1.5px solid #ff3b30;
-
-    border-radius:11px;
-
-    padding:18px 16px;
-
-    text-align:center;
-}
-
-.social-title{
-
-    font-size:21px;
-
-    font-weight:900;
-
-    margin-bottom:16px;
-}
-
-.social-icons{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:18px;
-}
-
-.social-button{
-
-    width:58px;
-    height:58px;
 
     border:1.5px solid #ff3b30;
 
     border-radius:10px;
 
+    padding:30px 24px;
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.06);
+}
+
+.title{
+
+    font-size:34px;
+
+    font-weight:900;
+
+    margin-bottom:12px;
+}
+
+.subtitle{
+
+    font-size:21px;
+
+    color:#6d667c;
+
+    line-height:1.5;
+
+    margin-bottom:28px;
+}
+
+
+/* =========================
+   OPTIONS
+========================= */
+
+.option{
+
+    width:100%;
+
+    min-height:82px;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:9px;
+
     background:#fff;
+
+    margin-bottom:16px;
+
+    padding:14px 16px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    cursor:pointer;
+
+    transition:.15s;
+}
+
+.option:active{
+
+    transform:scale(.98);
+}
+
+.option-icon{
+
+    width:52px;
+
+    height:52px;
+
+    min-width:52px;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:9px;
 
     display:flex;
 
     align-items:center;
 
     justify-content:center;
+
+    background:#fff;
+
+    color:#6c35d9;
 
     font-size:25px;
 
     font-weight:900;
-
-    color:#6c35d9;
-
-    cursor:pointer;
 }
 
+.option-content{
 
-/* =========================================
-   OTHER SCREENS
-========================================= */
+    flex:1;
 
-.placeholder-screen{
+    min-width:0;
+}
 
-    width:100%;
-
-    min-height:220px;
-
-    background:#fff;
-
-    border:1.5px solid #ff3b30;
-
-    border-radius:11px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    padding:25px;
+.option-title{
 
     font-size:22px;
 
     font-weight:900;
-
-    color:#6c35d9;
 }
 
+.option-description{
 
-/* =========================================
-   EDIT MODAL
-========================================= */
+    margin-top:5px;
 
-.modal{
-
-    position:fixed;
-
-    inset:0;
-
-    background:rgba(0,0,0,.65);
-
-    display:none;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:18px;
-
-    z-index:9999;
-}
-
-.modal.show{
-    display:flex;
-}
-
-.modal-box{
-
-    width:100%;
-
-    max-width:500px;
-
-    max-height:92vh;
-
-    overflow-y:auto;
-
-    background:#fff;
-
-    border:1.5px solid #ff3b30;
-
-    border-radius:13px;
-
-    padding:20px;
-
-    box-shadow:
-        0 15px 45px rgba(0,0,0,.3);
-}
-
-.modal-title{
-
-    font-size:25px;
-
-    font-weight:900;
-
-    margin-bottom:18px;
-
-    color:#6328c7;
-}
-
-
-/* =========================================
-   EDIT FORM
-========================================= */
-
-.form-group{
-
-    margin-bottom:15px;
-}
-
-.form-label{
-
-    display:block;
-
-    font-size:15px;
-
-    font-weight:800;
+    font-size:16px;
 
     color:#6d667c;
 
-    margin-bottom:7px;
+    line-height:1.4;
 }
 
-.form-input,
-.form-select{
+.option-arrow{
 
-    width:100%;
+    font-size:32px;
 
-    min-height:50px;
+    color:#6c35d9;
 
-    padding:10px 12px;
+    font-weight:900;
+}
+
+
+/* =========================
+   TEAM COUNT
+========================= */
+
+.team-count-box{
+
+    margin-top:24px;
+
+    padding:14px;
 
     border:1.5px solid #ff3b30;
 
     border-radius:8px;
 
     background:#fff;
+}
 
-    color:#171225;
-
-    font-family:Verdana,Geneva,sans-serif;
+.team-count-label{
 
     font-size:16px;
 
     font-weight:700;
 
-    outline:none;
+    color:#6d667c;
+
+    margin-bottom:6px;
 }
 
-.form-input:focus,
-.form-select:focus{
+.team-count-value{
 
-    border-color:#6c35d9;
+    font-size:21px;
 
-    box-shadow:
-        0 0 0 3px rgba(108,53,217,.10);
+    font-weight:900;
+
+    color:#6328c7;
 }
 
 
-/* =========================================
-   MODAL ACTIONS
-========================================= */
+/* =========================
+   EVENT ID
+========================= */
 
-.modal-actions{
+.event-id-box{
 
-    display:flex;
+    margin-top:14px;
 
-    gap:10px;
-
-    margin-top:20px;
-}
-
-.modal-action{
-
-    flex:1;
-
-    min-height:50px;
+    padding:14px;
 
     border:1.5px solid #ff3b30;
 
     border-radius:8px;
 
-    font-size:17px;
-
-    font-weight:900;
-
-    cursor:pointer;
-}
-
-.cancel-button{
-
     background:#fff;
-
-    color:#6328c7;
 }
 
-.save-button{
+.event-id-label{
 
-    background:#6c35d9;
+    font-size:16px;
 
-    color:#fff;
+    font-weight:700;
+
+    color:#6d667c;
+
+    margin-bottom:6px;
 }
 
+.event-id-value{
 
-/* =========================================
-   QR MODAL
-========================================= */
-
-.qr-modal-box{
-
-    width:100%;
-
-    max-width:430px;
-
-    background:#fff;
-
-    border:1.5px solid #ff3b30;
-
-    border-radius:14px;
-
-    padding:22px 16px;
-
-    text-align:center;
-}
-
-.qr-modal-title{
-
-    font-size:25px;
-
-    font-weight:900;
-
-    margin-bottom:7px;
-}
-
-.qr-event-name{
-
-    font-size:17px;
+    font-size:15px;
 
     font-weight:800;
 
-    color:#6328c7;
-
-    margin-bottom:15px;
-}
-
-.qr-code-wrapper{
-
-    width:250px;
-
-    height:250px;
-
-    margin:0 auto 16px;
-
-    border:1.5px solid #ff3b30;
-
-    border-radius:10px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:8px;
-
-    background:#fff;
-}
-
-#qrCode{
-
-    width:230px;
-
-    height:230px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-}
-
-#qrCode img{
-
-    max-width:230px;
-
-    max-height:230px;
-}
-
-.qr-link{
-
-    padding:10px;
-
-    background:#f7f5ff;
-
-    border:1px solid #ddd4ed;
-
-    border-radius:8px;
-
-    font-size:12px;
-
     word-break:break-all;
-
-    color:#5b5469;
-
-    margin-bottom:15px;
 }
 
 
-/* =========================================
-   RESPONSIVE
-========================================= */
+/* =========================
+   MOBILE
+========================= */
 
-@media(max-width:600px){
+@media(max-width:480px){
 
-    .hero-card{
-        height:190px;
+    .top-header{
+
+        height:76px;
+
+        padding:0 11px;
     }
 
-    .go-live-button{
-        min-width:135px;
-        min-height:48px;
-        font-size:18px;
+    .back-button{
+
+        width:52px;
+
+        height:52px;
+
+        font-size:38px;
     }
 
-    .detail-title{
-        font-size:22px;
+    .page-title{
+
+        font-size:23px;
+
+        margin-right:52px;
     }
 
-    .detail-label{
-        font-size:14px;
+    .page{
+
+        padding:25px 14px 50px;
     }
 
-    .detail-value{
+    .card{
+
+        padding:27px 18px;
+    }
+
+    .title{
+
+        font-size:31px;
+    }
+
+    .subtitle{
+
+        font-size:20px;
+    }
+
+    .option{
+
+        min-height:78px;
+
+        padding:13px 14px;
+    }
+
+    .option-icon{
+
+        width:48px;
+
+        height:48px;
+
+        min-width:48px;
+    }
+
+    .option-title{
+
+        font-size:20px;
+    }
+
+    .option-description{
+
         font-size:15px;
-    }
-
-    .qr-heading{
-        font-size:19px;
-    }
-
-    .social-button,
-    .qr-button,
-    .share-button{
-        width:54px;
-        height:54px;
     }
 
 }
@@ -987,9 +397,9 @@ body{
 <body>
 
 
-<!-- =========================================
+<!-- =========================
      HEADER
-========================================= -->
+========================= -->
 
 <header class="top-header">
 
@@ -1002,840 +412,155 @@ body{
 </button>
 
 <div class="page-title">
-    Tournament
+    Invite Captains
 </div>
 
 </header>
 
 
+<!-- =========================
+     PAGE
+========================= -->
+
 <main class="page">
 
+<section class="card">
 
-<!-- =========================================
-     TOP NAVIGATION
-========================================= -->
 
-<nav
-    class="top-navigation"
-    id="topNavigation"
->
+<div class="title">
+    Add Teams
+</div>
+
+
+<div class="subtitle">
+    Invite team captains or add teams manually to this tournament.
+</div>
+
+
+<!-- =========================
+     OPTION 1
+========================= -->
 
 <div
-    class="nav-box active"
-    id="aboutOption"
->
-    ABOUT
-</div>
-
-<div
-    class="nav-box"
-    id="teamsOption"
->
-    TEAMS
-</div>
-
-<div
-    class="nav-box"
-    id="matchesOption"
->
-    MATCHES
-</div>
-
-<div
-    class="nav-box"
-    id="pointTableOption"
->
-    POINT TABLE
-</div>
-
-</nav>
-
-
-<!-- =========================================
-     CONTENT
-========================================= -->
-
-<div class="content-area">
-
-
-<!-- =========================================
-     ABOUT
-========================================= -->
-
-<section
-    class="screen"
-    id="aboutScreen"
+    class="option"
+    id="inviteCaptainOption"
 >
 
-
-<!-- HERO -->
-
-<div class="hero-card">
-
-    <img
-        class="hero-image"
-        id="tournamentImage"
-        alt="Tournament Image"
-    >
-
-    <div class="hero-overlay">
-
-        <button
-            class="go-live-button"
-            id="goLiveButton"
-            type="button"
-        >
-            ▶ GO LIVE
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- =========================================
-     ORGANIZATIONAL DETAIL
-========================================= -->
-
-<section class="detail-card">
-
-<div class="detail-header">
-
-    <div class="detail-title">
-        Organizational Detail
-    </div>
-
-    <!-- ONLY ONE EDIT BUTTON -->
-
-    <button
-        class="edit-button"
-        id="editButton"
-        type="button"
-    >
-        EDIT
-    </button>
-
-</div>
-
-
-<div class="detail-row">
-
-    <div class="detail-label">
-        Organizer Name
-    </div>
-
-    <div
-        class="detail-value"
-        id="organizerValue"
-    >
-        —
-    </div>
-
-</div>
-
-
-<div class="detail-row">
-
-    <div class="detail-label">
-        Organizer Mobile
-    </div>
-
-    <div
-        class="detail-value"
-        id="organizerMobileValue"
-    >
-        —
-    </div>
-
-</div>
-
-
-<div class="detail-row">
-
-    <div class="detail-label">
-        Organizer Gmail
-    </div>
-
-    <div
-        class="detail-value"
-        id="organizerEmailValue"
-    >
-        —
-    </div>
-
-</div>
-
-
-<div class="detail-row">
-
-    <div class="detail-label">
-        Date
-    </div>
-
-    <div
-        class="detail-value"
-        id="dateValue"
-    >
-        —
-    </div>
-
-</div>
-
-
-<div class="detail-row">
-
-    <div class="detail-label">
-        City
-    </div>
-
-    <div
-        class="detail-value"
-        id="cityValue"
-    >
-        —
-    </div>
-
-</div>
-
-
-<div class="detail-row">
-
-    <div class="detail-label">
-        Ground
-    </div>
-
-    <div
-        class="detail-value"
-        id="groundValue"
-    >
-        —
-    </div>
-
-</div>
-
-
-<div class="detail-row">
-
-    <div class="detail-label">
-        Ball Type
-    </div>
-
-    <div
-        class="detail-value"
-        id="ballTypeValue"
-    >
-        —
-    </div>
-
-</div>
-
-
-<div class="detail-row">
-
-    <div class="detail-label">
-        Category
-    </div>
-
-    <div
-        class="detail-value"
-        id="categoryValue"
-    >
-        —
-    </div>
-
-</div>
-
-
-<div class="detail-row">
-
-    <div class="detail-label">
-        Pitch Type
-    </div>
-
-    <div
-        class="detail-value"
-        id="pitchTypeValue"
-    >
-        —
-    </div>
-
-</div>
-
-
-<div class="detail-row">
-
-    <div class="detail-label">
-        Match Type
-    </div>
-
-    <div
-        class="detail-value"
-        id="matchTypeValue"
-    >
-        —
-    </div>
-
-</div>
-
-
-<div class="detail-row">
-
-    <div class="detail-label">
-        Tournament ID
-    </div>
-
-    <div
-        class="detail-value"
-        id="eventIdValue"
-    >
-        —
-    </div>
-
-</div>
-
-</section>
-
-
-<!-- =========================================
-     QR + SHARE
-========================================= -->
-
-<section class="qr-share-card">
-
-<div>
-
-    <div class="qr-heading">
-        Tournament QR
-    </div>
-
-    <div class="qr-subheading">
-        Scan to open this tournament's
-        four-option screen.
-    </div>
-
-</div>
-
-
-<div class="qr-action-group">
-
-<button
-    class="qr-button"
-    id="qrButton"
-    type="button"
-    aria-label="Show Tournament QR"
->
-    ▣
-</button>
-
-
-<button
-    class="share-button"
-    id="shareButton"
-    type="button"
-    aria-label="Share Tournament"
->
+<div class="option-icon">
     ↗
-</button>
+</div>
+
+<div class="option-content">
+
+<div class="option-title">
+    Invite Captain
+</div>
+
+<div class="option-description">
+    Send an invitation to team captains to join this tournament.
+</div>
 
 </div>
 
-</section>
+<div class="option-arrow">
+    ›
+</div>
 
-
-<!-- =========================================
-     SOCIAL MEDIA
-========================================= -->
-
-<section class="social-card">
-
-<div class="social-title">
-    Connect With Us
 </div>
 
 
-<div class="social-icons">
-
-<button
-    class="social-button"
-    id="whatsappButton"
-    type="button"
-    aria-label="WhatsApp"
->
-    ☎
-</button>
-
-
-<button
-    class="social-button"
-    id="facebookButton"
-    type="button"
-    aria-label="Facebook"
->
-    f
-</button>
-
-
-<button
-    class="social-button"
-    id="instagramButton"
-    type="button"
-    aria-label="Instagram"
->
-    ◎
-</button>
-
-</div>
-
-</section>
-
-
-</section>
-
-
-<!-- =========================================
-     TEAMS
-========================================= -->
-
-<section
-    class="screen"
-    id="teamsScreen"
-    style="display:none;"
->
-
-<div class="placeholder-screen">
-    TEAMS SECTION
-</div>
-
-</section>
-
-
-<!-- =========================================
-     MATCHES
-========================================= -->
-
-<section
-    class="screen"
-    id="matchesScreen"
-    style="display:none;"
->
-
-<div class="placeholder-screen">
-    MATCHES SECTION
-</div>
-
-</section>
-
-
-<!-- =========================================
-     POINT TABLE
-========================================= -->
-
-<section
-    class="screen"
-    id="pointTableScreen"
-    style="display:none;"
->
-
-<div class="placeholder-screen">
-    POINT TABLE SECTION
-</div>
-
-</section>
-
-
-</div>
-
-</main>
-
-
-<!-- =========================================
-     EDIT MODAL
-========================================= -->
+<!-- =========================
+     OPTION 2
+========================= -->
 
 <div
-    class="modal"
-    id="editModal"
+    class="option"
+    id="addManuallyOption"
 >
 
-<div class="modal-box">
-
-<div class="modal-title">
-    Edit Organizational Detail
+<div class="option-icon">
+    +
 </div>
 
+<div class="option-content">
 
-<!-- ORGANIZER NAME -->
+<div class="option-title">
+    Add Manually
+</div>
 
-<div class="form-group">
-
-<label
-    class="form-label"
-    for="editOrganizer"
->
-    Organizer Name
-</label>
-
-<input
-    class="form-input"
-    id="editOrganizer"
-    type="text"
-    placeholder="Enter organizer name"
->
+<div class="option-description">
+    Add teams yourself using the available team options.
+</div>
 
 </div>
 
-
-<!-- DATE -->
-
-<div class="form-group">
-
-<label
-    class="form-label"
-    for="editStartDate"
->
-    Start Date
-</label>
-
-<input
-    class="form-input"
-    id="editStartDate"
-    type="date"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label
-    class="form-label"
-    for="editEndDate"
->
-    End Date
-</label>
-
-<input
-    class="form-input"
-    id="editEndDate"
-    type="date"
->
-
-</div>
-
-
-<!-- CITY -->
-
-<div class="form-group">
-
-<label
-    class="form-label"
-    for="editCity"
->
-    City
-</label>
-
-<input
-    class="form-input"
-    id="editCity"
-    type="text"
-    placeholder="Enter city"
->
-
-</div>
-
-
-<!-- GROUND -->
-
-<div class="form-group">
-
-<label
-    class="form-label"
-    for="editGround"
->
-    Ground
-</label>
-
-<input
-    class="form-input"
-    id="editGround"
-    type="text"
-    placeholder="Enter ground"
->
-
-</div>
-
-
-<!-- BALL TYPE -->
-
-<div class="form-group">
-
-<label
-    class="form-label"
-    for="editBallType"
->
-    Ball Type
-</label>
-
-<select
-    class="form-select"
-    id="editBallType"
->
-
-<option value="">
-    Select Ball Type
-</option>
-
-<option value="Tennis">
-    Tennis
-</option>
-
-<option value="Leather">
-    Leather
-</option>
-
-<option value="Other">
-    Other
-</option>
-
-</select>
-
-</div>
-
-
-<!-- CATEGORY -->
-
-<div class="form-group">
-
-<label
-    class="form-label"
-    for="editCategory"
->
-    Tournament Category
-</label>
-
-<select
-    class="form-select"
-    id="editCategory"
->
-
-<option value="">
-    Select Category
-</option>
-
-<option value="Open">
-    Open
-</option>
-
-<option value="Corporate">
-    Corporate
-</option>
-
-<option value="School">
-    School
-</option>
-
-<option value="College">
-    College
-</option>
-
-<option value="University">
-    University
-</option>
-
-<option value="Club">
-    Club
-</option>
-
-</select>
-
-</div>
-
-
-<!-- PITCH TYPE -->
-
-<div class="form-group">
-
-<label
-    class="form-label"
-    for="editPitchType"
->
-    Pitch Type
-</label>
-
-<select
-    class="form-select"
-    id="editPitchType"
->
-
-<option value="">
-    Select Pitch Type
-</option>
-
-<option value="Rough">
-    Rough
-</option>
-
-<option value="Cement">
-    Cement
-</option>
-
-<option value="Turf">
-    Turf
-</option>
-
-<option value="Astro Turf">
-    Astro Turf
-</option>
-
-<option value="Matting">
-    Matting
-</option>
-
-</select>
-
-</div>
-
-
-<!-- MATCH TYPE -->
-
-<div class="form-group">
-
-<label
-    class="form-label"
-    for="editMatchType"
->
-    Match Type
-</label>
-
-<select
-    class="form-select"
-    id="editMatchType"
->
-
-<option value="">
-    Select Match Type
-</option>
-
-<option value="Limited Over">
-    Limited Over
-</option>
-
-<option value="Box Cricket">
-    Box Cricket
-</option>
-
-<option value="Test">
-    Test
-</option>
-
-<option value="The Hundred">
-    The Hundred
-</option>
-
-</select>
-
-</div>
-
-
-<div class="modal-actions">
-
-<button
-    class="modal-action cancel-button"
-    id="cancelEdit"
-    type="button"
->
-    Cancel
-</button>
-
-<button
-    class="modal-action save-button"
-    id="saveEdit"
-    type="button"
->
-    Save
-</button>
-
-</div>
-
+<div class="option-arrow">
+    ›
 </div>
 
 </div>
 
 
-<!-- =========================================
-     QR MODAL
-========================================= -->
+<!-- =========================
+     TEAM COUNT
+========================= -->
 
-<div
-    class="modal"
-    id="qrModal"
->
+<div class="team-count-box">
 
-<div class="qr-modal-box">
-
-<div class="qr-modal-title">
-    Tournament QR
+<div class="team-count-label">
+    Number of Teams
 </div>
 
 <div
-    class="qr-event-name"
-    id="qrEventName"
->
-    CRICKPULSE Tournament
-</div>
-
-
-<div class="qr-code-wrapper">
-
-<div id="qrCode"></div>
-
-</div>
-
-
-<div
-    class="qr-link"
-    id="qrLink"
+    class="team-count-value"
+    id="teamCountDisplay"
 >
     Loading...
 </div>
 
+</div>
 
-<button
-    class="modal-action cancel-button"
-    id="closeQR"
-    type="button"
+
+<!-- =========================
+     EVENT ID
+========================= -->
+
+<div class="event-id-box">
+
+<div class="event-id-label">
+    Tournament ID
+</div>
+
+<div
+    class="event-id-value"
+    id="eventIdDisplay"
 >
-    Close
-</button>
-
+    Loading...
 </div>
 
 </div>
 
 
-<!-- =========================================
-     FIREBASE + MAIN SCRIPT
-========================================= -->
+</section>
 
-<script type="module">
+</main>
 
-import { db } from "./firebase.js";
 
-import {
-    doc,
-    getDoc,
-    updateDoc
-} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
-
+<script>
 
 /* =========================================
-   EVENT ID
+   GET URL PARAMETERS
 ========================================= */
 
 const params =
     new URLSearchParams(
         window.location.search
     );
+
+
+/* =========================================
+   GET EVENT ID
+========================================= */
 
 const eventId =
     params.get("eventId") ||
@@ -1845,640 +570,101 @@ const eventId =
 
 
 /* =========================================
+   GET TEAM COUNT
+========================================= */
+
+const teamCount =
+    sessionStorage.getItem(
+        "crickpulseTeamCount"
+    );
+
+
+/* =========================================
    ELEMENTS
 ========================================= */
 
-const aboutScreen =
+const eventIdDisplay =
     document.getElementById(
-        "aboutScreen"
+        "eventIdDisplay"
     );
 
-const teamsScreen =
+const teamCountDisplay =
     document.getElementById(
-        "teamsScreen"
+        "teamCountDisplay"
     );
 
-const matchesScreen =
+const inviteCaptainOption =
     document.getElementById(
-        "matchesScreen"
+        "inviteCaptainOption"
     );
 
-const pointTableScreen =
+const addManuallyOption =
     document.getElementById(
-        "pointTableScreen"
+        "addManuallyOption"
+    );
+
+const backButton =
+    document.getElementById(
+        "backButton"
     );
 
 
 /* =========================================
-   CURRENT EVENT DATA
+   CHECK EVENT ID
 ========================================= */
 
-let currentEventData = {};
+if(!eventId){
 
+    alert(
+        "Tournament ID is missing. Please create the tournament again."
+    );
 
-/* =========================================
-   HELPERS
-========================================= */
-
-function valueOrDash(value){
-
-    if(
-        value === undefined ||
-        value === null ||
-        String(value).trim() === ""
-    ){
-
-        return "—";
-
-    }
-
-    return String(value);
+    window.location.href =
+        "create-event.html";
 
 }
-
-
-function formatDate(value){
-
-    if(!value){
-        return "—";
-    }
-
-    const text =
-        String(value);
-
-    if(
-        /^\d{4}-\d{2}-\d{2}$/.test(text)
-    ){
-
-        const parts =
-            text.split("-");
-
-        return (
-            parts[2] +
-            "-" +
-            parts[1] +
-            "-" +
-            parts[0]
-        );
-
-    }
-
-    if(
-        /^\d{2}-\d{2}-\d{4}$/.test(text)
-    ){
-
-        return text;
-
-    }
-
-    return text;
-
-}
-
-
-function dateForInput(value){
-
-    if(!value){
-        return "";
-    }
-
-    const text =
-        String(value);
-
-    if(
-        /^\d{4}-\d{2}-\d{2}$/.test(text)
-    ){
-
-        return text;
-
-    }
-
-    if(
-        /^\d{2}-\d{2}-\d{4}$/.test(text)
-    ){
-
-        const parts =
-            text.split("-");
-
-        return (
-            parts[2] +
-            "-" +
-            parts[1] +
-            "-" +
-            parts[0]
-        );
-
-    }
-
-    return "";
-
-}
-
-
-/* =========================================
-   LOAD EVENT FROM FIRESTORE
-========================================= */
-
-async function loadEventFromFirestore(){
-
-    if(!eventId){
-
-        alert(
-            "Tournament ID is missing."
-        );
-
-        window.location.href =
-            "create-event.html";
-
-        return;
-
-    }
-
-
-    try{
-
-        const eventRef =
-            doc(
-                db,
-                "events",
-                eventId
-            );
-
-        const eventSnapshot =
-            await getDoc(
-                eventRef
-            );
-
-
-        if(
-            !eventSnapshot.exists()
-        ){
-
-            alert(
-                "Tournament not found in Firestore."
-            );
-
-            return;
-
-        }
-
-
-        currentEventData =
-            eventSnapshot.data();
-
-
-        /*
-         * Keep a local copy as well.
-         */
-
-        sessionStorage.setItem(
-            "crickpulseEventData",
-            JSON.stringify(
-                currentEventData
-            )
-        );
-
-
-        sessionStorage.setItem(
-            "crickpulseEventId",
-            eventId
-        );
-
-
-        sessionStorage.setItem(
-            "crickpulseEventName",
-            currentEventData.eventName || ""
-        );
-
-
-        loadAboutData();
-
-
-    }
-    catch(error){
-
-        console.error(
-            "EVENT LOAD ERROR:",
-            error
-        );
-
-        alert(
-            "Tournament details could not be loaded.\n\n" +
-            error.message
-        );
-
-    }
-
-}
-
-
-/* =========================================
-   LOAD ABOUT DATA
-========================================= */
-
-function loadAboutData(){
-
-    const data =
-        currentEventData;
-
+else{
 
     /*
-     * Tournament / Series name
+     * IMPORTANT:
+     * Same event ID आगे भी रहेगा.
      */
 
-    const eventName =
-        valueOrDash(
-            data.eventName
-        );
+    sessionStorage.setItem(
+        "crickpulseEventId",
+        eventId
+    );
 
-
-    document.querySelector(
-        ".page-title"
-    ).textContent =
-        eventName === "—"
-        ? "Tournament"
-        : eventName;
-
-
-    document.getElementById(
-        "qrEventName"
-    ).textContent =
-        eventName;
-
-
-    /*
-     * Organizer
-     */
-
-    document.getElementById(
-        "organizerValue"
-    ).textContent =
-        valueOrDash(
-            data.organizerName
-        );
-
-
-    /*
-     * Organizer Mobile
-     */
-
-    document.getElementById(
-        "organizerMobileValue"
-    ).textContent =
-        valueOrDash(
-            data.organizerNumber
-        );
-
-
-    /*
-     * Organizer Gmail
-     */
-
-    document.getElementById(
-        "organizerEmailValue"
-    ).textContent =
-        valueOrDash(
-            data.organizerEmail
-        );
-
-
-    /*
-     * DATE
-     */
-
-    const startDate =
-        data.startDate || "";
-
-    const endDate =
-        data.endDate || "";
-
-
-    let dateText = "—";
-
-
-    if(
-        startDate &&
-        endDate
-    ){
-
-        if(
-            startDate === endDate
-        ){
-
-            dateText =
-                formatDate(
-                    startDate
-                );
-
-        }
-        else{
-
-            dateText =
-                formatDate(startDate) +
-                " to " +
-                formatDate(endDate);
-
-        }
-
-    }
-    else if(startDate){
-
-        dateText =
-            formatDate(startDate);
-
-    }
-    else if(endDate){
-
-        dateText =
-            formatDate(endDate);
-
-    }
-
-
-    document.getElementById(
-        "dateValue"
-    ).textContent =
-        dateText;
-
-
-    /*
-     * CITY
-     */
-
-    document.getElementById(
-        "cityValue"
-    ).textContent =
-        valueOrDash(
-            data.city
-        );
-
-
-    /*
-     * GROUND
-     */
-
-    document.getElementById(
-        "groundValue"
-    ).textContent =
-        valueOrDash(
-            data.ground
-        );
-
-
-    /*
-     * BALL
-     */
-
-    document.getElementById(
-        "ballTypeValue"
-    ).textContent =
-        valueOrDash(
-            data.ballType
-        );
-
-
-    /*
-     * CATEGORY
-     */
-
-    document.getElementById(
-        "categoryValue"
-    ).textContent =
-        valueOrDash(
-            data.category
-        );
-
-
-    /*
-     * PITCH
-     */
-
-    document.getElementById(
-        "pitchTypeValue"
-    ).textContent =
-        valueOrDash(
-            data.pitchType
-        );
-
-
-    /*
-     * MATCH TYPE
-     */
-
-    document.getElementById(
-        "matchTypeValue"
-    ).textContent =
-        valueOrDash(
-            data.matchType
-        );
-
-
-    /*
-     * EVENT ID
-     */
-
-    document.getElementById(
-        "eventIdValue"
-    ).textContent =
+    eventIdDisplay.textContent =
         eventId;
 
-
-    /*
-     * IMAGE
-     */
-
-    const image =
-        document.getElementById(
-            "tournamentImage"
-        );
+}
 
 
-    const imageUrl =
-        data.imageUrl ||
-        data.image ||
-        data.tournamentImage ||
-        data.coverImage ||
-        "";
+/* =========================================
+   SHOW TEAM COUNT
+========================================= */
 
+if(teamCount){
 
-    if(imageUrl){
+    teamCountDisplay.textContent =
+        teamCount +
+        " Teams";
 
-        image.src =
-            imageUrl;
+}
+else{
 
-    }
-    else{
-
-        image.removeAttribute(
-            "src"
-        );
-
-    }
+    teamCountDisplay.textContent =
+        "Not selected";
 
 }
 
 
 /* =========================================
-   NAVIGATION
+   BACK BUTTON
 ========================================= */
 
-function showScreen(
-    screenName
-){
-
-    aboutScreen.style.display =
-        "none";
-
-    teamsScreen.style.display =
-        "none";
-
-    matchesScreen.style.display =
-        "none";
-
-    pointTableScreen.style.display =
-        "none";
-
-
-    document
-        .querySelectorAll(
-            ".nav-box"
-        )
-        .forEach(
-            function(box){
-
-                box.classList.remove(
-                    "active"
-                );
-
-            }
-        );
-
-
-    if(screenName === "about"){
-
-        aboutScreen.style.display =
-            "block";
-
-        document
-            .getElementById(
-                "aboutOption"
-            )
-            .classList.add(
-                "active"
-            );
-
-    }
-
-
-    if(screenName === "teams"){
-
-        teamsScreen.style.display =
-            "block";
-
-        document
-            .getElementById(
-                "teamsOption"
-            )
-            .classList.add(
-                "active"
-            );
-
-    }
-
-
-    if(screenName === "matches"){
-
-        matchesScreen.style.display =
-            "block";
-
-        document
-            .getElementById(
-                "matchesOption"
-            )
-            .classList.add(
-                "active"
-            );
-
-    }
-
-
-    if(screenName === "pointTable"){
-
-        pointTableScreen.style.display =
-            "block";
-
-        document
-            .getElementById(
-                "pointTableOption"
-            )
-            .classList.add(
-                "active"
-            );
-
-    }
-
-}
-
-
-/* =========================================
-   TOP NAV EVENTS
-========================================= */
-
-document
-.getElementById("aboutOption")
-.addEventListener(
-    "click",
-    function(){
-
-        showScreen("about");
-
-    }
-);
-
-
-document
-.getElementById("teamsOption")
-.addEventListener(
-    "click",
-    function(){
-
-        showScreen("teams");
-
-    }
-);
-
-
-document
-.getElementById("matchesOption")
-.addEventListener(
-    "click",
-    function(){
-
-        showScreen("matches");
-
-    }
-);
-
-
-document
-.getElementById("pointTableOption")
-.addEventListener(
-    "click",
-    function(){
-
-        showScreen("pointTable");
-
-    }
-);
-
-
-/* =========================================
-   BACK
-========================================= */
-
-document
-.getElementById("backButton")
-.addEventListener(
+backButton.addEventListener(
     "click",
     function(){
 
@@ -2489,238 +675,12 @@ document
 
 
 /* =========================================
-   GO LIVE
+   INVITE CAPTAIN
 ========================================= */
 
-document
-.getElementById("goLiveButton")
-.addEventListener(
+inviteCaptainOption.addEventListener(
     "click",
     function(){
-
-        const youtubeLink =
-            currentEventData.youtubeLink ||
-            currentEventData.youtubeUrl ||
-            currentEventData.liveUrl ||
-            "";
-
-
-        if(youtubeLink){
-
-            window.open(
-                youtubeLink,
-                "_blank"
-            );
-
-        }
-        else{
-
-            alert(
-                "YouTube Live link will be connected for this tournament."
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================
-   OPEN EDIT
-========================================= */
-
-document
-.getElementById("editButton")
-.addEventListener(
-    "click",
-    function(){
-
-        /*
-         * ONE EDIT BUTTON
-         *
-         * All editable fields open together.
-         */
-
-        document.getElementById(
-            "editOrganizer"
-        ).value =
-            currentEventData.organizerName || "";
-
-
-        document.getElementById(
-            "editStartDate"
-        ).value =
-            dateForInput(
-                currentEventData.startDate
-            );
-
-
-        document.getElementById(
-            "editEndDate"
-        ).value =
-            dateForInput(
-                currentEventData.endDate
-            );
-
-
-        document.getElementById(
-            "editCity"
-        ).value =
-            currentEventData.city || "";
-
-
-        document.getElementById(
-            "editGround"
-        ).value =
-            currentEventData.ground || "";
-
-
-        /*
-         * Dropdown automatically selects
-         * the value already saved.
-         */
-
-        document.getElementById(
-            "editBallType"
-        ).value =
-            currentEventData.ballType || "";
-
-
-        document.getElementById(
-            "editCategory"
-        ).value =
-            currentEventData.category || "";
-
-
-        document.getElementById(
-            "editPitchType"
-        ).value =
-            currentEventData.pitchType || "";
-
-
-        document.getElementById(
-            "editMatchType"
-        ).value =
-            currentEventData.matchType || "";
-
-
-        document
-            .getElementById(
-                "editModal"
-            )
-            .classList.add(
-                "show"
-            );
-
-    }
-);
-
-
-/* =========================================
-   CANCEL EDIT
-========================================= */
-
-document
-.getElementById("cancelEdit")
-.addEventListener(
-    "click",
-    function(){
-
-        document
-            .getElementById(
-                "editModal"
-            )
-            .classList.remove(
-                "show"
-            );
-
-    }
-);
-
-
-/* =========================================
-   SAVE EDIT
-========================================= */
-
-document
-.getElementById("saveEdit")
-.addEventListener(
-    "click",
-    async function(){
-
-        const organizer =
-            document.getElementById(
-                "editOrganizer"
-            ).value.trim();
-
-
-        const startDate =
-            document.getElementById(
-                "editStartDate"
-            ).value;
-
-
-        const endDate =
-            document.getElementById(
-                "editEndDate"
-            ).value;
-
-
-        const city =
-            document.getElementById(
-                "editCity"
-            ).value.trim();
-
-
-        const ground =
-            document.getElementById(
-                "editGround"
-            ).value.trim();
-
-
-        const ballType =
-            document.getElementById(
-                "editBallType"
-            ).value;
-
-
-        const category =
-            document.getElementById(
-                "editCategory"
-            ).value;
-
-
-        const pitchType =
-            document.getElementById(
-                "editPitchType"
-            ).value;
-
-
-        const matchType =
-            document.getElementById(
-                "editMatchType"
-            ).value;
-
-
-        /*
-         * DATE VALIDATION
-         */
-
-        if(
-            startDate &&
-            endDate &&
-            new Date(endDate) <
-            new Date(startDate)
-        ){
-
-            alert(
-                "End Date cannot be before Start Date."
-            );
-
-            return;
-
-        }
-
 
         if(!eventId){
 
@@ -2733,288 +693,46 @@ document
         }
 
 
-        const saveButton =
-            document.getElementById(
-                "saveEdit"
+        /*
+         * अभी Invite Captain का
+         * dedicated page अगर मौजूद है
+         * तो उसे यहाँ connect किया जा सकता है.
+         *
+         * फिलहाल tournament eventId
+         * सुरक्षित रखा जा रहा है.
+         */
+
+        sessionStorage.setItem(
+            "crickpulseEventId",
+            eventId
+        );
+
+
+        /*
+         * यदि आपका अलग
+         * captain-invite page है,
+         * तो केवल नीचे filename बदलना होगा.
+         */
+
+        window.location.href =
+            "invite-captain.html?eventId=" +
+            encodeURIComponent(
+                eventId
             );
-
-
-        saveButton.disabled =
-            true;
-
-        saveButton.textContent =
-            "Saving...";
-
-
-        try{
-
-            /*
-             * IMPORTANT:
-             *
-             * Update the SAME Firestore
-             * document using eventId.
-             */
-
-            const eventRef =
-                doc(
-                    db,
-                    "events",
-                    eventId
-                );
-
-
-            const updatedData = {
-
-                organizerName:
-                    organizer,
-
-                startDate:
-                    startDate,
-
-                endDate:
-                    endDate,
-
-                city:
-                    city,
-
-                ground:
-                    ground,
-
-                ballType:
-                    ballType,
-
-                category:
-                    category,
-
-                pitchType:
-                    pitchType,
-
-                matchType:
-                    matchType
-
-            };
-
-
-            await updateDoc(
-                eventRef,
-                updatedData
-            );
-
-
-            /*
-             * Update current local copy.
-             */
-
-            currentEventData = {
-
-                ...currentEventData,
-
-                ...updatedData
-
-            };
-
-
-            /*
-             * Update session copy too.
-             */
-
-            sessionStorage.setItem(
-                "crickpulseEventData",
-                JSON.stringify(
-                    currentEventData
-                )
-            );
-
-
-            /*
-             * Refresh About screen.
-             */
-
-            loadAboutData();
-
-
-            /*
-             * Close modal.
-             */
-
-            document
-                .getElementById(
-                    "editModal"
-                )
-                .classList.remove(
-                    "show"
-                );
-
-
-            alert(
-                "Tournament details updated successfully."
-            );
-
-
-        }
-        catch(error){
-
-            console.error(
-                "UPDATE ERROR:",
-                error
-            );
-
-
-            alert(
-                "Tournament details could not be updated.\n\n" +
-                error.message
-            );
-
-        }
-        finally{
-
-            saveButton.disabled =
-                false;
-
-            saveButton.textContent =
-                "Save";
-
-        }
 
     }
 );
 
 
 /* =========================================
-   CREATE TOURNAMENT INVITE LINK
+   ADD MANUALLY
 ========================================= */
 
-function createInviteLink(){
-
-    if(!eventId){
-
-        return "";
-
-    }
-
-
-    /*
-     * SAME TOURNAMENT ID
-     *
-     * QR and Share both open the
-     * particular tournament's invite screen.
-     */
-
-    return (
-        window.location.origin +
-        "/invite-captains.html?eventId=" +
-        encodeURIComponent(
-            eventId
-        )
-    );
-
-}
-
-
-/* =========================================
-   QR
-========================================= */
-
-function openTournamentQR(){
-
-    if(!eventId){
-
-        alert(
-            "Tournament ID is missing."
-        );
-
-        return;
-
-    }
-
-
-    const link =
-        createInviteLink();
-
-
-    const qrCode =
-        document.getElementById(
-            "qrCode"
-        );
-
-
-    qrCode.innerHTML =
-        "";
-
-
-    const qrImage =
-        document.createElement(
-            "img"
-        );
-
-
-    qrImage.alt =
-        "Tournament QR";
-
-
-    qrImage.width =
-        220;
-
-    qrImage.height =
-        220;
-
-
-    qrImage.src =
-        "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=" +
-        encodeURIComponent(
-            link
-        );
-
-
-    qrCode.appendChild(
-        qrImage
-    );
-
-
-    document.getElementById(
-        "qrLink"
-    ).textContent =
-        link;
-
-
-    document
-        .getElementById(
-            "qrModal"
-        )
-        .classList.add(
-            "show"
-        );
-
-}
-
-
-document
-.getElementById("qrButton")
-.addEventListener(
+addManuallyOption.addEventListener(
     "click",
     function(){
 
-        openTournamentQR();
-
-    }
-);
-
-
-/* =========================================
-   SHARE
-========================================= */
-
-document
-.getElementById("shareButton")
-.addEventListener(
-    "click",
-    async function(){
-
-        const link =
-            createInviteLink();
-
-
-        if(!link){
+        if(!eventId){
 
             alert(
                 "Tournament ID is missing."
@@ -3025,128 +743,30 @@ document
         }
 
 
-        const title =
-            currentEventData.eventName ||
-            "CRICKPULSE Tournament";
+        /*
+         * SAME EVENT ID
+         *
+         * अब यह सीधे
+         * add-manually.html खोलेगा.
+         *
+         * वहाँ आपके 4 options हैं:
+         *
+         * 1. Invite Link
+         * 2. Your Teams
+         * 3. Add New Teams
+         * 4. Share with QR
+         */
 
-
-        if(navigator.share){
-
-            try{
-
-                await navigator.share({
-
-                    title:
-                        title,
-
-                    text:
-                        "Open " +
-                        title +
-                        " on CRICKPULSE.",
-
-                    url:
-                        link
-
-                });
-
-            }
-            catch(error){
-
-                console.log(
-                    "Share cancelled."
-                );
-
-            }
-
-        }
-        else if(
-            navigator.clipboard
-        ){
-
-            await navigator.clipboard
-                .writeText(
-                    link
-                );
-
-            alert(
-                "Tournament link copied."
-            );
-
-        }
-        else{
-
-            alert(
-                link
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================
-   SOCIAL MEDIA
-========================================= */
-
-document
-.getElementById("whatsappButton")
-.addEventListener(
-    "click",
-    function(){
-
-        alert(
-            "WhatsApp link will be added here."
+        sessionStorage.setItem(
+            "crickpulseEventId",
+            eventId
         );
 
-    }
-);
 
-
-document
-.getElementById("facebookButton")
-.addEventListener(
-    "click",
-    function(){
-
-        alert(
-            "Facebook link will be added here."
-        );
-
-    }
-);
-
-
-document
-.getElementById("instagramButton")
-.addEventListener(
-    "click",
-    function(){
-
-        alert(
-            "Instagram link will be added here."
-        );
-
-    }
-);
-
-
-/* =========================================
-   CLOSE QR
-========================================= */
-
-document
-.getElementById("closeQR")
-.addEventListener(
-    "click",
-    function(){
-
-        document
-            .getElementById(
-                "qrModal"
-            )
-            .classList.remove(
-                "show"
+        window.location.href =
+            "add-manually.html?eventId=" +
+            encodeURIComponent(
+                eventId
             );
 
     }
@@ -3154,70 +774,22 @@ document
 
 
 /* =========================================
-   CLOSE MODAL OUTSIDE
+   DEBUG
 ========================================= */
-
-document
-.getElementById("qrModal")
-.addEventListener(
-    "click",
-    function(event){
-
-        if(
-            event.target === this
-        ){
-
-            this.classList.remove(
-                "show"
-            );
-
-        }
-
-    }
-);
-
-
-document
-.getElementById("editModal")
-.addEventListener(
-    "click",
-    function(event){
-
-        if(
-            event.target === this
-        ){
-
-            this.classList.remove(
-                "show"
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================
-   INITIALIZE
-========================================= */
-
-showScreen(
-    "about"
-);
-
-
-loadEventFromFirestore();
-
 
 console.log(
-    "CRICKPULSE invite-captains loaded.",
+    "CRICKPULSE Invite Captains loaded.",
     {
         eventId:
-            eventId
+            eventId,
+
+        teamCount:
+            teamCount
     }
 );
 
 </script>
+
 
 </body>
 
