@@ -12,13 +12,10 @@
 
 <title>CRICKPULSE | Add Manually</title>
 
-
-<!-- QR CODE LIBRARY -->
 <script
     src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
     defer
 ></script>
-
 
 <style>
 
@@ -30,90 +27,130 @@
 
 body{
     font-family:Verdana,Geneva,sans-serif;
-
     background:#f7f5ff;
-
     color:#171225;
-
     min-height:100vh;
 }
-
 
 /* =========================================
    HEADER
 ========================================= */
 
 .top-header{
-
     height:82px;
-
     background:#fff;
-
     border-bottom:1px solid #e4ddf2;
 
     display:flex;
-
     align-items:center;
 
     padding:0 15px;
 }
 
 .back-button{
-
     width:58px;
     height:58px;
 
     border:1.5px solid #ff3b30;
-
     border-radius:8px;
 
     background:#fff;
-
     color:#6328c7;
 
     font-size:42px;
-
     font-weight:900;
 
     cursor:pointer;
 }
 
 .page-title{
-
     flex:1;
-
     text-align:center;
 
     font-size:27px;
-
     font-weight:900;
 
     margin-right:58px;
 }
-
 
 /* =========================================
    PAGE
 ========================================= */
 
 .page{
-
     width:100%;
-
     max-width:760px;
 
     margin:auto;
 
-    padding:35px 16px 60px;
+    padding:22px 16px 60px;
 }
 
+/* =========================================
+   TOP NAVIGATION
+========================================= */
+
+.top-navigation{
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:10px;
+
+    margin-bottom:20px;
+}
+
+.nav-box{
+    min-height:62px;
+
+    background:#6c35d9;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:9px;
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:8px 5px;
+
+    font-size:15px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 4px 10px rgba(108,53,217,.15);
+
+    transition:
+        transform .15s ease,
+        background .15s ease;
+}
+
+.nav-box:active{
+    transform:scale(.97);
+}
+
+.nav-box:hover{
+    background:#5f2fc4;
+}
 
 /* =========================================
-   CARD
+   MAIN CARD
 ========================================= */
 
 .card{
-
     background:#fff;
 
     border:1.5px solid #ff3b30;
@@ -127,16 +164,13 @@ body{
 }
 
 .title{
-
     font-size:34px;
-
     font-weight:900;
 
     margin-bottom:12px;
 }
 
 .subtitle{
-
     font-size:21px;
 
     color:#6d667c;
@@ -146,13 +180,11 @@ body{
     margin-bottom:28px;
 }
 
-
 /* =========================================
    OPTIONS
 ========================================= */
 
 .option{
-
     width:100%;
 
     min-height:76px;
@@ -181,17 +213,14 @@ body{
 }
 
 .option:hover{
-
     background:#fff9f9;
 }
 
 .option:active{
-
     transform:scale(.98);
 }
 
 .option-icon{
-
     width:48px;
     height:48px;
 
@@ -215,19 +244,15 @@ body{
 }
 
 .option-content{
-
     flex:1;
 }
 
 .option-title{
-
     font-size:21px;
-
     font-weight:900;
 }
 
 .option-description{
-
     margin-top:5px;
 
     font-size:16px;
@@ -238,7 +263,6 @@ body{
 }
 
 .option-arrow{
-
     font-size:31px;
 
     color:#6c35d9;
@@ -246,13 +270,11 @@ body{
     font-weight:900;
 }
 
-
 /* =========================================
    EVENT ID
 ========================================= */
 
 .event-id-box{
-
     margin-top:25px;
 
     padding:14px;
@@ -265,7 +287,6 @@ body{
 }
 
 .event-id-label{
-
     font-size:16px;
 
     font-weight:700;
@@ -276,7 +297,6 @@ body{
 }
 
 .event-id-value{
-
     font-size:15px;
 
     font-weight:800;
@@ -284,13 +304,11 @@ body{
     word-break:break-all;
 }
 
-
 /* =========================================
    QR MODAL
 ========================================= */
 
 .qr-modal{
-
     position:fixed;
 
     inset:0;
@@ -309,12 +327,10 @@ body{
 }
 
 .qr-modal.show{
-
     display:flex;
 }
 
 .qr-box{
-
     width:100%;
 
     max-width:430px;
@@ -334,18 +350,14 @@ body{
 }
 
 .qr-title{
-
     font-size:28px;
 
     font-weight:900;
-
-    color:#171225;
 
     margin-bottom:8px;
 }
 
 .qr-event-name{
-
     font-size:18px;
 
     font-weight:800;
@@ -353,12 +365,9 @@ body{
     color:#6328c7;
 
     margin-bottom:18px;
-
-    word-break:break-word;
 }
 
 .qr-instruction{
-
     font-size:16px;
 
     line-height:1.5;
@@ -369,9 +378,7 @@ body{
 }
 
 .qr-code-wrapper{
-
     width:270px;
-
     height:270px;
 
     margin:0 auto 20px;
@@ -392,9 +399,7 @@ body{
 }
 
 #qrCode{
-
     width:250px;
-
     height:250px;
 
     display:flex;
@@ -405,14 +410,11 @@ body{
 }
 
 #qrCode img{
-
     max-width:250px;
-
     max-height:250px;
 }
 
 .qr-link{
-
     background:#f7f5ff;
 
     border:1px solid #ddd4ed;
@@ -431,7 +433,6 @@ body{
 }
 
 .qr-close{
-
     width:100%;
 
     min-height:54px;
@@ -451,122 +452,92 @@ body{
     cursor:pointer;
 }
 
-.qr-close:active{
-
-    transform:scale(.98);
-}
-
-
 /* =========================================
    MOBILE
 ========================================= */
 
-@media(max-width:480px){
+@media(max-width:600px){
 
     .top-header{
-
         height:76px;
-
         padding:0 11px;
     }
 
     .back-button{
-
         width:52px;
         height:52px;
-
         font-size:38px;
     }
 
     .page-title{
-
         font-size:23px;
-
         margin-right:52px;
     }
 
     .page{
+        padding:18px 12px 50px;
+    }
 
-        padding:25px 14px 50px;
+    /* HORIZONTAL NAVIGATION */
+
+    .top-navigation{
+        gap:7px;
+        margin-bottom:18px;
+    }
+
+    .nav-box{
+        min-height:58px;
+
+        font-size:13px;
+
+        padding:7px 3px;
+
+        border-radius:8px;
     }
 
     .card{
-
         padding:27px 18px;
     }
 
     .title{
-
         font-size:31px;
     }
 
     .subtitle{
-
         font-size:20px;
     }
 
     .option-title{
-
         font-size:20px;
     }
 
     .option-description{
-
         font-size:15px;
     }
 
     .qr-box{
-
         padding:22px 15px 18px;
     }
 
     .qr-title{
-
         font-size:25px;
     }
 
-    .qr-event-name{
-
-        font-size:17px;
-    }
-
     .qr-code-wrapper{
-
         width:250px;
-
         height:250px;
     }
 
     #qrCode{
-
         width:230px;
-
         height:230px;
     }
 
     #qrCode img{
-
         max-width:230px;
-
         max-height:230px;
     }
 
-}
-
-
-/* =========================================
-   QR LIBRARY ERROR
-========================================= */
-
-.qr-error{
-
-    font-size:16px;
-
-    color:#d32f2f;
-
-    line-height:1.5;
-
-    padding:20px;
 }
 
 </style>
@@ -598,11 +569,49 @@ body{
 </header>
 
 
+<main class="page">
+
+
 <!-- =========================================
-     MAIN PAGE
+     TOP NAVIGATION
 ========================================= -->
 
-<main class="page">
+<nav class="top-navigation">
+
+    <div
+        class="nav-box"
+        id="aboutOption"
+    >
+        ABOUT
+    </div>
+
+    <div
+        class="nav-box"
+        id="teamsOption"
+    >
+        TEAMS
+    </div>
+
+    <div
+        class="nav-box"
+        id="matchesOption"
+    >
+        MATCHES
+    </div>
+
+    <div
+        class="nav-box"
+        id="pointTableOption"
+    >
+        POINT TABLE
+    </div>
+
+</nav>
+
+
+<!-- =========================================
+     MAIN CARD
+========================================= -->
 
 <section class="card">
 
@@ -617,9 +626,7 @@ body{
 </div>
 
 
-<!-- =========================================
-     OPTION 1
-========================================= -->
+<!-- OPTION 1 -->
 
 <div
     class="option"
@@ -649,9 +656,7 @@ body{
 </div>
 
 
-<!-- =========================================
-     OPTION 2
-========================================= -->
+<!-- OPTION 2 -->
 
 <div
     class="option"
@@ -681,9 +686,7 @@ body{
 </div>
 
 
-<!-- =========================================
-     OPTION 3
-========================================= -->
+<!-- OPTION 3 -->
 
 <div
     class="option"
@@ -713,9 +716,7 @@ body{
 </div>
 
 
-<!-- =========================================
-     OPTION 4
-========================================= -->
+<!-- OPTION 4 -->
 
 <div
     class="option"
@@ -745,9 +746,7 @@ body{
 </div>
 
 
-<!-- =========================================
-     EVENT ID
-========================================= -->
+<!-- EVENT ID -->
 
 <div class="event-id-box">
 
@@ -781,11 +780,9 @@ body{
 
     <div class="qr-box">
 
-
         <div class="qr-title">
             Tournament QR
         </div>
-
 
         <div
             class="qr-event-name"
@@ -793,7 +790,6 @@ body{
         >
             CRICKPULSE Tournament
         </div>
-
 
         <div class="qr-instruction">
 
@@ -808,13 +804,11 @@ body{
 
         </div>
 
-
         <div class="qr-code-wrapper">
 
             <div id="qrCode"></div>
 
         </div>
-
 
         <div
             class="qr-link"
@@ -823,7 +817,6 @@ body{
             Loading...
         </div>
 
-
         <button
             class="qr-close"
             id="qrCloseButton"
@@ -831,7 +824,6 @@ body{
         >
             Close
         </button>
-
 
     </div>
 
@@ -849,13 +841,11 @@ const params =
         window.location.search
     );
 
-
 const eventId =
     params.get("eventId") ||
     sessionStorage.getItem(
         "crickpulseEventId"
     );
-
 
 const eventName =
     sessionStorage.getItem(
@@ -917,26 +907,13 @@ else{
 
 
 /* =========================================
-   CREATE TOURNAMENT INVITE LINK
-   =========================================
-   IMPORTANT:
-
-   This is the SAME link used by:
-
-   1. Invite Link
-   2. QR Code
-
-   The eventId identifies the
-   particular tournament.
-
+   INVITE LINK
 ========================================= */
 
 function createInviteLink(){
 
     if(!eventId){
-
         return "";
-
     }
 
     return (
@@ -951,7 +928,7 @@ function createInviteLink(){
 
 
 /* =========================================
-   BACK BUTTON
+   BACK
 ========================================= */
 
 document
@@ -967,7 +944,70 @@ document
 
 
 /* =========================================
-   OPTION 1
+   TOP NAVIGATION
+   TEMPORARY
+
+   Actual pages/content will be connected
+   later according to user's instructions.
+========================================= */
+
+document
+.getElementById("aboutOption")
+.addEventListener(
+    "click",
+    function(){
+
+        alert(
+            "About section will be connected next."
+        );
+
+    }
+);
+
+
+document
+.getElementById("teamsOption")
+.addEventListener(
+    "click",
+    function(){
+
+        alert(
+            "Teams section will be connected next."
+        );
+
+    }
+);
+
+
+document
+.getElementById("matchesOption")
+.addEventListener(
+    "click",
+    function(){
+
+        alert(
+            "Matches section will be connected next."
+        );
+
+    }
+);
+
+
+document
+.getElementById("pointTableOption")
+.addEventListener(
+    "click",
+    function(){
+
+        alert(
+            "Point Table section will be connected next."
+        );
+
+    }
+);
+
+
+/* =========================================
    INVITE LINK
 ========================================= */
 
@@ -987,12 +1027,8 @@ document
 
         }
 
-
         const inviteLink =
             createInviteLink();
-
-
-        /* MOBILE SHARE */
 
         if(
             navigator.share
@@ -1028,9 +1064,6 @@ document
             return;
 
         }
-
-
-        /* COPY LINK */
 
         if(
             navigator.clipboard
@@ -1073,7 +1106,6 @@ document
 
 
 /* =========================================
-   OPTION 2
    YOUR TEAMS
 ========================================= */
 
@@ -1093,7 +1125,6 @@ document
 
         }
 
-
         window.location.href =
             "your-teams.html?eventId=" +
             encodeURIComponent(
@@ -1105,7 +1136,6 @@ document
 
 
 /* =========================================
-   OPTION 3
    ADD NEW TEAMS
 ========================================= */
 
@@ -1125,7 +1155,6 @@ document
 
         }
 
-
         window.location.href =
             "add-new-teams.html?eventId=" +
             encodeURIComponent(
@@ -1137,7 +1166,6 @@ document
 
 
 /* =========================================
-   OPTION 4
    SHARE VIA QR
 ========================================= */
 
@@ -1157,32 +1185,20 @@ document
 
         }
 
-
         const inviteLink =
             createInviteLink();
-
-
-        /* SHOW MODAL */
 
         qrModal.classList.add(
             "show"
         );
 
-
         qrEventName.textContent =
             eventName;
-
 
         qrLink.textContent =
             inviteLink;
 
-
-        /* CLEAR PREVIOUS QR */
-
         qrCode.innerHTML = "";
-
-
-        /* WAIT FOR QR LIBRARY */
 
         if(
             typeof QRCode ===
@@ -1203,27 +1219,10 @@ document
 
         }
 
-
-        /* =====================================
-           GENERATE QR
-
-           THIS QR CONTAINS THE EXACT SAME
-           INVITE LINK USED ABOVE.
-
-           Therefore:
-
-           QR
-           ↓
-           invite-captains.html
-           ↓
-           same eventId
-           ↓
-           same 4 options
-        ===================================== */
-
         new QRCode(
             qrCode,
             {
+
                 text:
                     inviteLink,
 
@@ -1235,6 +1234,7 @@ document
 
                 correctLevel:
                     QRCode.CorrectLevel.H
+
             }
         );
 
@@ -1260,10 +1260,6 @@ document
 );
 
 
-/* =========================================
-   CLOSE QR BY BACKGROUND TAP
-========================================= */
-
 qrModal.addEventListener(
     "click",
     function(event){
@@ -1282,10 +1278,6 @@ qrModal.addEventListener(
     }
 );
 
-
-/* =========================================
-   ESCAPE KEY
-========================================= */
 
 document.addEventListener(
     "keydown",
@@ -1313,6 +1305,7 @@ document.addEventListener(
 console.log(
     "CRICKPULSE Add Manually loaded.",
     {
+
         eventId:
             eventId,
 
@@ -1323,11 +1316,11 @@ console.log(
             eventId
                 ? createInviteLink()
                 : null
+
     }
 );
 
 </script>
-
 
 </body>
 
