@@ -38,14 +38,19 @@ a {
     position: sticky;
     top: 0;
     z-index: 1000;
+
     background: #ffffff;
-    border-bottom: 1px solid #e9e6ef;
+
+    border-bottom:
+        1px solid #e9e6ef;
 }
 
 .header-inner {
     max-width: 1200px;
     min-height: 68px;
+
     margin: auto;
+
     padding: 0 18px;
 
     display: flex;
@@ -56,6 +61,7 @@ a {
 .brand {
     display: flex;
     align-items: center;
+
     gap: 11px;
 }
 
@@ -69,13 +75,15 @@ a {
 
     border-radius: 12px;
 
-    background: linear-gradient(
-        135deg,
-        #6d35d9,
-        #8b5cf6
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #6d35d9,
+            #8b5cf6
+        );
 
     color: white;
+
     font-size: 14px;
     font-weight: 900;
 }
@@ -87,10 +95,18 @@ a {
 
 .brand-text span {
     display: block;
+
     margin-top: 2px;
+
     color: #92919e;
+
     font-size: 9px;
 }
+
+
+/* ================================
+   BACK BUTTON
+================================ */
 
 .back-btn {
     width: 40px;
@@ -100,15 +116,23 @@ a {
     align-items: center;
     justify-content: center;
 
-    border: 1px solid #e6e1f1;
+    border:
+        1.5px solid #ff3b30;
+
     border-radius: 11px;
 
-    background: white;
+    background: #ffffff;
 
     color: #6d35d9;
 
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 900;
+
+    cursor: pointer;
+}
+
+.back-btn:active {
+    transform: scale(.96);
 }
 
 
@@ -118,8 +142,11 @@ a {
 
 .page {
     max-width: 1200px;
+
     margin: auto;
-    padding: 30px 18px 100px;
+
+    padding:
+        30px 18px 100px;
 }
 
 
@@ -133,6 +160,7 @@ a {
     color: #6d35d9;
 
     font-size: 13px;
+
     font-weight: 900;
 
     letter-spacing: 1px;
@@ -144,6 +172,7 @@ a {
     color: #20202a;
 
     font-size: 29px;
+
     font-weight: 900;
 }
 
@@ -157,7 +186,7 @@ a {
 
 
 /* ================================
-   BIG FILTER BLOCKS
+   TABS
 ================================ */
 
 .tabs {
@@ -173,7 +202,8 @@ a {
 
     padding: 8px;
 
-    border: 1px solid #e5e0ef;
+    border:
+        1px solid #e5e0ef;
 
     border-radius: 17px;
 
@@ -208,7 +238,6 @@ a {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     transition: 0.2s ease;
@@ -286,7 +315,8 @@ a {
 
     padding: 21px;
 
-    border: 1px solid #e9e6ef;
+    border:
+        1px solid #e9e6ef;
 
     border-radius: 17px;
 
@@ -297,6 +327,10 @@ a {
         rgba(65,45,110,0.06);
 }
 
+
+/* ================================
+   MATCH TOP
+================================ */
 
 .match-top {
 
@@ -616,14 +650,16 @@ a {
 <body>
 
 
+<!-- ================================
+     HEADER
+================================ -->
+
 <header class="matches-header">
 
     <div class="header-inner">
 
-        <a
-            href="dashboard.html"
-            class="brand"
-        >
+
+        <div class="brand">
 
             <div class="brand-mark">
                 CP
@@ -641,20 +677,29 @@ a {
 
             </div>
 
-        </a>
+        </div>
 
 
-        <a
-            href="dashboard.html"
+        <!-- BACK -->
+
+        <button
             class="back-btn"
+            id="backButton"
+            type="button"
+            aria-label="Back"
         >
             ←
-        </a>
+        </button>
+
 
     </div>
 
 </header>
 
+
+<!-- ================================
+     MAIN
+================================ -->
 
 <main class="page">
 
@@ -676,9 +721,12 @@ a {
     </div>
 
 
-    <!-- BIG LIVE / UPCOMING / COMPLETED -->
+    <!-- ================================
+         LIVE / UPCOMING / COMPLETED
+    ================================= -->
 
     <div class="tabs">
+
 
         <button
             class="tab active"
@@ -703,15 +751,19 @@ a {
             COMPLETED
         </button>
 
+
     </div>
 
 
-    <!-- LIVE -->
+    <!-- ================================
+         LIVE
+    ================================= -->
 
     <section
         id="live"
         class="section"
     >
+
 
         <div class="section-title">
 
@@ -728,7 +780,9 @@ a {
 
         <div class="match-list">
 
+
             <div class="match-card">
+
 
                 <div class="match-top">
 
@@ -744,6 +798,7 @@ a {
 
 
                 <div class="teams">
+
 
                     <div class="team">
 
@@ -791,6 +846,7 @@ a {
 
                     </div>
 
+
                 </div>
 
 
@@ -806,20 +862,26 @@ a {
 
                 </div>
 
+
             </div>
 
+
         </div>
+
 
     </section>
 
 
-    <!-- UPCOMING -->
+    <!-- ================================
+         UPCOMING
+    ================================= -->
 
     <section
         id="upcoming"
         class="section"
         style="display:none;"
     >
+
 
         <div class="section-title">
 
@@ -836,7 +898,9 @@ a {
 
         <div class="match-list">
 
+
             <div class="match-card">
+
 
                 <div class="match-top">
 
@@ -852,6 +916,7 @@ a {
 
 
                 <div class="teams">
+
 
                     <div class="team">
 
@@ -883,6 +948,7 @@ a {
 
                     </div>
 
+
                 </div>
 
 
@@ -898,20 +964,26 @@ a {
 
                 </div>
 
+
             </div>
 
+
         </div>
+
 
     </section>
 
 
-    <!-- COMPLETED -->
+    <!-- ================================
+         COMPLETED
+    ================================= -->
 
     <section
         id="completed"
         class="section"
         style="display:none;"
     >
+
 
         <div class="section-title">
 
@@ -928,7 +1000,9 @@ a {
 
         <div class="match-list">
 
+
             <div class="match-card">
+
 
                 <div class="match-top">
 
@@ -944,6 +1018,7 @@ a {
 
 
                 <div class="teams">
+
 
                     <div class="team">
 
@@ -991,6 +1066,7 @@ a {
 
                     </div>
 
+
                 </div>
 
 
@@ -1006,9 +1082,12 @@ a {
 
                 </div>
 
+
             </div>
 
+
         </div>
+
 
     </section>
 
@@ -1016,7 +1095,12 @@ a {
 </main>
 
 
+<!-- ================================
+     BOTTOM NAV
+================================ -->
+
 <nav class="bottom-nav">
+
 
     <a href="dashboard.html">
 
@@ -1030,8 +1114,9 @@ a {
 
 
     <a
-        href="matches.html"
+        href="#"
         class="active"
+        onclick="return false;"
     >
 
         🏏
@@ -1075,39 +1160,132 @@ a {
 
     </a>
 
+
 </nav>
 
 
 <script>
 
-function showTab(tabName, button) {
 
-    document
-        .querySelectorAll(".section")
-        .forEach(function(section) {
+/* =========================================
+   EVENT ID
+========================================= */
 
-            section.style.display = "none";
-
-        });
-
-
-    document
-        .getElementById(tabName)
-        .style.display = "block";
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
 
 
-    document
-        .querySelectorAll(".tab")
-        .forEach(function(tab) {
-
-            tab.classList.remove("active");
-
-        });
+const eventId =
+    params.get("eventId") ||
+    sessionStorage.getItem(
+        "crickpulseEventId"
+    );
 
 
-    button.classList.add("active");
+/* =========================================
+   SAVE EVENT ID
+========================================= */
+
+if(eventId){
+
+    sessionStorage.setItem(
+        "crickpulseEventId",
+        eventId
+    );
 
 }
+
+
+/* =========================================
+   BACK TO FOUR OPTIONS
+========================================= */
+
+document
+.getElementById("backButton")
+.addEventListener(
+    "click",
+    function(){
+
+        if(!eventId){
+
+            window.location.href =
+                "add-manually.html";
+
+            return;
+
+        }
+
+
+        window.location.href =
+            "add-manually.html?eventId=" +
+            encodeURIComponent(
+                eventId
+            );
+
+    }
+);
+
+
+/* =========================================
+   TAB SWITCH
+========================================= */
+
+function showTab(
+    tabName,
+    button
+){
+
+    document
+        .querySelectorAll(
+            ".section"
+        )
+        .forEach(
+            function(section){
+
+                section.style.display =
+                    "none";
+
+            }
+        );
+
+
+    const selectedSection =
+        document.getElementById(
+            tabName
+        );
+
+
+    if(selectedSection){
+
+        selectedSection.style.display =
+            "block";
+
+    }
+
+
+    document
+        .querySelectorAll(
+            ".tab"
+        )
+        .forEach(
+            function(tab){
+
+                tab.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+    button.classList.add(
+        "active"
+    );
+
+}
+
 
 </script>
 
