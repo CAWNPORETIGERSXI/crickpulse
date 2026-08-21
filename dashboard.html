@@ -930,6 +930,8 @@ body {
     <aside class="side-menu">
 
 
+        <!-- MENU HEADER -->
+
         <div class="menu-top">
 
             <div class="menu-title">
@@ -949,9 +951,7 @@ body {
 
 
 
-        <!-- =================================================
-             PROFILE
-        ================================================== -->
+        <!-- PROFILE -->
 
         <section class="profile-section">
 
@@ -963,7 +963,7 @@ body {
                     <img
                         id="profilePhoto"
                         src=""
-                        alt="Player"
+                        alt="Profile"
                     >
 
                     <span id="profileInitial">
@@ -979,7 +979,7 @@ body {
                         class="profile-name"
                         id="profileName"
                     >
-                        Loading...
+                        Player Name
                     </div>
 
 
@@ -1006,6 +1006,8 @@ body {
         </section>
 
 
+
+        <!-- MENU -->
 
         <section class="menu-section">
 
@@ -1170,6 +1172,7 @@ if (loggedIn !== "true") {
 
     window.location.href =
         "auth.html";
+
 }
 
 
@@ -1177,91 +1180,76 @@ if (loggedIn !== "true") {
    PROFILE DATA
 ================================================= */
 
-const userName =
+const profileName =
     sessionStorage.getItem(
-        "crickpulseName"
-    );
+        "crickpulseUserName"
+    ) || "Player Name";
 
 
-const mobile =
+const profileMobile =
     sessionStorage.getItem(
         "crickpulseMobile"
-    );
+    ) || "Mobile Number";
 
 
-const userEmail =
+const profileEmail =
     sessionStorage.getItem(
-        "crickpulseEmail"
-    );
+        "crickpulseUserEmail"
+    ) || "Gmail / Email";
 
 
 /* =================================================
-   SHOW USER NAME
+   SHOW PROFILE NAME
 ================================================= */
 
-if (userName) {
+document
+    .getElementById("profileName")
+    .textContent =
+        profileName;
 
-    document
-        .getElementById("profileName")
-        .textContent = userName;
+
+/* =================================================
+   SHOW PROFILE MOBILE
+================================================= */
+
+document
+    .getElementById("profileMobile")
+    .textContent =
+        profileMobile;
 
 
-    const firstLetter =
-        userName
-            .trim()
+/* =================================================
+   SHOW PROFILE EMAIL
+================================================= */
+
+document
+    .getElementById("profileEmail")
+    .textContent =
+        profileEmail;
+
+
+/* =================================================
+   PROFILE INITIAL
+================================================= */
+
+const profileInitial =
+    document.getElementById(
+        "profileInitial"
+    );
+
+
+if (profileName) {
+
+    profileInitial.textContent =
+        profileName
             .charAt(0)
             .toUpperCase();
 
-
-    if (firstLetter) {
-
-        document
-            .getElementById("profileInitial")
-            .textContent =
-            firstLetter;
-
-    }
-
-} else {
-
-    document
-        .getElementById("profileName")
-        .textContent =
-        "User";
-
 }
 
 
 /* =================================================
-   SHOW MOBILE
-================================================= */
-
-if (mobile) {
-
-    document
-        .getElementById("profileMobile")
-        .textContent =
-        mobile;
-
-}
-
-
-/* =================================================
-   SHOW EMAIL
-================================================= */
-
-if (userEmail) {
-
-    document
-        .getElementById("profileEmail")
-        .textContent =
-        userEmail;
-
-}
-
-
-/* =================================================
-   MENU
+   MENU ELEMENTS
 ================================================= */
 
 const openMenu =
@@ -1282,6 +1270,10 @@ const menuOverlay =
     );
 
 
+/* =================================================
+   OPEN MENU
+================================================= */
+
 openMenu.addEventListener(
     "click",
     function () {
@@ -1293,6 +1285,10 @@ openMenu.addEventListener(
     }
 );
 
+
+/* =================================================
+   CLOSE MENU
+================================================= */
 
 closeMenu.addEventListener(
     "click",
@@ -1346,7 +1342,7 @@ document
 
 
 /* =================================================
-   OTHER MENU BUTTONS
+   START NEW MATCH
 ================================================= */
 
 document
@@ -1363,6 +1359,10 @@ document
     );
 
 
+/* =================================================
+   MY CRICKET
+================================================= */
+
 document
     .getElementById("myCricketBtn")
     .addEventListener(
@@ -1376,6 +1376,10 @@ document
         }
     );
 
+
+/* =================================================
+   CONTACT
+================================================= */
 
 document
     .getElementById("contactBtn")
@@ -1401,7 +1405,6 @@ document
         "click",
         async function () {
 
-
             const shareData = {
 
                 title:
@@ -1426,7 +1429,8 @@ document
                         shareData
                     );
 
-                } catch (error) {
+                }
+                catch (error) {
 
                     console.log(
                         "Share cancelled."
@@ -1434,7 +1438,8 @@ document
 
                 }
 
-            } else {
+            }
+            else {
 
                 try {
 
@@ -1447,7 +1452,8 @@ document
                         "CRICKPULSE link copied."
                     );
 
-                } catch (error) {
+                }
+                catch (error) {
 
                     alert(
                         "Please copy the site link manually."
@@ -1467,6 +1473,11 @@ document
 
 console.log(
     "CRICKPULSE dashboard loaded."
+);
+
+console.log(
+    "Logged in user:",
+    profileName
 );
 
 </script>
