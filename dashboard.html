@@ -949,6 +949,10 @@ body {
 
 
 
+        <!-- =================================================
+             PROFILE
+        ================================================== -->
+
         <section class="profile-section">
 
             <div class="profile-row">
@@ -975,7 +979,7 @@ body {
                         class="profile-name"
                         id="profileName"
                     >
-                        Player Name
+                        Loading...
                     </div>
 
 
@@ -1169,10 +1173,15 @@ if (loggedIn !== "true") {
 }
 
 
-
 /* =================================================
-   PROFILE MOBILE
+   PROFILE DATA
 ================================================= */
+
+const userName =
+    sessionStorage.getItem(
+        "crickpulseName"
+    );
+
 
 const mobile =
     sessionStorage.getItem(
@@ -1180,14 +1189,75 @@ const mobile =
     );
 
 
+const userEmail =
+    sessionStorage.getItem(
+        "crickpulseEmail"
+    );
+
+
+/* =================================================
+   SHOW USER NAME
+================================================= */
+
+if (userName) {
+
+    document
+        .getElementById("profileName")
+        .textContent = userName;
+
+
+    const firstLetter =
+        userName
+            .trim()
+            .charAt(0)
+            .toUpperCase();
+
+
+    if (firstLetter) {
+
+        document
+            .getElementById("profileInitial")
+            .textContent =
+            firstLetter;
+
+    }
+
+} else {
+
+    document
+        .getElementById("profileName")
+        .textContent =
+        "User";
+
+}
+
+
+/* =================================================
+   SHOW MOBILE
+================================================= */
+
 if (mobile) {
 
     document
         .getElementById("profileMobile")
-        .textContent = mobile;
+        .textContent =
+        mobile;
 
 }
 
+
+/* =================================================
+   SHOW EMAIL
+================================================= */
+
+if (userEmail) {
+
+    document
+        .getElementById("profileEmail")
+        .textContent =
+        userEmail;
+
+}
 
 
 /* =================================================
@@ -1236,7 +1306,6 @@ closeMenu.addEventListener(
 );
 
 
-
 /* =================================================
    CLOSE OUTSIDE MENU
 ================================================= */
@@ -1259,7 +1328,6 @@ menuOverlay.addEventListener(
 );
 
 
-
 /* =================================================
    ADD TOURNAMENT / SERIES
 ================================================= */
@@ -1275,7 +1343,6 @@ document
 
         }
     );
-
 
 
 /* =================================================
@@ -1322,7 +1389,6 @@ document
 
         }
     );
-
 
 
 /* =================================================
@@ -1394,6 +1460,10 @@ document
         }
     );
 
+
+/* =================================================
+   SYSTEM READY
+================================================= */
 
 console.log(
     "CRICKPULSE dashboard loaded."
