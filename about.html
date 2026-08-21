@@ -5,10 +5,8 @@
 
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>CRICKPULSE | About</title>
 
@@ -22,61 +20,67 @@
 
 body{
     font-family:Verdana,Geneva,sans-serif;
-    background:#f7f5ff;
+    background:
+        linear-gradient(
+            180deg,
+            #f4efff 0%,
+            #faf9ff 45%,
+            #ffffff 100%
+        );
     color:#171225;
     min-height:100vh;
 }
-
 
 /* =========================
    HEADER
 ========================= */
 
 .header{
-    height:82px;
+    height:78px;
 
-    background:#fff;
+    background:#ffffff;
 
-    border-bottom:1px solid #e4ddf2;
+    border-bottom:1px solid #e5ddf5;
 
     display:flex;
     align-items:center;
 
-    padding:0 15px;
+    padding:0 12px;
 
     position:sticky;
     top:0;
-    z-index:100;
+    z-index:1000;
 }
 
-.back-button{
-    width:58px;
-    height:58px;
+.back-btn{
+    width:52px;
+    height:52px;
 
     border:1.5px solid #ff3b30;
-    border-radius:8px;
+    border-radius:10px;
 
-    background:#fff;
+    background:#ffffff;
 
-    color:#6328c7;
+    color:#6c35d9;
 
-    font-size:42px;
+    font-size:38px;
     font-weight:900;
 
     cursor:pointer;
 }
 
-.page-title{
+.header-title{
     flex:1;
 
     text-align:center;
 
-    font-size:27px;
+    font-size:24px;
     font-weight:900;
 
-    margin-right:58px;
-}
+    color:#27144f;
 
+    margin-right:52px;
+}
 
 /* =========================
    PAGE
@@ -88,50 +92,72 @@ body{
 
     margin:auto;
 
-    padding:28px 16px 60px;
+    padding:24px 14px 60px;
 }
 
-
 /* =========================
-   MAIN CARD
+   HERO
 ========================= */
 
-.card{
-    background:#fff;
+.hero{
+    position:relative;
 
-    border:1.5px solid #ff3b30;
-    border-radius:10px;
+    overflow:hidden;
 
-    padding:26px 20px;
+    background:
+        linear-gradient(
+            135deg,
+            #5d25c9,
+            #7b42e8,
+            #9b6cff
+        );
+
+    border-radius:18px;
+
+    padding:28px 20px;
+
+    color:#fff;
 
     box-shadow:
-        0 6px 20px rgba(0,0,0,.06);
+        0 14px 35px
+        rgba(108,53,217,.25);
 
     margin-bottom:20px;
-}
 
-
-/* =========================
-   LOGO
-========================= */
-
-.logo-section{
     text-align:center;
-
-    margin-bottom:20px;
 }
 
-.event-logo{
-    width:145px;
-    height:145px;
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    right:-90px;
+    top:-90px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.10);
+}
+
+.logo{
+    position:relative;
+    z-index:2;
+
+    width:110px;
+    height:110px;
 
     margin:0 auto 14px;
 
     border-radius:50%;
 
-    border:2px solid #ff3b30;
+    background:#ffffff;
 
-    background:#f7f5ff;
+    border:3px solid rgba(255,255,255,.8);
 
     display:flex;
     align-items:center;
@@ -141,11 +167,11 @@ body{
 
     color:#6c35d9;
 
-    font-size:22px;
+    font-size:20px;
     font-weight:900;
 }
 
-.event-logo img{
+.logo img{
     width:100%;
     height:100%;
 
@@ -155,168 +181,235 @@ body{
 }
 
 .logo-placeholder{
-    text-align:center;
+    font-size:18px;
+    font-weight:900;
 }
 
+.hero h1{
+    position:relative;
+    z-index:2;
 
-/* =========================
-   EVENT NAME
-========================= */
-
-.event-name{
     font-size:28px;
-
     font-weight:900;
-
-    color:#171225;
 
     line-height:1.3;
 
-    margin-bottom:6px;
+    margin-bottom:7px;
 }
 
-.event-type{
+.hero p{
+    position:relative;
+    z-index:2;
+
+    font-size:16px;
+
+    color:rgba(255,255,255,.82);
+}
+
+.live-btn{
+    position:relative;
+    z-index:2;
+
+    margin-top:18px;
+
+    min-width:145px;
+    height:48px;
+
+    border:1.5px solid #ffffff;
+    border-radius:25px;
+
+    background:rgba(255,255,255,.14);
+
+    color:#ffffff;
+
     font-size:17px;
-
-    color:#6d667c;
-
-    font-weight:800;
-}
-
-
-/* =========================
-   GO LIVE
-========================= */
-
-.go-live-button{
-    width:100%;
-
-    height:58px;
-
-    margin-top:20px;
-
-    border:1.5px solid #ff3b30;
-    border-radius:8px;
-
-    background:#fff;
-
-    color:#d62828;
-
-    font-family:Verdana,Geneva,sans-serif;
-
-    font-size:20px;
-
     font-weight:900;
 
     cursor:pointer;
 }
 
-.go-live-button:active{
-    transform:scale(.98);
-}
-
-
 /* =========================
-   SECTION HEADER
+   SECTION CARD
 ========================= */
 
-.section-header{
+.card{
+    background:#ffffff;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:14px;
+
+    padding:20px;
+
+    margin-bottom:18px;
+
+    box-shadow:
+        0 8px 24px
+        rgba(72,45,120,.08);
+}
+
+.card-head{
     display:flex;
 
     align-items:center;
     justify-content:space-between;
 
+    gap:10px;
+
     margin-bottom:18px;
 }
 
-.section-title{
-    font-size:25px;
-
+.card-title{
+    font-size:22px;
     font-weight:900;
+
+    color:#28134e;
 }
 
-.edit-button{
+.edit-btn{
+    height:43px;
+
+    padding:0 18px;
+
     border:1.5px solid #ff3b30;
+    border-radius:8px;
 
-    border-radius:7px;
-
-    background:#fff;
+    background:#f4efff;
 
     color:#6c35d9;
 
-    padding:9px 15px;
-
-    font-family:Verdana,Geneva,sans-serif;
-
     font-size:16px;
-
     font-weight:900;
 
     cursor:pointer;
 }
-
 
 /* =========================
    DETAILS
 ========================= */
 
-.detail-box{
-    border:1.5px solid #ff3b30;
+.detail{
+    display:flex;
 
-    border-radius:8px;
+    align-items:flex-start;
 
-    padding:14px;
+    justify-content:space-between;
 
-    margin-bottom:12px;
+    gap:15px;
 
-    background:#fff;
+    padding:14px 0;
+
+    border-bottom:1px solid #eee9f7;
+}
+
+.detail:last-child{
+    border-bottom:none;
 }
 
 .detail-label{
-    color:#6d667c;
+    color:#777080;
 
-    font-size:14px;
-
+    font-size:15px;
     font-weight:700;
-
-    margin-bottom:6px;
 }
 
 .detail-value{
-    font-size:18px;
+    text-align:right;
 
+    color:#241536;
+
+    font-size:16px;
     font-weight:900;
+
+    max-width:58%;
 
     word-break:break-word;
 }
 
-
 /* =========================
-   SHARE QR
+   QR
 ========================= */
 
-.qr-button{
-    width:100%;
+.qr-card{
+    text-align:center;
 
-    height:62px;
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f7f2ff
+        );
+}
+
+.qr-title{
+    font-size:22px;
+    font-weight:900;
+
+    color:#28134e;
+
+    margin-bottom:8px;
+}
+
+.qr-subtitle{
+    font-size:15px;
+
+    color:#777080;
+
+    line-height:1.5;
+
+    margin-bottom:18px;
+}
+
+.qr-box{
+    width:190px;
+    height:190px;
+
+    margin:0 auto 18px;
+
+    background:#ffffff;
 
     border:1.5px solid #ff3b30;
+    border-radius:12px;
 
-    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:10px;
+}
+
+#qrImage{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    display:none;
+}
+
+.qr-loading{
+    color:#6c35d9;
+
+    font-size:15px;
+    font-weight:900;
+}
+
+.share-btn{
+    width:100%;
+    height:55px;
+
+    border:1.5px solid #ff3b30;
+    border-radius:9px;
 
     background:#6c35d9;
 
-    color:#fff;
+    color:#ffffff;
 
-    font-family:Verdana,Geneva,sans-serif;
-
-    font-size:20px;
-
+    font-size:18px;
     font-weight:900;
 
     cursor:pointer;
 }
-
 
 /* =========================
    MODAL
@@ -327,9 +420,7 @@ body{
 
     inset:0;
 
-    z-index:1000;
-
-    background:rgba(0,0,0,.55);
+    z-index:5000;
 
     display:none;
 
@@ -337,13 +428,18 @@ body{
     justify-content:center;
 
     padding:16px;
+
+    background:
+        rgba(28,15,50,.58);
+
+    backdrop-filter:blur(4px);
 }
 
-.modal.active{
+.modal.show{
     display:flex;
 }
 
-.modal-card{
+.modal-box{
     width:100%;
     max-width:600px;
 
@@ -351,201 +447,199 @@ body{
 
     overflow-y:auto;
 
-    background:#fff;
+    background:#ffffff;
 
     border:1.5px solid #ff3b30;
+    border-radius:16px;
 
-    border-radius:12px;
+    padding:22px;
 
-    padding:24px 18px;
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.22);
 }
 
-.modal-title{
-    font-size:26px;
+.modal-head{
+    display:flex;
 
-    font-weight:900;
+    align-items:center;
+    justify-content:space-between;
 
     margin-bottom:20px;
 }
 
-.modal-field{
-    margin-bottom:17px;
-}
-
-.modal-field label{
-    display:block;
-
-    font-size:17px;
-
+.modal-title{
+    font-size:24px;
     font-weight:900;
 
-    margin-bottom:7px;
+    color:#28134e;
 }
 
-.modal-field input,
-.modal-field select{
-    width:100%;
-
-    height:54px;
+.close-btn{
+    width:42px;
+    height:42px;
 
     border:1.5px solid #ff3b30;
-
     border-radius:8px;
 
-    padding:0 12px;
+    background:#ffffff;
 
-    font-family:Verdana,Geneva,sans-serif;
+    color:#6c35d9;
 
-    font-size:17px;
-
-    outline:none;
-
-    background:#fff;
-}
-
-.modal-buttons{
-    display:flex;
-
-    gap:10px;
-
-    margin-top:20px;
-}
-
-.modal-buttons button{
-    flex:1;
-
-    height:56px;
-
-    border:1.5px solid #ff3b30;
-
-    border-radius:8px;
-
-    font-family:Verdana,Geneva,sans-serif;
-
-    font-size:17px;
-
+    font-size:25px;
     font-weight:900;
 
     cursor:pointer;
 }
 
-.cancel-button{
-    background:#fff;
-
-    color:#6c35d9;
+.field{
+    margin-bottom:16px;
 }
 
-.save-button{
-    background:#6c35d9;
+.field label{
+    display:block;
 
-    color:#fff;
-}
+    margin-bottom:7px;
 
-
-/* =========================
-   QR MODAL
-========================= */
-
-.qr-modal-card{
-    width:100%;
-
-    max-width:400px;
-
-    background:#fff;
-
-    border:1.5px solid #ff3b30;
-
-    border-radius:12px;
-
-    padding:24px 18px;
-
-    text-align:center;
-}
-
-.qr-title{
-    font-size:25px;
-
+    font-size:16px;
     font-weight:900;
 
-    margin-bottom:18px;
+    color:#2b1943;
 }
 
-#qrCode{
-    width:230px;
-    height:230px;
-
-    margin:0 auto 18px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.qr-link{
-    font-size:13px;
-
-    color:#6d667c;
-
-    word-break:break-all;
-
-    line-height:1.4;
-
-    margin-bottom:18px;
-}
-
-.qr-buttons{
-    display:flex;
-
-    gap:10px;
-}
-
-.qr-buttons button{
-    flex:1;
-
-    height:54px;
+.field input,
+.field select{
+    width:100%;
+    height:53px;
 
     border:1.5px solid #ff3b30;
-
     border-radius:8px;
+
+    background:#ffffff;
+
+    padding:0 13px;
 
     font-family:Verdana,Geneva,sans-serif;
 
     font-size:16px;
+    font-weight:700;
 
+    color:#241536;
+
+    outline:none;
+}
+
+.field input:focus,
+.field select:focus{
+    border-color:#6c35d9;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(108,53,217,.10);
+}
+
+.save-btn{
+    width:100%;
+    height:56px;
+
+    margin-top:5px;
+
+    border:1.5px solid #ff3b30;
+    border-radius:9px;
+
+    background:#6c35d9;
+
+    color:#ffffff;
+
+    font-size:18px;
     font-weight:900;
 
     cursor:pointer;
 }
 
-.share-button{
-    background:#6c35d9;
-
-    color:#fff;
+.save-btn:disabled{
+    opacity:.6;
 }
-
-.close-button{
-    background:#fff;
-
-    color:#6c35d9;
-}
-
 
 /* =========================
-   STATUS
+   GO LIVE MESSAGE
 ========================= */
 
-.status{
+.live-message{
+    position:fixed;
+
+    inset:0;
+
+    z-index:6000;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        rgba(28,15,50,.58);
+}
+
+.live-message.show{
+    display:flex;
+}
+
+.live-box{
+    width:100%;
+    max-width:420px;
+
+    background:#ffffff;
+
+    border:1.5px solid #ff3b30;
+    border-radius:16px;
+
+    padding:28px 20px;
+
     text-align:center;
+}
+
+.live-icon{
+    font-size:45px;
+
+    margin-bottom:10px;
+}
+
+.live-box h2{
+    color:#6c35d9;
+
+    font-size:24px;
+    font-weight:900;
+
+    margin-bottom:8px;
+}
+
+.live-box p{
+    color:#777080;
 
     font-size:15px;
 
-    font-weight:800;
+    line-height:1.5;
 
-    margin-top:12px;
-
-    color:#6c35d9;
+    margin-bottom:18px;
 }
 
+.live-close{
+    width:100%;
+    height:50px;
+
+    border:1.5px solid #ff3b30;
+    border-radius:8px;
+
+    background:#6c35d9;
+
+    color:#fff;
+
+    font-size:17px;
+    font-weight:900;
+}
 
 /* =========================
    MOBILE
@@ -554,51 +648,65 @@ body{
 @media(max-width:480px){
 
     .header{
-        height:76px;
-
-        padding:0 11px;
+        height:74px;
     }
 
-    .back-button{
-        width:52px;
-        height:52px;
-
-        font-size:38px;
+    .back-btn{
+        width:50px;
+        height:50px;
+        font-size:35px;
     }
 
-    .page-title{
-        font-size:23px;
-
-        margin-right:52px;
+    .header-title{
+        font-size:22px;
+        margin-right:50px;
     }
 
     .page{
-        padding:24px 14px 50px;
+        padding:20px 12px 45px;
     }
 
-    .card{
-        padding:24px 16px;
+    .hero{
+        padding:25px 15px;
     }
 
-    .event-logo{
-        width:130px;
-        height:130px;
-    }
-
-    .event-name{
+    .hero h1{
         font-size:24px;
     }
 
-    .section-title{
-        font-size:22px;
+    .logo{
+        width:100px;
+        height:100px;
+    }
+
+    .card{
+        padding:17px 15px;
+    }
+
+    .card-title{
+        font-size:20px;
+    }
+
+    .detail-label{
+        font-size:14px;
     }
 
     .detail-value{
-        font-size:17px;
+        font-size:15px;
+    }
+
+    .edit-btn{
+        height:40px;
+        padding:0 14px;
+        font-size:15px;
+    }
+
+    .modal-box{
+        padding:18px 15px;
     }
 
     .modal-title{
-        font-size:23px;
+        font-size:21px;
     }
 
 }
@@ -618,36 +726,30 @@ body{
 <header class="header">
 
 <button
-    class="back-button"
+    class="back-btn"
     id="backButton"
     type="button"
 >
 ‹
 </button>
 
-<div class="page-title">
+<div class="header-title">
     About
 </div>
 
 </header>
 
 
-<!-- =========================
-     PAGE
-========================= -->
-
 <main class="page">
 
 
 <!-- =========================
-     EVENT CARD
+     HERO
 ========================= -->
 
-<section class="card">
+<section class="hero">
 
-<div class="logo-section">
-
-<div class="event-logo">
+<div class="logo">
 
 <img
     id="eventLogo"
@@ -658,37 +760,29 @@ body{
     id="logoPlaceholder"
     class="logo-placeholder"
 >
-    CRICKPULSE
+    CP
 </div>
 
 </div>
 
 
-<div
-    class="event-name"
-    id="eventName"
->
+<h1 id="eventName">
     Loading...
-</div>
+</h1>
 
 
-<div
-    class="event-type"
-    id="eventType"
->
-    Loading...
-</div>
+<p id="eventType">
+    Tournament
+</p>
 
 
 <button
-    class="go-live-button"
+    class="live-btn"
     id="goLiveButton"
     type="button"
 >
-    🔴 GO LIVE
+    🔴 Go Live
 </button>
-
-</div>
 
 </section>
 
@@ -699,26 +793,24 @@ body{
 
 <section class="card">
 
-<div class="section-header">
+<div class="card-head">
 
-<div class="section-title">
+<div class="card-title">
     Organizer Details
 </div>
 
 <button
-    class="edit-button"
+    class="edit-btn"
     id="editButton"
     type="button"
 >
-    EDIT
+    ✏️ Edit
 </button>
 
 </div>
 
 
-<div id="detailsContainer">
-
-<div class="detail-box">
+<div class="detail">
 
 <div class="detail-label">
     Name
@@ -728,13 +820,13 @@ body{
     class="detail-value"
     id="detailName"
 >
-    Loading...
+    —
 </div>
 
 </div>
 
 
-<div class="detail-box">
+<div class="detail">
 
 <div class="detail-label">
     Date
@@ -744,29 +836,29 @@ body{
     class="detail-value"
     id="detailDate"
 >
-    Loading...
+    —
 </div>
 
 </div>
 
 
-<div class="detail-box">
+<div class="detail">
 
 <div class="detail-label">
-    Ground / Venue
+    Ground
 </div>
 
 <div
     class="detail-value"
     id="detailGround"
 >
-    Loading...
+    —
 </div>
 
 </div>
 
 
-<div class="detail-box">
+<div class="detail">
 
 <div class="detail-label">
     Ball Type
@@ -776,13 +868,13 @@ body{
     class="detail-value"
     id="detailBallType"
 >
-    Loading...
+    —
 </div>
 
 </div>
 
 
-<div class="detail-box">
+<div class="detail">
 
 <div class="detail-label">
     Category
@@ -792,12 +884,11 @@ body{
     class="detail-value"
     id="detailCategory"
 >
-    Loading...
+    —
 </div>
 
 </div>
 
-</div>
 
 </section>
 
@@ -806,22 +897,40 @@ body{
      SHARE QR
 ========================= -->
 
-<section class="card">
+<section class="card qr-card">
 
-<div class="section-header">
-
-<div class="section-title">
-    Tournament QR
+<div class="qr-title">
+    Share Tournament
 </div>
 
+<div class="qr-subtitle">
+    Scan this QR code to open this tournament.
 </div>
+
+
+<div class="qr-box">
+
+<div
+    class="qr-loading"
+    id="qrLoading"
+>
+    Generating QR...
+</div>
+
+<img
+    id="qrImage"
+    alt="Tournament QR Code"
+>
+
+</div>
+
 
 <button
-    class="qr-button"
-    id="qrButton"
+    class="share-btn"
+    id="shareButton"
     type="button"
 >
-    ▣ Share QR
+    📤 Share Tournament
 </button>
 
 </section>
@@ -839,17 +948,29 @@ body{
     id="editModal"
 >
 
-<div class="modal-card">
+<div class="modal-box">
+
+<div class="modal-head">
 
 <div class="modal-title">
-    Edit Tournament Details
+    Edit Tournament
+</div>
+
+<button
+    class="close-btn"
+    id="closeModal"
+    type="button"
+>
+    ×
+</button>
+
 </div>
 
 
-<div class="modal-field">
+<div class="field">
 
 <label for="editName">
-    Name
+    Tournament Name
 </label>
 
 <input
@@ -860,7 +981,7 @@ body{
 </div>
 
 
-<div class="modal-field">
+<div class="field">
 
 <label for="editDate">
     Date
@@ -874,10 +995,10 @@ body{
 </div>
 
 
-<div class="modal-field">
+<div class="field">
 
 <label for="editGround">
-    Ground / Venue
+    Ground
 </label>
 
 <input
@@ -888,59 +1009,87 @@ body{
 </div>
 
 
-<div class="modal-field">
+<div class="field">
 
 <label for="editBallType">
     Ball Type
 </label>
 
-<input
-    id="editBallType"
-    type="text"
->
+<select id="editBallType">
+
+<option value="">
+    Select Ball Type
+</option>
+
+<option value="Leather">
+    Leather
+</option>
+
+<option value="Tennis">
+    Tennis
+</option>
+
+<option value="Season Ball">
+    Season Ball
+</option>
+
+<option value="Other">
+    Other
+</option>
+
+</select>
 
 </div>
 
 
-<div class="modal-field">
+<div class="field">
 
 <label for="editCategory">
     Category
 </label>
 
-<input
-    id="editCategory"
-    type="text"
->
+<select id="editCategory">
+
+<option value="">
+    Select Category
+</option>
+
+<option value="Open">
+    Open
+</option>
+
+<option value="Corporate">
+    Corporate
+</option>
+
+<option value="School">
+    School
+</option>
+
+<option value="College">
+    College
+</option>
+
+<option value="Teachers">
+    Teachers
+</option>
+
+<option value="Other">
+    Other
+</option>
+
+</select>
 
 </div>
 
 
-<div
-    class="status"
-    id="editStatus"
-></div>
-
-
-<div class="modal-buttons">
-
 <button
-    class="cancel-button"
-    id="cancelEdit"
+    class="save-btn"
+    id="saveEditButton"
     type="button"
 >
-CANCEL
+    SAVE CHANGES
 </button>
-
-<button
-    class="save-button"
-    id="saveEdit"
-    type="button"
->
-SAVE
-</button>
-
-</div>
 
 </div>
 
@@ -948,60 +1097,40 @@ SAVE
 
 
 <!-- =========================
-     QR MODAL
+     GO LIVE MODAL
 ========================= -->
 
 <div
-    class="modal"
-    id="qrModal"
+    class="live-message"
+    id="liveMessage"
 >
 
-<div class="qr-modal-card">
+<div class="live-box">
 
-<div class="qr-title">
-    Tournament QR
+<div class="live-icon">
+    🔴
 </div>
 
+<h2>
+    Go Live
+</h2>
 
-<div id="qrCode"></div>
-
-
-<div
-    class="qr-link"
-    id="qrLink"
->
-    Loading...
-</div>
-
-
-<div class="qr-buttons">
+<p>
+    YouTube Live integration will be connected here in the next step.
+</p>
 
 <button
-    class="close-button"
-    id="closeQr"
+    class="live-close"
+    id="liveClose"
     type="button"
 >
-CLOSE
-</button>
-
-<button
-    class="share-button"
-    id="shareQr"
-    type="button"
->
-SHARE
+    CLOSE
 </button>
 
 </div>
 
 </div>
 
-</div>
-
-
-<!-- =========================
-     FIREBASE
-========================= -->
 
 <script type="module">
 
@@ -1044,14 +1173,8 @@ if(!eventId){
 }
 
 
-sessionStorage.setItem(
-    "crickpulseEventId",
-    eventId
-);
-
-
 /* =========================================
-   FIREBASE REFERENCE
+   FIREBASE
 ========================================= */
 
 const eventRef =
@@ -1075,17 +1198,6 @@ const eventType =
     document.getElementById(
         "eventType"
     );
-
-const eventLogo =
-    document.getElementById(
-        "eventLogo"
-    );
-
-const logoPlaceholder =
-    document.getElementById(
-        "logoPlaceholder"
-    );
-
 
 const detailName =
     document.getElementById(
@@ -1112,9 +1224,200 @@ const detailCategory =
         "detailCategory"
     );
 
+const eventLogo =
+    document.getElementById(
+        "eventLogo"
+    );
+
+const logoPlaceholder =
+    document.getElementById(
+        "logoPlaceholder"
+    );
+
 
 /* =========================================
-   EDIT ELEMENTS
+   FORMAT DATE
+========================================= */
+
+function formatDate(value){
+
+    if(!value){
+
+        return "—";
+
+    }
+
+
+    if(
+        typeof value === "string" &&
+        value.includes("-")
+    ){
+
+        const parts =
+            value.split("-");
+
+
+        if(
+            parts.length === 3
+        ){
+
+            return (
+                parts[2] +
+                "-" +
+                parts[1] +
+                "-" +
+                parts[0]
+            );
+
+        }
+
+    }
+
+
+    return value;
+
+}
+
+
+/* =========================================
+   LOAD EVENT
+========================================= */
+
+async function loadEvent(){
+
+    try{
+
+        const snapshot =
+            await getDoc(
+                eventRef
+            );
+
+
+        if(!snapshot.exists()){
+
+            alert(
+                "Tournament document not found."
+            );
+
+            return;
+
+        }
+
+
+        const data =
+            snapshot.data();
+
+
+        /* =========================
+           NAME
+        ========================= */
+
+        const name =
+            data.eventName ||
+            data.name ||
+            "CRICKPULSE Tournament";
+
+
+        eventName.textContent =
+            name;
+
+
+        detailName.textContent =
+            name;
+
+
+        /* =========================
+           TYPE
+        ========================= */
+
+        eventType.textContent =
+            data.eventType ||
+            "Tournament";
+
+
+        /* =========================
+           DATE
+        ========================= */
+
+        detailDate.textContent =
+            formatDate(
+                data.date ||
+                data.eventDate ||
+                data.startDate
+            );
+
+
+        /* =========================
+           GROUND
+        ========================= */
+
+        detailGround.textContent =
+            data.ground ||
+            data.venue ||
+            "—";
+
+
+        /* =========================
+           BALL TYPE
+        ========================= */
+
+        detailBallType.textContent =
+            data.ballType ||
+            "—";
+
+
+        /* =========================
+           CATEGORY
+        ========================= */
+
+        detailCategory.textContent =
+            data.category ||
+            "—";
+
+
+        /* =========================
+           LOGO
+        ========================= */
+
+        const logo =
+            data.logo ||
+            data.eventLogo ||
+            data.tournamentLogo ||
+            "";
+
+
+        if(logo){
+
+            eventLogo.src =
+                logo;
+
+            eventLogo.style.display =
+                "block";
+
+            logoPlaceholder.style.display =
+                "none";
+
+        }
+
+    }
+    catch(error){
+
+        console.error(
+            "ABOUT LOAD ERROR:",
+            error
+        );
+
+        alert(
+            "Tournament details load नहीं हो पाए."
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   EDIT MODAL ELEMENTS
 ========================================= */
 
 const editModal =
@@ -1147,219 +1450,9 @@ const editCategory =
         "editCategory"
     );
 
-const editStatus =
-    document.getElementById(
-        "editStatus"
-    );
-
 
 /* =========================================
-   CURRENT EVENT DATA
-========================================= */
-
-let currentEventData = {};
-
-
-/* =========================================
-   FORMAT DATE
-========================================= */
-
-function formatDate(value){
-
-    if(!value){
-
-        return "Not set";
-
-    }
-
-
-    /*
-     * Firebase may contain
-     * different date formats.
-     */
-
-    if(
-        typeof value === "string" &&
-        /^\d{4}-\d{2}-\d{2}$/.test(
-            value
-        )
-    ){
-
-        const parts =
-            value.split("-");
-
-
-        return (
-            parts[2] +
-            "-" +
-            parts[1] +
-            "-" +
-            parts[0]
-        );
-
-    }
-
-
-    return String(value);
-
-}
-
-
-/* =========================================
-   LOAD EVENT
-========================================= */
-
-async function loadEvent(){
-
-    try{
-
-        const snapshot =
-            await getDoc(
-                eventRef
-            );
-
-
-        if(
-            !snapshot.exists()
-        ){
-
-            alert(
-                "Tournament document not found in Firebase."
-            );
-
-            return;
-
-        }
-
-
-        currentEventData =
-            snapshot.data();
-
-
-        renderEvent();
-
-    }
-    catch(error){
-
-        console.error(
-            "ABOUT LOAD ERROR:",
-            error
-        );
-
-        alert(
-            "Tournament details load नहीं हो पाईं."
-        );
-
-    }
-
-}
-
-
-/* =========================================
-   RENDER EVENT
-========================================= */
-
-function renderEvent(){
-
-    const data =
-        currentEventData;
-
-
-    /*
-     * EVENT NAME
-     */
-
-    const name =
-        data.eventName ||
-        data.name ||
-        "CRICKPULSE Tournament";
-
-
-    eventName.textContent =
-        name;
-
-
-    /*
-     * EVENT TYPE
-     */
-
-    eventType.textContent =
-        data.eventType ||
-        "Tournament";
-
-
-    /*
-     * LOGO
-     */
-
-    const logo =
-        data.logo ||
-        data.eventLogo ||
-        data.tournamentLogo ||
-        "";
-
-
-    if(logo){
-
-        eventLogo.src =
-            logo;
-
-        eventLogo.style.display =
-            "block";
-
-        logoPlaceholder.style.display =
-            "none";
-
-    }
-    else{
-
-        eventLogo.style.display =
-            "none";
-
-        logoPlaceholder.style.display =
-            "block";
-
-    }
-
-
-    /*
-     * DETAILS
-     */
-
-    detailName.textContent =
-        data.eventName ||
-        data.name ||
-        "Not set";
-
-
-    detailDate.textContent =
-        formatDate(
-            data.date ||
-            data.eventDate ||
-            data.startDate
-        );
-
-
-    detailGround.textContent =
-        data.ground ||
-        data.venue ||
-        "Not set";
-
-
-    detailBallType.textContent =
-        data.ballType ||
-        "Not set";
-
-
-    detailCategory.textContent =
-        data.category ||
-        "Not set";
-
-}
-
-
-/* =========================================
-   EDIT BUTTON
+   OPEN EDIT
 ========================================= */
 
 document
@@ -1368,68 +1461,116 @@ document
 )
 .addEventListener(
     "click",
-    function(){
+    async function(){
 
-        const data =
-            currentEventData;
+        try{
 
-
-        editName.value =
-            data.eventName ||
-            data.name ||
-            "";
+            const snapshot =
+                await getDoc(
+                    eventRef
+                );
 
 
-        editDate.value =
-            data.date ||
-            data.eventDate ||
-            data.startDate ||
-            "";
+            if(!snapshot.exists()){
+
+                alert(
+                    "Tournament not found."
+                );
+
+                return;
+
+            }
 
 
-        editGround.value =
-            data.ground ||
-            data.venue ||
-            "";
+            const data =
+                snapshot.data();
 
 
-        editBallType.value =
-            data.ballType ||
-            "";
+            editName.value =
+                data.eventName ||
+                data.name ||
+                "";
 
 
-        editCategory.value =
-            data.category ||
-            "";
+            editDate.value =
+                data.date ||
+                data.eventDate ||
+                data.startDate ||
+                "";
 
 
-        editStatus.textContent =
-            "";
+            editGround.value =
+                data.ground ||
+                data.venue ||
+                "";
 
 
-        editModal.classList.add(
-            "active"
-        );
+            editBallType.value =
+                data.ballType ||
+                "";
+
+
+            editCategory.value =
+                data.category ||
+                "";
+
+
+            editModal.classList.add(
+                "show"
+            );
+
+        }
+        catch(error){
+
+            console.error(
+                "EDIT LOAD ERROR:",
+                error
+            );
+
+            alert(
+                "Edit data load नहीं हो पाया."
+            );
+
+        }
 
     }
 );
 
 
 /* =========================================
-   CANCEL EDIT
+   CLOSE EDIT
 ========================================= */
 
 document
 .getElementById(
-    "cancelEdit"
+    "closeModal"
 )
 .addEventListener(
     "click",
     function(){
 
         editModal.classList.remove(
-            "active"
+            "show"
         );
+
+    }
+);
+
+
+editModal.addEventListener(
+    "click",
+    function(e){
+
+        if(
+            e.target ===
+            editModal
+        ){
+
+            editModal.classList.remove(
+                "show"
+            );
+
+        }
 
     }
 );
@@ -1441,36 +1582,36 @@ document
 
 document
 .getElementById(
-    "saveEdit"
+    "saveEditButton"
 )
 .addEventListener(
     "click",
     async function(){
 
-        const newName =
+        const name =
             editName.value.trim();
 
 
-        const newDate =
+        const date =
             editDate.value;
 
 
-        const newGround =
+        const ground =
             editGround.value.trim();
 
 
-        const newBallType =
-            editBallType.value.trim();
+        const ballType =
+            editBallType.value;
 
 
-        const newCategory =
-            editCategory.value.trim();
+        const category =
+            editCategory.value;
 
 
-        if(!newName){
+        if(!name){
 
             alert(
-                "Please enter Name."
+                "Tournament Name is required."
             );
 
             return;
@@ -1478,10 +1619,16 @@ document
         }
 
 
-        this.disabled =
+        const saveButton =
+            document.getElementById(
+                "saveEditButton"
+            );
+
+
+        saveButton.disabled =
             true;
 
-        this.textContent =
+        saveButton.textContent =
             "SAVING...";
 
 
@@ -1492,67 +1639,34 @@ document
                 {
 
                     eventName:
-                        newName,
+                        name,
 
                     date:
-                        newDate,
+                        date,
 
                     ground:
-                        newGround,
+                        ground,
 
                     ballType:
-                        newBallType,
+                        ballType,
 
                     category:
-                        newCategory
+                        category
 
                 }
             );
 
 
-            /*
-             * Update local data
-             */
-
-            currentEventData =
-                {
-
-                    ...currentEventData,
-
-                    eventName:
-                        newName,
-
-                    date:
-                        newDate,
-
-                    ground:
-                        newGround,
-
-                    ballType:
-                        newBallType,
-
-                    category:
-                        newCategory
-
-                };
+            editModal.classList.remove(
+                "show"
+            );
 
 
-            renderEvent();
+            await loadEvent();
 
 
-            editStatus.textContent =
-                "Details updated successfully.";
-
-
-            setTimeout(
-                function(){
-
-                    editModal.classList.remove(
-                        "active"
-                    );
-
-                },
-                700
+            alert(
+                "Tournament details updated successfully."
             );
 
         }
@@ -1563,42 +1677,19 @@ document
                 error
             );
 
-
-            editStatus.textContent =
-                "Update failed: " +
-                error.message;
+            alert(
+                "Details update नहीं हो पाए.\n\n" +
+                error.message
+            );
 
         }
         finally{
 
-            this.disabled =
+            saveButton.disabled =
                 false;
 
-            this.textContent =
-                "SAVE";
-
-        }
-
-    }
-);
-
-
-/* =========================================
-   CLOSE MODAL BY BACKGROUND
-========================================= */
-
-editModal.addEventListener(
-    "click",
-    function(event){
-
-        if(
-            event.target ===
-            editModal
-        ){
-
-            editModal.classList.remove(
-                "active"
-            );
+            saveButton.textContent =
+                "SAVE CHANGES";
 
         }
 
@@ -1610,6 +1701,12 @@ editModal.addEventListener(
    GO LIVE
 ========================================= */
 
+const liveMessage =
+    document.getElementById(
+        "liveMessage"
+    );
+
+
 document
 .getElementById(
     "goLiveButton"
@@ -1618,116 +1715,24 @@ document
     "click",
     function(){
 
-        alert(
-            "GO LIVE feature will be connected with YouTube later."
+        liveMessage.classList.add(
+            "show"
         );
 
     }
 );
 
 
-/* =========================================
-   QR CODE
-========================================= */
-
-const qrModal =
-    document.getElementById(
-        "qrModal"
-    );
-
-const qrCode =
-    document.getElementById(
-        "qrCode"
-    );
-
-const qrLink =
-    document.getElementById(
-        "qrLink"
-    );
-
-
-function openQr(){
-
-    const link =
-        window.location.origin +
-        "/add-manually.html?eventId=" +
-        encodeURIComponent(
-            eventId
-        );
-
-
-    qrCode.innerHTML =
-        "";
-
-
-    const qrImage =
-        document.createElement(
-            "img"
-        );
-
-
-    qrImage.width =
-        230;
-
-    qrImage.height =
-        230;
-
-
-    qrImage.alt =
-        "Tournament QR Code";
-
-
-    qrImage.src =
-        "https://api.qrserver.com/v1/create-qr-code/?size=230x230&data=" +
-        encodeURIComponent(
-            link
-        );
-
-
-    qrCode.appendChild(
-        qrImage
-    );
-
-
-    qrLink.textContent =
-        link;
-
-
-    qrModal.classList.add(
-        "active"
-    );
-
-}
-
-
-/* =========================================
-   QR BUTTON
-========================================= */
-
 document
 .getElementById(
-    "qrButton"
-)
-.addEventListener(
-    "click",
-    openQr
-);
-
-
-/* =========================================
-   CLOSE QR
-========================================= */
-
-document
-.getElementById(
-    "closeQr"
+    "liveClose"
 )
 .addEventListener(
     "click",
     function(){
 
-        qrModal.classList.remove(
-            "active"
+        liveMessage.classList.remove(
+            "show"
         );
 
     }
@@ -1735,19 +1740,80 @@ document
 
 
 /* =========================================
-   SHARE QR
+   QR
+========================================= */
+
+const tournamentUrl =
+    window.location.origin +
+    "/add-manually.html?eventId=" +
+    encodeURIComponent(
+        eventId
+    );
+
+
+const qrImage =
+    document.getElementById(
+        "qrImage"
+    );
+
+const qrLoading =
+    document.getElementById(
+        "qrLoading"
+    );
+
+
+qrImage.src =
+    "https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=" +
+    encodeURIComponent(
+        tournamentUrl
+    );
+
+
+qrImage.onload =
+    function(){
+
+        qrLoading.style.display =
+            "none";
+
+        qrImage.style.display =
+            "block";
+
+    };
+
+
+qrImage.onerror =
+    function(){
+
+        qrLoading.textContent =
+            "QR could not be loaded.";
+
+    };
+
+
+/* =========================================
+   SHARE
 ========================================= */
 
 document
 .getElementById(
-    "shareQr"
+    "shareButton"
 )
 .addEventListener(
     "click",
     async function(){
 
-        const link =
-            qrLink.textContent;
+        const shareData = {
+
+            title:
+                eventName.textContent,
+
+            text:
+                "Join this CRICKPULSE tournament",
+
+            url:
+                tournamentUrl
+
+        };
 
 
         if(
@@ -1756,19 +1822,9 @@ document
 
             try{
 
-                await navigator.share({
-
-                    title:
-                        currentEventData.eventName ||
-                        "CRICKPULSE Tournament",
-
-                    text:
-                        "Join this CRICKPULSE tournament.",
-
-                    url:
-                        link
-
-                });
+                await navigator.share(
+                    shareData
+                );
 
             }
             catch(error){
@@ -1789,9 +1845,8 @@ document
             await navigator
             .clipboard
             .writeText(
-                link
+                tournamentUrl
             );
-
 
             alert(
                 "Tournament link copied."
@@ -1801,30 +1856,7 @@ document
         catch(error){
 
             alert(
-                link
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================
-   QR BACKGROUND
-========================================= */
-
-qrModal.addEventListener(
-    "click",
-    function(event){
-
-        if(
-            event.target ===
-            qrModal
-        ){
-
-            qrModal.classList.remove(
-                "active"
+                tournamentUrl
             );
 
         }
@@ -1858,6 +1890,12 @@ document
 /* =========================================
    START
 ========================================= */
+
+sessionStorage.setItem(
+    "crickpulseEventId",
+    eventId
+);
+
 
 loadEvent();
 
