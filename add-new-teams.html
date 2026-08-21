@@ -5,7 +5,10 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>CRICKPULSE | Add New Teams</title>
 
@@ -53,7 +56,6 @@ body{
 
 .header-title{
     flex:1;
-
     text-align:center;
 
     font-size:25px;
@@ -79,7 +81,8 @@ body{
 
     padding:26px 20px;
 
-    box-shadow:0 6px 20px rgba(0,0,0,.06);
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.06);
 }
 
 .title{
@@ -104,19 +107,46 @@ body{
 
     padding:13px;
 
-    margin-bottom:22px;
+    margin-bottom:14px;
 }
 
 .event-label{
     font-size:15px;
     color:#6d667c;
+
     margin-bottom:5px;
 }
 
 .event-id{
     font-size:14px;
     font-weight:800;
+
     word-break:break-all;
+}
+
+.team-limit{
+    border:1.5px solid #ff3b30;
+    border-radius:8px;
+
+    padding:13px;
+
+    margin-bottom:22px;
+
+    background:#fff;
+}
+
+.team-limit-label{
+    font-size:15px;
+    color:#6d667c;
+
+    margin-bottom:5px;
+}
+
+.team-limit-value{
+    font-size:20px;
+    font-weight:900;
+
+    color:#6c35d9;
 }
 
 .saved-team{
@@ -162,6 +192,7 @@ body{
 .saved-logo img{
     width:100%;
     height:100%;
+
     object-fit:cover;
 }
 
@@ -321,18 +352,9 @@ body{
     margin-top:22px;
 }
 
-.done-btn:disabled{
+.done-btn:disabled,
+.add-btn:disabled{
     opacity:.6;
-}
-
-.empty{
-    text-align:center;
-
-    color:#777;
-
-    font-size:16px;
-
-    padding:15px;
 }
 
 .status{
@@ -343,6 +365,16 @@ body{
     font-size:16px;
 
     font-weight:800;
+}
+
+.empty{
+    text-align:center;
+
+    color:#777;
+
+    font-size:16px;
+
+    padding:15px;
 }
 
 @media(max-width:480px){
@@ -414,9 +446,11 @@ body{
 
 <section class="main-card">
 
+
 <div class="title">
     Add New Teams
 </div>
+
 
 <div class="subtitle">
     Add teams participating in this tournament.
@@ -439,6 +473,22 @@ body{
 </div>
 
 
+<div class="team-limit">
+
+<div class="team-limit-label">
+    Teams
+</div>
+
+<div
+    class="team-limit-value"
+    id="teamLimitDisplay"
+>
+    Loading...
+</div>
+
+</div>
+
+
 <div id="savedTeams">
 
 <div class="empty">
@@ -448,7 +498,10 @@ body{
 </div>
 
 
-<div class="form-card">
+<div
+    class="form-card"
+    id="formCard"
+>
 
 
 <div class="logo-section">
@@ -473,12 +526,14 @@ body{
 
 </label>
 
+
 <input
     type="file"
     id="logoInput"
     accept="image/*"
     hidden
 >
+
 
 <div class="logo-label">
     Add Team Logo
@@ -578,6 +633,7 @@ Add New Team ＋
     id="status"
 ></div>
 
+
 </div>
 
 
@@ -620,15 +676,18 @@ let pendingTeams = [];
 
 let selectedLogo = "";
 
+let totalTeams = 0;
+
 
 /* =========================================
-   GET TOURNAMENT ID
+   GET EVENT ID
 ========================================= */
 
 const params =
     new URLSearchParams(
         window.location.search
     );
+
 
 eventId =
     params.get("eventId") ||
@@ -637,10 +696,14 @@ eventId =
     );
 
 
+/* =========================================
+   EVENT ID CHECK
+========================================= */
+
 if(!eventId){
 
     alert(
-        "Tournament ID is missing."
+        "Tournament ID is missing. Please create the tournament again."
     );
 
     window.location.href =
@@ -650,7 +713,17 @@ if(!eventId){
 
 
 /* =========================================
-   SHOW TOURNAMENT ID
+   KEEP EVENT ID
+========================================= */
+
+sessionStorage.setItem(
+    "crickpulseEventId",
+    eventId
+);
+
+
+/* =========================================
+   DISPLAY EVENT ID
 ========================================= */
 
 document
@@ -660,7 +733,34 @@ document
 
 
 /* =========================================
-   FIRESTORE DOCUMENT
+   GET NUMBER OF TEAMS
+========================================= */
+
+totalTeams =
+    Number(
+        sessionStorage.getItem(
+            "crickpulseTeamCount"
+        )
+    );
+
+
+if(
+    !totalTeams ||
+    totalTeams < 2
+){
+
+    alert(
+        "Number of Teams is missing. Please complete Tournament Setup again."
+    );
+
+    window.location.href =
+        "number-of-teams.html";
+
+}
+
+
+/* =========================================
+   FIRESTORE EVENT REFERENCE
 ========================================= */
 
 const eventRef =
@@ -672,7 +772,77 @@ const eventRef =
 
 
 /* =========================================
-   LOAD TOURNAMENT
+   ELEMENTS
+========================================= */
+
+const savedTeams =
+    document.getElementById(
+        "savedTeams"
+    );
+
+const formCard =
+    document.getElementById(
+        "formCard"
+    );
+
+const addTeamButton =
+    document.getElementById(
+        "addTeamButton"
+    );
+
+const doneButton =
+    document.getElementById(
+        "doneButton"
+    );
+
+const status =
+    document.getElementById(
+        "status"
+    );
+
+
+/* =========================================
+   TEAM COUNT DISPLAY
+========================================= */
+
+function updateTeamCount(){
+
+    const currentCount =
+        existingTeams.length +
+        pendingTeams.length;
+
+
+    document
+    .getElementById(
+        "teamLimitDisplay"
+    )
+    .textContent =
+        currentCount +
+        " / " +
+        totalTeams +
+        " teams added";
+
+
+    if(
+        currentCount >= totalTeams
+    ){
+
+        formCard.style.display =
+            "none";
+
+    }
+    else{
+
+        formCard.style.display =
+            "block";
+
+    }
+
+}
+
+
+/* =========================================
+   LOAD EVENT
 ========================================= */
 
 async function loadEvent(){
@@ -685,7 +855,9 @@ async function loadEvent(){
             );
 
 
-        if(!snapshot.exists()){
+        if(
+            !snapshot.exists()
+        ){
 
             alert(
                 "Tournament document not found in Firebase."
@@ -701,18 +873,24 @@ async function loadEvent(){
 
 
         existingTeams =
-            Array.isArray(data.teams)
-            ? data.teams
-            : [];
+            Array.isArray(
+                data.teams
+            )
+            ?
+            data.teams
+            :
+            [];
 
 
         renderTeams();
+
+        updateTeamCount();
 
     }
     catch(error){
 
         console.error(
-            "LOAD ERROR:",
+            "LOAD EVENT ERROR:",
             error
         );
 
@@ -746,6 +924,10 @@ document
         }
 
 
+        /*
+         * Small local preview.
+         */
+
         const reader =
             new FileReader();
 
@@ -758,8 +940,7 @@ document
 
 
                 const image =
-                    document
-                    .getElementById(
+                    document.getElementById(
                         "logoPreview"
                     );
 
@@ -789,7 +970,7 @@ document
 
 
 /* =========================================
-   MOBILE ONLY NUMBERS
+   MOBILE INPUT
 ========================================= */
 
 document
@@ -809,42 +990,78 @@ document
 
 
 /* =========================================
-   ADD TEAM TO TEMPORARY LIST
+   ADD TEAM
 ========================================= */
 
-document
-.getElementById("addTeamButton")
-.addEventListener(
+addTeamButton.addEventListener(
     "click",
     function(){
 
+        const currentCount =
+            existingTeams.length +
+            pendingTeams.length;
+
+
+        /*
+         * TEAM LIMIT
+         */
+
+        if(
+            currentCount >= totalTeams
+        ){
+
+            alert(
+                "All " +
+                totalTeams +
+                " teams have already been added."
+            );
+
+            updateTeamCount();
+
+            return;
+
+        }
+
+
         const teamName =
             document
-            .getElementById("teamName")
+            .getElementById(
+                "teamName"
+            )
             .value
             .trim();
 
 
         const city =
             document
-            .getElementById("city")
+            .getElementById(
+                "city"
+            )
             .value
             .trim();
 
 
         const captainMobile =
             document
-            .getElementById("captainMobile")
+            .getElementById(
+                "captainMobile"
+            )
             .value
             .trim();
 
 
         const captainName =
             document
-            .getElementById("captainName")
+            .getElementById(
+                "captainName"
+            )
             .value
             .trim();
 
+
+        /* =========================
+           VALIDATION
+        ========================= */
 
         if(!teamName){
 
@@ -892,6 +1109,10 @@ document
         }
 
 
+        /* =========================
+           DUPLICATE CHECK
+        ========================= */
+
         const duplicate =
             [
                 ...existingTeams,
@@ -924,6 +1145,10 @@ document
         }
 
 
+        /* =========================
+           CREATE TEAM
+        ========================= */
+
         const newTeam = {
 
             teamId:
@@ -932,7 +1157,10 @@ document
                 "_" +
                 Math.random()
                 .toString(36)
-                .substring(2,8),
+                .substring(
+                    2,
+                    8
+                ),
 
             teamName:
                 teamName,
@@ -948,9 +1176,11 @@ document
                 captainName,
 
             /*
-            Logo अभी local preview के रूप में रहेगा।
-            Firebase Storage/Cloudinary बाद में जोड़ा जा सकता है।
-            */
+             * LOGO FIX
+             */
+
+            logo:
+                selectedLogo || "",
 
             createdAt:
                 new Date().toISOString()
@@ -965,13 +1195,33 @@ document
 
         renderTeams();
 
+        updateTeamCount();
+
         clearForm();
 
 
-        document
-        .getElementById("status")
-        .textContent =
+        status.textContent =
             "Team added. Press DONE to save.";
+
+
+        /*
+         * If all teams have been entered,
+         * show a clear message.
+         */
+
+        const newCount =
+            existingTeams.length +
+            pendingTeams.length;
+
+
+        if(
+            newCount >= totalTeams
+        ){
+
+            status.textContent =
+                "All teams added. Press DONE to save.";
+
+        }
 
     }
 );
@@ -983,14 +1233,7 @@ document
 
 function renderTeams(){
 
-    const container =
-        document
-        .getElementById(
-            "savedTeams"
-        );
-
-
-    container.innerHTML =
+    savedTeams.innerHTML =
         "";
 
 
@@ -1001,9 +1244,11 @@ function renderTeams(){
         ];
 
 
-    if(allTeams.length === 0){
+    if(
+        allTeams.length === 0
+    ){
 
-        container.innerHTML =
+        savedTeams.innerHTML =
             `
             <div class="empty">
                 No teams added yet.
@@ -1028,27 +1273,36 @@ function renderTeams(){
                 "saved-team";
 
 
+            /* =========================
+               LOGO
+            ========================= */
+
             const logo =
                 document.createElement(
                     "div"
                 );
 
+
             logo.className =
                 "saved-logo";
 
 
-            if(team.logo){
+            if(
+                team.logo
+            ){
 
                 const img =
                     document.createElement(
                         "img"
                     );
 
+
                 img.src =
                     team.logo;
 
                 img.alt =
                     "Team Logo";
+
 
                 logo.appendChild(
                     img
@@ -1063,10 +1317,15 @@ function renderTeams(){
             }
 
 
+            /* =========================
+               INFO
+            ========================= */
+
             const info =
                 document.createElement(
                     "div"
                 );
+
 
             info.className =
                 "saved-info";
@@ -1077,8 +1336,10 @@ function renderTeams(){
                     "h3"
                 );
 
+
             name.textContent =
-                team.teamName || "";
+                team.teamName ||
+                "";
 
 
             const city =
@@ -1086,9 +1347,13 @@ function renderTeams(){
                     "p"
                 );
 
+
             city.textContent =
                 "City: " +
-                (team.city || "");
+                (
+                    team.city ||
+                    ""
+                );
 
 
             const captain =
@@ -1096,9 +1361,13 @@ function renderTeams(){
                     "p"
                 );
 
+
             captain.textContent =
                 "Captain: " +
-                (team.captainName || "");
+                (
+                    team.captainName ||
+                    ""
+                );
 
 
             info.appendChild(
@@ -1123,7 +1392,7 @@ function renderTeams(){
             );
 
 
-            container.appendChild(
+            savedTeams.appendChild(
                 card
             );
 
@@ -1140,31 +1409,41 @@ function renderTeams(){
 function clearForm(){
 
     document
-    .getElementById("teamName")
+    .getElementById(
+        "teamName"
+    )
     .value =
         "";
 
 
     document
-    .getElementById("city")
+    .getElementById(
+        "city"
+    )
     .value =
         "";
 
 
     document
-    .getElementById("captainMobile")
+    .getElementById(
+        "captainMobile"
+    )
     .value =
         "";
 
 
     document
-    .getElementById("captainName")
+    .getElementById(
+        "captainName"
+    )
     .value =
         "";
 
 
     document
-    .getElementById("logoInput")
+    .getElementById(
+        "logoInput"
+    )
     .value =
         "";
 
@@ -1174,19 +1453,25 @@ function clearForm(){
 
 
     document
-    .getElementById("logoPreview")
+    .getElementById(
+        "logoPreview"
+    )
     .src =
         "";
 
 
     document
-    .getElementById("logoPreview")
+    .getElementById(
+        "logoPreview"
+    )
     .style.display =
         "none";
 
 
     document
-    .getElementById("logoPlaceholder")
+    .getElementById(
+        "logoPlaceholder"
+    )
     .style.display =
         "block";
 
@@ -1194,18 +1479,32 @@ function clearForm(){
 
 
 /* =========================================
-   SAVE TEAMS TO FIREBASE
+   DONE — SAVE TO FIREBASE
 ========================================= */
 
-document
-.getElementById("doneButton")
-.addEventListener(
+doneButton.addEventListener(
     "click",
     async function(){
+
+        /*
+         * Nothing to save
+         */
 
         if(
             pendingTeams.length === 0
         ){
+
+            if(
+                existingTeams.length >=
+                totalTeams
+            ){
+
+                goBackToAddManually();
+
+                return;
+
+            }
+
 
             alert(
                 "Please add at least one new team."
@@ -1216,27 +1515,45 @@ document
         }
 
 
-        const button =
-            document
-            .getElementById(
-                "doneButton"
+        /*
+         * FINAL COUNT CHECK
+         */
+
+        const finalCount =
+            existingTeams.length +
+            pendingTeams.length;
+
+
+        if(
+            finalCount > totalTeams
+        ){
+
+            alert(
+                "You cannot add more than " +
+                totalTeams +
+                " teams."
             );
 
+            return;
 
-        button.disabled =
+        }
+
+
+        doneButton.disabled =
             true;
 
-        button.textContent =
+        addTeamButton.disabled =
+            true;
+
+        doneButton.textContent =
             "Saving...";
 
 
         try{
 
             /*
-            =================================
-            CHECK TOURNAMENT
-            =================================
-            */
+             * Get latest Firebase data
+             */
 
             const latestSnapshot =
                 await getDoc(
@@ -1255,48 +1572,115 @@ document
             }
 
 
+            const latestData =
+                latestSnapshot.data();
+
+
+            const latestTeams =
+                Array.isArray(
+                    latestData.teams
+                )
+                ?
+                latestData.teams
+                :
+                [];
+
+
             /*
-            =================================
-            SAVE USING ARRAYUNION
+             * Re-check duplicate teams
+             * against latest Firebase data.
+             */
 
-            यही मुख्य बदलाव है।
+            for(
+                const pendingTeam
+                of pendingTeams
+            ){
 
-            अगर teams field पहले से नहीं है,
-            Firebase इसे automatically create करेगा।
+                const duplicate =
+                    latestTeams.some(
+                        function(team){
 
-            अगर teams field मौजूद है,
-            नई teams उसमें add होंगी।
+                            return String(
+                                team.teamName ||
+                                ""
+                            )
+                            .trim()
+                            .toLowerCase()
+                            ===
+                            String(
+                                pendingTeam.teamName
+                            )
+                            .trim()
+                            .toLowerCase();
 
-            बाकी Tournament fields को
-            कोई नुकसान नहीं होगा।
-            =================================
-            */
+                        }
+                    );
+
+
+                if(duplicate){
+
+                    throw new Error(
+                        "Team already exists: " +
+                        pendingTeam.teamName
+                    );
+
+                }
+
+            }
+
+
+            /*
+             * FINAL FIREBASE COUNT
+             */
+
+            if(
+                latestTeams.length +
+                pendingTeams.length
+                >
+                totalTeams
+            ){
+
+                throw new Error(
+                    "Team limit reached. Only " +
+                    totalTeams +
+                    " teams are allowed."
+                );
+
+            }
+
+
+            /*
+             * SAVE USING ARRAYUNION
+             *
+             * This updates only the teams field.
+             * Other tournament fields remain safe.
+             */
 
             await updateDoc(
                 eventRef,
                 {
+
                     teams:
                         arrayUnion(
                             ...pendingTeams
                         )
+
                 }
             );
 
 
             /*
-            =================================
-            SUCCESS
-            =================================
-            */
+             * SUCCESS
+             */
 
             existingTeams =
                 [
-                    ...existingTeams,
+                    ...latestTeams,
                     ...pendingTeams
                 ];
 
 
-            const count =
+            const savedCount =
                 pendingTeams.length;
 
 
@@ -1306,18 +1690,32 @@ document
 
             renderTeams();
 
+            updateTeamCount();
 
-            document
-            .getElementById("status")
-            .textContent =
+
+            status.textContent =
                 "";
 
 
             alert(
-                count +
+                savedCount +
                 " team(s) saved successfully in Firebase."
             );
 
+
+            /*
+             * If all teams are complete,
+             * return to Add Manually.
+             */
+
+            if(
+                existingTeams.length >=
+                totalTeams
+            ){
+
+                goBackToAddManually();
+
+            }
 
         }
         catch(error){
@@ -1336,10 +1734,13 @@ document
         }
         finally{
 
-            button.disabled =
+            doneButton.disabled =
                 false;
 
-            button.textContent =
+            addTeamButton.disabled =
+                false;
+
+            doneButton.textContent =
                 "DONE";
 
         }
@@ -1349,16 +1750,40 @@ document
 
 
 /* =========================================
+   BACK TO ADD MANUALLY
+========================================= */
+
+function goBackToAddManually(){
+
+    window.location.href =
+        "add-manually.html?eventId=" +
+        encodeURIComponent(
+            eventId
+        );
+
+}
+
+
+/* =========================================
    BACK BUTTON
 ========================================= */
 
 document
-.getElementById("backButton")
+.getElementById(
+    "backButton"
+)
 .addEventListener(
     "click",
     function(){
 
-        window.history.back();
+        /*
+         * Directly return to the
+         * four-option Add Manually page.
+         *
+         * This avoids history problems.
+         */
+
+        goBackToAddManually();
 
     }
 );
