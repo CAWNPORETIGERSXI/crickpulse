@@ -20,13 +20,15 @@
 
 body{
     font-family:Verdana,Geneva,sans-serif;
+
     background:
         linear-gradient(
             180deg,
-            #f4efff 0%,
+            #f2ecff 0%,
             #faf9ff 45%,
             #ffffff 100%
         );
+
     color:#171225;
     min-height:100vh;
 }
@@ -40,7 +42,7 @@ body{
 
     background:#ffffff;
 
-    border-bottom:1px solid #e5ddf5;
+    border-bottom:1px solid #ded4f2;
 
     display:flex;
     align-items:center;
@@ -67,6 +69,10 @@ body{
     font-weight:900;
 
     cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .header-title{
@@ -77,7 +83,7 @@ body{
     font-size:24px;
     font-weight:900;
 
-    color:#27144f;
+    color:#35146d;
 
     margin-right:52px;
 }
@@ -100,6 +106,7 @@ body{
 ========================= */
 
 .hero{
+
     position:relative;
 
     overflow:hidden;
@@ -107,20 +114,20 @@ body{
     background:
         linear-gradient(
             135deg,
-            #5d25c9,
-            #7b42e8,
-            #9b6cff
+            #5420bd,
+            #7136dc,
+            #9668ff
         );
 
-    border-radius:18px;
+    border-radius:20px;
 
     padding:28px 20px;
 
-    color:#fff;
+    color:#ffffff;
 
     box-shadow:
-        0 14px 35px
-        rgba(108,53,217,.25);
+        0 15px 38px
+        rgba(108,53,217,.28);
 
     margin-bottom:20px;
 
@@ -128,12 +135,13 @@ body{
 }
 
 .hero::after{
+
     content:"";
 
     position:absolute;
 
-    width:180px;
-    height:180px;
+    width:190px;
+    height:190px;
 
     right:-90px;
     top:-90px;
@@ -145,19 +153,21 @@ body{
 }
 
 .logo{
+
     position:relative;
     z-index:2;
 
     width:110px;
     height:110px;
 
-    margin:0 auto 14px;
+    margin:0 auto 15px;
 
     border-radius:50%;
 
     background:#ffffff;
 
-    border:3px solid rgba(255,255,255,.8);
+    border:4px solid
+        rgba(255,255,255,.85);
 
     display:flex;
     align-items:center;
@@ -167,11 +177,16 @@ body{
 
     color:#6c35d9;
 
-    font-size:20px;
+    font-size:22px;
     font-weight:900;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.16);
 }
 
 .logo img{
+
     width:100%;
     height:100%;
 
@@ -181,11 +196,12 @@ body{
 }
 
 .logo-placeholder{
-    font-size:18px;
+    font-size:20px;
     font-weight:900;
 }
 
 .hero h1{
+
     position:relative;
     z-index:2;
 
@@ -198,27 +214,32 @@ body{
 }
 
 .hero p{
+
     position:relative;
     z-index:2;
 
     font-size:16px;
 
-    color:rgba(255,255,255,.82);
+    color:
+        rgba(255,255,255,.84);
 }
 
 .live-btn{
+
     position:relative;
     z-index:2;
 
     margin-top:18px;
 
-    min-width:145px;
-    height:48px;
+    min-width:150px;
+    height:50px;
 
     border:1.5px solid #ffffff;
-    border-radius:25px;
 
-    background:rgba(255,255,255,.14);
+    border-radius:28px;
+
+    background:
+        rgba(255,255,255,.15);
 
     color:#ffffff;
 
@@ -226,55 +247,64 @@ body{
     font-weight:900;
 
     cursor:pointer;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0,0,0,.12);
 }
 
 /* =========================
-   SECTION CARD
+   CARD
 ========================= */
 
 .card{
+
     background:#ffffff;
 
     border:1.5px solid #ff3b30;
 
-    border-radius:14px;
+    border-radius:15px;
 
     padding:20px;
 
     margin-bottom:18px;
 
     box-shadow:
-        0 8px 24px
+        0 8px 25px
         rgba(72,45,120,.08);
 }
 
 .card-head{
+
     display:flex;
 
     align-items:center;
     justify-content:space-between;
 
-    gap:10px;
+    gap:12px;
 
     margin-bottom:18px;
 }
 
 .card-title{
+
     font-size:22px;
     font-weight:900;
 
-    color:#28134e;
+    color:#35146d;
 }
 
 .edit-btn{
-    height:43px;
 
-    padding:0 18px;
+    height:44px;
+
+    padding:0 17px;
 
     border:1.5px solid #ff3b30;
-    border-radius:8px;
 
-    background:#f4efff;
+    border-radius:9px;
+
+    background:#f0e9ff;
 
     color:#6c35d9;
 
@@ -284,22 +314,27 @@ body{
     cursor:pointer;
 }
 
+.edit-btn:active{
+    transform:scale(.97);
+}
+
 /* =========================
    DETAILS
 ========================= */
 
 .detail{
+
     display:flex;
 
     align-items:flex-start;
-
     justify-content:space-between;
 
     gap:15px;
 
     padding:14px 0;
 
-    border-bottom:1px solid #eee9f7;
+    border-bottom:
+        1px solid #eee8f8;
 }
 
 .detail:last-child{
@@ -307,6 +342,7 @@ body{
 }
 
 .detail-label{
+
     color:#777080;
 
     font-size:15px;
@@ -314,6 +350,7 @@ body{
 }
 
 .detail-value{
+
     text-align:right;
 
     color:#241536;
@@ -327,30 +364,33 @@ body{
 }
 
 /* =========================
-   QR
+   QR CARD
 ========================= */
 
 .qr-card{
+
     text-align:center;
 
     background:
         linear-gradient(
             180deg,
             #ffffff,
-            #f7f2ff
+            #f6f0ff
         );
 }
 
 .qr-title{
+
     font-size:22px;
     font-weight:900;
 
-    color:#28134e;
+    color:#35146d;
 
     margin-bottom:8px;
 }
 
 .qr-subtitle{
+
     font-size:15px;
 
     color:#777080;
@@ -361,24 +401,31 @@ body{
 }
 
 .qr-box{
-    width:190px;
-    height:190px;
+
+    width:200px;
+    height:200px;
 
     margin:0 auto 18px;
 
     background:#ffffff;
 
     border:1.5px solid #ff3b30;
-    border-radius:12px;
+
+    border-radius:13px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
     padding:10px;
+
+    box-shadow:
+        0 7px 20px
+        rgba(108,53,217,.10);
 }
 
 #qrImage{
+
     width:100%;
     height:100%;
 
@@ -388,6 +435,7 @@ body{
 }
 
 .qr-loading{
+
     color:#6c35d9;
 
     font-size:15px;
@@ -395,10 +443,12 @@ body{
 }
 
 .share-btn{
+
     width:100%;
     height:55px;
 
     border:1.5px solid #ff3b30;
+
     border-radius:9px;
 
     background:#6c35d9;
@@ -416,6 +466,7 @@ body{
 ========================= */
 
 .modal{
+
     position:fixed;
 
     inset:0;
@@ -430,9 +481,9 @@ body{
     padding:16px;
 
     background:
-        rgba(28,15,50,.58);
+        rgba(30,15,55,.65);
 
-    backdrop-filter:blur(4px);
+    backdrop-filter:blur(6px);
 }
 
 .modal.show{
@@ -440,6 +491,7 @@ body{
 }
 
 .modal-box{
+
     width:100%;
     max-width:600px;
 
@@ -449,17 +501,35 @@ body{
 
     background:#ffffff;
 
-    border:1.5px solid #ff3b30;
-    border-radius:16px;
+    border:2px solid #ff3b30;
+
+    border-radius:18px;
 
     padding:22px;
 
     box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.22);
+        0 25px 70px
+        rgba(0,0,0,.28);
+
+    animation:
+        popupIn .18s ease-out;
+}
+
+@keyframes popupIn{
+
+    from{
+        opacity:0;
+        transform:translateY(15px) scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
 }
 
 .modal-head{
+
     display:flex;
 
     align-items:center;
@@ -469,37 +539,46 @@ body{
 }
 
 .modal-title{
+
     font-size:24px;
     font-weight:900;
 
-    color:#28134e;
+    color:#35146d;
 }
 
 .close-btn{
-    width:42px;
-    height:42px;
+
+    width:43px;
+    height:43px;
 
     border:1.5px solid #ff3b30;
-    border-radius:8px;
+
+    border-radius:9px;
 
     background:#ffffff;
 
     color:#6c35d9;
 
-    font-size:25px;
+    font-size:26px;
     font-weight:900;
 
     cursor:pointer;
 }
 
+/* =========================
+   FORM
+========================= */
+
 .field{
-    margin-bottom:16px;
+
+    margin-bottom:17px;
 }
 
 .field label{
+
     display:block;
 
-    margin-bottom:7px;
+    margin-bottom:8px;
 
     font-size:16px;
     font-weight:900;
@@ -509,11 +588,13 @@ body{
 
 .field input,
 .field select{
+
     width:100%;
-    height:53px;
+    height:54px;
 
     border:1.5px solid #ff3b30;
-    border-radius:8px;
+
+    border-radius:9px;
 
     background:#ffffff;
 
@@ -521,7 +602,7 @@ body{
 
     font-family:Verdana,Geneva,sans-serif;
 
-    font-size:16px;
+    font-size:17px;
     font-weight:700;
 
     color:#241536;
@@ -531,20 +612,23 @@ body{
 
 .field input:focus,
 .field select:focus{
+
     border-color:#6c35d9;
 
     box-shadow:
         0 0 0 3px
-        rgba(108,53,217,.10);
+        rgba(108,53,217,.13);
 }
 
 .save-btn{
-    width:100%;
-    height:56px;
 
-    margin-top:5px;
+    width:100%;
+    height:57px;
+
+    margin-top:4px;
 
     border:1.5px solid #ff3b30;
+
     border-radius:9px;
 
     background:#6c35d9;
@@ -562,10 +646,11 @@ body{
 }
 
 /* =========================
-   GO LIVE MESSAGE
+   LIVE MODAL
 ========================= */
 
 .live-message{
+
     position:fixed;
 
     inset:0;
@@ -580,7 +665,9 @@ body{
     padding:20px;
 
     background:
-        rgba(28,15,50,.58);
+        rgba(28,15,50,.62);
+
+    backdrop-filter:blur(5px);
 }
 
 .live-message.show{
@@ -588,26 +675,34 @@ body{
 }
 
 .live-box{
+
     width:100%;
     max-width:420px;
 
     background:#ffffff;
 
     border:1.5px solid #ff3b30;
-    border-radius:16px;
+
+    border-radius:17px;
 
     padding:28px 20px;
 
     text-align:center;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.25);
 }
 
 .live-icon{
+
     font-size:45px;
 
     margin-bottom:10px;
 }
 
 .live-box h2{
+
     color:#6c35d9;
 
     font-size:24px;
@@ -617,6 +712,7 @@ body{
 }
 
 .live-box p{
+
     color:#777080;
 
     font-size:15px;
@@ -627,10 +723,12 @@ body{
 }
 
 .live-close{
+
     width:100%;
     height:50px;
 
     border:1.5px solid #ff3b30;
+
     border-radius:8px;
 
     background:#6c35d9;
@@ -639,6 +737,8 @@ body{
 
     font-size:17px;
     font-weight:900;
+
+    cursor:pointer;
 }
 
 /* =========================
@@ -654,11 +754,13 @@ body{
     .back-btn{
         width:50px;
         height:50px;
+
         font-size:35px;
     }
 
     .header-title{
         font-size:22px;
+
         margin-right:50px;
     }
 
@@ -697,7 +799,9 @@ body{
 
     .edit-btn{
         height:40px;
+
         padding:0 14px;
+
         font-size:15px;
     }
 
@@ -719,10 +823,6 @@ body{
 <body>
 
 
-<!-- =========================
-     HEADER
-========================= -->
-
 <header class="header">
 
 <button
@@ -742,10 +842,6 @@ body{
 
 <main class="page">
 
-
-<!-- =========================
-     HERO
-========================= -->
 
 <section class="hero">
 
@@ -786,10 +882,6 @@ body{
 
 </section>
 
-
-<!-- =========================
-     ORGANIZER DETAILS
-========================= -->
 
 <section class="card">
 
@@ -889,13 +981,8 @@ body{
 
 </div>
 
-
 </section>
 
-
-<!-- =========================
-     SHARE QR
-========================= -->
 
 <section class="card qr-card">
 
@@ -976,6 +1063,7 @@ body{
 <input
     id="editName"
     type="text"
+    autocomplete="off"
 >
 
 </div>
@@ -1004,6 +1092,7 @@ body{
 <input
     id="editGround"
     type="text"
+    autocomplete="off"
 >
 
 </div>
@@ -1116,7 +1205,7 @@ body{
 </h2>
 
 <p>
-    YouTube Live integration will be connected here in the next step.
+    YouTube Live integration will be connected here later.
 </p>
 
 <button
@@ -1153,7 +1242,6 @@ const params =
         window.location.search
     );
 
-
 const eventId =
     params.get("eventId") ||
     sessionStorage.getItem(
@@ -1170,11 +1258,20 @@ if(!eventId){
     window.location.href =
         "create-event.html";
 
+    throw new Error(
+        "Missing eventId"
+    );
 }
 
 
+sessionStorage.setItem(
+    "crickpulseEventId",
+    eventId
+);
+
+
 /* =========================================
-   FIREBASE
+   FIRESTORE REFERENCE
 ========================================= */
 
 const eventRef =
@@ -1236,17 +1333,14 @@ const logoPlaceholder =
 
 
 /* =========================================
-   FORMAT DATE
+   DATE DISPLAY
 ========================================= */
 
 function formatDate(value){
 
     if(!value){
-
         return "—";
-
     }
-
 
     if(
         typeof value === "string" &&
@@ -1256,10 +1350,7 @@ function formatDate(value){
         const parts =
             value.split("-");
 
-
-        if(
-            parts.length === 3
-        ){
+        if(parts.length === 3){
 
             return (
                 parts[2] +
@@ -1273,9 +1364,48 @@ function formatDate(value){
 
     }
 
-
     return value;
+}
 
+
+/* =========================================
+   DATE FOR INPUT
+========================================= */
+
+function dateForInput(value){
+
+    if(!value){
+        return "";
+    }
+
+    if(
+        typeof value === "string" &&
+        /^\d{4}-\d{2}-\d{2}$/.test(value)
+    ){
+
+        return value;
+
+    }
+
+    if(
+        typeof value === "string" &&
+        /^\d{2}-\d{2}-\d{4}$/.test(value)
+    ){
+
+        const parts =
+            value.split("-");
+
+        return (
+            parts[2] +
+            "-" +
+            parts[1] +
+            "-" +
+            parts[0]
+        );
+
+    }
+
+    return "";
 }
 
 
@@ -1292,7 +1422,6 @@ async function loadEvent(){
                 eventRef
             );
 
-
         if(!snapshot.exists()){
 
             alert(
@@ -1300,17 +1429,12 @@ async function loadEvent(){
             );
 
             return;
-
         }
 
 
         const data =
             snapshot.data();
 
-
-        /* =========================
-           NAME
-        ========================= */
 
         const name =
             data.eventName ||
@@ -1326,30 +1450,21 @@ async function loadEvent(){
             name;
 
 
-        /* =========================
-           TYPE
-        ========================= */
-
         eventType.textContent =
             data.eventType ||
             "Tournament";
 
 
-        /* =========================
-           DATE
-        ========================= */
+        const date =
+            data.date ||
+            data.eventDate ||
+            data.startDate ||
+            "";
+
 
         detailDate.textContent =
-            formatDate(
-                data.date ||
-                data.eventDate ||
-                data.startDate
-            );
+            formatDate(date);
 
-
-        /* =========================
-           GROUND
-        ========================= */
 
         detailGround.textContent =
             data.ground ||
@@ -1357,27 +1472,15 @@ async function loadEvent(){
             "—";
 
 
-        /* =========================
-           BALL TYPE
-        ========================= */
-
         detailBallType.textContent =
             data.ballType ||
             "—";
 
 
-        /* =========================
-           CATEGORY
-        ========================= */
-
         detailCategory.textContent =
             data.category ||
             "—";
 
-
-        /* =========================
-           LOGO
-        ========================= */
 
         const logo =
             data.logo ||
@@ -1396,6 +1499,15 @@ async function loadEvent(){
 
             logoPlaceholder.style.display =
                 "none";
+
+        }
+        else{
+
+            eventLogo.style.display =
+                "none";
+
+            logoPlaceholder.style.display =
+                "block";
 
         }
 
@@ -1417,7 +1529,7 @@ async function loadEvent(){
 
 
 /* =========================================
-   EDIT MODAL ELEMENTS
+   EDIT MODAL
 ========================================= */
 
 const editModal =
@@ -1452,7 +1564,7 @@ const editCategory =
 
 
 /* =========================================
-   OPEN EDIT
+   OPEN EDIT POPUP
 ========================================= */
 
 document
@@ -1493,10 +1605,12 @@ document
 
 
             editDate.value =
-                data.date ||
-                data.eventDate ||
-                data.startDate ||
-                "";
+                dateForInput(
+                    data.date ||
+                    data.eventDate ||
+                    data.startDate ||
+                    ""
+                );
 
 
             editGround.value =
@@ -1519,6 +1633,10 @@ document
                 "show"
             );
 
+
+            document.body.style.overflow =
+                "hidden";
+
         }
         catch(error){
 
@@ -1538,8 +1656,20 @@ document
 
 
 /* =========================================
-   CLOSE EDIT
+   CLOSE EDIT POPUP
 ========================================= */
+
+function closeEditModal(){
+
+    editModal.classList.remove(
+        "show"
+    );
+
+    document.body.style.overflow =
+        "";
+
+}
+
 
 document
 .getElementById(
@@ -1547,28 +1677,20 @@ document
 )
 .addEventListener(
     "click",
-    function(){
-
-        editModal.classList.remove(
-            "show"
-        );
-
-    }
+    closeEditModal
 );
 
 
 editModal.addEventListener(
     "click",
-    function(e){
+    function(event){
 
         if(
-            e.target ===
+            event.target ===
             editModal
         ){
 
-            editModal.classList.remove(
-                "show"
-            );
+            closeEditModal();
 
         }
 
@@ -1577,7 +1699,28 @@ editModal.addEventListener(
 
 
 /* =========================================
-   SAVE EDIT
+   ESCAPE KEY
+========================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape" &&
+            editModal.classList.contains("show")
+        ){
+
+            closeEditModal();
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   SAVE CHANGES
 ========================================= */
 
 document
@@ -1591,18 +1734,14 @@ document
         const name =
             editName.value.trim();
 
-
         const date =
             editDate.value;
-
 
         const ground =
             editGround.value.trim();
 
-
         const ballType =
             editBallType.value;
-
 
         const category =
             editCategory.value;
@@ -1613,6 +1752,8 @@ document
             alert(
                 "Tournament Name is required."
             );
+
+            editName.focus();
 
             return;
 
@@ -1657,9 +1798,7 @@ document
             );
 
 
-            editModal.classList.remove(
-                "show"
-            );
+            closeEditModal();
 
 
             await loadEvent();
@@ -1719,6 +1858,9 @@ document
             "show"
         );
 
+        document.body.style.overflow =
+            "hidden";
+
     }
 );
 
@@ -1735,12 +1877,15 @@ document
             "show"
         );
 
+        document.body.style.overflow =
+            "";
+
     }
 );
 
 
 /* =========================================
-   QR
+   QR CODE
 ========================================= */
 
 const tournamentUrl =
@@ -1866,7 +2011,7 @@ document
 
 
 /* =========================================
-   BACK
+   BACK TO SCREEN 2
 ========================================= */
 
 document
@@ -1890,12 +2035,6 @@ document
 /* =========================================
    START
 ========================================= */
-
-sessionStorage.setItem(
-    "crickpulseEventId",
-    eventId
-);
-
 
 loadEvent();
 
