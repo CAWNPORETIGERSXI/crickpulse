@@ -10,12 +10,7 @@
     content="width=device-width, initial-scale=1.0"
 >
 
-<title>CRICKPULSE | Add Manually</title>
-
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
-    defer
-></script>
+<title>CRICKPULSE | Tournament</title>
 
 <style>
 
@@ -33,13 +28,9 @@ body{
 
 body{
     font-family:Verdana,Geneva,sans-serif;
-
     background:#f7f5ff;
-
     color:#171225;
-
     min-height:100vh;
-
     overflow:hidden;
 }
 
@@ -50,7 +41,7 @@ body{
 
 .top-header{
 
-    height:82px;
+    height:70px;
 
     background:#fff;
 
@@ -60,15 +51,15 @@ body{
 
     align-items:center;
 
-    padding:0 15px;
+    padding:0 10px;
 
     flex-shrink:0;
 }
 
 .back-button{
 
-    width:58px;
-    height:58px;
+    width:50px;
+    height:50px;
 
     border:1.5px solid #ff3b30;
 
@@ -78,7 +69,7 @@ body{
 
     color:#6328c7;
 
-    font-size:42px;
+    font-size:37px;
 
     font-weight:900;
 
@@ -93,11 +84,11 @@ body{
 
     text-align:center;
 
-    font-size:27px;
+    font-size:22px;
 
     font-weight:900;
 
-    margin-right:58px;
+    margin-right:50px;
 }
 
 
@@ -111,11 +102,11 @@ body{
 
     max-width:760px;
 
-    height:calc(100vh - 82px);
+    height:calc(100vh - 70px);
 
     margin:auto;
 
-    padding:18px 16px 25px;
+    padding:12px 11px 15px;
 
     overflow:hidden;
 }
@@ -123,7 +114,7 @@ body{
 
 /* =========================================
    TOP NAVIGATION
-   ONLY THIS AREA SCROLLS
+   ONLY THIS STRIP SCROLLS
 ========================================= */
 
 .top-navigation{
@@ -134,7 +125,7 @@ body{
 
     flex-wrap:nowrap;
 
-    gap:12px;
+    gap:10px;
 
     overflow-x:auto;
 
@@ -144,9 +135,9 @@ body{
 
     scrollbar-width:none;
 
-    padding:3px 2px 10px;
+    padding:2px 2px 9px;
 
-    margin-bottom:10px;
+    margin-bottom:8px;
 
     touch-action:pan-x;
 
@@ -161,7 +152,7 @@ body{
 
 
 /* =========================================
-   NAV BOXES
+   NAV BOX
 ========================================= */
 
 .nav-box{
@@ -170,15 +161,15 @@ body{
 
     min-width:145px;
 
-    min-height:68px;
+    min-height:64px;
 
-    padding:10px 18px;
+    padding:9px 17px;
 
     background:#6c35d9;
 
     border:1.5px solid #ff3b30;
 
-    border-radius:10px;
+    border-radius:9px;
 
     color:#fff;
 
@@ -190,7 +181,7 @@ body{
 
     text-align:center;
 
-    font-size:19px;
+    font-size:18px;
 
     font-weight:900;
 
@@ -198,87 +189,340 @@ body{
 
     cursor:pointer;
 
-    box-shadow:
-        0 4px 10px rgba(108,53,217,.15);
-
     user-select:none;
 
     -webkit-user-select:none;
 
-    transition:
-        transform .15s ease,
-        background .15s ease;
+    box-shadow:
+        0 4px 10px rgba(108,53,217,.15);
+}
+
+.nav-box.active{
+    background:#5124ad;
 }
 
 .nav-box:active{
     transform:scale(.97);
 }
 
-.nav-box:hover{
-    background:#5f2fc4;
-}
-
 
 /* =========================================
-   MAIN CARD
+   CONTENT AREA
 ========================================= */
 
-.card{
+.content-area{
 
-    background:#fff;
-
-    border:1.5px solid #ff3b30;
-
-    border-radius:10px;
-
-    padding:22px 20px;
-
-    box-shadow:
-        0 6px 20px rgba(0,0,0,.06);
+    height:calc(100% - 81px);
 
     overflow:hidden;
-}
 
-.title{
-
-    font-size:31px;
-
-    font-weight:900;
-
-    margin-bottom:8px;
-}
-
-.subtitle{
-
-    font-size:19px;
-
-    color:#6d667c;
-
-    line-height:1.4;
-
-    margin-bottom:18px;
+    position:relative;
 }
 
 
 /* =========================================
-   OPTIONS
+   SCREEN
 ========================================= */
 
-.option{
+.screen{
 
     width:100%;
 
-    min-height:67px;
+    height:100%;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+    -webkit-overflow-scrolling:touch;
+
+    padding-bottom:30px;
+
+    scrollbar-width:none;
+}
+
+.screen::-webkit-scrollbar{
+    display:none;
+}
+
+
+/* =========================================
+   ABOUT HERO
+========================================= */
+
+.hero-card{
+
+    position:relative;
+
+    width:100%;
+
+    height:220px;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    background:#6c35d9;
+
+    margin-bottom:15px;
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.08);
+}
+
+
+/*
+   Tournament image.
+   If no image is available, premium purple
+   background will remain visible.
+*/
+
+.hero-image{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    background:#6c35d9;
+}
+
+
+/* dark overlay */
+
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.05),
+            rgba(0,0,0,.65)
+        );
+
+    display:flex;
+
+    align-items:flex-end;
+
+    padding:18px;
+}
+
+
+/* GO LIVE */
+
+.go-live-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:150px;
+
+    min-height:52px;
+
+    padding:10px 22px;
 
     border:1.5px solid #ff3b30;
 
     border-radius:9px;
 
+    background:#6c35d9;
+
+    color:#fff;
+
+    font-size:20px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.25);
+}
+
+.go-live-button:active{
+    transform:scale(.97);
+}
+
+
+/* =========================================
+   ORGANIZATIONAL DETAIL
+========================================= */
+
+.detail-card{
+
+    width:100%;
+
     background:#fff;
 
-    margin-bottom:10px;
+    border:1.5px solid #ff3b30;
 
-    padding:10px 13px;
+    border-radius:11px;
+
+    padding:18px 16px;
+
+    margin-bottom:15px;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,.05);
+}
+
+.detail-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-bottom:15px;
+}
+
+.detail-title{
+
+    font-size:24px;
+
+    font-weight:900;
+
+    color:#171225;
+}
+
+.edit-button{
+
+    min-width:78px;
+
+    min-height:43px;
+
+    padding:7px 14px;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:8px;
+
+    background:#6c35d9;
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.edit-button:active{
+    transform:scale(.97);
+}
+
+
+/* =========================================
+   DETAIL ROW
+========================================= */
+
+.detail-row{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+    padding:11px 0;
+
+    border-bottom:1px solid #eee8f6;
+}
+
+.detail-row:last-child{
+    border-bottom:none;
+}
+
+.detail-label{
+
+    width:42%;
+
+    flex-shrink:0;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    color:#6d667c;
+}
+
+.detail-value{
+
+    flex:1;
+
+    font-size:17px;
+
+    font-weight:800;
+
+    color:#171225;
+
+    word-break:break-word;
+}
+
+
+/* =========================================
+   QR + SHARE
+========================================= */
+
+.qr-share-card{
+
+    width:100%;
+
+    background:#fff;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:11px;
+
+    padding:18px 16px;
+
+    margin-bottom:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+}
+
+.qr-heading{
+
+    font-size:21px;
+
+    font-weight:900;
+
+    color:#171225;
+
+    margin-bottom:5px;
+}
+
+.qr-subheading{
+
+    font-size:14px;
+
+    line-height:1.4;
+
+    color:#6d667c;
+}
+
+.qr-action-group{
 
     display:flex;
 
@@ -286,35 +530,28 @@ body{
 
     gap:12px;
 
-    cursor:pointer;
-
-    user-select:none;
-
-    -webkit-user-select:none;
-
-    transition:
-        transform .15s ease,
-        background .15s ease;
+    flex-shrink:0;
 }
 
-.option:hover{
-    background:#fff9f9;
-}
 
-.option:active{
-    transform:scale(.98);
-}
+/* QR button */
 
-.option-icon{
+.qr-button{
 
-    width:44px;
-    height:44px;
-
-    min-width:44px;
+    width:58px;
+    height:58px;
 
     border:1.5px solid #ff3b30;
 
-    border-radius:8px;
+    border-radius:9px;
+
+    background:#fff;
+
+    color:#6c35d9;
+
+    font-size:30px;
+
+    font-weight:900;
 
     display:flex;
 
@@ -322,88 +559,153 @@ body{
 
     justify-content:center;
 
-    color:#6c35d9;
-
-    font-size:23px;
-
-    font-weight:900;
-}
-
-.option-content{
-    flex:1;
-}
-
-.option-title{
-
-    font-size:19px;
-
-    font-weight:900;
-}
-
-.option-description{
-
-    margin-top:3px;
-
-    font-size:14px;
-
-    color:#6d667c;
-
-    line-height:1.3;
-}
-
-.option-arrow{
-
-    font-size:29px;
-
-    color:#6c35d9;
-
-    font-weight:900;
+    cursor:pointer;
 }
 
 
-/* =========================================
-   EVENT ID
-========================================= */
+/* SHARE button */
 
-.event-id-box{
+.share-button{
 
-    margin-top:12px;
-
-    padding:10px 13px;
+    width:58px;
+    height:58px;
 
     border:1.5px solid #ff3b30;
 
-    border-radius:8px;
+    border-radius:9px;
 
-    background:#fff;
+    background:#6c35d9;
+
+    color:#fff;
+
+    font-size:28px;
+
+    font-weight:900;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
 }
 
-.event-id-label{
-
-    font-size:14px;
-
-    font-weight:700;
-
-    color:#6d667c;
-
-    margin-bottom:4px;
-}
-
-.event-id-value{
-
-    font-size:13px;
-
-    font-weight:800;
-
-    word-break:break-all;
+.qr-button:active,
+.share-button:active{
+    transform:scale(.95);
 }
 
 
 /* =========================================
-   QR MODAL
+   SOCIAL MEDIA
 ========================================= */
 
-.qr-modal{
+.social-card{
+
+    width:100%;
+
+    background:#fff;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:11px;
+
+    padding:18px 16px;
+
+    text-align:center;
+}
+
+.social-title{
+
+    font-size:21px;
+
+    font-weight:900;
+
+    margin-bottom:16px;
+}
+
+.social-icons{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:18px;
+}
+
+.social-button{
+
+    width:58px;
+    height:58px;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:10px;
+
+    background:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:25px;
+
+    font-weight:900;
+
+    color:#6c35d9;
+
+    cursor:pointer;
+}
+
+.social-button:active{
+    transform:scale(.95);
+}
+
+
+/* =========================================
+   OTHER SCREENS
+========================================= */
+
+.placeholder-screen{
+
+    width:100%;
+
+    min-height:220px;
+
+    background:#fff;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:11px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:25px;
+
+    font-size:22px;
+
+    font-weight:900;
+
+    color:#6c35d9;
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.modal{
 
     position:fixed;
 
@@ -417,16 +719,147 @@ body{
 
     justify-content:center;
 
-    padding:20px;
+    padding:18px;
 
     z-index:9999;
 }
 
-.qr-modal.show{
+.modal.show{
     display:flex;
 }
 
-.qr-box{
+.modal-box{
+
+    width:100%;
+
+    max-width:500px;
+
+    max-height:92vh;
+
+    overflow-y:auto;
+
+    background:#fff;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:13px;
+
+    padding:20px;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.3);
+}
+
+.modal-title{
+
+    font-size:25px;
+
+    font-weight:900;
+
+    margin-bottom:18px;
+
+    color:#6328c7;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group{
+
+    margin-bottom:14px;
+}
+
+.form-label{
+
+    display:block;
+
+    font-size:15px;
+
+    font-weight:800;
+
+    color:#6d667c;
+
+    margin-bottom:6px;
+}
+
+.form-input{
+
+    width:100%;
+
+    min-height:48px;
+
+    padding:10px 12px;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:8px;
+
+    background:#fff;
+
+    color:#171225;
+
+    font-size:16px;
+
+    outline:none;
+}
+
+.form-input:focus{
+    border-color:#6c35d9;
+}
+
+
+/* =========================================
+   MODAL ACTIONS
+========================================= */
+
+.modal-actions{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:18px;
+}
+
+.modal-action{
+
+    flex:1;
+
+    min-height:50px;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:8px;
+
+    font-size:17px;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.cancel-button{
+
+    background:#fff;
+
+    color:#6328c7;
+}
+
+.save-button{
+
+    background:#6c35d9;
+
+    color:#fff;
+}
+
+
+/* =========================================
+   QR MODAL
+========================================= */
+
+.qr-modal-box{
 
     width:100%;
 
@@ -438,51 +871,42 @@ body{
 
     border-radius:14px;
 
-    padding:25px 20px 22px;
+    padding:22px 16px;
 
     text-align:center;
-
-    box-shadow:
-        0 15px 45px rgba(0,0,0,.25);
 }
 
-.qr-title{
+.qr-modal-title{
 
-    font-size:28px;
+    font-size:25px;
 
     font-weight:900;
 
-    margin-bottom:8px;
+    margin-bottom:7px;
 }
 
 .qr-event-name{
 
-    font-size:18px;
+    font-size:17px;
 
     font-weight:800;
 
     color:#6328c7;
 
-    margin-bottom:18px;
-}
-
-.qr-instruction{
-
-    font-size:16px;
-
-    line-height:1.5;
-
-    color:#6d667c;
-
-    margin-bottom:20px;
+    margin-bottom:15px;
 }
 
 .qr-code-wrapper{
 
-    width:270px;
-    height:270px;
+    width:250px;
 
-    margin:0 auto 20px;
+    height:250px;
+
+    margin:0 auto 16px;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:10px;
 
     display:flex;
 
@@ -490,19 +914,16 @@ body{
 
     justify-content:center;
 
+    padding:8px;
+
     background:#fff;
-
-    border:1.5px solid #ff3b30;
-
-    border-radius:10px;
-
-    padding:10px;
 }
 
 #qrCode{
 
-    width:250px;
-    height:250px;
+    width:230px;
+
+    height:230px;
 
     display:flex;
 
@@ -513,11 +934,14 @@ body{
 
 #qrCode img{
 
-    max-width:250px;
-    max-height:250px;
+    max-width:230px;
+
+    max-height:230px;
 }
 
 .qr-link{
+
+    padding:10px;
 
     background:#f7f5ff;
 
@@ -525,293 +949,80 @@ body{
 
     border-radius:8px;
 
-    padding:10px;
-
-    font-size:13px;
-
-    color:#4f485e;
+    font-size:12px;
 
     word-break:break-all;
 
-    margin-bottom:18px;
-}
+    color:#5b5469;
 
-.qr-close{
-
-    width:100%;
-
-    min-height:54px;
-
-    border:1.5px solid #ff3b30;
-
-    border-radius:8px;
-
-    background:#fff;
-
-    color:#6328c7;
-
-    font-size:19px;
-
-    font-weight:900;
-
-    cursor:pointer;
+    margin-bottom:15px;
 }
 
 
 /* =========================================
-   MOBILE
+   RESPONSIVE
 ========================================= */
 
 @media(max-width:600px){
 
-    .top-header{
-
-        height:70px;
-
-        padding:0 10px;
+    .hero-card{
+        height:190px;
     }
 
-    .back-button{
-
-        width:50px;
-        height:50px;
-
-        font-size:37px;
+    .go-live-button{
+        min-width:135px;
+        min-height:48px;
+        font-size:18px;
     }
 
-    .page-title{
-
+    .detail-title{
         font-size:22px;
-
-        margin-right:50px;
     }
 
-    .page{
-
-        height:calc(100vh - 70px);
-
-        padding:12px 11px 15px;
+    .detail-label{
+        font-size:14px;
     }
 
-
-    /* ONLY THIS STRIP SCROLLS */
-
-    .top-navigation{
-
-        gap:10px;
-
-        padding:
-            2px 2px 9px;
-
-        margin-bottom:8px;
-
-        overflow-x:auto;
-
-        overflow-y:hidden;
-
-        touch-action:pan-x;
+    .detail-value{
+        font-size:15px;
     }
 
-
-    .nav-box{
-
-        min-width:145px;
-
-        min-height:64px;
-
-        padding:9px 17px;
-
-        font-size:18px;
-
-        border-radius:9px;
+    .qr-heading{
+        font-size:19px;
     }
 
-
-    .card{
-
-        padding:18px 15px;
-
-        border-radius:10px;
-    }
-
-    .title{
-
-        font-size:28px;
-
-        margin-bottom:6px;
-    }
-
-    .subtitle{
-
-        font-size:17px;
-
-        margin-bottom:14px;
-    }
-
-    .option{
-
-        min-height:61px;
-
-        padding:8px 10px;
-
-        margin-bottom:8px;
-
-        gap:10px;
-    }
-
-    .option-icon{
-
-        width:40px;
-        height:40px;
-
-        min-width:40px;
-
-        font-size:21px;
-    }
-
-    .option-title{
-
-        font-size:18px;
-    }
-
-    .option-description{
-
-        font-size:13px;
-
-        margin-top:2px;
-    }
-
-    .option-arrow{
-
-        font-size:27px;
-    }
-
-    .event-id-box{
-
-        margin-top:9px;
-
-        padding:8px 10px;
-    }
-
-    .event-id-label{
-
-        font-size:12px;
-
-        margin-bottom:3px;
-    }
-
-    .event-id-value{
-
-        font-size:11px;
-    }
-
-
-    .qr-box{
-
-        padding:22px 15px 18px;
-    }
-
-    .qr-title{
-
-        font-size:25px;
-    }
-
-    .qr-code-wrapper{
-
-        width:250px;
-        height:250px;
-    }
-
-    #qrCode{
-
-        width:230px;
-        height:230px;
-    }
-
-    #qrCode img{
-
-        max-width:230px;
-        max-height:230px;
+    .social-button,
+    .qr-button,
+    .share-button{
+        width:54px;
+        height:54px;
     }
 
 }
 
 
 /* =========================================
-   SMALL HEIGHT DEVICES
+   SMALL HEIGHT
 ========================================= */
 
 @media(max-width:480px) and (max-height:700px){
 
-    .nav-box{
-
-        min-height:58px;
-
-        font-size:17px;
+    .hero-card{
+        height:165px;
     }
 
-    .card{
-
-        padding:14px 13px;
+    .detail-card{
+        padding:15px 13px;
     }
 
-    .title{
-
-        font-size:25px;
+    .detail-row{
+        padding:8px 0;
     }
 
-    .subtitle{
-
-        font-size:15px;
-
-        margin-bottom:10px;
+    .social-card{
+        padding:15px 13px;
     }
 
-    .option{
-
-        min-height:53px;
-
-        margin-bottom:6px;
-
-        padding:6px 8px;
-    }
-
-    .option-icon{
-
-        width:36px;
-        height:36px;
-
-        min-width:36px;
-
-        font-size:19px;
-    }
-
-    .option-title{
-
-        font-size:16px;
-    }
-
-    .option-description{
-
-        font-size:12px;
-    }
-
-}
-
-
-/* =========================================
-   QR ERROR
-========================================= */
-
-.qr-error{
-
-    font-size:16px;
-
-    color:#d32f2f;
-
-    line-height:1.5;
-
-    padding:20px;
 }
 
 </style>
@@ -837,7 +1048,7 @@ body{
 </button>
 
 <div class="page-title">
-    Add Manually
+    Tournament
 </div>
 
 </header>
@@ -847,8 +1058,7 @@ body{
 
 
 <!-- =========================================
-     HORIZONTAL NAVIGATION
-     ONLY THIS AREA CAN SCROLL
+     TOP NAVIGATION
 ========================================= -->
 
 <nav
@@ -856,205 +1066,476 @@ body{
     id="topNavigation"
 >
 
-    <div
-        class="nav-box"
-        id="aboutOption"
-    >
-        ABOUT
-    </div>
+<div
+    class="nav-box active"
+    id="aboutOption"
+>
+    ABOUT
+</div>
 
-    <div
-        class="nav-box"
-        id="teamsOption"
-    >
-        TEAMS
-    </div>
+<div
+    class="nav-box"
+    id="teamsOption"
+>
+    TEAMS
+</div>
 
-    <div
-        class="nav-box"
-        id="matchesOption"
-    >
-        MATCHES
-    </div>
+<div
+    class="nav-box"
+    id="matchesOption"
+>
+    MATCHES
+</div>
 
-    <div
-        class="nav-box"
-        id="pointTableOption"
-    >
-        POINT TABLE
-    </div>
+<div
+    class="nav-box"
+    id="pointTableOption"
+>
+    POINT TABLE
+</div>
 
 </nav>
 
 
 <!-- =========================================
-     MAIN CARD
+     CONTENT
 ========================================= -->
 
-<section class="card">
-
-
-<div class="title">
-    Add Teams
-</div>
-
-
-<div class="subtitle">
-    Choose how you want to add teams to this tournament.
-</div>
+<div class="content-area">
 
 
 <!-- =========================================
-     OPTION 1
+     ABOUT SCREEN
 ========================================= -->
 
-<div
-    class="option"
-    id="inviteLinkOption"
+<section
+    class="screen"
+    id="aboutScreen"
 >
 
-    <div class="option-icon">
-        🔗
-    </div>
 
-    <div class="option-content">
+<!-- HERO -->
 
-        <div class="option-title">
-            Invite Link
-        </div>
+<div class="hero-card">
 
-        <div class="option-description">
-            Share an invite link with team captains.
-        </div>
+    <img
+        class="hero-image"
+        id="tournamentImage"
+        alt="Tournament Image"
+    >
 
-    </div>
+    <div class="hero-overlay">
 
-    <div class="option-arrow">
-        ›
+        <button
+            class="go-live-button"
+            id="goLiveButton"
+            type="button"
+        >
+            ▶ GO LIVE
+        </button>
+
     </div>
 
 </div>
 
 
-<!-- =========================================
-     OPTION 2
-========================================= -->
+<!-- ORGANIZATIONAL DETAIL -->
 
-<div
-    class="option"
-    id="yourTeamsOption"
->
+<section class="detail-card">
 
-    <div class="option-icon">
-        👥
+<div class="detail-header">
+
+    <div class="detail-title">
+        Organizational Detail
     </div>
 
-    <div class="option-content">
+    <button
+        class="edit-button"
+        id="editButton"
+        type="button"
+    >
+        EDIT
+    </button>
 
-        <div class="option-title">
-            Your Teams
-        </div>
+</div>
 
-        <div class="option-description">
-            Select a team already available in CRICKPULSE.
-        </div>
 
+<div class="detail-row">
+
+    <div class="detail-label">
+        Organizer Name
     </div>
 
-    <div class="option-arrow">
-        ›
+    <div
+        class="detail-value"
+        id="organizerValue"
+    >
+        —
     </div>
 
 </div>
 
 
-<!-- =========================================
-     OPTION 3
-========================================= -->
+<div class="detail-row">
 
-<div
-    class="option"
-    id="addNewTeamsOption"
->
-
-    <div class="option-icon">
-        +
+    <div class="detail-label">
+        Date
     </div>
 
-    <div class="option-content">
-
-        <div class="option-title">
-            Add New Teams
-        </div>
-
-        <div class="option-description">
-            Create and add a new team manually.
-        </div>
-
-    </div>
-
-    <div class="option-arrow">
-        ›
+    <div
+        class="detail-value"
+        id="dateValue"
+    >
+        —
     </div>
 
 </div>
 
 
-<!-- =========================================
-     OPTION 4
-========================================= -->
+<div class="detail-row">
 
-<div
-    class="option"
-    id="qrOption"
->
-
-    <div class="option-icon">
-        ▣
+    <div class="detail-label">
+        Ground
     </div>
 
-    <div class="option-content">
-
-        <div class="option-title">
-            Share via QR
-        </div>
-
-        <div class="option-description">
-            Show this tournament's QR code to team captains.
-        </div>
-
-    </div>
-
-    <div class="option-arrow">
-        ›
+    <div
+        class="detail-value"
+        id="groundValue"
+    >
+        —
     </div>
 
 </div>
 
 
-<!-- =========================================
-     EVENT ID
-========================================= -->
+<div class="detail-row">
 
-<div class="event-id-box">
+    <div class="detail-label">
+        Ball Type
+    </div>
 
-    <div class="event-id-label">
+    <div
+        class="detail-value"
+        id="ballTypeValue"
+    >
+        —
+    </div>
+
+</div>
+
+
+<div class="detail-row">
+
+    <div class="detail-label">
+        Category
+    </div>
+
+    <div
+        class="detail-value"
+        id="categoryValue"
+    >
+        —
+    </div>
+
+</div>
+
+
+<div class="detail-row">
+
+    <div class="detail-label">
         Tournament ID
     </div>
 
     <div
-        class="event-id-value"
-        id="eventIdDisplay"
+        class="detail-value"
+        id="eventIdValue"
     >
-        Loading...
+        —
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     QR + SHARE
+========================================= -->
+
+<section class="qr-share-card">
+
+<div>
+
+    <div class="qr-heading">
+        Tournament QR
+    </div>
+
+    <div class="qr-subheading">
+        Scan to open this tournament's
+        four-option screen.
     </div>
 
 </div>
 
 
+<div class="qr-action-group">
+
+<button
+    class="qr-button"
+    id="qrButton"
+    type="button"
+    aria-label="Show Tournament QR"
+>
+    ▣
+</button>
+
+
+<button
+    class="share-button"
+    id="shareButton"
+    type="button"
+    aria-label="Share Tournament"
+>
+    ↗
+</button>
+
+</div>
+
 </section>
 
+
+<!-- =========================================
+     SOCIAL MEDIA
+========================================= -->
+
+<section class="social-card">
+
+<div class="social-title">
+    Connect With Us
+</div>
+
+
+<div class="social-icons">
+
+
+<button
+    class="social-button"
+    id="whatsappButton"
+    type="button"
+    aria-label="WhatsApp"
+>
+    ☎
+</button>
+
+
+<button
+    class="social-button"
+    id="facebookButton"
+    type="button"
+    aria-label="Facebook"
+>
+    f
+</button>
+
+
+<button
+    class="social-button"
+    id="instagramButton"
+    type="button"
+    aria-label="Instagram"
+>
+    ◎
+</button>
+
+
+</div>
+
+</section>
+
+
+</section>
+
+
+<!-- =========================================
+     TEAMS
+========================================= -->
+
+<section
+    class="screen"
+    id="teamsScreen"
+    style="display:none;"
+>
+
+<div class="placeholder-screen">
+
+    TEAMS SECTION
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     MATCHES
+========================================= -->
+
+<section
+    class="screen"
+    id="matchesScreen"
+    style="display:none;"
+>
+
+<div class="placeholder-screen">
+
+    MATCHES SECTION
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     POINT TABLE
+========================================= -->
+
+<section
+    class="screen"
+    id="pointTableScreen"
+    style="display:none;"
+>
+
+<div class="placeholder-screen">
+
+    POINT TABLE SECTION
+
+</div>
+
+</section>
+
+
+</div>
+
 </main>
+
+
+<!-- =========================================
+     EDIT MODAL
+========================================= -->
+
+<div
+    class="modal"
+    id="editModal"
+>
+
+<div class="modal-box">
+
+<div class="modal-title">
+    Edit Organizational Detail
+</div>
+
+
+<div class="form-group">
+
+<label class="form-label">
+    Organizer Name
+</label>
+
+<input
+    class="form-input"
+    id="editOrganizer"
+    type="text"
+    placeholder="Enter organizer name"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label class="form-label">
+    Date
+</label>
+
+<input
+    class="form-input"
+    id="editDate"
+    type="date"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label class="form-label">
+    Ground
+</label>
+
+<input
+    class="form-input"
+    id="editGround"
+    type="text"
+    placeholder="Enter ground"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label class="form-label">
+    Ball Type
+</label>
+
+<input
+    class="form-input"
+    id="editBallType"
+    type="text"
+    placeholder="Enter ball type"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label class="form-label">
+    Category
+</label>
+
+<input
+    class="form-input"
+    id="editCategory"
+    type="text"
+    placeholder="Enter category"
+>
+
+</div>
+
+
+<div class="modal-actions">
+
+<button
+    class="modal-action cancel-button"
+    id="cancelEdit"
+    type="button"
+>
+    Cancel
+</button>
+
+<button
+    class="modal-action save-button"
+    id="saveEdit"
+    type="button"
+>
+    Save
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 
 <!-- =========================================
@@ -1062,58 +1543,48 @@ body{
 ========================================= -->
 
 <div
-    class="qr-modal"
+    class="modal"
     id="qrModal"
 >
 
-    <div class="qr-box">
+<div class="qr-modal-box">
 
-        <div class="qr-title">
-            Tournament QR
-        </div>
+<div class="qr-modal-title">
+    Tournament QR
+</div>
 
-        <div
-            class="qr-event-name"
-            id="qrEventName"
-        >
-            CRICKPULSE Tournament
-        </div>
+<div
+    class="qr-event-name"
+    id="qrEventName"
+>
+    CRICKPULSE Tournament
+</div>
 
-        <div class="qr-instruction">
 
-            Scan this QR code to open this
-            tournament's invite screen.
+<div class="qr-code-wrapper">
 
-            <br>
+<div id="qrCode"></div>
 
-            After scanning, the same
-            <strong>4 options</strong>
-            will open.
+</div>
 
-        </div>
 
-        <div class="qr-code-wrapper">
+<div
+    class="qr-link"
+    id="qrLink"
+>
+    Loading...
+</div>
 
-            <div id="qrCode"></div>
 
-        </div>
+<button
+    class="modal-action cancel-button"
+    id="closeQR"
+    type="button"
+>
+    Close
+</button>
 
-        <div
-            class="qr-link"
-            id="qrLink"
-        >
-            Loading...
-        </div>
-
-        <button
-            class="qr-close"
-            id="qrCloseButton"
-            type="button"
-        >
-            Close
-        </button>
-
-    </div>
+</div>
 
 </div>
 
@@ -1145,66 +1616,283 @@ const eventName =
 
 
 /* =========================================
+   LOCAL EVENT DATA
+========================================= */
+
+const storedEventData =
+    JSON.parse(
+        sessionStorage.getItem(
+            "crickpulseEventData"
+        ) ||
+        "{}"
+    );
+
+
+/* =========================================
    ELEMENTS
 ========================================= */
 
-const eventIdDisplay =
+const aboutScreen =
     document.getElementById(
-        "eventIdDisplay"
+        "aboutScreen"
     );
 
-const qrModal =
+const teamsScreen =
     document.getElementById(
-        "qrModal"
+        "teamsScreen"
     );
 
-const qrCode =
+const matchesScreen =
     document.getElementById(
-        "qrCode"
+        "matchesScreen"
     );
 
-const qrLink =
+const pointTableScreen =
     document.getElementById(
-        "qrLink"
-    );
-
-const qrEventName =
-    document.getElementById(
-        "qrEventName"
+        "pointTableScreen"
     );
 
 
 /* =========================================
-   EVENT ID CHECK
+   DATA HELPERS
 ========================================= */
 
-if(!eventId){
+function firstValue(){
 
-    alert(
-        "Tournament ID is missing. Please create the tournament again."
-    );
+    const values =
+        Array.from(arguments);
 
-    window.location.href =
-        "create-event.html";
+    for(
+        const value of values
+    ){
+
+        if(
+            value !== undefined &&
+            value !== null &&
+            String(value).trim() !== ""
+        ){
+
+            return value;
+
+        }
+
+    }
+
+    return "—";
 
 }
-else{
 
-    eventIdDisplay.textContent =
-        eventId;
+
+function formatDate(value){
+
+    if(
+        !value
+    ){
+
+        return "—";
+
+    }
+
+
+    /*
+     * Already DD-MM-YYYY
+     */
+
+    if(
+        /^\d{2}-\d{2}-\d{4}$/.test(
+            String(value)
+        )
+    ){
+
+        return value;
+
+    }
+
+
+    /*
+     * YYYY-MM-DD
+     */
+
+    if(
+        /^\d{4}-\d{2}-\d{2}$/.test(
+            String(value)
+        )
+    ){
+
+        const parts =
+            String(value).split("-");
+
+        return (
+            parts[2] +
+            "-" +
+            parts[1] +
+            "-" +
+            parts[0]
+        );
+
+    }
+
+
+    return value;
 
 }
 
 
 /* =========================================
-   CREATE INVITE LINK
+   LOAD ABOUT DATA
+========================================= */
+
+function loadAboutData(){
+
+    document.getElementById(
+        "organizerValue"
+    ).textContent =
+
+        firstValue(
+            storedEventData.organizerName,
+            storedEventData.organizer,
+            storedEventData.organizationName,
+            sessionStorage.getItem(
+                "crickpulseOrganizerName"
+            )
+        );
+
+
+    document.getElementById(
+        "dateValue"
+    ).textContent =
+
+        formatDate(
+            firstValue(
+                storedEventData.date,
+                storedEventData.eventDate,
+                sessionStorage.getItem(
+                    "crickpulseEventDate"
+                )
+            )
+        );
+
+
+    document.getElementById(
+        "groundValue"
+    ).textContent =
+
+        firstValue(
+            storedEventData.ground,
+            storedEventData.venue,
+            sessionStorage.getItem(
+                "crickpulseGround"
+            )
+        );
+
+
+    document.getElementById(
+        "ballTypeValue"
+    ).textContent =
+
+        firstValue(
+            storedEventData.ballType,
+            sessionStorage.getItem(
+                "crickpulseBallType"
+            )
+        );
+
+
+    document.getElementById(
+        "categoryValue"
+    ).textContent =
+
+        firstValue(
+            storedEventData.category,
+            sessionStorage.getItem(
+                "crickpulseCategory"
+            )
+        );
+
+
+    document.getElementById(
+        "eventIdValue"
+    ).textContent =
+
+        eventId ||
+        "—";
+
+
+    document.getElementById(
+        "qrEventName"
+    ).textContent =
+
+        eventName;
+
+
+    /*
+     * Tournament image.
+     *
+     * If create-event has already stored
+     * an image URL, it will be used.
+     */
+
+    const imageUrl =
+        firstValue(
+            storedEventData.imageUrl,
+            storedEventData.image,
+            storedEventData.tournamentImage,
+            storedEventData.coverImage,
+            sessionStorage.getItem(
+                "crickpulseEventImage"
+            )
+        );
+
+
+    const image =
+        document.getElementById(
+            "tournamentImage"
+        );
+
+
+    if(
+        imageUrl !== "—"
+    ){
+
+        image.src =
+            imageUrl;
+
+    }
+    else{
+
+        image.removeAttribute(
+            "src"
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   INVITE LINK
 ========================================= */
 
 function createInviteLink(){
 
-    if(!eventId){
+    if(
+        !eventId
+    ){
+
         return "";
+
     }
+
+
+    /*
+     * IMPORTANT:
+     *
+     * This is the same tournament invite
+     * screen link.
+     *
+     * The eventId remains attached so the
+     * same tournament opens.
+     */
 
     return (
         window.location.origin +
@@ -1218,11 +1906,195 @@ function createInviteLink(){
 
 
 /* =========================================
+   NAVIGATION
+========================================= */
+
+function showScreen(
+    screenName
+){
+
+    aboutScreen.style.display =
+        "none";
+
+    teamsScreen.style.display =
+        "none";
+
+    matchesScreen.style.display =
+        "none";
+
+    pointTableScreen.style.display =
+        "none";
+
+
+    document
+        .querySelectorAll(
+            ".nav-box"
+        )
+        .forEach(
+            function(box){
+
+                box.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+    if(
+        screenName ===
+        "about"
+    ){
+
+        aboutScreen.style.display =
+            "block";
+
+        document
+            .getElementById(
+                "aboutOption"
+            )
+            .classList.add(
+                "active"
+            );
+
+    }
+
+
+    if(
+        screenName ===
+        "teams"
+    ){
+
+        teamsScreen.style.display =
+            "block";
+
+        document
+            .getElementById(
+                "teamsOption"
+            )
+            .classList.add(
+                "active"
+            );
+
+    }
+
+
+    if(
+        screenName ===
+        "matches"
+    ){
+
+        matchesScreen.style.display =
+            "block";
+
+        document
+            .getElementById(
+                "matchesOption"
+            )
+            .classList.add(
+                "active"
+            );
+
+    }
+
+
+    if(
+        screenName ===
+        "pointTable"
+    ){
+
+        pointTableScreen.style.display =
+            "block";
+
+        document
+            .getElementById(
+                "pointTableOption"
+            )
+            .classList.add(
+                "active"
+            );
+
+    }
+
+}
+
+
+/* =========================================
+   TOP NAV
+========================================= */
+
+document
+.getElementById(
+    "aboutOption"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        showScreen(
+            "about"
+        );
+
+    }
+);
+
+
+document
+.getElementById(
+    "teamsOption"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        showScreen(
+            "teams"
+        );
+
+    }
+);
+
+
+document
+.getElementById(
+    "matchesOption"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        showScreen(
+            "matches"
+        );
+
+    }
+);
+
+
+document
+.getElementById(
+    "pointTableOption"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        showScreen(
+            "pointTable"
+        );
+
+    }
+);
+
+
+/* =========================================
    BACK BUTTON
 ========================================= */
 
 document
-.getElementById("backButton")
+.getElementById(
+    "backButton"
+)
 .addEventListener(
     "click",
     function(){
@@ -1234,60 +2106,355 @@ document
 
 
 /* =========================================
-   TOP NAVIGATION
-   TEMPORARY
+   GO LIVE
 ========================================= */
 
 document
-.getElementById("aboutOption")
+.getElementById(
+    "goLiveButton"
+)
 .addEventListener(
     "click",
     function(){
 
-        alert(
-            "About section will be connected next."
-        );
+        /*
+         * YouTube URL can be stored later as
+         * youtubeLink / liveUrl / youtubeUrl.
+         */
+
+        const youtubeLink =
+            firstValue(
+                storedEventData.youtubeLink,
+                storedEventData.youtubeUrl,
+                storedEventData.liveUrl,
+                sessionStorage.getItem(
+                    "crickpulseYoutubeLink"
+                )
+            );
+
+
+        if(
+            youtubeLink !== "—"
+        ){
+
+            window.open(
+                youtubeLink,
+                "_blank"
+            );
+
+        }
+        else{
+
+            alert(
+                "YouTube Live link will be connected for this tournament."
+            );
+
+        }
 
     }
 );
 
 
+/* =========================================
+   EDIT BUTTON
+========================================= */
+
 document
-.getElementById("teamsOption")
+.getElementById(
+    "editButton"
+)
 .addEventListener(
     "click",
     function(){
 
-        alert(
-            "Teams section will be connected next."
-        );
+        document.getElementById(
+            "editOrganizer"
+        ).value =
+
+            firstValue(
+                storedEventData.organizerName,
+                storedEventData.organizer,
+                storedEventData.organizationName,
+                sessionStorage.getItem(
+                    "crickpulseOrganizerName"
+                )
+            ) === "—"
+
+                ? ""
+
+                :
+
+                firstValue(
+                    storedEventData.organizerName,
+                    storedEventData.organizer,
+                    storedEventData.organizationName,
+                    sessionStorage.getItem(
+                        "crickpulseOrganizerName"
+                    )
+                );
+
+
+        const dateValue =
+            firstValue(
+                storedEventData.date,
+                storedEventData.eventDate,
+                sessionStorage.getItem(
+                    "crickpulseEventDate"
+                )
+            );
+
+
+        document.getElementById(
+            "editDate"
+        ).value =
+
+            /^\d{4}-\d{2}-\d{2}$/.test(
+                String(dateValue)
+            )
+
+                ? dateValue
+
+                : "";
+
+
+        document.getElementById(
+            "editGround"
+        ).value =
+
+            firstValue(
+                storedEventData.ground,
+                storedEventData.venue,
+                sessionStorage.getItem(
+                    "crickpulseGround"
+                )
+            ) === "—"
+
+                ? ""
+
+                :
+
+                firstValue(
+                    storedEventData.ground,
+                    storedEventData.venue,
+                    sessionStorage.getItem(
+                        "crickpulseGround"
+                    )
+                );
+
+
+        document.getElementById(
+            "editBallType"
+        ).value =
+
+            firstValue(
+                storedEventData.ballType,
+                sessionStorage.getItem(
+                    "crickpulseBallType"
+                )
+            ) === "—"
+
+                ? ""
+
+                :
+
+                firstValue(
+                    storedEventData.ballType,
+                    sessionStorage.getItem(
+                        "crickpulseBallType"
+                    )
+                );
+
+
+        document.getElementById(
+            "editCategory"
+        ).value =
+
+            firstValue(
+                storedEventData.category,
+                sessionStorage.getItem(
+                    "crickpulseCategory"
+                )
+            ) === "—"
+
+                ? ""
+
+                :
+
+                firstValue(
+                    storedEventData.category,
+                    sessionStorage.getItem(
+                        "crickpulseCategory"
+                    )
+                );
+
+
+        document
+            .getElementById(
+                "editModal"
+            )
+            .classList.add(
+                "show"
+            );
 
     }
 );
 
 
+/* =========================================
+   CANCEL EDIT
+========================================= */
+
 document
-.getElementById("matchesOption")
+.getElementById(
+    "cancelEdit"
+)
 .addEventListener(
     "click",
     function(){
 
-        alert(
-            "Matches section will be connected next."
-        );
+        document
+            .getElementById(
+                "editModal"
+            )
+            .classList.remove(
+                "show"
+            );
 
     }
 );
 
 
+/* =========================================
+   SAVE EDIT
+========================================= */
+
 document
-.getElementById("pointTableOption")
+.getElementById(
+    "saveEdit"
+)
 .addEventListener(
     "click",
     function(){
 
+        const organizer =
+            document.getElementById(
+                "editOrganizer"
+            ).value.trim();
+
+
+        const date =
+            document.getElementById(
+                "editDate"
+            ).value;
+
+
+        const ground =
+            document.getElementById(
+                "editGround"
+            ).value.trim();
+
+
+        const ballType =
+            document.getElementById(
+                "editBallType"
+            ).value.trim();
+
+
+        const category =
+            document.getElementById(
+                "editCategory"
+            ).value.trim();
+
+
+        /*
+         * Keep the edited information in the
+         * current tournament's local event data.
+         */
+
+        const updatedData = {
+
+            ...storedEventData,
+
+            organizerName:
+                organizer,
+
+            date:
+                date,
+
+            ground:
+                ground,
+
+            ballType:
+                ballType,
+
+            category:
+                category
+
+        };
+
+
+        sessionStorage.setItem(
+            "crickpulseEventData",
+            JSON.stringify(
+                updatedData
+            )
+        );
+
+
+        sessionStorage.setItem(
+            "crickpulseOrganizerName",
+            organizer
+        );
+
+
+        sessionStorage.setItem(
+            "crickpulseEventDate",
+            date
+        );
+
+
+        sessionStorage.setItem(
+            "crickpulseGround",
+            ground
+        );
+
+
+        sessionStorage.setItem(
+            "crickpulseBallType",
+            ballType
+        );
+
+
+        sessionStorage.setItem(
+            "crickpulseCategory",
+            category
+        );
+
+
+        /*
+         * Update local reference.
+         */
+
+        Object.assign(
+            storedEventData,
+            updatedData
+        );
+
+
+        loadAboutData();
+
+
+        document
+            .getElementById(
+                "editModal"
+            )
+            .classList.remove(
+                "show"
+            );
+
+
         alert(
-            "Point Table section will be connected next."
+            "Tournament details updated."
         );
 
     }
@@ -1295,16 +2462,131 @@ document
 
 
 /* =========================================
-   INVITE LINK
+   QR
+========================================= */
+
+function openTournamentQR(){
+
+    if(
+        !eventId
+    ){
+
+        alert(
+            "Tournament ID is missing."
+        );
+
+        return;
+
+    }
+
+
+    const link =
+        createInviteLink();
+
+
+    const qrCode =
+        document.getElementById(
+            "qrCode"
+        );
+
+
+    qrCode.innerHTML = "";
+
+
+    /*
+     * Native QR generation using Google Chart
+     * is avoided.
+     *
+     * This creates a simple QR using a public
+     * QR image service.
+     */
+
+    const qrImage =
+        document.createElement(
+            "img"
+        );
+
+
+    qrImage.alt =
+        "Tournament QR";
+
+
+    qrImage.width =
+        220;
+
+
+    qrImage.height =
+        220;
+
+
+    qrImage.src =
+
+        "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=" +
+
+        encodeURIComponent(
+            link
+        );
+
+
+    qrCode.appendChild(
+        qrImage
+    );
+
+
+    document.getElementById(
+        "qrLink"
+    ).textContent =
+        link;
+
+
+    document
+        .getElementById(
+            "qrModal"
+        )
+        .classList.add(
+            "show"
+        );
+
+}
+
+
+/* =========================================
+   QR BUTTON
 ========================================= */
 
 document
-.getElementById("inviteLinkOption")
+.getElementById(
+    "qrButton"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        openTournamentQR();
+
+    }
+);
+
+
+/* =========================================
+   SHARE
+========================================= */
+
+document
+.getElementById(
+    "shareButton"
+)
 .addEventListener(
     "click",
     async function(){
 
-        if(!eventId){
+        const link =
+            createInviteLink();
+
+
+        if(
+            !link
+        ){
 
             alert(
                 "Tournament ID is missing."
@@ -1313,9 +2595,6 @@ document
             return;
 
         }
-
-        const inviteLink =
-            createInviteLink();
 
 
         if(
@@ -1330,12 +2609,12 @@ document
                         eventName,
 
                     text:
-                        "You are invited to add your team to " +
+                        "Open " +
                         eventName +
-                        ".",
+                        " on CRICKPULSE.",
 
                     url:
-                        inviteLink
+                        link
 
                 });
 
@@ -1349,43 +2628,25 @@ document
 
             }
 
-            return;
-
         }
-
-
-        if(
+        else if(
             navigator.clipboard
         ){
 
-            try{
-
-                await navigator
-                    .clipboard
-                    .writeText(
-                        inviteLink
-                    );
-
-                alert(
-                    "Invite link copied."
+            await navigator.clipboard
+                .writeText(
+                    link
                 );
 
-            }
-            catch(error){
-
-                alert(
-                    "Invite Link:\n\n" +
-                    inviteLink
-                );
-
-            }
+            alert(
+                "Tournament link copied."
+            );
 
         }
         else{
 
             alert(
-                "Invite Link:\n\n" +
-                inviteLink
+                link
             );
 
         }
@@ -1395,143 +2656,51 @@ document
 
 
 /* =========================================
-   YOUR TEAMS
+   SOCIAL MEDIA
 ========================================= */
 
 document
-.getElementById("yourTeamsOption")
+.getElementById(
+    "whatsappButton"
+)
 .addEventListener(
     "click",
     function(){
 
-        if(!eventId){
-
-            alert(
-                "Tournament ID is missing."
-            );
-
-            return;
-
-        }
-
-        window.location.href =
-            "your-teams.html?eventId=" +
-            encodeURIComponent(
-                eventId
-            );
-
-    }
-);
-
-
-/* =========================================
-   ADD NEW TEAMS
-========================================= */
-
-document
-.getElementById("addNewTeamsOption")
-.addEventListener(
-    "click",
-    function(){
-
-        if(!eventId){
-
-            alert(
-                "Tournament ID is missing."
-            );
-
-            return;
-
-        }
-
-        window.location.href =
-            "add-new-teams.html?eventId=" +
-            encodeURIComponent(
-                eventId
-            );
-
-    }
-);
-
-
-/* =========================================
-   SHARE VIA QR
-========================================= */
-
-document
-.getElementById("qrOption")
-.addEventListener(
-    "click",
-    function(){
-
-        if(!eventId){
-
-            alert(
-                "Tournament ID is missing."
-            );
-
-            return;
-
-        }
-
-
-        const inviteLink =
-            createInviteLink();
-
-
-        qrModal.classList.add(
-            "show"
+        alert(
+            "WhatsApp link will be added here."
         );
 
-
-        qrEventName.textContent =
-            eventName;
-
-
-        qrLink.textContent =
-            inviteLink;
+    }
+);
 
 
-        qrCode.innerHTML = "";
+document
+.getElementById(
+    "facebookButton"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        alert(
+            "Facebook link will be added here."
+        );
+
+    }
+);
 
 
-        if(
-            typeof QRCode ===
-            "undefined"
-        ){
+document
+.getElementById(
+    "instagramButton"
+)
+.addEventListener(
+    "click",
+    function(){
 
-            qrCode.innerHTML =
-
-                '<div class="qr-error">' +
-
-                'QR Code library is loading.<br>' +
-
-                'Please try again in a moment.' +
-
-                '</div>';
-
-            return;
-
-        }
-
-
-        new QRCode(
-            qrCode,
-            {
-
-                text:
-                    inviteLink,
-
-                width:
-                    230,
-
-                height:
-                    230,
-
-                correctLevel:
-                    QRCode.CorrectLevel.H
-
-            }
+        alert(
+            "Instagram link will be added here."
         );
 
     }
@@ -1543,29 +2712,43 @@ document
 ========================================= */
 
 document
-.getElementById("qrCloseButton")
+.getElementById(
+    "closeQR"
+)
 .addEventListener(
     "click",
     function(){
 
-        qrModal.classList.remove(
-            "show"
-        );
+        document
+            .getElementById(
+                "qrModal"
+            )
+            .classList.remove(
+                "show"
+            );
 
     }
 );
 
 
-qrModal.addEventListener(
+/* =========================================
+   CLOSE MODALS OUTSIDE
+========================================= */
+
+document
+.getElementById(
+    "qrModal"
+)
+.addEventListener(
     "click",
     function(event){
 
         if(
             event.target ===
-            qrModal
+            this
         ){
 
-            qrModal.classList.remove(
+            this.classList.remove(
                 "show"
             );
 
@@ -1575,16 +2758,20 @@ qrModal.addEventListener(
 );
 
 
-document.addEventListener(
-    "keydown",
+document
+.getElementById(
+    "editModal"
+)
+.addEventListener(
+    "click",
     function(event){
 
         if(
-            event.key ===
-            "Escape"
+            event.target ===
+            this
         ){
 
-            qrModal.classList.remove(
+            this.classList.remove(
                 "show"
             );
 
@@ -1595,23 +2782,41 @@ document.addEventListener(
 
 
 /* =========================================
-   DEBUG
+   INITIALIZE
 ========================================= */
 
+if(
+    !eventId
+){
+
+    alert(
+        "Tournament ID is missing. Please create the tournament again."
+    );
+
+    window.location.href =
+        "create-event.html";
+
+}
+else{
+
+    loadAboutData();
+
+    showScreen(
+        "about"
+    );
+
+}
+
+
 console.log(
-    "CRICKPULSE Add Manually loaded.",
+    "CRICKPULSE ABOUT loaded.",
     {
 
         eventId:
             eventId,
 
         eventName:
-            eventName,
-
-        inviteLink:
-            eventId
-                ? createInviteLink()
-                : null
+            eventName
 
     }
 );
