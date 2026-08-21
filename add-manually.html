@@ -40,6 +40,10 @@ body{
     align-items:center;
 
     padding:0 15px;
+
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 
 .back-button{
@@ -69,6 +73,92 @@ body{
 }
 
 /* =========================
+   TOP TABS
+========================= */
+
+.top-tabs-wrapper{
+
+    width:100%;
+
+    background:#ffffff;
+
+    border-bottom:1.5px solid #ff3b30;
+
+    overflow-x:auto;
+
+    overflow-y:hidden;
+
+    -webkit-overflow-scrolling:touch;
+
+    scrollbar-width:none;
+
+    position:sticky;
+
+    top:82px;
+
+    z-index:90;
+}
+
+.top-tabs-wrapper::-webkit-scrollbar{
+    display:none;
+}
+
+.top-tabs{
+
+    display:flex;
+
+    min-width:max-content;
+
+    padding:0 10px;
+}
+
+.top-tab{
+
+    min-width:150px;
+
+    height:64px;
+
+    padding:0 22px;
+
+    border:none;
+
+    border-right:1px solid #eee6f8;
+
+    background:#ffffff;
+
+    color:#5f5470;
+
+    font-family:Verdana,Geneva,sans-serif;
+
+    font-size:20px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    white-space:nowrap;
+}
+
+.top-tab:first-child{
+    border-left:1px solid #eee6f8;
+}
+
+.top-tab.active{
+
+    color:#6c35d9;
+
+    background:#f7f5ff;
+
+    box-shadow:
+        inset 0 -4px 0 #6c35d9;
+}
+
+.top-tab:active{
+    transform:scale(.98);
+}
+
+
+/* =========================
    PAGE
 ========================= */
 
@@ -78,8 +168,9 @@ body{
 
     margin:auto;
 
-    padding:35px 16px 60px;
+    padding:30px 16px 60px;
 }
+
 
 /* =========================
    CARD
@@ -113,6 +204,7 @@ body{
 
     margin-bottom:28px;
 }
+
 
 /* =========================
    OPTIONS
@@ -190,6 +282,7 @@ body{
     font-weight:900;
 }
 
+
 /* =========================
    EVENT ID
 ========================= */
@@ -223,6 +316,7 @@ body{
     word-break:break-all;
 }
 
+
 /* =========================
    MOBILE
 ========================= */
@@ -231,18 +325,35 @@ body{
 
     .top-header{
         height:76px;
+
         padding:0 11px;
     }
 
     .back-button{
         width:52px;
         height:52px;
+
         font-size:38px;
     }
 
     .page-title{
         font-size:23px;
+
         margin-right:52px;
+    }
+
+    .top-tabs-wrapper{
+        top:76px;
+    }
+
+    .top-tab{
+        min-width:130px;
+
+        height:58px;
+
+        padding:0 18px;
+
+        font-size:18px;
     }
 
     .page{
@@ -279,14 +390,19 @@ body{
 <body>
 
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header class="top-header">
 
 <button
     class="back-button"
     id="backButton"
     type="button"
+    aria-label="Back"
 >
-‹
+    ‹
 </button>
 
 <div class="page-title">
@@ -295,6 +411,63 @@ body{
 
 </header>
 
+
+<!-- =========================
+     TOP NAVIGATION
+========================= -->
+
+<nav
+    class="top-tabs-wrapper"
+    aria-label="Tournament Navigation"
+>
+
+<div class="top-tabs">
+
+
+<button
+    class="top-tab"
+    id="aboutTab"
+    type="button"
+>
+    About
+</button>
+
+
+<button
+    class="top-tab"
+    id="teamsTab"
+    type="button"
+>
+    Teams
+</button>
+
+
+<button
+    class="top-tab"
+    id="matchesTab"
+    type="button"
+>
+    Matches
+</button>
+
+
+<button
+    class="top-tab"
+    id="pointTableTab"
+    type="button"
+>
+    Point Table
+</button>
+
+
+</div>
+
+</nav>
+
+
+<!-- =========================
+     MAIN PAGE
+========================= -->
 
 <main class="page">
 
@@ -499,20 +672,24 @@ const eventIdDisplay =
         "eventIdDisplay"
     );
 
+
 const inviteLinkOption =
     document.getElementById(
         "inviteLinkOption"
     );
+
 
 const yourTeamsOption =
     document.getElementById(
         "yourTeamsOption"
     );
 
+
 const addNewTeamsOption =
     document.getElementById(
         "addNewTeamsOption"
     );
+
 
 const qrOption =
     document.getElementById(
@@ -536,10 +713,119 @@ if(!eventId){
 }
 else{
 
+    sessionStorage.setItem(
+        "crickpulseEventId",
+        eventId
+    );
+
     eventIdDisplay.textContent =
         eventId;
 
 }
+
+
+/* =========================================
+   COMMON PAGE URL
+========================================= */
+
+function pageUrl(filename){
+
+    return (
+        filename +
+        "?eventId=" +
+        encodeURIComponent(eventId) +
+        "&returnTo=add-manually.html"
+    );
+
+}
+
+
+/* =========================================
+   TOP TAB NAVIGATION
+========================================= */
+
+/*
+ * IMPORTANT:
+ *
+ * ये filenames आपके existing
+ * CRICKPULSE pages के नाम के अनुसार हैं.
+ *
+ * अगर आपके project में इन pages के
+ * filenames अलग हैं तो केवल इन
+ * चार values को बदलना होगा.
+ */
+
+const aboutPage =
+    "about.html";
+
+const teamsPage =
+    "teams.html";
+
+const matchesPage =
+    "matches.html";
+
+const pointTablePage =
+    "point-table.html";
+
+
+document
+.getElementById("aboutTab")
+.addEventListener(
+    "click",
+    function(){
+
+        window.location.href =
+            pageUrl(
+                aboutPage
+            );
+
+    }
+);
+
+
+document
+.getElementById("teamsTab")
+.addEventListener(
+    "click",
+    function(){
+
+        window.location.href =
+            pageUrl(
+                teamsPage
+            );
+
+    }
+);
+
+
+document
+.getElementById("matchesTab")
+.addEventListener(
+    "click",
+    function(){
+
+        window.location.href =
+            pageUrl(
+                matchesPage
+            );
+
+    }
+);
+
+
+document
+.getElementById("pointTableTab")
+.addEventListener(
+    "click",
+    function(){
+
+        window.location.href =
+            pageUrl(
+                pointTablePage
+            );
+
+    }
+);
 
 
 /* =========================================
@@ -552,7 +838,19 @@ document
     "click",
     function(){
 
-        window.history.back();
+        /*
+         * हमेशा parent screen:
+         *
+         * Invite Captain / Add Manually
+         *
+         * पर वापस जाएँ.
+         */
+
+        window.location.href =
+            "invite-captains.html?eventId=" +
+            encodeURIComponent(
+                eventId
+            );
 
     }
 );
@@ -563,15 +861,6 @@ document
 ========================================= */
 
 function getInviteLink(){
-
-    /*
-     * IMPORTANT:
-     *
-     * Link अब join-team.html पर नहीं जाएगा.
-     *
-     * यह सीधे चार-option वाले
-     * add-manually.html page पर जाएगा.
-     */
 
     return (
         window.location.origin +
@@ -616,10 +905,6 @@ inviteLinkOption.addEventListener(
             inviteLink;
 
 
-        /*
-         * MOBILE SHARE
-         */
-
         if(
             navigator.share
         ){
@@ -652,10 +937,6 @@ inviteLinkOption.addEventListener(
 
         }
 
-
-        /*
-         * COPY FALLBACK
-         */
 
         try{
 
@@ -725,11 +1006,6 @@ addNewTeamsOption.addEventListener(
         }
 
 
-        /*
-         * केवल यही option
-         * add-new-teams.html खोलेगा.
-         */
-
         window.location.href =
             "add-new-teams.html?eventId=" +
             encodeURIComponent(
@@ -768,15 +1044,6 @@ qrOption.addEventListener(
             "Join this CRICKPULSE tournament:\n\n" +
             inviteLink;
 
-
-        /*
-         * अभी QR option
-         * इसी valid tournament link को
-         * share/copy करेगा.
-         *
-         * Actual QR generator बाद में
-         * जोड़ सकते हैं.
-         */
 
         if(
             navigator.share
@@ -851,12 +1118,17 @@ console.log(
         eventName:
             eventName,
 
-        inviteLink:
-            eventId
-            ?
-            getInviteLink()
-            :
-            null
+        about:
+            aboutPage,
+
+        teams:
+            teamsPage,
+
+        matches:
+            matchesPage,
+
+        pointTable:
+            pointTablePage
 
     }
 );
