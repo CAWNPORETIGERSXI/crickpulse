@@ -4,6 +4,11 @@ const bcrypt = require("bcryptjs");
 const db = admin.firestore();
 
 module.exports = async (req, res) => {
+
+  // ==========================================
+  // ONLY POST REQUESTS
+  // ==========================================
+
   if (req.method !== "POST") {
     return res.status(405).json({
       success: false,
@@ -12,7 +17,16 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const { mobile, pin } = req.body || {};
+
+    const {
+      mobile,
+      pin,
+    } = req.body || {};
+
+
+    // ==========================================
+    // VALIDATE MOBILE
+    // ==========================================
 
     if (!/^[6-9]\d{9}$/.test(mobile || "")) {
       return res.status(400).json({
@@ -21,6 +35,11 @@ module.exports = async (req, res) => {
       });
     }
 
+
+    // ==========================================
+    // VALIDATE PIN
+    // ==========================================
+
     if (!/^\d{4}$/.test(pin || "")) {
       return res.status(400).json({
         success: false,
@@ -28,88 +47,214 @@ module.exports = async (req, res) => {
       });
     }
 
-    const userRef = db.collection("users").doc(mobile);
-    const userSnap = await userRef.get();
+
+    // ==========================================
+    // FIND USER
+    // ==========================================
+
+    const userRef =
+      db
+        .collection("users")
+        .doc(mobile);
+
+    const userSnap =
+      await userRef.get();
+
+
+    // ==========================================
+    // USER NOT FOUND
+    // ==========================================
 
     if (!userSnap.exists) {
       return res.status(401).json({
         success: false,
-        message: "Invalid mobile number or PIN.",
+        message:
+          "Invalid mobile number or PIN.",
       });
     }
 
-    const user = userSnap.data();
 
-    // Account lock check
+    const user =
+      userSnap.data();
+
+
+    // ==========================================
+    // ACCOUNT LOCK CHECK
+    // ==========================================
+
     if (
       user.lockedUntil &&
-      user.lockedUntil.toMillis() > Date.now()
+      user.lockedUntil.toMillis() >
+        Date.now()
     ) {
+
       return res.status(429).json({
         success: false,
-        message: "Too many failed attempts. Please try again later.",
+        message:
+          "Too many failed attempts. Please try again later.",
       });
+
     }
 
-    const pinCorrect = await bcrypt.compare(
-      pin,
-      user.pinHash
-    );
+
+    // ==========================================
+    // CHECK PIN
+    // ==========================================
+
+    const pinCorrect =
+      await bcrypt.compare(
+        pin,
+        user.pinHash
+      );
+
+
+    // ==========================================
+    // WRONG PIN
+    // ==========================================
 
     if (!pinCorrect) {
+
       const attempts =
-        Number(user.failedLoginAttempts || 0) + 1;
+        Number(
+          user.failedLoginAttempts || 0
+        ) + 1;
+
+
+      // ----------------------------------------
+      // LOCK AFTER 5 FAILED ATTEMPTS
+      // ----------------------------------------
 
       if (attempts >= 5) {
-        const lockedUntil = new Date(
-          Date.now() + 15 * 60 * 1000
-        );
+
+        const lockedUntil =
+          new Date(
+            Date.now() +
+            15 * 60 * 1000
+          );
+
 
         await userRef.update({
-          failedLoginAttempts: 0,
-          lockedUntil,
+
+          failedLoginAttempts:
+            0,
+
+          lockedUntil:
+            lockedUntil,
+
         });
+
 
         return res.status(429).json({
+
           success: false,
+
           message:
             "Too many failed attempts. Account temporarily locked.",
+
         });
+
       }
 
+
+      // ----------------------------------------
+      // SAVE FAILED ATTEMPT
+      // ----------------------------------------
+
       await userRef.update({
-        failedLoginAttempts: attempts,
+
+        failedLoginAttempts:
+          attempts,
+
       });
+
 
       return res.status(401).json({
+
         success: false,
-        message: "Invalid mobile number or PIN.",
+
+        message:
+          "Invalid mobile number or PIN.",
+
       });
+
     }
 
-    // Successful login
+
+    // ==========================================
+    // SUCCESSFUL LOGIN
+    // ==========================================
+
     await userRef.update({
-      failedLoginAttempts: 0,
-      lockedUntil: null,
+
+      failedLoginAttempts:
+        0,
+
+      lockedUntil:
+        null,
+
       lastLoginAt:
-        admin.firestore.FieldValue.serverTimestamp(),
+        admin.firestore.FieldValue
+          .serverTimestamp(),
+
     });
+
+
+    // ==========================================
+    // RETURN USER PROFILE
+    // ==========================================
 
     return res.status(200).json({
+
       success: true,
-      message: "Login successful.",
+
+      message:
+        "Login successful.",
+
       user: {
-        mobile: user.mobile,
-        email: user.email,
+
+        /*
+         * Registered Name / Username
+         */
+
+        name:
+          user.name || "",
+
+        /*
+         * Mobile
+         */
+
+        mobile:
+          user.mobile || mobile,
+
+        /*
+         * Email
+         */
+
+        email:
+          user.email || "",
+
       },
+
     });
+
 
   } catch (error) {
-    console.error("LOGIN ERROR:", error);
+
+    console.error(
+      "LOGIN ERROR:",
+      error
+    );
+
 
     return res.status(500).json({
+
       success: false,
-      message: "Unable to login.",
+
+      message:
+        "Unable to login.",
+
     });
+
   }
+
 };
