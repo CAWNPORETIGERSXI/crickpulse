@@ -5,9 +5,20 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>CRICKPULSE | Add Manually</title>
+
+
+<!-- QR CODE LIBRARY -->
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+    defer
+></script>
+
 
 <style>
 
@@ -19,54 +30,76 @@
 
 body{
     font-family:Verdana,Geneva,sans-serif;
+
     background:#f7f5ff;
+
     color:#171225;
+
     min-height:100vh;
 }
 
-/* HEADER */
+
+/* =========================================
+   HEADER
+========================================= */
 
 .top-header{
+
     height:82px;
+
     background:#fff;
+
     border-bottom:1px solid #e4ddf2;
 
     display:flex;
+
     align-items:center;
 
     padding:0 15px;
 }
 
 .back-button{
+
     width:58px;
     height:58px;
 
     border:1.5px solid #ff3b30;
+
     border-radius:8px;
 
     background:#fff;
+
     color:#6328c7;
 
     font-size:42px;
+
     font-weight:900;
 
     cursor:pointer;
 }
 
 .page-title{
+
     flex:1;
+
     text-align:center;
 
     font-size:27px;
+
     font-weight:900;
 
     margin-right:58px;
 }
 
-/* PAGE */
+
+/* =========================================
+   PAGE
+========================================= */
 
 .page{
+
     width:100%;
+
     max-width:760px;
 
     margin:auto;
@@ -74,28 +107,38 @@ body{
     padding:35px 16px 60px;
 }
 
-/* CARD */
+
+/* =========================================
+   CARD
+========================================= */
 
 .card{
+
     background:#fff;
 
     border:1.5px solid #ff3b30;
+
     border-radius:10px;
 
     padding:30px 24px;
 
-    box-shadow:0 6px 20px rgba(0,0,0,.06);
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.06);
 }
 
 .title{
+
     font-size:34px;
+
     font-weight:900;
 
     margin-bottom:12px;
 }
 
 .subtitle{
+
     font-size:21px;
+
     color:#6d667c;
 
     line-height:1.5;
@@ -103,14 +146,19 @@ body{
     margin-bottom:28px;
 }
 
-/* OPTIONS */
+
+/* =========================================
+   OPTIONS
+========================================= */
 
 .option{
+
     width:100%;
 
     min-height:76px;
 
     border:1.5px solid #ff3b30;
+
     border-radius:9px;
 
     background:#fff;
@@ -120,46 +168,66 @@ body{
     padding:14px 16px;
 
     display:flex;
+
     align-items:center;
 
     gap:14px;
 
     cursor:pointer;
+
+    transition:
+        transform .15s ease,
+        background .15s ease;
+}
+
+.option:hover{
+
+    background:#fff9f9;
 }
 
 .option:active{
+
     transform:scale(.98);
 }
 
 .option-icon{
+
     width:48px;
     height:48px;
 
     min-width:48px;
 
     border:1.5px solid #ff3b30;
+
     border-radius:8px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     color:#6c35d9;
 
     font-size:25px;
+
     font-weight:900;
 }
 
 .option-content{
+
     flex:1;
 }
 
 .option-title{
+
     font-size:21px;
+
     font-weight:900;
 }
 
 .option-description{
+
     margin-top:5px;
 
     font-size:16px;
@@ -170,6 +238,7 @@ body{
 }
 
 .option-arrow{
+
     font-size:31px;
 
     color:#6c35d9;
@@ -177,20 +246,26 @@ body{
     font-weight:900;
 }
 
-/* EVENT ID */
+
+/* =========================================
+   EVENT ID
+========================================= */
 
 .event-id-box{
+
     margin-top:25px;
 
     padding:14px;
 
     border:1.5px solid #ff3b30;
+
     border-radius:8px;
 
     background:#fff;
 }
 
 .event-id-label{
+
     font-size:16px;
 
     font-weight:700;
@@ -201,6 +276,7 @@ body{
 }
 
 .event-id-value{
+
     font-size:15px;
 
     font-weight:800;
@@ -208,50 +284,289 @@ body{
     word-break:break-all;
 }
 
-/* MOBILE */
+
+/* =========================================
+   QR MODAL
+========================================= */
+
+.qr-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    z-index:9999;
+}
+
+.qr-modal.show{
+
+    display:flex;
+}
+
+.qr-box{
+
+    width:100%;
+
+    max-width:430px;
+
+    background:#fff;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:14px;
+
+    padding:25px 20px 22px;
+
+    text-align:center;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.25);
+}
+
+.qr-title{
+
+    font-size:28px;
+
+    font-weight:900;
+
+    color:#171225;
+
+    margin-bottom:8px;
+}
+
+.qr-event-name{
+
+    font-size:18px;
+
+    font-weight:800;
+
+    color:#6328c7;
+
+    margin-bottom:18px;
+
+    word-break:break-word;
+}
+
+.qr-instruction{
+
+    font-size:16px;
+
+    line-height:1.5;
+
+    color:#6d667c;
+
+    margin-bottom:20px;
+}
+
+.qr-code-wrapper{
+
+    width:270px;
+
+    height:270px;
+
+    margin:0 auto 20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#fff;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:10px;
+
+    padding:10px;
+}
+
+#qrCode{
+
+    width:250px;
+
+    height:250px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+#qrCode img{
+
+    max-width:250px;
+
+    max-height:250px;
+}
+
+.qr-link{
+
+    background:#f7f5ff;
+
+    border:1px solid #ddd4ed;
+
+    border-radius:8px;
+
+    padding:10px;
+
+    font-size:13px;
+
+    color:#4f485e;
+
+    word-break:break-all;
+
+    margin-bottom:18px;
+}
+
+.qr-close{
+
+    width:100%;
+
+    min-height:54px;
+
+    border:1.5px solid #ff3b30;
+
+    border-radius:8px;
+
+    background:#fff;
+
+    color:#6328c7;
+
+    font-size:19px;
+
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.qr-close:active{
+
+    transform:scale(.98);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
 
 @media(max-width:480px){
 
     .top-header{
+
         height:76px;
+
         padding:0 11px;
     }
 
     .back-button{
+
         width:52px;
         height:52px;
+
         font-size:38px;
     }
 
     .page-title{
+
         font-size:23px;
+
         margin-right:52px;
     }
 
     .page{
+
         padding:25px 14px 50px;
     }
 
     .card{
+
         padding:27px 18px;
     }
 
     .title{
+
         font-size:31px;
     }
 
     .subtitle{
+
         font-size:20px;
     }
 
     .option-title{
+
         font-size:20px;
     }
 
     .option-description{
+
         font-size:15px;
     }
 
+    .qr-box{
+
+        padding:22px 15px 18px;
+    }
+
+    .qr-title{
+
+        font-size:25px;
+    }
+
+    .qr-event-name{
+
+        font-size:17px;
+    }
+
+    .qr-code-wrapper{
+
+        width:250px;
+
+        height:250px;
+    }
+
+    #qrCode{
+
+        width:230px;
+
+        height:230px;
+    }
+
+    #qrCode img{
+
+        max-width:230px;
+
+        max-height:230px;
+    }
+
+}
+
+
+/* =========================================
+   QR LIBRARY ERROR
+========================================= */
+
+.qr-error{
+
+    font-size:16px;
+
+    color:#d32f2f;
+
+    line-height:1.5;
+
+    padding:20px;
 }
 
 </style>
@@ -262,6 +577,10 @@ body{
 <body>
 
 
+<!-- =========================================
+     HEADER
+========================================= -->
+
 <header class="top-header">
 
 <button
@@ -269,7 +588,7 @@ body{
     id="backButton"
     type="button"
 >
-‹
+    ‹
 </button>
 
 <div class="page-title">
@@ -279,153 +598,169 @@ body{
 </header>
 
 
+<!-- =========================================
+     MAIN PAGE
+========================================= -->
+
 <main class="page">
 
 <section class="card">
 
+
 <div class="title">
     Add Teams
 </div>
+
 
 <div class="subtitle">
     Choose how you want to add teams to this tournament.
 </div>
 
 
-<!-- OPTION 1 -->
+<!-- =========================================
+     OPTION 1
+========================================= -->
 
 <div
     class="option"
     id="inviteLinkOption"
 >
 
-<div class="option-icon">
-    🔗
+    <div class="option-icon">
+        🔗
+    </div>
+
+    <div class="option-content">
+
+        <div class="option-title">
+            Invite Link
+        </div>
+
+        <div class="option-description">
+            Share an invite link with team captains.
+        </div>
+
+    </div>
+
+    <div class="option-arrow">
+        ›
+    </div>
+
 </div>
 
-<div class="option-content">
 
-<div class="option-title">
-    Invite Link
-</div>
-
-<div class="option-description">
-    Share an invite link with team captains.
-</div>
-
-</div>
-
-<div class="option-arrow">
-    ›
-</div>
-
-</div>
-
-
-<!-- OPTION 2 -->
+<!-- =========================================
+     OPTION 2
+========================================= -->
 
 <div
     class="option"
     id="yourTeamsOption"
 >
 
-<div class="option-icon">
-    👥
+    <div class="option-icon">
+        👥
+    </div>
+
+    <div class="option-content">
+
+        <div class="option-title">
+            Your Teams
+        </div>
+
+        <div class="option-description">
+            Select a team already available in CRICKPULSE.
+        </div>
+
+    </div>
+
+    <div class="option-arrow">
+        ›
+    </div>
+
 </div>
 
-<div class="option-content">
 
-<div class="option-title">
-    Your Teams
-</div>
-
-<div class="option-description">
-    Select a team already available in CRICKPULSE.
-</div>
-
-</div>
-
-<div class="option-arrow">
-    ›
-</div>
-
-</div>
-
-
-<!-- OPTION 3 -->
+<!-- =========================================
+     OPTION 3
+========================================= -->
 
 <div
     class="option"
     id="addNewTeamsOption"
 >
 
-<div class="option-icon">
-    +
+    <div class="option-icon">
+        +
+    </div>
+
+    <div class="option-content">
+
+        <div class="option-title">
+            Add New Teams
+        </div>
+
+        <div class="option-description">
+            Create and add a new team manually.
+        </div>
+
+    </div>
+
+    <div class="option-arrow">
+        ›
+    </div>
+
 </div>
 
-<div class="option-content">
 
-<div class="option-title">
-    Add New Teams
-</div>
-
-<div class="option-description">
-    Create and add a new team manually.
-</div>
-
-</div>
-
-<div class="option-arrow">
-    ›
-</div>
-
-</div>
-
-
-<!-- OPTION 4 -->
+<!-- =========================================
+     OPTION 4
+========================================= -->
 
 <div
     class="option"
     id="qrOption"
 >
 
-<div class="option-icon">
-    ▣
+    <div class="option-icon">
+        ▣
+    </div>
+
+    <div class="option-content">
+
+        <div class="option-title">
+            Share via QR
+        </div>
+
+        <div class="option-description">
+            Show this tournament's QR code to team captains.
+        </div>
+
+    </div>
+
+    <div class="option-arrow">
+        ›
+    </div>
+
 </div>
 
-<div class="option-content">
 
-<div class="option-title">
-    Share with QR
-</div>
-
-<div class="option-description">
-    Share the tournament using a QR code.
-</div>
-
-</div>
-
-<div class="option-arrow">
-    ›
-</div>
-
-</div>
-
-
-<!-- EVENT ID -->
+<!-- =========================================
+     EVENT ID
+========================================= -->
 
 <div class="event-id-box">
 
-<div class="event-id-label">
-    Tournament ID
-</div>
+    <div class="event-id-label">
+        Tournament ID
+    </div>
 
-<div
-    class="event-id-value"
-    id="eventIdDisplay"
->
-    Loading...
-</div>
+    <div
+        class="event-id-value"
+        id="eventIdDisplay"
+    >
+        Loading...
+    </div>
 
 </div>
 
@@ -433,6 +768,74 @@ body{
 </section>
 
 </main>
+
+
+<!-- =========================================
+     QR MODAL
+========================================= -->
+
+<div
+    class="qr-modal"
+    id="qrModal"
+>
+
+    <div class="qr-box">
+
+
+        <div class="qr-title">
+            Tournament QR
+        </div>
+
+
+        <div
+            class="qr-event-name"
+            id="qrEventName"
+        >
+            CRICKPULSE Tournament
+        </div>
+
+
+        <div class="qr-instruction">
+
+            Scan this QR code to open this
+            tournament's invite screen.
+
+            <br>
+
+            After scanning, the same
+            <strong>4 options</strong>
+            will open.
+
+        </div>
+
+
+        <div class="qr-code-wrapper">
+
+            <div id="qrCode"></div>
+
+        </div>
+
+
+        <div
+            class="qr-link"
+            id="qrLink"
+        >
+            Loading...
+        </div>
+
+
+        <button
+            class="qr-close"
+            id="qrCloseButton"
+            type="button"
+        >
+            Close
+        </button>
+
+
+    </div>
+
+</div>
 
 
 <script>
@@ -462,7 +865,7 @@ const eventName =
 
 
 /* =========================================
-   SHOW EVENT ID
+   ELEMENTS
 ========================================= */
 
 const eventIdDisplay =
@@ -470,6 +873,30 @@ const eventIdDisplay =
         "eventIdDisplay"
     );
 
+const qrModal =
+    document.getElementById(
+        "qrModal"
+    );
+
+const qrCode =
+    document.getElementById(
+        "qrCode"
+    );
+
+const qrLink =
+    document.getElementById(
+        "qrLink"
+    );
+
+const qrEventName =
+    document.getElementById(
+        "qrEventName"
+    );
+
+
+/* =========================================
+   EVENT ID CHECK
+========================================= */
 
 if(!eventId){
 
@@ -485,6 +912,40 @@ else{
 
     eventIdDisplay.textContent =
         eventId;
+
+}
+
+
+/* =========================================
+   CREATE TOURNAMENT INVITE LINK
+   =========================================
+   IMPORTANT:
+
+   This is the SAME link used by:
+
+   1. Invite Link
+   2. QR Code
+
+   The eventId identifies the
+   particular tournament.
+
+========================================= */
+
+function createInviteLink(){
+
+    if(!eventId){
+
+        return "";
+
+    }
+
+    return (
+        window.location.origin +
+        "/invite-captains.html?eventId=" +
+        encodeURIComponent(
+            eventId
+        )
+    );
 
 }
 
@@ -514,7 +975,7 @@ document
 .getElementById("inviteLinkOption")
 .addEventListener(
     "click",
-    function(){
+    async function(){
 
         if(!eventId){
 
@@ -526,66 +987,83 @@ document
 
         }
 
-        const inviteLink =
-            window.location.origin +
-            "/join-team.html?eventId=" +
-            encodeURIComponent(
-                eventId
-            );
 
+        const inviteLink =
+            createInviteLink();
+
+
+        /* MOBILE SHARE */
 
         if(
             navigator.share
         ){
 
-            navigator.share({
+            try{
 
-                title:
-                    eventName,
+                await navigator.share({
 
-                text:
-                    "You are invited to add your team to " +
-                    eventName +
-                    ".\n\n" +
-                    inviteLink,
+                    title:
+                        eventName,
 
-                url:
-                    inviteLink
+                    text:
+                        "You are invited to add your team to " +
+                        eventName +
+                        ".",
 
-            })
-            .catch(
-                function(){
-                    console.log(
-                        "Share cancelled."
+                    url:
+                        inviteLink
+
+                });
+
+            }
+            catch(error){
+
+                console.log(
+                    "Share cancelled.",
+                    error
+                );
+
+            }
+
+            return;
+
+        }
+
+
+        /* COPY LINK */
+
+        if(
+            navigator.clipboard
+        ){
+
+            try{
+
+                await navigator
+                    .clipboard
+                    .writeText(
+                        inviteLink
                     );
-                }
-            );
+
+                alert(
+                    "Invite link copied."
+                );
+
+            }
+            catch(error){
+
+                alert(
+                    "Invite Link:\n\n" +
+                    inviteLink
+                );
+
+            }
 
         }
         else{
 
-            navigator
-            .clipboard
-            .writeText(
+            alert(
+                "Invite Link:\n\n" +
                 inviteLink
-            )
-            .then(
-                function(){
-
-                    alert(
-                        "Invite link copied."
-                    );
-
-                }
-            )
-            .catch(
-                function(){
-
-                    alert(
-                        inviteLink
-                    );
-
-                }
             );
 
         }
@@ -605,6 +1083,17 @@ document
     "click",
     function(){
 
+        if(!eventId){
+
+            alert(
+                "Tournament ID is missing."
+            );
+
+            return;
+
+        }
+
+
         window.location.href =
             "your-teams.html?eventId=" +
             encodeURIComponent(
@@ -618,10 +1107,6 @@ document
 /* =========================================
    OPTION 3
    ADD NEW TEAMS
-
-   IMPORTANT:
-   यही एक जगह है जहाँ
-   add-new-teams.html खुलेगा.
 ========================================= */
 
 document
@@ -629,6 +1114,17 @@ document
 .addEventListener(
     "click",
     function(){
+
+        if(!eventId){
+
+            alert(
+                "Tournament ID is missing."
+            );
+
+            return;
+
+        }
+
 
         window.location.href =
             "add-new-teams.html?eventId=" +
@@ -642,7 +1138,7 @@ document
 
 /* =========================================
    OPTION 4
-   SHARE WITH QR
+   SHARE VIA QR
 ========================================= */
 
 document
@@ -651,70 +1147,157 @@ document
     "click",
     function(){
 
-        const inviteLink =
-            window.location.origin +
-            "/join-team.html?eventId=" +
-            encodeURIComponent(
-                eventId
+        if(!eventId){
+
+            alert(
+                "Tournament ID is missing."
             );
 
+            return;
 
-        /*
-         * फिलहाल QR option को
-         * QR sharing के लिए तैयार रखा गया है.
-         */
+        }
+
+
+        const inviteLink =
+            createInviteLink();
+
+
+        /* SHOW MODAL */
+
+        qrModal.classList.add(
+            "show"
+        );
+
+
+        qrEventName.textContent =
+            eventName;
+
+
+        qrLink.textContent =
+            inviteLink;
+
+
+        /* CLEAR PREVIOUS QR */
+
+        qrCode.innerHTML = "";
+
+
+        /* WAIT FOR QR LIBRARY */
 
         if(
-            navigator.share
+            typeof QRCode ===
+            "undefined"
         ){
 
-            navigator.share({
+            qrCode.innerHTML =
 
-                title:
-                    eventName,
+                '<div class="qr-error">' +
 
+                'QR Code library is loading.<br>' +
+
+                'Please try again in a moment.' +
+
+                '</div>';
+
+            return;
+
+        }
+
+
+        /* =====================================
+           GENERATE QR
+
+           THIS QR CONTAINS THE EXACT SAME
+           INVITE LINK USED ABOVE.
+
+           Therefore:
+
+           QR
+           ↓
+           invite-captains.html
+           ↓
+           same eventId
+           ↓
+           same 4 options
+        ===================================== */
+
+        new QRCode(
+            qrCode,
+            {
                 text:
-                    "Scan/share this tournament invite link:\n\n" +
                     inviteLink,
 
-                url:
-                    inviteLink
+                width:
+                    230,
 
-            })
-            .catch(
-                function(){
-                    console.log(
-                        "QR sharing cancelled."
-                    );
-                }
+                height:
+                    230,
+
+                correctLevel:
+                    QRCode.CorrectLevel.H
+            }
+        );
+
+    }
+);
+
+
+/* =========================================
+   CLOSE QR
+========================================= */
+
+document
+.getElementById("qrCloseButton")
+.addEventListener(
+    "click",
+    function(){
+
+        qrModal.classList.remove(
+            "show"
+        );
+
+    }
+);
+
+
+/* =========================================
+   CLOSE QR BY BACKGROUND TAP
+========================================= */
+
+qrModal.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target ===
+            qrModal
+        ){
+
+            qrModal.classList.remove(
+                "show"
             );
 
         }
-        else{
 
-            navigator
-            .clipboard
-            .writeText(
-                inviteLink
-            )
-            .then(
-                function(){
+    }
+);
 
-                    alert(
-                        "Tournament invite link copied. QR sharing will be connected next."
-                    );
 
-                }
-            )
-            .catch(
-                function(){
+/* =========================================
+   ESCAPE KEY
+========================================= */
 
-                    alert(
-                        "Tournament Invite Link:\n\n" +
-                        inviteLink
-                    );
+document.addEventListener(
+    "keydown",
+    function(event){
 
-                }
+        if(
+            event.key ===
+            "Escape"
+        ){
+
+            qrModal.classList.remove(
+                "show"
             );
 
         }
@@ -734,7 +1317,12 @@ console.log(
             eventId,
 
         eventName:
-            eventName
+            eventName,
+
+        inviteLink:
+            eventId
+                ? createInviteLink()
+                : null
     }
 );
 
