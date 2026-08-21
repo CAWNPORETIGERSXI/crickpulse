@@ -114,7 +114,6 @@ body{
 
 /* =========================================
    TOP NAVIGATION
-   ONLY THIS STRIP SCROLLS
 ========================================= */
 
 .top-navigation{
@@ -272,13 +271,6 @@ body{
         0 6px 20px rgba(0,0,0,.08);
 }
 
-
-/*
-   Tournament image.
-   If no image is available, premium purple
-   background will remain visible.
-*/
-
 .hero-image{
 
     width:100%;
@@ -291,9 +283,6 @@ body{
 
     background:#6c35d9;
 }
-
-
-/* dark overlay */
 
 .hero-overlay{
 
@@ -314,9 +303,6 @@ body{
 
     padding:18px;
 }
-
-
-/* GO LIVE */
 
 .go-live-button{
 
@@ -345,9 +331,6 @@ body{
     font-weight:900;
 
     cursor:pointer;
-
-    box-shadow:
-        0 5px 15px rgba(0,0,0,.25);
 }
 
 .go-live-button:active{
@@ -395,8 +378,6 @@ body{
     font-size:24px;
 
     font-weight:900;
-
-    color:#171225;
 }
 
 .edit-button{
@@ -508,8 +489,6 @@ body{
 
     font-weight:900;
 
-    color:#171225;
-
     margin-bottom:5px;
 }
 
@@ -532,9 +511,6 @@ body{
 
     flex-shrink:0;
 }
-
-
-/* QR button */
 
 .qr-button{
 
@@ -561,9 +537,6 @@ body{
 
     cursor:pointer;
 }
-
-
-/* SHARE button */
 
 .share-button{
 
@@ -662,10 +635,6 @@ body{
     cursor:pointer;
 }
 
-.social-button:active{
-    transform:scale(.95);
-}
-
 
 /* =========================================
    OTHER SCREENS
@@ -702,7 +671,7 @@ body{
 
 
 /* =========================================
-   MODAL
+   EDIT MODAL
 ========================================= */
 
 .modal{
@@ -763,12 +732,12 @@ body{
 
 
 /* =========================================
-   FORM
+   EDIT FORM
 ========================================= */
 
 .form-group{
 
-    margin-bottom:14px;
+    margin-bottom:15px;
 }
 
 .form-label{
@@ -781,14 +750,15 @@ body{
 
     color:#6d667c;
 
-    margin-bottom:6px;
+    margin-bottom:7px;
 }
 
-.form-input{
+.form-input,
+.form-select{
 
     width:100%;
 
-    min-height:48px;
+    min-height:50px;
 
     padding:10px 12px;
 
@@ -800,13 +770,22 @@ body{
 
     color:#171225;
 
+    font-family:Verdana,Geneva,sans-serif;
+
     font-size:16px;
+
+    font-weight:700;
 
     outline:none;
 }
 
-.form-input:focus{
+.form-input:focus,
+.form-select:focus{
+
     border-color:#6c35d9;
+
+    box-shadow:
+        0 0 0 3px rgba(108,53,217,.10);
 }
 
 
@@ -820,7 +799,7 @@ body{
 
     gap:10px;
 
-    margin-top:18px;
+    margin-top:20px;
 }
 
 .modal-action{
@@ -1000,31 +979,6 @@ body{
 
 }
 
-
-/* =========================================
-   SMALL HEIGHT
-========================================= */
-
-@media(max-width:480px) and (max-height:700px){
-
-    .hero-card{
-        height:165px;
-    }
-
-    .detail-card{
-        padding:15px 13px;
-    }
-
-    .detail-row{
-        padding:8px 0;
-    }
-
-    .social-card{
-        padding:15px 13px;
-    }
-
-}
-
 </style>
 
 </head>
@@ -1105,7 +1059,7 @@ body{
 
 
 <!-- =========================================
-     ABOUT SCREEN
+     ABOUT
 ========================================= -->
 
 <section
@@ -1139,7 +1093,9 @@ body{
 </div>
 
 
-<!-- ORGANIZATIONAL DETAIL -->
+<!-- =========================================
+     ORGANIZATIONAL DETAIL
+========================================= -->
 
 <section class="detail-card">
 
@@ -1148,6 +1104,8 @@ body{
     <div class="detail-title">
         Organizational Detail
     </div>
+
+    <!-- ONLY ONE EDIT BUTTON -->
 
     <button
         class="edit-button"
@@ -1179,12 +1137,60 @@ body{
 <div class="detail-row">
 
     <div class="detail-label">
+        Organizer Mobile
+    </div>
+
+    <div
+        class="detail-value"
+        id="organizerMobileValue"
+    >
+        —
+    </div>
+
+</div>
+
+
+<div class="detail-row">
+
+    <div class="detail-label">
+        Organizer Gmail
+    </div>
+
+    <div
+        class="detail-value"
+        id="organizerEmailValue"
+    >
+        —
+    </div>
+
+</div>
+
+
+<div class="detail-row">
+
+    <div class="detail-label">
         Date
     </div>
 
     <div
         class="detail-value"
         id="dateValue"
+    >
+        —
+    </div>
+
+</div>
+
+
+<div class="detail-row">
+
+    <div class="detail-label">
+        City
+    </div>
+
+    <div
+        class="detail-value"
+        id="cityValue"
     >
         —
     </div>
@@ -1233,6 +1239,38 @@ body{
     <div
         class="detail-value"
         id="categoryValue"
+    >
+        —
+    </div>
+
+</div>
+
+
+<div class="detail-row">
+
+    <div class="detail-label">
+        Pitch Type
+    </div>
+
+    <div
+        class="detail-value"
+        id="pitchTypeValue"
+    >
+        —
+    </div>
+
+</div>
+
+
+<div class="detail-row">
+
+    <div class="detail-label">
+        Match Type
+    </div>
+
+    <div
+        class="detail-value"
+        id="matchTypeValue"
     >
         —
     </div>
@@ -1317,7 +1355,6 @@ body{
 
 <div class="social-icons">
 
-
 <button
     class="social-button"
     id="whatsappButton"
@@ -1347,7 +1384,6 @@ body{
     ◎
 </button>
 
-
 </div>
 
 </section>
@@ -1367,9 +1403,7 @@ body{
 >
 
 <div class="placeholder-screen">
-
     TEAMS SECTION
-
 </div>
 
 </section>
@@ -1386,9 +1420,7 @@ body{
 >
 
 <div class="placeholder-screen">
-
     MATCHES SECTION
-
 </div>
 
 </section>
@@ -1405,9 +1437,7 @@ body{
 >
 
 <div class="placeholder-screen">
-
     POINT TABLE SECTION
-
 </div>
 
 </section>
@@ -1434,9 +1464,14 @@ body{
 </div>
 
 
+<!-- ORGANIZER NAME -->
+
 <div class="form-group">
 
-<label class="form-label">
+<label
+    class="form-label"
+    for="editOrganizer"
+>
     Organizer Name
 </label>
 
@@ -1450,15 +1485,20 @@ body{
 </div>
 
 
+<!-- DATE -->
+
 <div class="form-group">
 
-<label class="form-label">
-    Date
+<label
+    class="form-label"
+    for="editStartDate"
+>
+    Start Date
 </label>
 
 <input
     class="form-input"
-    id="editDate"
+    id="editStartDate"
     type="date"
 >
 
@@ -1467,7 +1507,51 @@ body{
 
 <div class="form-group">
 
-<label class="form-label">
+<label
+    class="form-label"
+    for="editEndDate"
+>
+    End Date
+</label>
+
+<input
+    class="form-input"
+    id="editEndDate"
+    type="date"
+>
+
+</div>
+
+
+<!-- CITY -->
+
+<div class="form-group">
+
+<label
+    class="form-label"
+    for="editCity"
+>
+    City
+</label>
+
+<input
+    class="form-input"
+    id="editCity"
+    type="text"
+    placeholder="Enter city"
+>
+
+</div>
+
+
+<!-- GROUND -->
+
+<div class="form-group">
+
+<label
+    class="form-label"
+    for="editGround"
+>
     Ground
 </label>
 
@@ -1481,34 +1565,174 @@ body{
 </div>
 
 
+<!-- BALL TYPE -->
+
 <div class="form-group">
 
-<label class="form-label">
+<label
+    class="form-label"
+    for="editBallType"
+>
     Ball Type
 </label>
 
-<input
-    class="form-input"
+<select
+    class="form-select"
     id="editBallType"
-    type="text"
-    placeholder="Enter ball type"
 >
+
+<option value="">
+    Select Ball Type
+</option>
+
+<option value="Tennis">
+    Tennis
+</option>
+
+<option value="Leather">
+    Leather
+</option>
+
+<option value="Other">
+    Other
+</option>
+
+</select>
 
 </div>
 
 
+<!-- CATEGORY -->
+
 <div class="form-group">
 
-<label class="form-label">
-    Category
+<label
+    class="form-label"
+    for="editCategory"
+>
+    Tournament Category
 </label>
 
-<input
-    class="form-input"
+<select
+    class="form-select"
     id="editCategory"
-    type="text"
-    placeholder="Enter category"
 >
+
+<option value="">
+    Select Category
+</option>
+
+<option value="Open">
+    Open
+</option>
+
+<option value="Corporate">
+    Corporate
+</option>
+
+<option value="School">
+    School
+</option>
+
+<option value="College">
+    College
+</option>
+
+<option value="University">
+    University
+</option>
+
+<option value="Club">
+    Club
+</option>
+
+</select>
+
+</div>
+
+
+<!-- PITCH TYPE -->
+
+<div class="form-group">
+
+<label
+    class="form-label"
+    for="editPitchType"
+>
+    Pitch Type
+</label>
+
+<select
+    class="form-select"
+    id="editPitchType"
+>
+
+<option value="">
+    Select Pitch Type
+</option>
+
+<option value="Rough">
+    Rough
+</option>
+
+<option value="Cement">
+    Cement
+</option>
+
+<option value="Turf">
+    Turf
+</option>
+
+<option value="Astro Turf">
+    Astro Turf
+</option>
+
+<option value="Matting">
+    Matting
+</option>
+
+</select>
+
+</div>
+
+
+<!-- MATCH TYPE -->
+
+<div class="form-group">
+
+<label
+    class="form-label"
+    for="editMatchType"
+>
+    Match Type
+</label>
+
+<select
+    class="form-select"
+    id="editMatchType"
+>
+
+<option value="">
+    Select Match Type
+</option>
+
+<option value="Limited Over">
+    Limited Over
+</option>
+
+<option value="Box Cricket">
+    Box Cricket
+</option>
+
+<option value="Test">
+    Test
+</option>
+
+<option value="The Hundred">
+    The Hundred
+</option>
+
+</select>
 
 </div>
 
@@ -1589,10 +1813,23 @@ body{
 </div>
 
 
-<script>
+<!-- =========================================
+     FIREBASE + MAIN SCRIPT
+========================================= -->
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+    doc,
+    getDoc,
+    updateDoc
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
 
 /* =========================================
-   EVENT DATA
+   EVENT ID
 ========================================= */
 
 const params =
@@ -1600,31 +1837,10 @@ const params =
         window.location.search
     );
 
-
 const eventId =
     params.get("eventId") ||
     sessionStorage.getItem(
         "crickpulseEventId"
-    );
-
-
-const eventName =
-    sessionStorage.getItem(
-        "crickpulseEventName"
-    ) ||
-    "CRICKPULSE Tournament";
-
-
-/* =========================================
-   LOCAL EVENT DATA
-========================================= */
-
-const storedEventData =
-    JSON.parse(
-        sessionStorage.getItem(
-            "crickpulseEventData"
-        ) ||
-        "{}"
     );
 
 
@@ -1654,73 +1870,48 @@ const pointTableScreen =
 
 
 /* =========================================
-   DATA HELPERS
+   CURRENT EVENT DATA
 ========================================= */
 
-function firstValue(){
-
-    const values =
-        Array.from(arguments);
-
-    for(
-        const value of values
-    ){
-
-        if(
-            value !== undefined &&
-            value !== null &&
-            String(value).trim() !== ""
-        ){
-
-            return value;
-
-        }
-
-    }
-
-    return "—";
-
-}
+let currentEventData = {};
 
 
-function formatDate(value){
+/* =========================================
+   HELPERS
+========================================= */
+
+function valueOrDash(value){
 
     if(
-        !value
+        value === undefined ||
+        value === null ||
+        String(value).trim() === ""
     ){
 
         return "—";
 
     }
 
+    return String(value);
 
-    /*
-     * Already DD-MM-YYYY
-     */
+}
 
-    if(
-        /^\d{2}-\d{2}-\d{4}$/.test(
-            String(value)
-        )
-    ){
 
-        return value;
+function formatDate(value){
 
+    if(!value){
+        return "—";
     }
 
-
-    /*
-     * YYYY-MM-DD
-     */
+    const text =
+        String(value);
 
     if(
-        /^\d{4}-\d{2}-\d{2}$/.test(
-            String(value)
-        )
+        /^\d{4}-\d{2}-\d{2}$/.test(text)
     ){
 
         const parts =
-            String(value).split("-");
+            text.split("-");
 
         return (
             parts[2] +
@@ -1732,8 +1923,151 @@ function formatDate(value){
 
     }
 
+    if(
+        /^\d{2}-\d{2}-\d{4}$/.test(text)
+    ){
 
-    return value;
+        return text;
+
+    }
+
+    return text;
+
+}
+
+
+function dateForInput(value){
+
+    if(!value){
+        return "";
+    }
+
+    const text =
+        String(value);
+
+    if(
+        /^\d{4}-\d{2}-\d{2}$/.test(text)
+    ){
+
+        return text;
+
+    }
+
+    if(
+        /^\d{2}-\d{2}-\d{4}$/.test(text)
+    ){
+
+        const parts =
+            text.split("-");
+
+        return (
+            parts[2] +
+            "-" +
+            parts[1] +
+            "-" +
+            parts[0]
+        );
+
+    }
+
+    return "";
+
+}
+
+
+/* =========================================
+   LOAD EVENT FROM FIRESTORE
+========================================= */
+
+async function loadEventFromFirestore(){
+
+    if(!eventId){
+
+        alert(
+            "Tournament ID is missing."
+        );
+
+        window.location.href =
+            "create-event.html";
+
+        return;
+
+    }
+
+
+    try{
+
+        const eventRef =
+            doc(
+                db,
+                "events",
+                eventId
+            );
+
+        const eventSnapshot =
+            await getDoc(
+                eventRef
+            );
+
+
+        if(
+            !eventSnapshot.exists()
+        ){
+
+            alert(
+                "Tournament not found in Firestore."
+            );
+
+            return;
+
+        }
+
+
+        currentEventData =
+            eventSnapshot.data();
+
+
+        /*
+         * Keep a local copy as well.
+         */
+
+        sessionStorage.setItem(
+            "crickpulseEventData",
+            JSON.stringify(
+                currentEventData
+            )
+        );
+
+
+        sessionStorage.setItem(
+            "crickpulseEventId",
+            eventId
+        );
+
+
+        sessionStorage.setItem(
+            "crickpulseEventName",
+            currentEventData.eventName || ""
+        );
+
+
+        loadAboutData();
+
+
+    }
+    catch(error){
+
+        console.error(
+            "EVENT LOAD ERROR:",
+            error
+        );
+
+        alert(
+            "Tournament details could not be loaded.\n\n" +
+            error.message
+        );
+
+    }
 
 }
 
@@ -1744,105 +2078,214 @@ function formatDate(value){
 
 function loadAboutData(){
 
-    document.getElementById(
-        "organizerValue"
-    ).textContent =
+    const data =
+        currentEventData;
 
-        firstValue(
-            storedEventData.organizerName,
-            storedEventData.organizer,
-            storedEventData.organizationName,
-            sessionStorage.getItem(
-                "crickpulseOrganizerName"
-            )
+
+    /*
+     * Tournament / Series name
+     */
+
+    const eventName =
+        valueOrDash(
+            data.eventName
         );
 
 
-    document.getElementById(
-        "dateValue"
+    document.querySelector(
+        ".page-title"
     ).textContent =
-
-        formatDate(
-            firstValue(
-                storedEventData.date,
-                storedEventData.eventDate,
-                sessionStorage.getItem(
-                    "crickpulseEventDate"
-                )
-            )
-        );
-
-
-    document.getElementById(
-        "groundValue"
-    ).textContent =
-
-        firstValue(
-            storedEventData.ground,
-            storedEventData.venue,
-            sessionStorage.getItem(
-                "crickpulseGround"
-            )
-        );
-
-
-    document.getElementById(
-        "ballTypeValue"
-    ).textContent =
-
-        firstValue(
-            storedEventData.ballType,
-            sessionStorage.getItem(
-                "crickpulseBallType"
-            )
-        );
-
-
-    document.getElementById(
-        "categoryValue"
-    ).textContent =
-
-        firstValue(
-            storedEventData.category,
-            sessionStorage.getItem(
-                "crickpulseCategory"
-            )
-        );
-
-
-    document.getElementById(
-        "eventIdValue"
-    ).textContent =
-
-        eventId ||
-        "—";
+        eventName === "—"
+        ? "Tournament"
+        : eventName;
 
 
     document.getElementById(
         "qrEventName"
     ).textContent =
-
         eventName;
 
 
     /*
-     * Tournament image.
-     *
-     * If create-event has already stored
-     * an image URL, it will be used.
+     * Organizer
      */
 
-    const imageUrl =
-        firstValue(
-            storedEventData.imageUrl,
-            storedEventData.image,
-            storedEventData.tournamentImage,
-            storedEventData.coverImage,
-            sessionStorage.getItem(
-                "crickpulseEventImage"
-            )
+    document.getElementById(
+        "organizerValue"
+    ).textContent =
+        valueOrDash(
+            data.organizerName
         );
 
+
+    /*
+     * Organizer Mobile
+     */
+
+    document.getElementById(
+        "organizerMobileValue"
+    ).textContent =
+        valueOrDash(
+            data.organizerNumber
+        );
+
+
+    /*
+     * Organizer Gmail
+     */
+
+    document.getElementById(
+        "organizerEmailValue"
+    ).textContent =
+        valueOrDash(
+            data.organizerEmail
+        );
+
+
+    /*
+     * DATE
+     */
+
+    const startDate =
+        data.startDate || "";
+
+    const endDate =
+        data.endDate || "";
+
+
+    let dateText = "—";
+
+
+    if(
+        startDate &&
+        endDate
+    ){
+
+        if(
+            startDate === endDate
+        ){
+
+            dateText =
+                formatDate(
+                    startDate
+                );
+
+        }
+        else{
+
+            dateText =
+                formatDate(startDate) +
+                " to " +
+                formatDate(endDate);
+
+        }
+
+    }
+    else if(startDate){
+
+        dateText =
+            formatDate(startDate);
+
+    }
+    else if(endDate){
+
+        dateText =
+            formatDate(endDate);
+
+    }
+
+
+    document.getElementById(
+        "dateValue"
+    ).textContent =
+        dateText;
+
+
+    /*
+     * CITY
+     */
+
+    document.getElementById(
+        "cityValue"
+    ).textContent =
+        valueOrDash(
+            data.city
+        );
+
+
+    /*
+     * GROUND
+     */
+
+    document.getElementById(
+        "groundValue"
+    ).textContent =
+        valueOrDash(
+            data.ground
+        );
+
+
+    /*
+     * BALL
+     */
+
+    document.getElementById(
+        "ballTypeValue"
+    ).textContent =
+        valueOrDash(
+            data.ballType
+        );
+
+
+    /*
+     * CATEGORY
+     */
+
+    document.getElementById(
+        "categoryValue"
+    ).textContent =
+        valueOrDash(
+            data.category
+        );
+
+
+    /*
+     * PITCH
+     */
+
+    document.getElementById(
+        "pitchTypeValue"
+    ).textContent =
+        valueOrDash(
+            data.pitchType
+        );
+
+
+    /*
+     * MATCH TYPE
+     */
+
+    document.getElementById(
+        "matchTypeValue"
+    ).textContent =
+        valueOrDash(
+            data.matchType
+        );
+
+
+    /*
+     * EVENT ID
+     */
+
+    document.getElementById(
+        "eventIdValue"
+    ).textContent =
+        eventId;
+
+
+    /*
+     * IMAGE
+     */
 
     const image =
         document.getElementById(
@@ -1850,9 +2293,15 @@ function loadAboutData(){
         );
 
 
-    if(
-        imageUrl !== "—"
-    ){
+    const imageUrl =
+        data.imageUrl ||
+        data.image ||
+        data.tournamentImage ||
+        data.coverImage ||
+        "";
+
+
+    if(imageUrl){
 
         image.src =
             imageUrl;
@@ -1865,42 +2314,6 @@ function loadAboutData(){
         );
 
     }
-
-}
-
-
-/* =========================================
-   INVITE LINK
-========================================= */
-
-function createInviteLink(){
-
-    if(
-        !eventId
-    ){
-
-        return "";
-
-    }
-
-
-    /*
-     * IMPORTANT:
-     *
-     * This is the same tournament invite
-     * screen link.
-     *
-     * The eventId remains attached so the
-     * same tournament opens.
-     */
-
-    return (
-        window.location.origin +
-        "/invite-captains.html?eventId=" +
-        encodeURIComponent(
-            eventId
-        )
-    );
 
 }
 
@@ -1941,10 +2354,7 @@ function showScreen(
         );
 
 
-    if(
-        screenName ===
-        "about"
-    ){
+    if(screenName === "about"){
 
         aboutScreen.style.display =
             "block";
@@ -1960,10 +2370,7 @@ function showScreen(
     }
 
 
-    if(
-        screenName ===
-        "teams"
-    ){
+    if(screenName === "teams"){
 
         teamsScreen.style.display =
             "block";
@@ -1979,10 +2386,7 @@ function showScreen(
     }
 
 
-    if(
-        screenName ===
-        "matches"
-    ){
+    if(screenName === "matches"){
 
         matchesScreen.style.display =
             "block";
@@ -1998,10 +2402,7 @@ function showScreen(
     }
 
 
-    if(
-        screenName ===
-        "pointTable"
-    ){
+    if(screenName === "pointTable"){
 
         pointTableScreen.style.display =
             "block";
@@ -2020,81 +2421,63 @@ function showScreen(
 
 
 /* =========================================
-   TOP NAV
+   TOP NAV EVENTS
 ========================================= */
 
 document
-.getElementById(
-    "aboutOption"
-)
+.getElementById("aboutOption")
 .addEventListener(
     "click",
     function(){
 
-        showScreen(
-            "about"
-        );
+        showScreen("about");
 
     }
 );
 
 
 document
-.getElementById(
-    "teamsOption"
-)
+.getElementById("teamsOption")
 .addEventListener(
     "click",
     function(){
 
-        showScreen(
-            "teams"
-        );
+        showScreen("teams");
 
     }
 );
 
 
 document
-.getElementById(
-    "matchesOption"
-)
+.getElementById("matchesOption")
 .addEventListener(
     "click",
     function(){
 
-        showScreen(
-            "matches"
-        );
+        showScreen("matches");
 
     }
 );
 
 
 document
-.getElementById(
-    "pointTableOption"
-)
+.getElementById("pointTableOption")
 .addEventListener(
     "click",
     function(){
 
-        showScreen(
-            "pointTable"
-        );
+        showScreen("pointTable");
 
     }
 );
 
 
 /* =========================================
-   BACK BUTTON
+   BACK
 ========================================= */
 
 document
-.getElementById(
-    "backButton"
-)
+.getElementById("backButton")
 .addEventListener(
     "click",
     function(){
@@ -2110,32 +2493,19 @@ document
 ========================================= */
 
 document
-.getElementById(
-    "goLiveButton"
-)
+.getElementById("goLiveButton")
 .addEventListener(
     "click",
     function(){
 
-        /*
-         * YouTube URL can be stored later as
-         * youtubeLink / liveUrl / youtubeUrl.
-         */
-
         const youtubeLink =
-            firstValue(
-                storedEventData.youtubeLink,
-                storedEventData.youtubeUrl,
-                storedEventData.liveUrl,
-                sessionStorage.getItem(
-                    "crickpulseYoutubeLink"
-                )
-            );
+            currentEventData.youtubeLink ||
+            currentEventData.youtubeUrl ||
+            currentEventData.liveUrl ||
+            "";
 
 
-        if(
-            youtubeLink !== "—"
-        ){
+        if(youtubeLink){
 
             window.open(
                 youtubeLink,
@@ -2156,136 +2526,82 @@ document
 
 
 /* =========================================
-   EDIT BUTTON
+   OPEN EDIT
 ========================================= */
 
 document
-.getElementById(
-    "editButton"
-)
+.getElementById("editButton")
 .addEventListener(
     "click",
     function(){
 
+        /*
+         * ONE EDIT BUTTON
+         *
+         * All editable fields open together.
+         */
+
         document.getElementById(
             "editOrganizer"
         ).value =
-
-            firstValue(
-                storedEventData.organizerName,
-                storedEventData.organizer,
-                storedEventData.organizationName,
-                sessionStorage.getItem(
-                    "crickpulseOrganizerName"
-                )
-            ) === "—"
-
-                ? ""
-
-                :
-
-                firstValue(
-                    storedEventData.organizerName,
-                    storedEventData.organizer,
-                    storedEventData.organizationName,
-                    sessionStorage.getItem(
-                        "crickpulseOrganizerName"
-                    )
-                );
+            currentEventData.organizerName || "";
 
 
-        const dateValue =
-            firstValue(
-                storedEventData.date,
-                storedEventData.eventDate,
-                sessionStorage.getItem(
-                    "crickpulseEventDate"
-                )
+        document.getElementById(
+            "editStartDate"
+        ).value =
+            dateForInput(
+                currentEventData.startDate
             );
 
 
         document.getElementById(
-            "editDate"
+            "editEndDate"
         ).value =
+            dateForInput(
+                currentEventData.endDate
+            );
 
-            /^\d{4}-\d{2}-\d{2}$/.test(
-                String(dateValue)
-            )
 
-                ? dateValue
-
-                : "";
+        document.getElementById(
+            "editCity"
+        ).value =
+            currentEventData.city || "";
 
 
         document.getElementById(
             "editGround"
         ).value =
+            currentEventData.ground || "";
 
-            firstValue(
-                storedEventData.ground,
-                storedEventData.venue,
-                sessionStorage.getItem(
-                    "crickpulseGround"
-                )
-            ) === "—"
 
-                ? ""
-
-                :
-
-                firstValue(
-                    storedEventData.ground,
-                    storedEventData.venue,
-                    sessionStorage.getItem(
-                        "crickpulseGround"
-                    )
-                );
-
+        /*
+         * Dropdown automatically selects
+         * the value already saved.
+         */
 
         document.getElementById(
             "editBallType"
         ).value =
-
-            firstValue(
-                storedEventData.ballType,
-                sessionStorage.getItem(
-                    "crickpulseBallType"
-                )
-            ) === "—"
-
-                ? ""
-
-                :
-
-                firstValue(
-                    storedEventData.ballType,
-                    sessionStorage.getItem(
-                        "crickpulseBallType"
-                    )
-                );
+            currentEventData.ballType || "";
 
 
         document.getElementById(
             "editCategory"
         ).value =
+            currentEventData.category || "";
 
-            firstValue(
-                storedEventData.category,
-                sessionStorage.getItem(
-                    "crickpulseCategory"
-                )
-            ) === "—"
 
-                ? ""
+        document.getElementById(
+            "editPitchType"
+        ).value =
+            currentEventData.pitchType || "";
 
-                :
 
-                firstValue(
-                    storedEventData.category,
-                    sessionStorage.getItem(
-                        "crickpulseCategory"
-                    )
-                );
+        document.getElementById(
+            "editMatchType"
+        ).value =
+            currentEventData.matchType || "";
 
 
         document
@@ -2305,9 +2621,7 @@ document
 ========================================= */
 
 document
-.getElementById(
-    "cancelEdit"
-)
+.getElementById("cancelEdit")
 .addEventListener(
     "click",
     function(){
@@ -2329,12 +2643,10 @@ document
 ========================================= */
 
 document
-.getElementById(
-    "saveEdit"
-)
+.getElementById("saveEdit")
 .addEventListener(
     "click",
-    function(){
+    async function(){
 
         const organizer =
             document.getElementById(
@@ -2342,10 +2654,22 @@ document
             ).value.trim();
 
 
-        const date =
+        const startDate =
             document.getElementById(
-                "editDate"
+                "editStartDate"
             ).value;
+
+
+        const endDate =
+            document.getElementById(
+                "editEndDate"
+            ).value;
+
+
+        const city =
+            document.getElementById(
+                "editCity"
+            ).value.trim();
 
 
         const ground =
@@ -2357,108 +2681,234 @@ document
         const ballType =
             document.getElementById(
                 "editBallType"
-            ).value.trim();
+            ).value;
 
 
         const category =
             document.getElementById(
                 "editCategory"
-            ).value.trim();
+            ).value;
+
+
+        const pitchType =
+            document.getElementById(
+                "editPitchType"
+            ).value;
+
+
+        const matchType =
+            document.getElementById(
+                "editMatchType"
+            ).value;
 
 
         /*
-         * Keep the edited information in the
-         * current tournament's local event data.
+         * DATE VALIDATION
          */
 
-        const updatedData = {
+        if(
+            startDate &&
+            endDate &&
+            new Date(endDate) <
+            new Date(startDate)
+        ){
 
-            ...storedEventData,
+            alert(
+                "End Date cannot be before Start Date."
+            );
 
-            organizerName:
-                organizer,
+            return;
 
-            date:
-                date,
-
-            ground:
-                ground,
-
-            ballType:
-                ballType,
-
-            category:
-                category
-
-        };
+        }
 
 
-        sessionStorage.setItem(
-            "crickpulseEventData",
-            JSON.stringify(
-                updatedData
-            )
-        );
+        if(!eventId){
+
+            alert(
+                "Tournament ID is missing."
+            );
+
+            return;
+
+        }
 
 
-        sessionStorage.setItem(
-            "crickpulseOrganizerName",
-            organizer
-        );
-
-
-        sessionStorage.setItem(
-            "crickpulseEventDate",
-            date
-        );
-
-
-        sessionStorage.setItem(
-            "crickpulseGround",
-            ground
-        );
-
-
-        sessionStorage.setItem(
-            "crickpulseBallType",
-            ballType
-        );
-
-
-        sessionStorage.setItem(
-            "crickpulseCategory",
-            category
-        );
-
-
-        /*
-         * Update local reference.
-         */
-
-        Object.assign(
-            storedEventData,
-            updatedData
-        );
-
-
-        loadAboutData();
-
-
-        document
-            .getElementById(
-                "editModal"
-            )
-            .classList.remove(
-                "show"
+        const saveButton =
+            document.getElementById(
+                "saveEdit"
             );
 
 
-        alert(
-            "Tournament details updated."
-        );
+        saveButton.disabled =
+            true;
+
+        saveButton.textContent =
+            "Saving...";
+
+
+        try{
+
+            /*
+             * IMPORTANT:
+             *
+             * Update the SAME Firestore
+             * document using eventId.
+             */
+
+            const eventRef =
+                doc(
+                    db,
+                    "events",
+                    eventId
+                );
+
+
+            const updatedData = {
+
+                organizerName:
+                    organizer,
+
+                startDate:
+                    startDate,
+
+                endDate:
+                    endDate,
+
+                city:
+                    city,
+
+                ground:
+                    ground,
+
+                ballType:
+                    ballType,
+
+                category:
+                    category,
+
+                pitchType:
+                    pitchType,
+
+                matchType:
+                    matchType
+
+            };
+
+
+            await updateDoc(
+                eventRef,
+                updatedData
+            );
+
+
+            /*
+             * Update current local copy.
+             */
+
+            currentEventData = {
+
+                ...currentEventData,
+
+                ...updatedData
+
+            };
+
+
+            /*
+             * Update session copy too.
+             */
+
+            sessionStorage.setItem(
+                "crickpulseEventData",
+                JSON.stringify(
+                    currentEventData
+                )
+            );
+
+
+            /*
+             * Refresh About screen.
+             */
+
+            loadAboutData();
+
+
+            /*
+             * Close modal.
+             */
+
+            document
+                .getElementById(
+                    "editModal"
+                )
+                .classList.remove(
+                    "show"
+                );
+
+
+            alert(
+                "Tournament details updated successfully."
+            );
+
+
+        }
+        catch(error){
+
+            console.error(
+                "UPDATE ERROR:",
+                error
+            );
+
+
+            alert(
+                "Tournament details could not be updated.\n\n" +
+                error.message
+            );
+
+        }
+        finally{
+
+            saveButton.disabled =
+                false;
+
+            saveButton.textContent =
+                "Save";
+
+        }
 
     }
 );
+
+
+/* =========================================
+   CREATE TOURNAMENT INVITE LINK
+========================================= */
+
+function createInviteLink(){
+
+    if(!eventId){
+
+        return "";
+
+    }
+
+
+    /*
+     * SAME TOURNAMENT ID
+     *
+     * QR and Share both open the
+     * particular tournament's invite screen.
+     */
+
+    return (
+        window.location.origin +
+        "/invite-captains.html?eventId=" +
+        encodeURIComponent(
+            eventId
+        )
+    );
+
+}
 
 
 /* =========================================
@@ -2467,9 +2917,7 @@ document
 
 function openTournamentQR(){
 
-    if(
-        !eventId
-    ){
+    if(!eventId){
 
         alert(
             "Tournament ID is missing."
@@ -2490,16 +2938,9 @@ function openTournamentQR(){
         );
 
 
-    qrCode.innerHTML = "";
+    qrCode.innerHTML =
+        "";
 
-
-    /*
-     * Native QR generation using Google Chart
-     * is avoided.
-     *
-     * This creates a simple QR using a public
-     * QR image service.
-     */
 
     const qrImage =
         document.createElement(
@@ -2514,15 +2955,12 @@ function openTournamentQR(){
     qrImage.width =
         220;
 
-
     qrImage.height =
         220;
 
 
     qrImage.src =
-
         "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=" +
-
         encodeURIComponent(
             link
         );
@@ -2550,14 +2988,8 @@ function openTournamentQR(){
 }
 
 
-/* =========================================
-   QR BUTTON
-========================================= */
-
 document
-.getElementById(
-    "qrButton"
-)
+.getElementById("qrButton")
 .addEventListener(
     "click",
     function(){
@@ -2573,9 +3005,7 @@ document
 ========================================= */
 
 document
-.getElementById(
-    "shareButton"
-)
+.getElementById("shareButton")
 .addEventListener(
     "click",
     async function(){
@@ -2584,9 +3014,7 @@ document
             createInviteLink();
 
 
-        if(
-            !link
-        ){
+        if(!link){
 
             alert(
                 "Tournament ID is missing."
@@ -2597,20 +3025,23 @@ document
         }
 
 
-        if(
-            navigator.share
-        ){
+        const title =
+            currentEventData.eventName ||
+            "CRICKPULSE Tournament";
+
+
+        if(navigator.share){
 
             try{
 
                 await navigator.share({
 
                     title:
-                        eventName,
+                        title,
 
                     text:
                         "Open " +
-                        eventName +
+                        title +
                         " on CRICKPULSE.",
 
                     url:
@@ -2622,8 +3053,7 @@ document
             catch(error){
 
                 console.log(
-                    "Share cancelled.",
-                    error
+                    "Share cancelled."
                 );
 
             }
@@ -2660,9 +3090,7 @@ document
 ========================================= */
 
 document
-.getElementById(
-    "whatsappButton"
-)
+.getElementById("whatsappButton")
 .addEventListener(
     "click",
     function(){
@@ -2676,9 +3104,7 @@ document
 
 
 document
-.getElementById(
-    "facebookButton"
-)
+.getElementById("facebookButton")
 .addEventListener(
     "click",
     function(){
@@ -2692,9 +3118,7 @@ document
 
 
 document
-.getElementById(
-    "instagramButton"
-)
+.getElementById("instagramButton")
 .addEventListener(
     "click",
     function(){
@@ -2712,9 +3136,7 @@ document
 ========================================= */
 
 document
-.getElementById(
-    "closeQR"
-)
+.getElementById("closeQR")
 .addEventListener(
     "click",
     function(){
@@ -2732,20 +3154,17 @@ document
 
 
 /* =========================================
-   CLOSE MODALS OUTSIDE
+   CLOSE MODAL OUTSIDE
 ========================================= */
 
 document
-.getElementById(
-    "qrModal"
-)
+.getElementById("qrModal")
 .addEventListener(
     "click",
     function(event){
 
         if(
-            event.target ===
-            this
+            event.target === this
         ){
 
             this.classList.remove(
@@ -2759,16 +3178,13 @@ document
 
 
 document
-.getElementById(
-    "editModal"
-)
+.getElementById("editModal")
 .addEventListener(
     "click",
     function(event){
 
         if(
-            event.target ===
-            this
+            event.target === this
         ){
 
             this.classList.remove(
@@ -2785,39 +3201,19 @@ document
    INITIALIZE
 ========================================= */
 
-if(
-    !eventId
-){
+showScreen(
+    "about"
+);
 
-    alert(
-        "Tournament ID is missing. Please create the tournament again."
-    );
 
-    window.location.href =
-        "create-event.html";
-
-}
-else{
-
-    loadAboutData();
-
-    showScreen(
-        "about"
-    );
-
-}
+loadEventFromFirestore();
 
 
 console.log(
-    "CRICKPULSE ABOUT loaded.",
+    "CRICKPULSE invite-captains loaded.",
     {
-
         eventId:
-            eventId,
-
-        eventName:
-            eventName
-
+            eventId
     }
 );
 
