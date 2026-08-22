@@ -1044,6 +1044,32 @@ body {
 
 
 
+            <!-- ALL TOURNAMENTS -->
+
+            <button
+                class="menu-item"
+                type="button"
+                id="allTournamentsBtn"
+            >
+
+                <div class="menu-icon">
+                    📋
+                </div>
+
+
+                <div class="menu-item-text">
+                    All Tournaments
+                </div>
+
+
+                <div class="menu-arrow">
+                    ›
+                </div>
+
+            </button>
+
+
+
             <!-- START NEW MATCH -->
 
             <button
@@ -1336,6 +1362,23 @@ document
 
             window.location.href =
                 "create-event.html";
+
+        }
+    );
+
+
+/* =================================================
+   ALL TOURNAMENTS
+================================================= */
+
+document
+    .getElementById("allTournamentsBtn")
+    .addEventListener(
+        "click",
+        function () {
+
+            window.location.href =
+                "all-tournaments.html";
 
         }
     );
