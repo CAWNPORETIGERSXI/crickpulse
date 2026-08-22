@@ -29,10 +29,12 @@ module.exports = async (req, res) => {
     // ==========================================
 
     if (!/^[6-9]\d{9}$/.test(mobile || "")) {
+
       return res.status(400).json({
         success: false,
         message: "Invalid mobile number.",
       });
+
     }
 
 
@@ -41,10 +43,12 @@ module.exports = async (req, res) => {
     // ==========================================
 
     if (!/^\d{4}$/.test(pin || "")) {
+
       return res.status(400).json({
         success: false,
         message: "Invalid PIN.",
       });
+
     }
 
 
@@ -66,11 +70,13 @@ module.exports = async (req, res) => {
     // ==========================================
 
     if (!userSnap.exists) {
+
       return res.status(401).json({
         success: false,
         message:
           "Invalid mobile number or PIN.",
       });
+
     }
 
 
@@ -181,6 +187,132 @@ module.exports = async (req, res) => {
 
 
     // ==========================================
+    // FIREBASE AUTH UID
+    // ==========================================
+
+    let firebaseUser;
+
+
+    /*
+     * If this user already has a Firebase Auth
+     * UID saved in Firestore, use it.
+     *
+     * Otherwise create a Firebase Auth user.
+     */
+
+    if (user.firebaseUid) {
+
+      try {
+
+        firebaseUser =
+          await admin.auth()
+            .getUser(
+              user.firebaseUid
+            );
+
+      }
+      catch (authError) {
+
+        console.log(
+          "Saved Firebase UID not found. Creating a new Auth user."
+        );
+
+        firebaseUser = null;
+
+      }
+
+    }
+
+
+    // ==========================================
+    // CREATE FIREBASE AUTH USER IF REQUIRED
+    // ==========================================
+
+    if (!firebaseUser) {
+
+      try {
+
+        firebaseUser =
+          await admin.auth()
+            .createUser({
+
+              /*
+               * Mobile is used as an internal
+               * unique Firebase Auth identity.
+               *
+               * We are NOT using Firebase Phone Auth.
+               */
+
+              uid:
+                `cp_${mobile}`,
+
+              displayName:
+                user.name || "",
+
+            });
+
+      }
+      catch (createError) {
+
+        /*
+         * If the UID already exists in Firebase
+         * Auth, retrieve it.
+         */
+
+        if (
+          createError.code ===
+          "auth/uid-already-exists"
+        ) {
+
+          firebaseUser =
+            await admin.auth()
+              .getUser(
+                `cp_${mobile}`
+              );
+
+        }
+        else {
+
+          throw createError;
+
+        }
+
+      }
+
+    }
+
+
+    // ==========================================
+    // SAVE FIREBASE UID
+    // ==========================================
+
+    if (
+      user.firebaseUid !==
+      firebaseUser.uid
+    ) {
+
+      await userRef.update({
+
+        firebaseUid:
+          firebaseUser.uid,
+
+      });
+
+    }
+
+
+    // ==========================================
+    // CREATE CUSTOM TOKEN
+    // ==========================================
+
+    const customToken =
+      await admin.auth()
+        .createCustomToken(
+          firebaseUser.uid
+        );
+
+
+    // ==========================================
     // SUCCESSFUL LOGIN
     // ==========================================
 
@@ -200,7 +332,7 @@ module.exports = async (req, res) => {
 
 
     // ==========================================
-    // RETURN USER PROFILE
+    // RETURN LOGIN DATA
     // ==========================================
 
     return res.status(200).json({
@@ -210,35 +342,30 @@ module.exports = async (req, res) => {
       message:
         "Login successful.",
 
-      user: {
+      token:
+        customToken,
 
-        /*
-         * Registered Name / Username
-         */
+      user: {
 
         name:
           user.name || "",
 
-        /*
-         * Mobile
-         */
-
         mobile:
           user.mobile || mobile,
 
-        /*
-         * Email
-         */
-
         email:
           user.email || "",
+
+        firebaseUid:
+          firebaseUser.uid,
 
       },
 
     });
 
 
-  } catch (error) {
+  }
+  catch (error) {
 
     console.error(
       "LOGIN ERROR:",
