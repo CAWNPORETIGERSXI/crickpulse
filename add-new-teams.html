@@ -101,6 +101,25 @@ body{
     margin-bottom:22px;
 }
 
+.security-box{
+    border:1.5px solid #6c35d9;
+    border-radius:8px;
+
+    padding:13px;
+
+    margin-bottom:16px;
+
+    background:#f7f2ff;
+
+    color:#5424a8;
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    font-weight:800;
+}
+
 .event-box{
     border:1.5px solid #ff3b30;
     border-radius:8px;
@@ -377,6 +396,29 @@ body{
     padding:15px;
 }
 
+.access-denied{
+    display:none;
+
+    margin-top:20px;
+
+    padding:18px;
+
+    border:1.5px solid #ff3b30;
+    border-radius:10px;
+
+    background:#fff1f1;
+
+    color:#c62828;
+
+    font-size:17px;
+
+    line-height:1.5;
+
+    font-weight:900;
+
+    text-align:center;
+}
+
 @media(max-width:480px){
 
     .header{
@@ -457,6 +499,14 @@ body{
 </div>
 
 
+<div
+    class="security-box"
+    id="securityBox"
+>
+    Checking Organizer permission...
+</div>
+
+
 <div class="event-box">
 
 <div class="event-label">
@@ -501,6 +551,7 @@ body{
 <div
     class="form-card"
     id="formCard"
+    style="display:none;"
 >
 
 
@@ -623,6 +674,7 @@ body{
     class="add-btn"
     id="addTeamButton"
     type="button"
+    disabled
 >
 Add New Team ＋
 </button>
@@ -641,9 +693,20 @@ Add New Team ＋
     class="done-btn"
     id="doneButton"
     type="button"
+    disabled
 >
 DONE
 </button>
+
+
+<div
+    class="access-denied"
+    id="accessDenied"
+>
+    🔒 Access Denied
+    <br><br>
+    Only the Organizer of this tournament can add or manage teams from this page.
+</div>
 
 
 </section>
@@ -653,7 +716,12 @@ DONE
 
 <script type="module">
 
-import { db } from "./firebase.js";
+import {
+    db,
+    auth
+}
+from "./firebase.js";
+
 
 import {
     doc,
@@ -662,6 +730,12 @@ import {
     arrayUnion
 }
 from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+import {
+    onAuthStateChanged
+}
+from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 
 
 /* =========================================
@@ -677,6 +751,12 @@ let pendingTeams = [];
 let selectedLogo = "";
 
 let totalTeams = 0;
+
+let currentUser = null;
+
+let organizerUid = "";
+
+let organizerVerified = false;
 
 
 /* =========================================
@@ -697,83 +777,18 @@ eventId =
 
 
 /* =========================================
-   EVENT ID CHECK
-========================================= */
-
-if(!eventId){
-
-    alert(
-        "Tournament ID is missing. Please create the tournament again."
-    );
-
-    window.location.href =
-        "create-event.html";
-
-}
-
-
-/* =========================================
-   KEEP EVENT ID
-========================================= */
-
-sessionStorage.setItem(
-    "crickpulseEventId",
-    eventId
-);
-
-
-/* =========================================
-   DISPLAY EVENT ID
-========================================= */
-
-document
-.getElementById("eventIdDisplay")
-.textContent =
-    eventId;
-
-
-/* =========================================
-   GET NUMBER OF TEAMS
-========================================= */
-
-totalTeams =
-    Number(
-        sessionStorage.getItem(
-            "crickpulseTeamCount"
-        )
-    );
-
-
-if(
-    !totalTeams ||
-    totalTeams < 2
-){
-
-    alert(
-        "Number of Teams is missing. Please complete Tournament Setup again."
-    );
-
-    window.location.href =
-        "number-of-teams.html";
-
-}
-
-
-/* =========================================
-   FIRESTORE EVENT REFERENCE
-========================================= */
-
-const eventRef =
-    doc(
-        db,
-        "events",
-        eventId
-    );
-
-
-/* =========================================
    ELEMENTS
 ========================================= */
+
+const eventIdDisplay =
+    document.getElementById(
+        "eventIdDisplay"
+    );
+
+const teamLimitDisplay =
+    document.getElementById(
+        "teamLimitDisplay"
+    );
 
 const savedTeams =
     document.getElementById(
@@ -800,9 +815,339 @@ const status =
         "status"
     );
 
+const securityBox =
+    document.getElementById(
+        "securityBox"
+    );
+
+const accessDenied =
+    document.getElementById(
+        "accessDenied"
+    );
+
 
 /* =========================================
-   TEAM COUNT DISPLAY
+   EVENT ID CHECK
+========================================= */
+
+if(!eventId){
+
+    alert(
+        "Tournament ID is missing. Please create the tournament again."
+    );
+
+    window.location.href =
+        "create-event.html";
+
+}
+
+
+/* =========================================
+   KEEP EVENT ID
+========================================= */
+
+if(eventId){
+
+    sessionStorage.setItem(
+        "crickpulseEventId",
+        eventId
+    );
+
+}
+
+
+/* =========================================
+   DISPLAY EVENT ID
+========================================= */
+
+eventIdDisplay.textContent =
+    eventId;
+
+
+/* =========================================
+   TEAM COUNT
+========================================= */
+
+totalTeams =
+    Number(
+        sessionStorage.getItem(
+            "crickpulseTeamCount"
+        )
+    );
+
+
+if(
+    !totalTeams ||
+    totalTeams < 2
+){
+
+    alert(
+        "Number of Teams is missing. Please complete Tournament Setup again."
+    );
+
+    window.location.href =
+        "number-of-teams.html";
+
+}
+
+
+/* =========================================
+   FIRESTORE EVENT
+========================================= */
+
+const eventRef =
+    doc(
+        db,
+        "events",
+        eventId
+    );
+
+
+/* =========================================
+   SECURITY BLOCK
+========================================= */
+
+function denyAccess(message){
+
+    organizerVerified =
+        false;
+
+    formCard.style.display =
+        "none";
+
+    addTeamButton.disabled =
+        true;
+
+    doneButton.disabled =
+        true;
+
+    accessDenied.style.display =
+        "block";
+
+    securityBox.textContent =
+        "🔒 " + message;
+
+    securityBox.style.color =
+        "#c62828";
+
+    securityBox.style.background =
+        "#fff1f1";
+
+    securityBox.style.borderColor =
+        "#ff3b30";
+
+}
+
+
+/* =========================================
+   VERIFY ORGANIZER
+========================================= */
+
+async function verifyOrganizer(){
+
+    try{
+
+        if(!currentUser){
+
+            denyAccess(
+                "Please login first."
+            );
+
+            return false;
+
+        }
+
+
+        if(!eventId){
+
+            denyAccess(
+                "Tournament ID is missing."
+            );
+
+            return false;
+
+        }
+
+
+        const snapshot =
+            await getDoc(
+                eventRef
+            );
+
+
+        if(
+            !snapshot.exists()
+        ){
+
+            denyAccess(
+                "Tournament not found."
+            );
+
+            return false;
+
+        }
+
+
+        const data =
+            snapshot.data();
+
+
+        /*
+         * IMPORTANT:
+         *
+         * Organizer authority comes
+         * ONLY from Firestore.
+         *
+         * We do NOT trust:
+         *
+         * sessionStorage
+         * URL
+         * HTML
+         * local variables
+         */
+
+
+        organizerUid =
+            String(
+                data.organizerUid ||
+                ""
+            );
+
+
+        if(!organizerUid){
+
+            denyAccess(
+                "This tournament has no Organizer UID."
+            );
+
+            return false;
+
+        }
+
+
+        if(
+            organizerUid !==
+            currentUser.uid
+        ){
+
+            denyAccess(
+                "You are not the Organizer of this tournament."
+            );
+
+            return false;
+
+        }
+
+
+        /*
+         * ORGANIZER VERIFIED
+         */
+
+        organizerVerified =
+            true;
+
+
+        securityBox.textContent =
+            "🔐 Organizer verified. You can manage teams.";
+
+        securityBox.style.color =
+            "#237a43";
+
+        securityBox.style.background =
+            "#effaf3";
+
+        securityBox.style.borderColor =
+            "#35a85b";
+
+
+        addTeamButton.disabled =
+            false;
+
+        doneButton.disabled =
+            false;
+
+
+        return true;
+
+    }
+    catch(error){
+
+        console.error(
+            "ORGANIZER VERIFICATION ERROR:",
+            error
+        );
+
+
+        denyAccess(
+            "Organizer verification failed."
+        );
+
+        return false;
+
+    }
+
+}
+
+
+/* =========================================
+   AUTH STATE
+========================================= */
+
+onAuthStateChanged(
+    auth,
+    async function(user){
+
+        currentUser =
+            user || null;
+
+
+        if(!currentUser){
+
+            denyAccess(
+                "Please login before managing teams."
+            );
+
+            return;
+
+        }
+
+
+        console.log(
+            "CURRENT USER UID:",
+            currentUser.uid
+        );
+
+
+        await initializePage();
+
+    }
+);
+
+
+/* =========================================
+   INITIALIZE PAGE
+========================================= */
+
+async function initializePage(){
+
+    const verified =
+        await verifyOrganizer();
+
+
+    if(!verified){
+
+        return;
+
+    }
+
+
+    await loadEvent();
+
+}
+
+
+/* =========================================
+   UPDATE TEAM COUNT
 ========================================= */
 
 function updateTeamCount(){
@@ -812,19 +1157,26 @@ function updateTeamCount(){
         pendingTeams.length;
 
 
-    document
-    .getElementById(
-        "teamLimitDisplay"
-    )
-    .textContent =
+    teamLimitDisplay.textContent =
         currentCount +
         " / " +
         totalTeams +
         " teams added";
 
 
+    if(!organizerVerified){
+
+        formCard.style.display =
+            "none";
+
+        return;
+
+    }
+
+
     if(
-        currentCount >= totalTeams
+        currentCount >=
+        totalTeams
     ){
 
         formCard.style.display =
@@ -859,8 +1211,8 @@ async function loadEvent(){
             !snapshot.exists()
         ){
 
-            alert(
-                "Tournament document not found in Firebase."
+            denyAccess(
+                "Tournament document not found."
             );
 
             return;
@@ -870,6 +1222,31 @@ async function loadEvent(){
 
         const data =
             snapshot.data();
+
+
+        /*
+         * SECURITY RECHECK
+         *
+         * Even after initial verification,
+         * check organizerUid again.
+         */
+
+        if(
+            String(
+                data.organizerUid ||
+                ""
+            )
+            !==
+            currentUser.uid
+        ){
+
+            denyAccess(
+                "Organizer verification failed."
+            );
+
+            return;
+
+        }
 
 
         existingTeams =
@@ -894,8 +1271,8 @@ async function loadEvent(){
             error
         );
 
-        alert(
-            "Tournament data load नहीं हो पाया."
+        denyAccess(
+            "Tournament data could not be loaded."
         );
 
     }
@@ -923,10 +1300,6 @@ document
 
         }
 
-
-        /*
-         * Small local preview.
-         */
 
         const reader =
             new FileReader();
@@ -990,24 +1363,39 @@ document
 
 
 /* =========================================
-   ADD TEAM
+   ADD TEAM - LOCAL
 ========================================= */
 
 addTeamButton.addEventListener(
     "click",
     function(){
 
+        /*
+         * FRONT-END CHECK
+         *
+         * Real protection is still
+         * Firestore Security Rules.
+         */
+
+        if(!organizerVerified){
+
+            alert(
+                "Access denied. Only Organizer can add teams."
+            );
+
+            return;
+
+        }
+
+
         const currentCount =
             existingTeams.length +
             pendingTeams.length;
 
 
-        /*
-         * TEAM LIMIT
-         */
-
         if(
-            currentCount >= totalTeams
+            currentCount >=
+            totalTeams
         ){
 
             alert(
@@ -1059,10 +1447,6 @@ addTeamButton.addEventListener(
             .trim();
 
 
-        /* =========================
-           VALIDATION
-        ========================= */
-
         if(!teamName){
 
             alert(
@@ -1109,10 +1493,6 @@ addTeamButton.addEventListener(
         }
 
 
-        /* =========================
-           DUPLICATE CHECK
-        ========================= */
-
         const duplicate =
             [
                 ...existingTeams,
@@ -1145,9 +1525,17 @@ addTeamButton.addEventListener(
         }
 
 
-        /* =========================
-           CREATE TEAM
-        ========================= */
+        /*
+         * TEAM OBJECT
+         *
+         * captainUid is intentionally
+         * NOT assigned here.
+         *
+         * The actual Captain UID will
+         * be attached when the invited
+         * Captain joins through the
+         * secure invitation flow.
+         */
 
         const newTeam = {
 
@@ -1175,15 +1563,17 @@ addTeamButton.addEventListener(
             captainName:
                 captainName,
 
-            /*
-             * LOGO FIX
-             */
+            captainUid:
+                "",
 
             logo:
                 selectedLogo || "",
 
             createdAt:
-                new Date().toISOString()
+                new Date().toISOString(),
+
+            createdBy:
+                currentUser.uid
 
         };
 
@@ -1204,18 +1594,14 @@ addTeamButton.addEventListener(
             "Team added. Press DONE to save.";
 
 
-        /*
-         * If all teams have been entered,
-         * show a clear message.
-         */
-
         const newCount =
             existingTeams.length +
             pendingTeams.length;
 
 
         if(
-            newCount >= totalTeams
+            newCount >=
+            totalTeams
         ){
 
             status.textContent =
@@ -1273,10 +1659,6 @@ function renderTeams(){
                 "saved-team";
 
 
-            /* =========================
-               LOGO
-            ========================= */
-
             const logo =
                 document.createElement(
                     "div"
@@ -1287,9 +1669,7 @@ function renderTeams(){
                 "saved-logo";
 
 
-            if(
-                team.logo
-            ){
+            if(team.logo){
 
                 const img =
                     document.createElement(
@@ -1316,10 +1696,6 @@ function renderTeams(){
 
             }
 
-
-            /* =========================
-               INFO
-            ========================= */
 
             const info =
                 document.createElement(
@@ -1479,7 +1855,7 @@ function clearForm(){
 
 
 /* =========================================
-   DONE — SAVE TO FIREBASE
+   DONE - SAVE FIREBASE
 ========================================= */
 
 doneButton.addEventListener(
@@ -1487,8 +1863,93 @@ doneButton.addEventListener(
     async function(){
 
         /*
-         * Nothing to save
+         * HARD UI CHECK
          */
+
+        if(!organizerVerified){
+
+            alert(
+                "Access denied. Only Organizer can save teams."
+            );
+
+            return;
+
+        }
+
+
+        if(!currentUser){
+
+            alert(
+                "Please login first."
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * RECHECK FIRESTORE ORGANIZER
+         * BEFORE WRITING.
+         */
+
+        try{
+
+            const securitySnapshot =
+                await getDoc(
+                    eventRef
+                );
+
+
+            if(
+                !securitySnapshot.exists()
+            ){
+
+                throw new Error(
+                    "Tournament document does not exist."
+                );
+
+            }
+
+
+            const securityData =
+                securitySnapshot.data();
+
+
+            if(
+                String(
+                    securityData.organizerUid ||
+                    ""
+                )
+                !==
+                currentUser.uid
+            ){
+
+                denyAccess(
+                    "Organizer permission was not verified."
+                );
+
+                return;
+
+            }
+
+
+        }
+        catch(error){
+
+            console.error(
+                "SECURITY RECHECK ERROR:",
+                error
+            );
+
+            alert(
+                "Security verification failed."
+            );
+
+            return;
+
+        }
+
 
         if(
             pendingTeams.length === 0
@@ -1515,17 +1976,14 @@ doneButton.addEventListener(
         }
 
 
-        /*
-         * FINAL COUNT CHECK
-         */
-
         const finalCount =
             existingTeams.length +
             pendingTeams.length;
 
 
         if(
-            finalCount > totalTeams
+            finalCount >
+            totalTeams
         ){
 
             alert(
@@ -1551,10 +2009,6 @@ doneButton.addEventListener(
 
         try{
 
-            /*
-             * Get latest Firebase data
-             */
-
             const latestSnapshot =
                 await getDoc(
                     eventRef
@@ -1576,6 +2030,26 @@ doneButton.addEventListener(
                 latestSnapshot.data();
 
 
+            /*
+             * FINAL ORGANIZER CHECK
+             */
+
+            if(
+                String(
+                    latestData.organizerUid ||
+                    ""
+                )
+                !==
+                currentUser.uid
+            ){
+
+                throw new Error(
+                    "Permission denied. You are not the Organizer."
+                );
+
+            }
+
+
             const latestTeams =
                 Array.isArray(
                     latestData.teams
@@ -1587,8 +2061,7 @@ doneButton.addEventListener(
 
 
             /*
-             * Re-check duplicate teams
-             * against latest Firebase data.
+             * DUPLICATE CHECK
              */
 
             for(
@@ -1630,7 +2103,7 @@ doneButton.addEventListener(
 
 
             /*
-             * FINAL FIREBASE COUNT
+             * FINAL COUNT
              */
 
             if(
@@ -1650,10 +2123,10 @@ doneButton.addEventListener(
 
 
             /*
-             * SAVE USING ARRAYUNION
+             * FIRESTORE WRITE
              *
-             * This updates only the teams field.
-             * Other tournament fields remain safe.
+             * Security Rules must also
+             * approve this request.
              */
 
             await updateDoc(
@@ -1668,10 +2141,6 @@ doneButton.addEventListener(
                 }
             );
 
-
-            /*
-             * SUCCESS
-             */
 
             existingTeams =
                 [
@@ -1703,11 +2172,6 @@ doneButton.addEventListener(
             );
 
 
-            /*
-             * If all teams are complete,
-             * return to Add Manually.
-             */
-
             if(
                 existingTeams.length >=
                 totalTeams
@@ -1726,10 +2190,24 @@ doneButton.addEventListener(
             );
 
 
-            alert(
-                "Team save नहीं हो पाई.\n\n" +
-                error.message
-            );
+            if(
+                error.code ===
+                "permission-denied"
+            ){
+
+                alert(
+                    "🔒 Permission Denied.\n\nOnly the Organizer can modify teams in this tournament."
+                );
+
+            }
+            else{
+
+                alert(
+                    "Team save नहीं हो पाई.\n\n" +
+                    error.message
+                );
+
+            }
 
         }
         finally{
@@ -1776,13 +2254,6 @@ document
     "click",
     function(){
 
-        /*
-         * Directly return to the
-         * four-option Add Manually page.
-         *
-         * This avoids history problems.
-         */
-
         goBackToAddManually();
 
     }
@@ -1793,7 +2264,14 @@ document
    START
 ========================================= */
 
-loadEvent();
+if(eventId){
+
+    /*
+     * Authentication listener will
+     * initialize the page.
+     */
+
+}
 
 </script>
 
