@@ -27,10 +27,6 @@ body{
     min-height:100vh;
 }
 
-/* =========================
-   HEADER
-========================= */
-
 .top-header{
     height:82px;
     background:#fff;
@@ -72,20 +68,13 @@ body{
     margin-right:58px;
 }
 
-/* =========================
-   TOP TABS
-========================= */
-
 .top-tabs-wrapper{
-
     width:100%;
-
     background:#ffffff;
 
     border-bottom:1.5px solid #ff3b30;
 
     overflow-x:auto;
-
     overflow-y:hidden;
 
     -webkit-overflow-scrolling:touch;
@@ -104,38 +93,29 @@ body{
 }
 
 .top-tabs{
-
     display:flex;
-
     min-width:max-content;
-
     padding:0 10px;
 }
 
 .top-tab{
-
     min-width:150px;
-
     height:64px;
 
     padding:0 22px;
 
     border:none;
-
     border-right:1px solid #eee6f8;
 
     background:#ffffff;
-
     color:#5f5470;
 
     font-family:Verdana,Geneva,sans-serif;
 
     font-size:20px;
-
     font-weight:900;
 
     cursor:pointer;
-
     white-space:nowrap;
 }
 
@@ -144,23 +124,12 @@ body{
 }
 
 .top-tab.active{
-
     color:#6c35d9;
-
     background:#f7f5ff;
 
     box-shadow:
         inset 0 -4px 0 #6c35d9;
 }
-
-.top-tab:active{
-    transform:scale(.98);
-}
-
-
-/* =========================
-   PAGE
-========================= */
 
 .page{
     width:100%;
@@ -170,11 +139,6 @@ body{
 
     padding:30px 16px 60px;
 }
-
-
-/* =========================
-   CARD
-========================= */
 
 .card{
     background:#fff;
@@ -205,6 +169,61 @@ body{
     margin-bottom:28px;
 }
 
+/* =========================
+   ROLE MESSAGE
+========================= */
+
+.role-box{
+    margin-bottom:22px;
+
+    padding:14px;
+
+    border:1.5px solid #ff3b30;
+    border-radius:9px;
+
+    background:#f7f5ff;
+
+    text-align:center;
+}
+
+.role-label{
+    font-size:14px;
+
+    color:#6d667c;
+
+    margin-bottom:5px;
+}
+
+.role-value{
+    font-size:19px;
+
+    font-weight:900;
+
+    color:#6c35d9;
+}
+
+.security-message{
+    display:none;
+
+    margin-bottom:20px;
+
+    padding:13px;
+
+    border:1.5px solid #ff3b30;
+    border-radius:9px;
+
+    background:#fff5f5;
+
+    color:#c62828;
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    font-weight:800;
+
+    text-align:center;
+}
 
 /* =========================
    OPTIONS
@@ -282,11 +301,6 @@ body{
     font-weight:900;
 }
 
-
-/* =========================
-   EVENT ID
-========================= */
-
 .event-id-box{
     margin-top:25px;
 
@@ -316,29 +330,58 @@ body{
     word-break:break-all;
 }
 
+.hidden{
+    display:none !important;
+}
 
-/* =========================
-   MOBILE
-========================= */
+.loading{
+    text-align:center;
+
+    padding:20px;
+
+    color:#6c35d9;
+
+    font-size:16px;
+
+    font-weight:900;
+}
+
+.error-box{
+    display:none;
+
+    padding:16px;
+
+    border:1.5px solid #ff3b30;
+    border-radius:9px;
+
+    background:#fff1f1;
+
+    color:#c62828;
+
+    font-size:15px;
+
+    line-height:1.5;
+
+    font-weight:800;
+
+    text-align:center;
+}
 
 @media(max-width:480px){
 
     .top-header{
         height:76px;
-
         padding:0 11px;
     }
 
     .back-button{
         width:52px;
         height:52px;
-
         font-size:38px;
     }
 
     .page-title{
         font-size:23px;
-
         margin-right:52px;
     }
 
@@ -348,11 +391,8 @@ body{
 
     .top-tab{
         min-width:130px;
-
         height:58px;
-
         padding:0 18px;
-
         font-size:18px;
     }
 
@@ -390,10 +430,6 @@ body{
 <body>
 
 
-<!-- =========================
-     HEADER
-========================= -->
-
 <header class="top-header">
 
 <button
@@ -412,17 +448,12 @@ body{
 </header>
 
 
-<!-- =========================
-     TOP NAVIGATION
-========================= -->
-
 <nav
     class="top-tabs-wrapper"
     aria-label="Tournament Navigation"
 >
 
 <div class="top-tabs">
-
 
 <button
     class="top-tab"
@@ -432,7 +463,6 @@ body{
     About
 </button>
 
-
 <button
     class="top-tab"
     id="teamsTab"
@@ -440,7 +470,6 @@ body{
 >
     Teams
 </button>
-
 
 <button
     class="top-tab"
@@ -450,7 +479,6 @@ body{
     Matches
 </button>
 
-
 <button
     class="top-tab"
     id="pointTableTab"
@@ -459,15 +487,10 @@ body{
     Point Table
 </button>
 
-
 </div>
 
 </nav>
 
-
-<!-- =========================
-     MAIN PAGE
-========================= -->
 
 <main class="page">
 
@@ -484,12 +507,59 @@ body{
 </div>
 
 
+<!-- ROLE -->
+
+<div class="role-box">
+
+<div class="role-label">
+    Your Tournament Role
+</div>
+
+<div
+    class="role-value"
+    id="roleValue"
+>
+    Checking...
+</div>
+
+</div>
+
+
+<!-- SECURITY MESSAGE -->
+
+<div
+    class="security-message"
+    id="securityMessage"
+>
+    You are a Team Captain. Tournament-level controls are available only to the Organizer.
+</div>
+
+
+<!-- LOADING -->
+
+<div
+    class="loading"
+    id="loadingMessage"
+>
+    Verifying tournament access...
+</div>
+
+
+<!-- ERROR -->
+
+<div
+    class="error-box"
+    id="errorBox"
+>
+</div>
+
+
 <!-- =========================
-     OPTION 1
+     ORGANIZER OPTIONS
 ========================= -->
 
 <div
-    class="option"
+    class="option organizer-option"
     id="inviteLinkOption"
 >
 
@@ -515,10 +585,6 @@ body{
 
 </div>
 
-
-<!-- =========================
-     OPTION 2
-========================= -->
 
 <div
     class="option"
@@ -548,12 +614,8 @@ body{
 </div>
 
 
-<!-- =========================
-     OPTION 3
-========================= -->
-
 <div
-    class="option"
+    class="option organizer-option"
     id="addNewTeamsOption"
 >
 
@@ -580,12 +642,8 @@ body{
 </div>
 
 
-<!-- =========================
-     OPTION 4
-========================= -->
-
 <div
-    class="option"
+    class="option organizer-option"
     id="qrOption"
 >
 
@@ -612,9 +670,7 @@ body{
 </div>
 
 
-<!-- =========================
-     EVENT ID
-========================= -->
+<!-- EVENT ID -->
 
 <div class="event-id-box">
 
@@ -637,10 +693,34 @@ body{
 </main>
 
 
-<script>
+<script type="module">
 
 /* =========================================
-   EVENT DATA
+   FIREBASE
+========================================= */
+
+import {
+    db,
+    auth
+}
+from "./firebase.js";
+
+
+import {
+    doc,
+    getDoc
+}
+from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+import {
+    onAuthStateChanged
+}
+from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+
+/* =========================================
+   URL / EVENT
 ========================================= */
 
 const params =
@@ -656,11 +736,11 @@ const eventId =
     );
 
 
-const eventName =
-    sessionStorage.getItem(
-        "crickpulseEventName"
-    ) ||
-    "CRICKPULSE Tournament";
+let currentUser = null;
+
+let eventData = null;
+
+let isOrganizer = false;
 
 
 /* =========================================
@@ -673,28 +753,90 @@ const eventIdDisplay =
     );
 
 
-const inviteLinkOption =
+const roleValue =
     document.getElementById(
-        "inviteLinkOption"
+        "roleValue"
     );
 
 
-const yourTeamsOption =
+const loadingMessage =
     document.getElementById(
-        "yourTeamsOption"
+        "loadingMessage"
     );
 
 
-const addNewTeamsOption =
+const errorBox =
     document.getElementById(
-        "addNewTeamsOption"
+        "errorBox"
     );
 
 
-const qrOption =
+const securityMessage =
     document.getElementById(
-        "qrOption"
+        "securityMessage"
     );
+
+
+const organizerOptions =
+    document.querySelectorAll(
+        ".organizer-option"
+    );
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+function showError(message){
+
+    loadingMessage.style.display =
+        "none";
+
+    errorBox.textContent =
+        message;
+
+    errorBox.style.display =
+        "block";
+
+}
+
+
+/* =========================================
+   HIDE ORGANIZER CONTROLS
+========================================= */
+
+function hideOrganizerControls(){
+
+    organizerOptions.forEach(
+        function(option){
+
+            option.classList.add(
+                "hidden"
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   SHOW ORGANIZER CONTROLS
+========================================= */
+
+function showOrganizerControls(){
+
+    organizerOptions.forEach(
+        function(option){
+
+            option.classList.remove(
+                "hidden"
+            );
+
+        }
+    );
+
+}
 
 
 /* =========================================
@@ -703,12 +845,9 @@ const qrOption =
 
 if(!eventId){
 
-    alert(
-        "Tournament ID is missing. Please create the tournament again."
+    showError(
+        "Tournament ID is missing. Please open the tournament again."
     );
-
-    window.location.href =
-        "create-event.html";
 
 }
 else{
@@ -725,7 +864,7 @@ else{
 
 
 /* =========================================
-   COMMON PAGE URL
+   PAGE URL
 ========================================= */
 
 function pageUrl(filename){
@@ -733,7 +872,9 @@ function pageUrl(filename){
     return (
         filename +
         "?eventId=" +
-        encodeURIComponent(eventId) +
+        encodeURIComponent(
+            eventId
+        ) +
         "&returnTo=add-manually.html"
     );
 
@@ -741,19 +882,206 @@ function pageUrl(filename){
 
 
 /* =========================================
-   TOP TAB NAVIGATION
+   LOAD TOURNAMENT
 ========================================= */
 
-/*
- * IMPORTANT:
- *
- * ये filenames आपके existing
- * CRICKPULSE pages के नाम के अनुसार हैं.
- *
- * अगर आपके project में इन pages के
- * filenames अलग हैं तो केवल इन
- * चार values को बदलना होगा.
- */
+async function loadTournament(){
+
+    if(!eventId){
+
+        return;
+
+    }
+
+
+    try{
+
+        const eventRef =
+            doc(
+                db,
+                "events",
+                eventId
+            );
+
+
+        const snapshot =
+            await getDoc(
+                eventRef
+            );
+
+
+        if(!snapshot.exists()){
+
+            showError(
+                "This tournament does not exist or is no longer available."
+            );
+
+            return;
+
+        }
+
+
+        eventData =
+            snapshot.data();
+
+
+        /*
+         * IMPORTANT:
+         *
+         * Organizer authority comes ONLY
+         * from Firestore event document.
+         *
+         * We do NOT trust sessionStorage.
+         */
+
+        const organizerUid =
+            String(
+                eventData.organizerUid ||
+                ""
+            );
+
+
+        const loggedInUid =
+            currentUser
+            ?
+            String(
+                currentUser.uid
+            )
+            :
+            "";
+
+
+        isOrganizer =
+            !!loggedInUid &&
+            !!organizerUid &&
+            loggedInUid ===
+            organizerUid;
+
+
+        if(isOrganizer){
+
+            roleValue.textContent =
+                "ORGANIZER";
+
+            roleValue.style.color =
+                "#2e8b57";
+
+            securityMessage.style.display =
+                "none";
+
+            showOrganizerControls();
+
+        }
+        else{
+
+            roleValue.textContent =
+                "TEAM CAPTAIN / PARTICIPANT";
+
+            roleValue.style.color =
+                "#6c35d9";
+
+            securityMessage.style.display =
+                "block";
+
+            hideOrganizerControls();
+
+        }
+
+
+        loadingMessage.style.display =
+            "none";
+
+
+        console.log(
+            "CRICKPULSE SECURITY CHECK",
+            {
+
+                eventId:
+                    eventId,
+
+                loggedInUid:
+                    loggedInUid,
+
+                organizerUid:
+                    organizerUid,
+
+                isOrganizer:
+                    isOrganizer
+
+            }
+        );
+
+    }
+    catch(error){
+
+        console.error(
+            "TOURNAMENT ACCESS ERROR:",
+            error
+        );
+
+
+        showError(
+            "Tournament access check failed.\n\n" +
+            error.message
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   AUTH STATE
+========================================= */
+
+onAuthStateChanged(
+    auth,
+    async function(user){
+
+        currentUser =
+            user || null;
+
+
+        /*
+         * No login = no organizer control.
+         */
+
+        if(!currentUser){
+
+            roleValue.textContent =
+                "NOT LOGGED IN";
+
+            roleValue.style.color =
+                "#c62828";
+
+            hideOrganizerControls();
+
+
+            showError(
+                "Please login first to access this tournament."
+            );
+
+
+            return;
+
+        }
+
+
+        /*
+         * User is authenticated.
+         * Now verify event ownership
+         * from Firestore.
+         */
+
+        await loadTournament();
+
+    }
+);
+
+
+/* =========================================
+   TOP TAB NAVIGATION
+========================================= */
 
 const aboutPage =
     "about.html";
@@ -774,6 +1102,12 @@ document
     "click",
     function(){
 
+        if(!eventId){
+
+            return;
+
+        }
+
         window.location.href =
             pageUrl(
                 aboutPage
@@ -788,6 +1122,12 @@ document
 .addEventListener(
     "click",
     function(){
+
+        if(!eventId){
+
+            return;
+
+        }
 
         window.location.href =
             pageUrl(
@@ -804,6 +1144,12 @@ document
     "click",
     function(){
 
+        if(!eventId){
+
+            return;
+
+        }
+
         window.location.href =
             pageUrl(
                 matchesPage
@@ -819,6 +1165,12 @@ document
     "click",
     function(){
 
+        if(!eventId){
+
+            return;
+
+        }
+
         window.location.href =
             pageUrl(
                 pointTablePage
@@ -829,7 +1181,7 @@ document
 
 
 /* =========================================
-   BACK BUTTON
+   BACK
 ========================================= */
 
 document
@@ -838,12 +1190,19 @@ document
     "click",
     function(){
 
+        if(!eventId){
+
+            window.location.href =
+                "dashboard.html";
+
+            return;
+
+        }
+
+
         /*
-         * हमेशा parent screen:
-         *
-         * Invite Captain / Add Manually
-         *
-         * पर वापस जाएँ.
+         * Return to the previous
+         * Add / Invite screen.
          */
 
         window.location.href =
@@ -858,6 +1217,7 @@ document
 
 /* =========================================
    INVITE LINK
+   ORGANIZER ONLY
 ========================================= */
 
 function getInviteLink(){
@@ -873,19 +1233,24 @@ function getInviteLink(){
 }
 
 
-/* =========================================
-   OPTION 1
-   INVITE LINK
-========================================= */
-
-inviteLinkOption.addEventListener(
+document
+.getElementById("inviteLinkOption")
+.addEventListener(
     "click",
     async function(){
 
-        if(!eventId){
+        /*
+         * FINAL UI AUTHORIZATION CHECK
+         *
+         * Even if someone manipulates
+         * the HTML, this function refuses
+         * to execute for a participant.
+         */
+
+        if(!isOrganizer){
 
             alert(
-                "Tournament ID is missing."
+                "Only the Tournament Organizer can create/share the invite link."
             );
 
             return;
@@ -897,6 +1262,15 @@ inviteLinkOption.addEventListener(
             getInviteLink();
 
 
+        const eventName =
+            eventData &&
+            eventData.eventName
+            ?
+            eventData.eventName
+            :
+            "CRICKPULSE Tournament";
+
+
         const message =
             "You are invited to add your team to " +
             eventName +
@@ -905,9 +1279,7 @@ inviteLinkOption.addEventListener(
             inviteLink;
 
 
-        if(
-            navigator.share
-        ){
+        if(navigator.share){
 
             try{
 
@@ -946,6 +1318,7 @@ inviteLinkOption.addEventListener(
                 inviteLink
             );
 
+
             alert(
                 "Invite link copied."
             );
@@ -965,11 +1338,12 @@ inviteLinkOption.addEventListener(
 
 
 /* =========================================
-   OPTION 2
    YOUR TEAMS
 ========================================= */
 
-yourTeamsOption.addEventListener(
+document
+.getElementById("yourTeamsOption")
+.addEventListener(
     "click",
     function(){
 
@@ -991,15 +1365,21 @@ yourTeamsOption.addEventListener(
 
 
 /* =========================================
-   OPTION 3
    ADD NEW TEAMS
+   ORGANIZER ONLY
 ========================================= */
 
-addNewTeamsOption.addEventListener(
+document
+.getElementById("addNewTeamsOption")
+.addEventListener(
     "click",
     function(){
 
-        if(!eventId){
+        if(!isOrganizer){
+
+            alert(
+                "Only the Tournament Organizer can add new teams manually."
+            );
 
             return;
 
@@ -1017,18 +1397,20 @@ addNewTeamsOption.addEventListener(
 
 
 /* =========================================
-   OPTION 4
-   SHARE WITH QR
+   QR
+   ORGANIZER ONLY
 ========================================= */
 
-qrOption.addEventListener(
+document
+.getElementById("qrOption")
+.addEventListener(
     "click",
     async function(){
 
-        if(!eventId){
+        if(!isOrganizer){
 
             alert(
-                "Tournament ID is missing."
+                "Only the Tournament Organizer can share the tournament QR/link."
             );
 
             return;
@@ -1045,9 +1427,7 @@ qrOption.addEventListener(
             inviteLink;
 
 
-        if(
-            navigator.share
-        ){
+        if(navigator.share){
 
             try{
 
@@ -1086,6 +1466,7 @@ qrOption.addEventListener(
                 inviteLink
             );
 
+
             alert(
                 "Tournament link copied."
             );
@@ -1109,28 +1490,7 @@ qrOption.addEventListener(
 ========================================= */
 
 console.log(
-    "CRICKPULSE Add Manually loaded.",
-    {
-
-        eventId:
-            eventId,
-
-        eventName:
-            eventName,
-
-        about:
-            aboutPage,
-
-        teams:
-            teamsPage,
-
-        matches:
-            matchesPage,
-
-        pointTable:
-            pointTablePage
-
-    }
+    "CRICKPULSE Add Manually Security Core loaded."
 );
 
 </script>
